@@ -1,7 +1,7 @@
 ---
-id: createOptionsArray
-title: `createOptionsArray` Function
-sidebar_label: `createOptionsArray`
+id: optionsArray
+title: createOptionsArray
+sidebar_label: createOptionsArray
 ---
 
 ## createOptionsArray

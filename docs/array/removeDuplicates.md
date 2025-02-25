@@ -1,5 +1,5 @@
 ---
-id: removeDuplicatesFromArray
+id: removeDuplicates
 title: removeDuplicatesFromArray
 sidebar_label: removeDuplicatesFromArray
 ---

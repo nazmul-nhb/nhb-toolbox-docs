@@ -92,7 +92,7 @@ const config: Config = {
 					title: 'Docs',
 					items: [
 						{
-							label: 'Utilities',
+							label: 'Introduction',
 							to: '/docs/intro',
 						},
 					],
@@ -127,7 +127,7 @@ const config: Config = {
 			copyright: `Copyright © ${new Date().getFullYear()} NHB Toolbox. Built with Docusaurus.`,
 		},
 		prism: {
-			theme: prismThemes.nightOwlLight,
+			theme: prismThemes.github,
 			darkTheme: prismThemes.nightOwl,
 		},
 	} satisfies Preset.ThemeConfig,

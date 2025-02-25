@@ -1,6 +1,6 @@
 ---
 id: sortAnArray
-title: `sortAnArray` Function
+title: sortAnArray
 ---
 
 ## sortAnArray

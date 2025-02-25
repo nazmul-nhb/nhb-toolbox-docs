@@ -1,7 +1,7 @@
 ---
 id: intro
 title: Introduction
-slug: /
+slug: /intro
 ---
 
 <!-- markdownlint-disable MD025 -->
@@ -20,4 +20,4 @@ slug: /
 
 ## 📖 Get Started
 
-Check out the [Installation Guide](./installation) to learn how to install and use `nhb-toolbox` in your project.
+<!-- Check out the [Installation Guide](./installation) to learn how to install and use `nhb-toolbox` in your project. -->

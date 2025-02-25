@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
 				'array/isValidEmptyArray',
 				'array/shuffleArray',
 				'array/sortAnArray',
-				'array/sortAnArray',
+				'array/optionsArray',
 				'array/removeDuplicates',
 			],
 		},
