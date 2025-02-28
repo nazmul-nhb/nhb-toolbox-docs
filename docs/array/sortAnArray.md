@@ -7,7 +7,7 @@ title: Sort An Array
 
 The `sortAnArray` function sorts an array of different data types (strings, numbers, booleans, or objects) based on the provided sorting options.
 
-## Function Signature
+### Function Signature
 
 ```typescript
 export function sortAnArray(array: string[], options?: OrderOption): string[];

@@ -49,7 +49,7 @@ const config: Config = {
 					},
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/nazmul-nhb/nhb-toolbox-docs',
+					// editUrl: 'https://github.com/nazmul-nhb/nhb-toolbox-docs',
 					// Useful options to enforce blogging best practices
 					onInlineTags: 'warn',
 					onInlineAuthors: 'warn',

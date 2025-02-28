@@ -31,7 +31,19 @@ const sidebars: SidebarsConfig = {
 				'array/removeDuplicates',
 			],
 		},
-		// other categories...
+		{
+			type: 'category',
+			label: 'String Utilities',
+			items: [
+				'string/capitalizeString',
+				'string/truncateString',
+				'string/generateRandomID',
+				'string/trimString',
+				'string/convertStringCase',
+				'string/replaceAllInString',
+				'string/generateAnagrams',
+			],
+		},
 	],
 
 	// But you can create a sidebar manually
