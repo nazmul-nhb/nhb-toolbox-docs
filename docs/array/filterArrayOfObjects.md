@@ -1,6 +1,6 @@
 ---
 id: filterArrayOfObjects
-title: filterArrayOfObjects
+title: Filter Array of Objects
 ---
 
 ## filterArrayOfObjects

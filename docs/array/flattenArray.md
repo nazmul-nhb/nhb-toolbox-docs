@@ -1,6 +1,6 @@
 ---
 id: flattenArray
-title: flattenArray
+title: Flatten Array
 ---
 
 ## flattenArray

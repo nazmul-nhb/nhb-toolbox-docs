@@ -1,6 +1,6 @@
 ---
 id: shuffleArray
-title: shuffleArray
+title: Shuffle Array
 ---
 
 ## shuffleArray

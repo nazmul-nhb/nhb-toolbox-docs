@@ -1,7 +1,6 @@
 ---
 id: removeDuplicates
-title: removeDuplicatesFromArray
-sidebar_label: removeDuplicatesFromArray
+title: Remove Duplicates from Array
 ---
 
 ## removeDuplicatesFromArray

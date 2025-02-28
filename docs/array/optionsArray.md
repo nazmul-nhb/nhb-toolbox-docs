@@ -1,7 +1,6 @@
 ---
 id: optionsArray
-title: createOptionsArray
-sidebar_label: createOptionsArray
+title: Create Options Array
 ---
 
 ## createOptionsArray

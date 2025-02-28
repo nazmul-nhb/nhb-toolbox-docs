@@ -1,6 +1,6 @@
 ---
 id: isValidEmptyArray
-title: isValidEmptyArray
+title: Check Valid Empty Array
 ---
 
 ## isValidEmptyArray
