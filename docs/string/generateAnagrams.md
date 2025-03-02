@@ -114,3 +114,8 @@ interface AnagramOptions {
 - The function generates anagrams based on the input word and handles both single-character and multi-character words.
 - The default limit for the number of anagrams returned is `100`, but you can adjust this using the `limit` parameter.
 - The original word will always appear as the first element in the returned array of anagrams.
+
+### Limitations  
+
+- This function generates all possible permutations of the given word but does not filter for valid dictionary words.  
+- For dictionary-based anagrams, use the dedicated package [nhb-anagram-generator](https://www.npmjs.com/package/nhb-anagram-generator), which specifically returns valid words (optional all words).
