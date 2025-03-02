@@ -90,25 +90,6 @@ console.log(anagrams);
 // Output: []
 ```
 
-### Options Interface: AnagramOptions
-
-The `AnagramOptions` interface allows for additional configuration when generating anagrams.
-
-```ts
-interface AnagramOptions {
-  /** Limit the anagrams output. Default is `100`. */
-  limit?: number | 'all';
-  /** Whether to lookup in the dictionary. Default is `false`. */
-  validWords?: boolean;
-}
-```
-
-- **limit**:  
-  Specifies the maximum number of anagrams to generate. Defaults to `100`. Pass `'all'` to generate all anagrams.
-
-- **validWords**:  
-  If set to `true`, the function will filter out non-dictionary words. This feature is optional and is not enabled by default.
-
 ### Notes
 
 - The function generates anagrams based on the input word and handles both single-character and multi-character words.
