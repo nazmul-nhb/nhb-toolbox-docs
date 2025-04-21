@@ -1,6 +1,10 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
+import * as dotenv from 'dotenv';
+import { resolve } from 'path';
 import { themes as prismThemes } from 'prism-react-renderer';
+
+dotenv.config({ path: resolve(__dirname, '.env') });
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -63,6 +67,11 @@ const config: Config = {
 	],
 
 	themeConfig: {
+		colorMode: {
+			defaultMode: 'dark',
+			disableSwitch: false, // set to true if you want to force dark mode
+			respectPrefersColorScheme: false, // ignore user's system preference
+		},
 		// Replace with your project's social card
 		image: 'img/logo.png',
 		navbar: {
@@ -124,11 +133,19 @@ const config: Config = {
 					],
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} NHB Toolbox. Built with Docusaurus.`,
+			copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan & NHB Toolbox. Built with Docusaurus.`,
 		},
 		prism: {
 			theme: prismThemes.github,
 			darkTheme: prismThemes.nightOwl,
+		},
+		algolia: {
+			appId: process.env.ALGOLIA_APP_ID!,
+			apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
+			indexName: process.env.ALGOLIA_INDEX_NAME!,
+			placeholder: 'Search in NHB Toolbox',
+			contextualSearch: true,
+			searchParameters: {},
 		},
 	} satisfies Preset.ThemeConfig,
 };
