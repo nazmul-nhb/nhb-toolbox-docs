@@ -5,13 +5,20 @@ title: Remove Duplicates from Array
 
 ## removeDuplicatesFromArray
 
-The `removeDuplicatesFromArray` function removes duplicate values from an array, supporting deep comparison for arrays and objects.
+The `removeDuplicatesFromArray` function removes duplicate values from an array using deep equality checks, ensuring that complex objects and nested arrays are properly compared.
 
 ### Function Signature
 
 ```typescript
 export function removeDuplicatesFromArray<T>(array: T[]): T[];
 ```
+
+### Usage
+
+This function is available under the following aliases:
+
+- `removeDuplicatesFromArray`
+- `removeDuplicates`
 
 ### Parameters
 
@@ -52,6 +59,7 @@ console.log(uniqueObjects);
 
 - The function uses deep equality checks (`isDeepEqual`) to compare objects and arrays, ensuring that duplicate objects or arrays with identical contents are removed.
 - The order of elements in the original array is preserved, and only unique items remain in the returned array.
+- Does **not mutate** the original array.
 
 ### Dependencies
 

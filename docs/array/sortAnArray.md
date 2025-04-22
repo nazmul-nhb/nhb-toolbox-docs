@@ -5,40 +5,38 @@ title: Sort An Array
 
 ## sortAnArray
 
-The `sortAnArray` function sorts an array of different data types (strings, numbers, booleans, or objects) based on the provided sorting options.
+The `sortAnArray` function sorts an array of various data types (strings, numbers, booleans, or objects) based on the provided sorting options.
 
-### Function Signature
+### Function Signatures
 
 ```typescript
-export function sortAnArray(array: string[], options?: OrderOption): string[];
-export function sortAnArray(array: number[], options?: OrderOption): number[];
-export function sortAnArray(array: boolean[], options?: OrderOption): boolean[];
-export function sortAnArray<T extends InputObject>(array: T[], options: SortOptions<T>): T[];
-export function sortAnArray<T extends InputObject>(array: (number | string | boolean | T)[], options?: SortOptions<T>): (number | string | boolean | T)[];
+export function sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
+export function sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
+export function sortAnArray<T extends number | string | boolean | GenericObject>(array: T[], options?: SortOptions<T>): T[];
 ```
 
 ### Parameters
 
-- **`array`**: The array to sort. It can be an array of:
+- **`array`**: The array to sort, which can contain:
   - Strings
   - Numbers
   - Booleans
   - Objects (with specified fields for sorting)
-  
+
 - **`options`**: Sorting options (optional). The available options are:
-  - `sortOrder` (optional): Defines the order in which to sort the array:
+  - `sortOrder` (optional): Defines the order to sort the array:
     - `'asc'` (default): Sort in ascending order.
     - `'desc'`: Sort in descending order.
   - `sortByField` (optional for object arrays): The field of the object to sort by.
 
 ### Return Value
 
-Returns the sorted array based on the type of the elements in the array:
+Returns the sorted array, depending on the element type:
 
-- If the array contains strings, it will sort them alphabetically.
-- If the array contains numbers, it will sort them numerically.
-- If the array contains booleans, it will sort them by their boolean value (`false` < `true`).
-- If the array contains objects, it will sort them by the specified field.
+- If the array contains strings, it sorts them alphabetically.
+- If the array contains numbers, it sorts them numerically.
+- If the array contains booleans, it sorts them by their boolean value (`false` < `true`).
+- If the array contains objects, it sorts them by the specified field.
 
 ### Example Usage
 
@@ -83,14 +81,15 @@ console.log(sortedObjects);
 ### Error Handling
 
 - If the array is empty or not an array, the function will return the array unchanged.
-- If sorting objects, ensure the `sortByField` option is provided. If the field is not valid, the function will throw an error.
+- When sorting objects, ensure the `sortByField` option is provided. If the field is invalid, an error will be thrown.
 - If any array element is of an unsupported type (non-string, non-number, non-boolean), an error will be thrown when sorting objects.
 
 ### Notes
 
-- The function is designed to handle various array types (strings, numbers, booleans, and objects).
-- For objects, the sorting will work based on the provided field (`sortByField`). It will sort based on the field's value, which can be a string, number, or boolean.
-- The function creates a shallow copy of the input array to ensure that the original array remains unmodified.
+- The function handles various array types (strings, numbers, booleans, and objects).
+- For objects, sorting works based on the specified field (`sortByField`), which can be a string, number, or boolean.
+- A shallow copy of the input array is created to ensure the original array remains unmodified.
+- The function sorts strings using a natural sorting order. **See [Natural Sort](naturalSort).**
 
 ### Types
 
@@ -102,21 +101,24 @@ interface OrderOption {
 }
 ```
 
-#### `SortOptions<T>`
+#### `SortByOption<T>`
 
 ```typescript
-interface SortOptions<T> {
-  sortOrder?: 'asc' | 'desc';
-  sortByField: keyof T;
+interface SortByOption<T extends GenericObject> extends OrderOption {
+  sortByField: NestedPrimitiveKey<T>;
 }
 ```
 
-#### `InputObject`
+#### `SortOptions<T>`
 
 ```typescript
-interface InputObject {
-  [key: string]: string | number | boolean;
-}
+type SortOptions<T> = T extends GenericObject ? SortByOption<T> : OrderOption;
+```
+
+#### `GenericObject`
+
+```typescript
+type GenericObject = Record<string, any>
 ```
 
 ### Conclusion

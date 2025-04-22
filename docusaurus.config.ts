@@ -109,7 +109,7 @@ const config: Config = {
 		announcementBar: {
 			id: 'announcement',
 			content:
-				'🚀 Includes 180+ functions & 5 classes. Documentation will be updated soon...',
+				'🚀 Includes 180+ functions & 6 classes. Full documentation in progress...',
 			backgroundColor: '#0d1117',
 			textColor: '#ffffff',
 			isCloseable: true,
@@ -181,11 +181,12 @@ const config: Config = {
 					],
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan & NHB Toolbox. Built with Docusaurus.`,
+			copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan & NHB Toolbox.`,
 		},
 		prism: {
 			theme: prismThemes.github,
 			darkTheme: prismThemes.nightOwl,
+			magicComments: [{}],
 		},
 		algolia: {
 			appId: process.env.ALGOLIA_APP_ID!,
