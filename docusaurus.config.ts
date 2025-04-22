@@ -186,7 +186,6 @@ const config: Config = {
 		prism: {
 			theme: prismThemes.github,
 			darkTheme: prismThemes.nightOwl,
-			magicComments: [{}],
 		},
 		algolia: {
 			appId: process.env.ALGOLIA_APP_ID!,
