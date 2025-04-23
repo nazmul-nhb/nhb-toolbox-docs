@@ -10,7 +10,7 @@ The `truncateString` function shortens a string to a specified maximum length an
 ### Function Signature
 
 ```typescript
-export const truncateString = (string: string, maxLength: number) => string;
+const truncateString = (string: string, maxLength: number) => string;
 ```
 
 ### Parameters
@@ -23,6 +23,12 @@ export const truncateString = (string: string, maxLength: number) => string;
 Returns the truncated string with an appended ellipsis (`...`) if it exceeds the `maxLength`.
 
 ### Example Usage
+
+#### Import
+
+```ts
+import { truncateString } from 'nhb-toolbox';
+```
 
 #### Truncate a Long String
 

@@ -10,7 +10,7 @@ The `generateAnagrams` function generates unique anagrams of a given word. It re
 ### Function Signature
 
 ```ts
-generateAnagrams(word: string, limit: number | 'all' = 100): string[]
+function generateAnagrams(word: string, limit: number | 'all' = 100): string[]
 ```
 
 ### Parameters
@@ -40,6 +40,12 @@ generateAnagrams(word: string, limit: number | 'all' = 100): string[]
   The function terminates early if the `limit` is reached, ensuring that no more anagrams are generated once the limit is met.
 
 ### Example Usage
+
+#### Import
+
+```ts
+import { generateAnagrams } from 'nhb-toolbox';
+```
 
 #### Generate Anagrams with Default Limit
 

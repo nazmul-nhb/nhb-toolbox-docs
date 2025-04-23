@@ -10,7 +10,7 @@ The `trimString` function removes unnecessary spaces from a string or an array o
 ### Function Signature
 
 ```typescript
-export function trimString(input: string | string[]): string | string[];
+function trimString(input: string | string[]): string | string[];
 ```
 
 ### Parameters
@@ -29,6 +29,12 @@ Returns:
 ---
 
 ### Example Usage
+
+#### Import
+
+```ts
+import { trimString } from 'nhb-toolbox';
+```
 
 #### Trimming a Single String
 

@@ -10,7 +10,7 @@ Finds duplicate values in an array and performs a deep comparison for objects an
 ### Function Signature
 
 ```typescript
-export function getDuplicates<T>(array: T[]): T[]
+function getDuplicates<T>(array: T[]): T[]
 ```
 
 ### Parameters

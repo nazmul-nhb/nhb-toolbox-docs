@@ -10,11 +10,7 @@ The `findMissingElements` function identifies elements that are missing from one
 ### Function Signature
 
 ```typescript
-export function findMissingElements<T, U>(
- array1: T[],
- array2: U[],
- missingFrom: 'from-first' | 'from-second',
-): (T | U)[]
+function findMissingElements<T, U>(array1: T[], array2: U[], missingFrom: 'from-first' | 'from-second'): (T | U)[]
 ```
 
 ### Usage
@@ -40,6 +36,8 @@ This function is available under the following aliases:
 ### Example
 
 ```ts
+import { findMissingElements } from 'nhb-toolbox';
+
 const arr1 = [{ id: 1 }, { id: 2 }, { id: 3 }];
 const arr2 = [{ id: 2 }, { id: 3 }, { id: 4 }];
 

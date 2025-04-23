@@ -7,6 +7,12 @@ title: Get Last Array Element
 
 Gets the last element of an array.
 
+### Function Signature
+
+```typescript
+const getLastArrayElement = <T>(array: T[]): T | undefined;
+```
+
 ### Parameters
 
 - `array` (`T[]`): The array to get the last element from.

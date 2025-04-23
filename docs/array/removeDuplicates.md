@@ -10,7 +10,7 @@ The `removeDuplicatesFromArray` function removes duplicate values from an array 
 ### Function Signature
 
 ```typescript
-export function removeDuplicatesFromArray<T>(array: T[]): T[];
+function removeDuplicatesFromArray<T>(array: T[]): T[];
 ```
 
 ### Usage
@@ -41,6 +41,8 @@ console.log(uniqueNumbers); // Output: [1, 2, 3]
 #### Example 2: Removing Duplicates from an Array of Objects
 
 ```typescript
+import { removeDuplicatesFromArray } from 'nhb-toolbox';
+
 const objects = [
   { id: 1, name: 'Item A' },
   { id: 2, name: 'Item B' },

@@ -7,6 +7,13 @@ title: Filter Array of Objects
 
 Filters an array of objects based on multiple conditions for specified keys.
 
+### Function Signature
+
+```typescript
+const filterArrayOfObjects = <T extends GenericObject>
+            (array: T[], conditions: { [K in keyof T]?: (value: T[K] | undefined) => boolean }): T[]
+```
+
 ### Type Parameters
 
 - `T`: The type of objects in the array.

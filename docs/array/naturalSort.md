@@ -10,7 +10,7 @@ The `naturalSort` function compares two strings using a natural sorting order (e
 ### Function Signature
 
 ```typescript
-export function naturalSort(a: string, b: string, options?: SortNature): number;
+function naturalSort(a: string, b: string, options?: SortNature): number;
 ```
 
 ### Parameters
@@ -34,6 +34,8 @@ export function naturalSort(a: string, b: string, options?: SortNature): number;
 ### Example Usage
 
 ```typescript
+import { naturalSort } from 'nhb-toolbox';
+
 const result = naturalSort("file2", "file10");
 console.log(result); // Output: -1
 ```

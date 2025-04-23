@@ -7,6 +7,12 @@ title: Flatten Array
 
 Flattens a nested array recursively or wraps any non-array data type in an array.
 
+### Function Signature
+
+```typescript
+const flattenArray = <T>(input: T | T[]): Flattened<T>[];
+```
+
 ### Type Parameters
 
 - `T`: The type of the input, which can be a nested array or a non-array value.

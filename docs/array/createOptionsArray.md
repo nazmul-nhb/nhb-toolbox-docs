@@ -10,14 +10,8 @@ Converts an array of objects into a formatted array of options.
 ### Function Signature
 
 ```typescript
-export const createOptionsArray = <
-  T extends GenericObject,
-  K1 extends string = 'value',
-  K2 extends string = 'label',
->(
-  data: T[],
-  config: OptionsConfig<T, K1, K2>
-): { [P in K1 | K2]: string }[];
+const createOptionsArray = <T extends GenericObject,K1 extends string = 'value',K2 extends string = 'label',>
+                            (data: T[], config: OptionsConfig<T, K1, K2>): { [P in K1 | K2]: string }[];
 ```
 
 ### Parameters
@@ -38,6 +32,8 @@ Returns an array of options, where each option contains a `value` and `label` fi
 #### Example 1: Basic Usage
 
 ```typescript
+import { createOptionsArray } from 'nhb-toolbox';
+
 const data = [
   { id: 1, name: 'Option 1' },
   { id: 2, name: 'Option 2' },
@@ -56,6 +52,8 @@ console.log(options);
 #### Example 2: Custom Field Names
 
 ```typescript
+import { createOptionsArray } from 'nhb-toolbox';
+
 const data = [
   { id: 1, name: 'Option 1' },
   { id: 2, name: 'Option 2' },
@@ -160,6 +158,8 @@ A generic type representing an object with string keys and any values.
 ### Full Example
 
 ```typescript
+import { createOptionsArray } from 'nhb-toolbox';
+
 interface Item {
   id: number;
   name: string;

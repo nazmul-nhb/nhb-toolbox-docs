@@ -10,7 +10,7 @@ The `generateRandomID` function creates a customizable random alphanumeric ID wi
 ### Function Signature
 
 ```typescript
-export const generateRandomID = (options?: RandomIdOptions) => string;
+const generateRandomID = (options?: RandomIdOptions) => string;
 ```
 
 ### Parameters
@@ -37,6 +37,12 @@ Returns a random alphanumeric ID string, optionally formatted with a prefix, suf
 ### Example Usage
 
 #### Default ID Generation
+
+#### Import
+
+```ts
+import { generateRandomID } from 'nhb-toolbox';
+```
 
 ```typescript
 generateRandomID();

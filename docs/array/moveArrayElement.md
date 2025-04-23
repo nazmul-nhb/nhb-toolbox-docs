@@ -10,11 +10,7 @@ The `moveArrayElement` function repositions an element in an array from one inde
 ### Function Signature
 
 ```typescript
-export function moveArrayElement<T>(
-  arr: T[],
-  fromIndex: number,
-  toIndex: number,
-): T[]
+function moveArrayElement<T>(arr: T[], fromIndex: number, toIndex: number): T[]
 ```
 
 ### Usage
@@ -36,6 +32,8 @@ This function is available under the following aliases:
 ### Example
 
 ```ts
+import { moveArrayElement } from 'nhb-toolbox';
+
 const original = ['a', 'b', 'c', 'd'];
 
 moveArrayElement(original, 1, 3);

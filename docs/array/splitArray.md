@@ -10,7 +10,7 @@ The `splitArray` function divides an array into smaller sub-arrays (chunks) of a
 ### Function Signature
 
 ```typescript
-export function splitArray<T>(arr: T[], chunkSize: number): T[][]
+function splitArray<T>(arr: T[], chunkSize: number): T[][]
 ```
 
 ### Parameters
@@ -25,6 +25,8 @@ export function splitArray<T>(arr: T[], chunkSize: number): T[][]
 ### Example
 
 ```ts
+import { splitArray } from 'nhb-toolbox';
+
 splitArray([1, 2, 3, 4, 5, 6, 7], 3);
 // → [[1, 2, 3], [4, 5, 6], [7]]
 ```

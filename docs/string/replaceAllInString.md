@@ -10,7 +10,7 @@ The `replaceAllInString` function replaces all occurrences of a specified substr
 ### Function Signature
 
 ```ts
-replaceAllInString(input: string, find: string | RegExp, replace: string): string
+const replaceAllInString = (input: string, find: string | RegExp, replace: string): string;
 ```
 
 ### Parameters
@@ -40,6 +40,12 @@ replaceAllInString(input: string, find: string | RegExp, replace: string): strin
   If `find` is a string, it is converted to a global regular expression. If it is already a `RegExp`, the global flag is ensured.
 
 ### Example Usage
+
+#### Import
+
+```ts
+import { replaceAllInString } from 'nhb-toolbox';
+```
 
 #### Replace a Word in a String
 

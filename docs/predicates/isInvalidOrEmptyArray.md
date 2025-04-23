@@ -7,6 +7,12 @@ title: Check Invalid or Empty Array
 
 Checks if a value is an empty array or an array with only empty values.
 
+### Function Signature
+
+```typescript
+const isInvalidOrEmptyArray = <T>(value: T): boolean;
+```
+
 ### Parameters
 
 - `value` (`T`): The value to check.

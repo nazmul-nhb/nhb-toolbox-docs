@@ -12,7 +12,7 @@ This function also handles non-alphanumeric characters as delimiters (such as sp
 ### Function Signature
 
 ```typescript
-export function convertStringCase(string: string, format: CaseFormat): string;
+function convertStringCase(string: string, format: CaseFormat): string;
 ```
 
 ### Parameters
@@ -36,6 +36,12 @@ Returns the string formatted in the specified case format.
 ---
 
 ### Example Usage
+
+#### Import
+
+```ts
+import { convertStringCase } from 'nhb-toolbox';
+```
 
 #### Converting to camelCase
 

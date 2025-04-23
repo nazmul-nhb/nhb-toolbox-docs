@@ -7,6 +7,12 @@ title: Shuffle Array
 
 Shuffles the elements of an array.
 
+### Function Signature
+
+```typescript
+const shuffleArray = <T>(array: T[]): T[];
+```
+
 ### Parameters
 
 - `array` (`T[]`): Array to shuffle.

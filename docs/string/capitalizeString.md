@@ -10,10 +10,7 @@ The `capitalizeString` function converts the first letter of a given string to u
 ### Function Signature
 
 ```typescript
-export function capitalizeString<T extends string, O extends CapitalizeOptions>(
-  string: T,
-  options?: O
-): CapitalizeResult<T, O>;
+function capitalizeString(string: string, options?: CapitalizeOptions): string;
 ```
 
 ### Parameters
@@ -43,6 +40,12 @@ capitalizeString('hello world');
 ```
 
 #### Capitalizing Each Word
+
+##### Import
+
+```ts
+import { capitalizeString } from 'nhb-toolbox';
+```
 
 ```typescript
 capitalizeString('hello world', { capitalizeEachFirst: true });

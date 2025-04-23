@@ -10,9 +10,9 @@ The `sortAnArray` function sorts an array of various data types (strings, number
 ### Function Signatures
 
 ```typescript
-export function sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
-export function sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
-export function sortAnArray<T extends number | string | boolean | GenericObject>(array: T[], options?: SortOptions<T>): T[];
+function sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
+function sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
+function sortAnArray<T extends number | string | boolean | GenericObject>(array: T[], options?: SortOptions<T>): T[];
 ```
 
 ### Parameters
@@ -43,6 +43,8 @@ Returns the sorted array, depending on the element type:
 #### Sorting Strings
 
 ```typescript
+import { sortAnArray } from 'nhb-toolbox';
+
 const strings = ['banana', 'apple', 'cherry'];
 const sortedStrings = sortAnArray(strings, { sortOrder: 'asc' });
 console.log(sortedStrings); // Output: ['apple', 'banana', 'cherry']
@@ -51,6 +53,8 @@ console.log(sortedStrings); // Output: ['apple', 'banana', 'cherry']
 #### Sorting Numbers
 
 ```typescript
+import { sortAnArray } from 'nhb-toolbox';
+
 const numbers = [5, 3, 8, 1];
 const sortedNumbers = sortAnArray(numbers, { sortOrder: 'desc' });
 console.log(sortedNumbers); // Output: [8, 5, 3, 1]
@@ -59,6 +63,8 @@ console.log(sortedNumbers); // Output: [8, 5, 3, 1]
 #### Sorting Booleans
 
 ```typescript
+import { sortAnArray } from 'nhb-toolbox';
+
 const booleans = [true, false, true];
 const sortedBooleans = sortAnArray(booleans, { sortOrder: 'asc' });
 console.log(sortedBooleans); // Output: [false, true, true]
@@ -67,6 +73,8 @@ console.log(sortedBooleans); // Output: [false, true, true]
 #### Sorting Objects
 
 ```typescript
+import { sortAnArray } from 'nhb-toolbox';
+
 const objects = [
   { id: 2, name: 'Item B' },
   { id: 1, name: 'Item A' },
