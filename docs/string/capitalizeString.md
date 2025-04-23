@@ -32,6 +32,12 @@ Returns a string with capitalization applied based on the provided options:
 
 ### Example Usage
 
+##### Import
+
+```ts
+import { capitalizeString } from 'nhb-toolbox';
+```
+
 #### Basic Capitalization
 
 ```typescript
@@ -40,12 +46,6 @@ capitalizeString('hello world');
 ```
 
 #### Capitalizing Each Word
-
-##### Import
-
-```ts
-import { capitalizeString } from 'nhb-toolbox';
-```
 
 ```typescript
 capitalizeString('hello world', { capitalizeEachFirst: true });
