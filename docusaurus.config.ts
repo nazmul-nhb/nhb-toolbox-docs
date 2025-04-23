@@ -129,9 +129,14 @@ const config: Config = {
 				src: 'img/logo.png',
 			},
 			items: [
+				// {
+				// 	type: 'docSidebar',
+				// 	sidebarId: 'utilitiesSidebar',
+				// 	position: 'left',
+				// 	label: 'Utilities',
+				// },
 				{
-					type: 'docSidebar',
-					sidebarId: 'utilitiesSidebar',
+					to: '/docs/intro',
 					position: 'left',
 					label: 'Utilities',
 				},

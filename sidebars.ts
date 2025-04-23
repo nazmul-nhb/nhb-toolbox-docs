@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
 
 	tutorialSidebar: [
 		'intro',
+		// { type: 'doc', id: '/docs/intro' },
 		{
 			type: 'category',
 			label: 'Predicate Functions',

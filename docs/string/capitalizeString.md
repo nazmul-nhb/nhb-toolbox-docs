@@ -84,19 +84,6 @@ interface CapitalizeOptions {
 }
 ```
 
-#### `CapitalizeResult<T, O>`
-
-```typescript
-type CapitalizeResult<T extends string, O extends CapitalizeOptions> =
-  O['capitalizeAll'] extends true
-    ? Uppercase<T>
-    : O['capitalizeEachFirst'] extends true
-      ? CapitalizeWords<O['lowerCaseRest'] extends false ? T : Lowercase<T>, O['lowerCaseRest'] extends boolean ? O['lowerCaseRest'] : true>
-      : O['lowerCaseRest'] extends false
-        ? Capitalize<T>
-        : Capitalize<Lowercase<T>>;
-```
-
 ### Conclusion
 
 The `capitalizeString` function provides a versatile way to format text with precise capitalization rules, handling various cases such as entire-string uppercase, word-based capitalization, and preservation of casing when needed.
