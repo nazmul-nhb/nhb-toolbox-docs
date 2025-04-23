@@ -32,7 +32,7 @@ Returns a string with capitalization applied based on the provided options:
 
 ### Example Usage
 
-##### Import
+#### Import
 
 ```ts
 import { capitalizeString } from 'nhb-toolbox';
