@@ -136,9 +136,28 @@ const config: Config = {
 				// 	label: 'Utilities',
 				// },
 				{
-					to: '/docs/intro',
+					type: 'docSidebar',
+					sidebarId: 'overviewSidebar',
+					position: 'left',
+					label: 'Overview',
+				},
+				{
+					type: 'docSidebar',
+					sidebarId: 'utilitiesSidebar',
 					position: 'left',
 					label: 'Utilities',
+				},
+				{
+					type: 'docSidebar',
+					sidebarId: 'classesSidebar',
+					position: 'left',
+					label: 'Classes',
+				},
+				{
+					type: 'docSidebar',
+					sidebarId: 'predicatesSidebar',
+					position: 'left',
+					label: 'Predicates & Guards',
 				},
 				{
 					href: 'https://github.com/nazmul-nhb/nhb-toolbox',

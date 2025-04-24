@@ -7,7 +7,27 @@ slug: /intro
 <!-- markdownlint-disable MD025 -->
 # Welcome to NHB Toolbox 📦
 
-`nhb-toolbox` is a **utility library** that provides a collection of helpful functions for **strings, numbers, arrays, objects, colors, forms, and more**.
+`nhb-toolbox` is a **utility library** that provides a collection of helpful functions and classes for **strings, numbers, arrays, objects, colors, forms, currency, units, date, pagination, and many more**.
+
+## Install
+
+- NPM
+
+```shell
+npm i nhb-toolbox
+```
+
+- Yarn
+
+```shell
+yarn add nhb-toolbox
+```
+
+- PNPM
+
+```shell
+pnpm add nhb-toolbox
+```
 
 ## 🚀 Features
 
@@ -17,6 +37,7 @@ slug: /intro
 - 📦 **Array & Object Utilities** – Work with data structures efficiently.
 - 📝 **Form Utilities** – Handle form data transformations.
 - ⚡ **Performance Utilities** – Debounce, throttle, and optimize actions.
+- Many more Loading...
 
 ## 📖 Get Started
 
