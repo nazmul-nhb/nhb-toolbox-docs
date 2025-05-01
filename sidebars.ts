@@ -35,6 +35,7 @@ const sidebars: SidebarsConfig = {
 				'number/convertToDecimal',
 				'number/getRandomNumber',
 				'number/fibonacci',
+				'number/findPrimeNumbers',
 				'number/getAverage',
 				'number/sumNumbers',
 				'number/sumDigits',
@@ -120,6 +121,7 @@ const sidebars: SidebarsConfig = {
 				id: 'predicates/intro-predicates',
 			},
 			items: [
+				'predicates/isPrime',
 				'predicates/isInvalidOrEmptyArray',
 				'predicates/isPalindrome',
 				'predicates/isEmojiOnly',

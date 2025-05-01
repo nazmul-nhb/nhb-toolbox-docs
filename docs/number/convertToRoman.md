@@ -44,11 +44,11 @@ convertToRomanNumerals(0); // throws RangeError
 
 ### Aliases
 
-- toRoman,
-- numberToRoman,
-- integerToRoman,
-- toRomanNumeral
-- numericToRoman
+- `toRoman`,
+- `numberToRoman`,
+- `integerToRoman`,
+- `toRomanNumeral`
+- `numericToRoman`
 
 ---
 
