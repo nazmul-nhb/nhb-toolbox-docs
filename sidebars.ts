@@ -37,6 +37,13 @@ const sidebars: SidebarsConfig = {
 				'string/truncateString',
 				'string/trimString',
 				'string/replaceAllInString',
+				'string/formatUnitWithPlural',
+				'string/extractEmails',
+				'string/extractURLs',
+				'string/maskString',
+				'string/normalizeString',
+				'string/reverseString',
+				'string/slugifyString',
 			],
 		},
 		{

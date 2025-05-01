@@ -108,8 +108,7 @@ const config: Config = {
 
 		announcementBar: {
 			id: 'announcement',
-			content:
-				'🚀 Includes 180+ functions & 6 classes. Full documentation in progress...',
+			content: '🚀 Includes 180+ functions & 6 well-crafted classes.',
 			backgroundColor: '#0d1117',
 			textColor: '#ffffff',
 			isCloseable: true,
@@ -117,10 +116,9 @@ const config: Config = {
 
 		colorMode: {
 			defaultMode: 'dark',
-			disableSwitch: false, // set to true if you want to force dark mode
-			respectPrefersColorScheme: false, // ignore user's system preference
+			disableSwitch: false,
+			respectPrefersColorScheme: false,
 		},
-		// Replace with your project's social card
 		image: 'img/logo.png',
 		navbar: {
 			title: 'NHB Toolbox',
@@ -129,12 +127,6 @@ const config: Config = {
 				src: 'img/logo.png',
 			},
 			items: [
-				// {
-				// 	type: 'docSidebar',
-				// 	sidebarId: 'utilitiesSidebar',
-				// 	position: 'left',
-				// 	label: 'Utilities',
-				// },
 				{
 					type: 'docSidebar',
 					sidebarId: 'overviewSidebar',
