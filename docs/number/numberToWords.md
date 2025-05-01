@@ -1,0 +1,72 @@
+---
+id: numberToWords
+title: Number to Words
+---
+
+Converts a numeric value into its English word representation.  
+**Supports up to `10^20` (one hundred quintillion)**. Decimal fractions are ignored.
+
+---
+
+## `numberToWords`
+
+Converts a number into English words.
+
+### Function Signature
+
+```ts
+function numberToWords(number: Numeric): string;
+```
+
+### Parameters
+
+- `number` — The numeric value (integer or numeric string) to convert.
+
+### Returns
+
+- A `string` containing the English word representation of the integer portion of the input.
+
+### Warnings
+
+- ⚠️ **Supports only values up to `10e19` aka `10^20` (one hundred quintillion).**
+- ⚠️ **Decimal values are **ignored**; Only the integer part is processed.**
+
+### Examples
+
+```ts
+import { convertToWords } from 'nhb-toolbox';
+
+numberToWords(42);
+// "forty-two"
+
+numberToWords(-1506);
+// "minus one thousand five hundred and six"
+
+numberToWords("123456789");
+// "one hundred twenty-three million four hundred fifty-six thousand seven hundred eighty-nine"
+
+numberToWords(0.987);
+// "zero"
+
+numberToWords(1e21);
+// "Number exceeds supported range (max is 10e19 aka 10^20)"
+```
+
+### Aliases
+
+- `convertNumberToWords`
+
+---
+
+### Notes
+
+- The function uses predefined constants for **ones**, **teens**, **tens**, and **thousands** to construct the word form.
+- Internally, `_convertLessThanThousand()` handles grouping logic (e.g., "hundred", "thousand").
+- Leading/trailing/multiple spaces are trimmed to return a clean result.
+- Negative numbers are correctly prefixed with `"minus"`.
+
+---
+
+### Conclusion
+
+Use `numberToWords` to convert integers (up to 20-digit length) into human-readable English. Ideal for financial reports, invoices, or accessibility features where spoken representation of numbers is required.

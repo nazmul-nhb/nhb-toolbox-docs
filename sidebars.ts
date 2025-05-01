@@ -31,14 +31,17 @@ const sidebars: SidebarsConfig = {
 			},
 			items: [
 				'number/calculatePercentage',
+				'number/numberToWords',
 				'number/convertToDecimal',
 				'number/getRandomNumber',
+				'number/fibonacci',
 				'number/getAverage',
 				'number/sumNumbers',
 				'number/sumDigits',
 				'number/calculateHCF',
 				'number/calculateLCM',
 				'number/reverseNumber',
+				'number/convertToRoman',
 			],
 		},
 		{

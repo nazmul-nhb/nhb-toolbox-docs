@@ -108,7 +108,7 @@ const config: Config = {
 
 		announcementBar: {
 			id: 'announcement',
-			content: '🚀 Includes 180+ functions & 6 well-crafted classes.',
+			content: '🚀 Includes 175+ functions & 6 well-crafted classes.',
 			backgroundColor: '#0d1117',
 			textColor: '#ffffff',
 			isCloseable: true,
