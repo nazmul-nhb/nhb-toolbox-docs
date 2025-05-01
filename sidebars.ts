@@ -94,7 +94,12 @@ const sidebars: SidebarsConfig = {
 				type: 'doc',
 				id: 'predicates/intro-predicates',
 			},
-			items: ['predicates/isInvalidOrEmptyArray'],
+			items: [
+				'predicates/isInvalidOrEmptyArray',
+				'predicates/isPalindrome',
+				'predicates/isEmojiOnly',
+				'predicates/string-case-checkers',
+			],
 		},
 		{
 			type: 'category',
