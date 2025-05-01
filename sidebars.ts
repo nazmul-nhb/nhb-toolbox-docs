@@ -24,6 +24,25 @@ const sidebars: SidebarsConfig = {
 	utilitiesSidebar: [
 		{
 			type: 'category',
+			label: 'Number Utilities',
+			link: {
+				type: 'doc',
+				id: 'number/intro-number',
+			},
+			items: [
+				'number/calculatePercentage',
+				'number/convertToDecimal',
+				'number/getRandomNumber',
+				'number/getAverage',
+				'number/sumNumbers',
+				'number/sumDigits',
+				'number/calculateHCF',
+				'number/calculateLCM',
+				'number/reverseNumber',
+			],
+		},
+		{
+			type: 'category',
 			label: 'String Utilities',
 			link: {
 				type: 'doc',
