@@ -131,6 +131,23 @@ const sidebars: SidebarsConfig = {
 				'color/color-converters',
 			],
 		},
+		{
+			type: 'category',
+			label: 'Date & Time Utilities',
+			link: {
+				type: 'doc',
+				id: 'date/intro-date',
+			},
+			items: [
+				'date/getGreeting',
+				'date/formatUTCOffset',
+				'date/extractHourMinute',
+				'date/getTotalMinutes',
+				'date/extractMinutesFromUTC',
+				'date/extractTimeFromUTC',
+				'date/getCurrentDateTime',
+			],
+		},
 	],
 
 	classesSidebar: [
@@ -161,6 +178,7 @@ const sidebars: SidebarsConfig = {
 				'predicates/number-checkers',
 				'predicates/string-checkers',
 				'predicates/array-checkers',
+				'predicates/time-checkers',
 			],
 		},
 		{
@@ -171,7 +189,7 @@ const sidebars: SidebarsConfig = {
 				id: 'guards/intro-guards',
 			},
 			items: [
-				// 'guards/isNumber',
+				'guards/time-guards',
 				// 'guards/isBoolean',
 				// 'guards/isObject',
 				// 'guards/isArray',

@@ -109,7 +109,8 @@ const randomColor = generateRandomColorInHexRGB();
 ## Type Definitions
 
 ```typescript
-type Hex6 = `#${string}`;
+type Hex = `#${string}`;
+type Hex6 = Branded<`#${string}`, 'Hex6'>;
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type HSL = `hsl(${number}, ${number}%, ${number}%)`;
 ```
