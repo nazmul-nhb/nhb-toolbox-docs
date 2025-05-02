@@ -1,6 +1,6 @@
 ---
-id: string-case-checkers  
-title: String Case Checkers  
+id: string-checkers  
+title: String Checkers  
 ---
 
 <!-- markdownlint-disable-file MD024 -->
@@ -109,3 +109,72 @@ Returns `true` if the string is in kebab-case, otherwise `false`.
 isKebabCase('kebab-case'); // true
 isKebabCase('Kebab-Case'); // false
 ```
+
+---
+
+## isPalindrome
+
+Checks if a string is a **palindrome** (reads the same backward as forward, ignoring case and non-alphanumeric characters).
+
+### Function Signature
+
+```ts
+const isPalindrome: (input: string) => boolean;
+```
+
+### Parameters
+
+- **`input`**: The string to check.
+
+### Returns
+
+Returns `true` if the string is a palindrome, otherwise `false`.
+
+### Example
+
+```ts
+isPalindrome('Racecar');        // true
+isPalindrome('A man, a plan, a canal: Panama'); // true
+isPalindrome('hello');          // false
+```
+
+---
+
+### Dependencies
+
+- Uses `reverseString` internally to perform the reversal comparison.
+
+---
+
+## isEmojiOnly
+
+Checks if a string contains **only emojis**.
+
+### Function Signature
+
+```ts
+function isEmojiOnly(str: string): boolean;
+```
+
+### Parameters
+
+- **`str`**: The input string to check.
+
+### Returns
+
+Returns `true` if the string contains only emojis, otherwise `false`.
+
+### Example
+
+```ts
+isEmojiOnly('🎉🔥');     // true
+isEmojiOnly('🎉 text');  // false
+isEmojiOnly('');         // false
+```
+
+### Notes
+
+- This uses the Unicode `\p{Emoji}` property from RegExp Unicode property escapes.
+- The `u` flag is required for proper Unicode handling.
+
+Would you like to proceed with more emoji-related utilities or move to a different category?

@@ -144,12 +144,9 @@ const sidebars: SidebarsConfig = {
 				id: 'predicates/intro-predicates',
 			},
 			items: [
-				'predicates/isPrime',
-				'predicates/isInvalidOrEmptyArray',
-				'predicates/isPalindrome',
-				'predicates/isEmojiOnly',
-				'predicates/string-case-checkers',
 				'predicates/number-checkers',
+				'predicates/string-checkers',
+				'predicates/array-checkers',
 			],
 		},
 		{

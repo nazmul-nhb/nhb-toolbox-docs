@@ -1,6 +1,6 @@
 ---
-id: isInvalidOrEmptyArray
-title: Check Invalid or Empty Array
+id: array-checkers
+title: Array Checkers
 ---
 
 ## isInvalidOrEmptyArray
