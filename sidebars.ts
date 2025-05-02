@@ -117,6 +117,20 @@ const sidebars: SidebarsConfig = {
 				'array/rotateArray',
 			],
 		},
+		{
+			type: 'category',
+			label: 'Color Utilities',
+			link: {
+				type: 'doc',
+				id: 'color/intro-color',
+			},
+			items: [
+				'color/getColorForInitial',
+				'color/convertColorCode',
+				'color/random-color',
+				'color/color-converters',
+			],
+		},
 	],
 
 	classesSidebar: [
