@@ -148,6 +148,15 @@ const sidebars: SidebarsConfig = {
 				'date/getCurrentDateTime',
 			],
 		},
+		{
+			type: 'category',
+			label: 'Form Utilities',
+			link: {
+				type: 'doc',
+				id: 'form/intro-form',
+			},
+			items: ['form/createFormData', 'form/parseFormData', 'form/serializeForm'],
+		},
 	],
 
 	classesSidebar: [
@@ -190,7 +199,7 @@ const sidebars: SidebarsConfig = {
 			},
 			items: [
 				'guards/time-guards',
-				// 'guards/isBoolean',
+				'guards/form-guards',
 				// 'guards/isObject',
 				// 'guards/isArray',
 				// 'guards/isFunction',

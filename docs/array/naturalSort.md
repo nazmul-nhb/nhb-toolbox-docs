@@ -5,7 +5,9 @@ title: Natural Sort
 
 ## naturalSort
 
-The `naturalSort` function compares two strings using a natural sorting order (e.g., `"file2" < "file10"`). It optionally supports `case-insensitive` and `locale-aware string chunk comparisons`. *Though it' compares strings, it was mainly developed for array sorting.*
+The `naturalSort` function compares two strings using a natural sorting order (e.g., `"file2" < "file10"`). It optionally supports `case-insensitive` and `locale-aware string chunk comparisons`.
+
+- *Though it compares strings, it was mainly developed for array sorting.*
 
 ### Function Signature
 
