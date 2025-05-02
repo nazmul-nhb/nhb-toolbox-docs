@@ -128,5 +128,5 @@ This function is also exported as:
 
 ## Related Functions
 
-- [pickObjectFieldsByCondition](pickObjectFieldsByCondition) - Pick object fields conditionally
+- [pickFieldsByCondition](pickFieldsByCondition) - Pick object fields conditionally
 - [remapFields](remapFields) - Remap object fields
