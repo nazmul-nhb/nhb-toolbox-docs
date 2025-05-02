@@ -7,7 +7,7 @@ Returns all prime numbers within a specified numeric range.
 
 ---
 
-## `findPrimeNumbers`
+## findPrimeNumbers
 
 Finds all primes between the `start` and `end` values (inclusive). If `start > end`, the range is automatically normalized.
 

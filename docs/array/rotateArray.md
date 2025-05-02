@@ -3,7 +3,7 @@ id: rotateArray
 title: Rotate Array
 ---
 
-## `rotateArray`
+## rotateArray
 
 The `rotateArray` function rotates an array to the left or right by a specified number of steps. Positive values rotate to the right, while negative values rotate to the left.
 

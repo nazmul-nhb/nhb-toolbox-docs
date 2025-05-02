@@ -7,7 +7,7 @@ title: Convert to Roman Numerals
 
 ---
 
-## `convertToRomanNumerals`
+## convertToRomanNumerals
 
 Converts any valid number from `1` to `3999` into a Roman numeral.
 

@@ -3,7 +3,7 @@ id: splitArray
 title: Split Array
 ---
 
-## `splitArray`
+## splitArray
 
 The `splitArray` function divides an array into smaller sub-arrays (chunks) of a specified size. It's useful when you need to batch process or paginate data.
 

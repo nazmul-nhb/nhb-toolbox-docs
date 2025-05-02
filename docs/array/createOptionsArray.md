@@ -3,7 +3,7 @@ id: createOptionsArray
 title: Create Options Array
 ---
 
-## `createOptionsArray`
+## createOptionsArray
 
 Converts an array of objects into a formatted array of options.
 

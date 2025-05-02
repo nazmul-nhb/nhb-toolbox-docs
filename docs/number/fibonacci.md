@@ -14,7 +14,7 @@ All inputs are coerced and validated using `Number()`.
 
 ---
 
-## `getFibonacciSeries`
+## getFibonacciSeries
 
 Generates the first `limit` Fibonacci numbers iteratively.
 
@@ -45,7 +45,7 @@ getFibonacciSeries(7); // [0, 1, 1, 2, 3, 5, 8]
 
 ---
 
-## `getFibonacciSeriesMemo`
+## getFibonacciSeriesMemo
 
 Generates the first `limit` Fibonacci numbers using recursion with memoization.
 
@@ -77,7 +77,7 @@ getFibonacciSeriesMemo(7); // [0, 1, 1, 2, 3, 5, 8]
 
 ---
 
-## `fibonacciGenerator`
+## fibonacciGenerator
 
 A lazy generator that yields Fibonacci numbers up to a given `limit`.
 
@@ -122,7 +122,7 @@ fibonacciGenerator(3, (val, idx) => {
 
 ---
 
-## `getNthFibonacci`
+## getNthFibonacci
 
 Returns the Fibonacci number at the specified `index`.
 

@@ -7,7 +7,7 @@ Determines whether a given number is a prime number using an efficient 6k ± 1 o
 
 ---
 
-## `isPrime`
+## isPrime
 
 Checks whether the input number is prime.
 

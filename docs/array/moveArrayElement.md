@@ -3,7 +3,7 @@ id: moveArrayElement
 title: Move Array Element
 ---
 
-## `moveArrayElement`
+## moveArrayElement
 
 The `moveArrayElement` function repositions an element in an array from one index to another, returning a new array with the updated order.
 

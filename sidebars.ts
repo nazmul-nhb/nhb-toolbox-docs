@@ -32,6 +32,7 @@ const sidebars: SidebarsConfig = {
 			],
 		},
 	],
+
 	utilitiesSidebar: [
 		{
 			type: 'doc',
@@ -117,6 +118,7 @@ const sidebars: SidebarsConfig = {
 			],
 		},
 	],
+
 	classesSidebar: [
 		{
 			type: 'category',
@@ -147,6 +149,7 @@ const sidebars: SidebarsConfig = {
 				'predicates/isPalindrome',
 				'predicates/isEmojiOnly',
 				'predicates/string-case-checkers',
+				'predicates/number-checkers',
 			],
 		},
 		{

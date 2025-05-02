@@ -3,7 +3,7 @@ id: findMissingElements
 title: Find Missing Elements
 ---
 
-## `findMissingElements`
+## findMissingElements
 
 The `findMissingElements` function identifies elements that are missing from one array compared to another using deep equality checks. It allows you to specify the direction of comparison to extract missing values from either array.
 

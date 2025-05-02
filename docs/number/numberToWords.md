@@ -8,7 +8,7 @@ Converts a numeric value into its English word representation.
 
 ---
 
-## `numberToWords`
+## numberToWords
 
 Converts a number into English words.
 

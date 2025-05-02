@@ -3,7 +3,7 @@ id: getDuplicates
 title: Get Duplicates
 ---
 
-## `getDuplicates`
+## getDuplicates
 
 Finds duplicate values in an array and performs a deep comparison for objects and arrays to detect duplicates.
 
