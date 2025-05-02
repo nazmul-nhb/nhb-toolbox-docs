@@ -191,11 +191,15 @@ const sidebars: SidebarsConfig = {
 
 	classesSidebar: [
 		{
+			type: 'doc',
+			id: 'classes/intro-classes',
+		},
+		{
 			type: 'category',
-			label: 'Classes',
+			label: 'Chronos',
 			link: {
 				type: 'doc',
-				id: 'classes/intro-classes',
+				id: 'classes/Chronos',
 			},
 			items: [
 				'classes/Chronos',
@@ -206,6 +210,10 @@ const sidebars: SidebarsConfig = {
 	],
 
 	predicatesSidebar: [
+		{
+			type: 'doc',
+			id: 'intro-pre-guards',
+		},
 		{
 			type: 'category',
 			label: 'Predicate Functions',
