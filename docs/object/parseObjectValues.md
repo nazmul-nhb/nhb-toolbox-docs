@@ -28,9 +28,15 @@ function parseObjectValues<T extends GenericObject>(
   object: T
 ): { [K in keyof T]: ParsedPrimitive<T[K]> }
 
-type ParsedPrimitive<T> = T extends string 
-  ? string | number | boolean | null | undefined | object
+/** * Infers the real primitive type from a stringified version. */
+type ParsedPrimitive<T> =
+ T extends string ?
+  T extends `${number}` ? number
+  : T extends 'true' | 'false' ? boolean
+  : T extends 'null' ? null
+  : T extends 'undefined' ? undefined
   : T
+ : T;
 ```
 
 ## Usage
