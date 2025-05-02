@@ -41,7 +41,7 @@ findPrimeNumbers(100, 105);    // [101, 103]
 
 ### Aliases
 
-- getPrimeNumbers
+- `getPrimeNumbers`
 
 ---
 

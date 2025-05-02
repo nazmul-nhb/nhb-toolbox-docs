@@ -1,7 +1,9 @@
 ---
 id: filterArrayOfObjects
+status: deprecated
 title: Filter Array of Objects
 ---
+#### Please, use `findAll` instance method from `Finder` class for more advanced filtering and searching
 
 ## filterArrayOfObjects
 
@@ -10,8 +12,9 @@ Filters an array of objects based on multiple conditions for specified keys.
 ### Function Signature
 
 ```typescript
-const filterArrayOfObjects = <T extends GenericObject>
-            (array: T[], conditions: { [K in keyof T]?: (value: T[K] | undefined) => boolean }): T[]
+const filterArrayOfObjects = <T extends GenericObject>(
+  array: T[], conditions: { [K in keyof T]?: (value: T[K] | undefined) => boolean }
+): T[]
 ```
 
 ### Type Parameters

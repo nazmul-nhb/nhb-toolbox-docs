@@ -1,4 +1,4 @@
 ---
 id: intro-guards
-title: Intro to Type Guards
+title: Type Guards
 ---

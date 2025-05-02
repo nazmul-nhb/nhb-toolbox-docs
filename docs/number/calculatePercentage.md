@@ -167,7 +167,7 @@ console.log(inverse); // 400
 ```ts
 
 /** * Options to calculate what percentage a `part` is of a `total`. */
-export interface GetPercentOptions {
+interface GetPercentOptions {
  /** Mode to calculate percentage from `part` and `total` */
  mode: 'get-percent';
  /** The part value (e.g., 25 out of 100) */
@@ -177,7 +177,7 @@ export interface GetPercentOptions {
 }
 
 /** * Options to calculate a value from a `percentage` of a `total`. */
-export interface GetValueOptions {
+interface GetValueOptions {
  /** Mode to calculate value from `percentage` and `total` */
  mode: 'get-value';
  /** The percentage (e.g., 25%) */
@@ -187,7 +187,7 @@ export interface GetValueOptions {
 }
 
 /** * Options to calculate the original total from a known `value` and `percentage`. */
-export interface GetOriginalOptions {
+interface GetOriginalOptions {
  /** Mode to calculate original total from `value` and `percentage` */
  mode: 'get-original';
  /** The percentage the `value` represents */
@@ -197,7 +197,7 @@ export interface GetOriginalOptions {
 }
 
 /** * Calculates the percentage change from `oldValue` to `newValue`. */
-export interface GetChangeOptions {
+interface GetChangeOptions {
  /** Mode to calculate percentage change from `oldValue` to `newValue` */
  mode: 'get-change-percent';
  /** The original value before the change */
@@ -207,7 +207,7 @@ export interface GetChangeOptions {
 }
 
 /** * Applies a percentage increase or decrease to a `baseValue`. */
-export interface ApplyChangeOptions {
+interface ApplyChangeOptions {
  /** Mode to apply percentage change to `baseValue` */
  mode: 'apply-percent-change';
  /** The base value to apply the percentage change to */
@@ -217,7 +217,7 @@ export interface ApplyChangeOptions {
 }
 
 /** * Calculates the absolute percentage difference between two values. */
-export interface GetDifferenceOptions {
+interface GetDifferenceOptions {
  /** Mode to calculate percentage difference between `value1` and `value2` */
  mode: 'get-percent-difference';
  /** The first value to compare */
@@ -227,7 +227,7 @@ export interface GetDifferenceOptions {
 }
 
 /** * Calculates the inverse percentage: what percent `total` is of `part`. */
-export interface InversePercentageOptions {
+interface InversePercentageOptions {
  /** Mode to calculate inverse percentage from `part` and `total` */
  mode: 'inverse-percent';
  /** The part value to calculate inverse percentage from */
@@ -237,14 +237,7 @@ export interface InversePercentageOptions {
 }
 
 /** * Options for calculating percentages and related values. */
-export type PercentageOptions =
- | GetPercentOptions
- | GetValueOptions
- | GetOriginalOptions
- | GetChangeOptions
- | ApplyChangeOptions
- | GetDifferenceOptions
- | InversePercentageOptions;
+type PercentageOptions = GetPercentOptions | GetValueOptions | GetOriginalOptions | GetChangeOptions | ApplyChangeOptions | GetDifferenceOptions | InversePercentageOptions;
 ```
 
 ### Notes

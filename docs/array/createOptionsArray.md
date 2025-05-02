@@ -10,8 +10,9 @@ Converts an array of objects into a formatted array of options.
 ### Function Signature
 
 ```typescript
-const createOptionsArray = <T extends GenericObject,K1 extends string = 'value',K2 extends string = 'label',>
-                            (data: T[], config: OptionsConfig<T, K1, K2>): { [P in K1 | K2]: string }[];
+const createOptionsArray = <T extends GenericObject, K1 extends string = 'value', K2 extends string = 'label'>(
+  data: T[], config: OptionsConfig<T, K1, K2>
+): { [P in K1 | K2]: string }[];
 ```
 
 ### Parameters

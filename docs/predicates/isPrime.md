@@ -40,11 +40,7 @@ isPrime(100);  // false
 
 ### Aliases
 
-```ts
-isPrime as isPrimeNumber,
-isPrime as checkPrime,
-isPrime as isNumberPrime
-```
+- `isPrimeNumber`
 
 ---
 
