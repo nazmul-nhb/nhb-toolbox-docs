@@ -70,7 +70,7 @@ extractNewFields(v1, v2); // { user: { profile: { age: 28 } } }
 ## Limitations
 
 1. **Value Changes**: Won't detect if existing fields have new values
-2. **Circular References**: May cause stack overflow with circular structures
+2. **Circular References**: May cause stack overflow with circular structures for deeply nested objects and arrays
 3. **Type Strictness**: Requires both objects to be structurally compatible
 
 ## Type Definitions

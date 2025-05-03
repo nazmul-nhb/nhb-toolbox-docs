@@ -77,7 +77,7 @@ flattenObjectDotNotation(config);
 
 1. **Arrays**: Will be treated as terminal values (not flattened)
 2. **Special Objects**: Date, RegExp etc. will be kept as-is
-3. **Circular References**: May cause stack overflow
+3. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 4. **Key Collisions**: Potential for duplicate keys in complex cases
 
 ## Type Definition

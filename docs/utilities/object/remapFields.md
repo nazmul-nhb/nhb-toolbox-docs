@@ -15,18 +15,10 @@ import { remapObjectFields } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function remapFields<Source extends GenericObject, Target extends GenericObject>(
+function remapFields<Source extends GenericObject, Target extends Record<string, keyof Source>>(
   source: Source,
-  fieldMap: FieldMap<Source, Target>
-): Target
-```
-
-## Type Definition
-
-```typescript
-type FieldMap<Source, Target> = {
-  [K in keyof Partial<Target>]: keyof Partial<Source>
-};
+  fieldMap: Target
+): { [K in keyof Target]: Source[Target[K]] }
 ```
 
 ## Usage Examples
@@ -72,25 +64,26 @@ const inventoryItem = remapFields(product, {
 | Name | Description |
 |------|-------------|
 | `Source` | Type of source object |
-| `Target` | Type of target object |
+| `Target` | Object type mapping target keys to source keys |
 
 ### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | `source` | `Source` | Source object to remap |
-| `fieldMap` | `FieldMap<Source, Target>` | Mapping of target keys to source keys |
+| `fieldMap` | `Target` | Mapping of target keys to source keys |
 
 ### Returns
 
-`Target`: New object with remapped fields
+An object with the same keys as `fieldMap` and corresponding value types from `source`
 
 ## Key Features
 
-1. **Type Safe**: Maintains proper typing between source and target
+1. **Type Safe**: Preserves value types from source object
 2. **Selective Mapping**: Only includes fields specified in fieldMap
 3. **Non-Destructive**: Creates new object without modifying original
 4. **Flexible**: Works with partial mappings
+5. **Simple Types**: No complex generic type parameters needed
 
 ## Aliases
 
@@ -102,7 +95,7 @@ This function is also exported as:
 
 1. **Shallow Only**: Doesn't handle nested object remapping
 2. **No Transformation**: Only renames fields, doesn't transform values
-3. **No Defaults**: Missing fields become undefined
+3. **No Defaults**: Missing fields become undefined, optional field's type will be `type` or `undefined`
 
 ## Recommended Use Cases
 

@@ -84,7 +84,7 @@ flattenObjectKeyValue(data);
 1. **Key Collisions**: Nested objects may have duplicate keys that get overwritten
 2. **Arrays**: Treated as terminal values (not flattened)
 3. **Type Information**: Return type doesn't reflect flattened structure
-4. **Circular References**: May cause stack overflow
+4. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 
 ## Type Definition
 

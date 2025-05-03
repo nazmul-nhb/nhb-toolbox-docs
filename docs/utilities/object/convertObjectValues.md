@@ -162,7 +162,7 @@ convertObjectValues(order, {
 
 ## Limitations
 
-1. **Circular References**: May cause stack overflow
+1. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 2. **Special Types**: Dates, RegExp etc. are treated as regular objects
 3. **Invalid Numbers**: String values that can't convert to numbers are preserved
 4. **Performance**: Deep cloning may be slow for large structures
