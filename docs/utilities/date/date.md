@@ -1,4 +1,4 @@
 ---
-id: intro-date
+id: date
 title: Date & Time Utilities
 ---

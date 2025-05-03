@@ -1,4 +1,4 @@
 ---
-id: intro-number
+id: number
 title: Number Utilities
 ---

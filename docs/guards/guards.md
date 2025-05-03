@@ -1,4 +1,4 @@
 ---
-id: intro-guards
+id: guards
 title: Type Guards
 ---

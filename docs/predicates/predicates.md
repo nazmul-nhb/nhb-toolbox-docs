@@ -1,4 +1,4 @@
 ---
-id: intro-predicates
+id: predicates
 title: Predicate Functions
 ---

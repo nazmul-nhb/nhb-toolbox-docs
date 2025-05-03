@@ -1,4 +1,4 @@
 ---
-id: intro-string
+id: string
 title: String Utilities
 ---

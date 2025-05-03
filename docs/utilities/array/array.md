@@ -1,4 +1,4 @@
 ---
-id: intro-array
+id: array
 title: Array Utilities
 ---

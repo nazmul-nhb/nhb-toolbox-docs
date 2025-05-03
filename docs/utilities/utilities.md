@@ -1,4 +1,4 @@
 ---
-id: intro-utils
+id: utilities
 title: Utility Functions
 ---

@@ -1,4 +1,4 @@
 ---
-id: intro-object
+id: object
 title: Object Utilities
 ---

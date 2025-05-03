@@ -1,4 +1,4 @@
 ---
-id: intro-form
+id: form
 title: Form Utilities
 ---

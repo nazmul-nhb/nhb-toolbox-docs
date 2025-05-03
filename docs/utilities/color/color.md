@@ -1,4 +1,4 @@
 ---
-id: intro-color
+id: color
 title: Color Utilities
 ---
