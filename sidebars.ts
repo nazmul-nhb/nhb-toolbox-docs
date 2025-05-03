@@ -176,6 +176,7 @@ const sidebars: SidebarsConfig = {
 				'utilities/color/convertColorCode',
 				'utilities/color/random-color',
 				'utilities/color/color-converters',
+				'utilities/color/extract-color-values',
 			],
 		},
 		{
