@@ -136,10 +136,10 @@ const invalid = extractAlphaColorValues('rgb(255, 0, 0)');
 
 ```ts
 /** * Represents a tuple of three numerical values corresponding to RGB or HSL color components. */
-export type SolidValues = [number, number, number];
+type SolidValues = [number, number, number];
 
 /** * Represents a tuple of four numerical values corresponding to RGBA or HSLA color components. */
-export type AlphaValues = [number, number, number, number];
+type AlphaValues = [number, number, number, number];
 
 /**
  * * Represents an RGB color string.
@@ -149,7 +149,7 @@ export type AlphaValues = [number, number, number, number];
  * - G (Green): 0-255
  * - B (Blue): 0-255
  */
-export type RGB =
+type RGB =
  | `rgb(${number}, ${number}, ${number})`
  | `rgb(${number},${number},${number})`;
 
@@ -161,7 +161,7 @@ export type RGB =
  * - S (Saturation): 0-100%
  * - L (Lightness): 0-100%
  */
-export type HSL =
+type HSL =
  | `hsl(${number}, ${number}%, ${number}%)`
  | `hsl(${number},${number}%,${number}%)`;
 
@@ -169,7 +169,7 @@ export type HSL =
  * * Represents an RGBA color string, now includes optional alpha (opacity).
  * * Format: `rgba(R, G, B, A)`
  */
-export type RGBA =
+type RGBA =
  | `rgba(${number}, ${number}, ${number}, ${number})`
  | `rgba(${number},${number},${number},${number})`;
 
@@ -177,7 +177,7 @@ export type RGBA =
  * * Represents an HSLA color string with optional alpha channel.
  * * Format: `hsla(H, S%, L%, A)`
  */
-export type HSLA =
+type HSLA =
  | `hsla(${number}, ${number}%, ${number}%, ${number})`
  | `hsla(${number},${number}%,${number}%,${number})`;
  ```
