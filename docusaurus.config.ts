@@ -19,7 +19,6 @@ async function getNpmVersion(pkg: string): Promise<string> {
 export default async function config(): Promise<Config> {
 	const npmVersion = await getNpmVersion('nhb-toolbox');
 
-	console.log(npmVersion);
 	return {
 		title: 'NHB Toolbox',
 		tagline: 'The Ultimate Utility Library',
