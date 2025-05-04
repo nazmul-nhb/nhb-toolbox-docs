@@ -1,8 +1,8 @@
 {
-    "label": "String Utilities",
+    "label": "Number Utilities",
     "position": 1,
     "link": {
         "type": "generated-index",
-        "description": "Comprehensive guide to string utility functions."
+        "description": "Comprehensive guide to number utility functions."
     }
 }

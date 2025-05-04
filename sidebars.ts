@@ -228,6 +228,22 @@ const sidebars: SidebarsConfig = {
 				'utilities/dom/session-storage',
 			],
 		},
+		{
+			type: 'category',
+			label: 'Miscellaneous Utilities',
+			link: {
+				type: 'doc',
+				id: 'utilities/misc/misc',
+			},
+			items: [
+				'utilities/misc/debounceAction',
+				'utilities/misc/throttleAction',
+				'utilities/misc/parseJSON',
+				'utilities/misc/deepParsePrimitives',
+				'utilities/misc/convertArrayToString',
+				'utilities/misc/class-methods',
+			],
+		},
 	],
 
 	classesSidebar: [
