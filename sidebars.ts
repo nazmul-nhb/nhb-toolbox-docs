@@ -32,6 +32,8 @@ const sidebars: SidebarsConfig = {
 				'utilities/color/color',
 				'utilities/date/date',
 				'utilities/form/form',
+				'utilities/dom/dom',
+				'utilities/misc/misc',
 			],
 		},
 		{
@@ -279,6 +281,7 @@ const sidebars: SidebarsConfig = {
 				id: 'predicates/predicates',
 			},
 			items: [
+				'predicates/isDeepEqual',
 				'predicates/number-checkers',
 				'predicates/string-checkers',
 				'predicates/array-checkers',

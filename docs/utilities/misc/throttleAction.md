@@ -110,6 +110,7 @@ A throttled version of the callback, invoked at most once per interval.
 
 - Use throttle for scroll, resize, or mouse-move events to protect performance.
 - Use debounce for “do X after no more triggers”; throttle for “do X at regular intervals”.
+- Please refer to [debounceAction](debounceAction) to debounce an action or function.
 
 ---
 

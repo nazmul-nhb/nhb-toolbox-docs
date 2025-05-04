@@ -112,6 +112,7 @@ A debounced version of the callback which delays invocation.
 - Debounce helps avoid excessive triggers (e.g., API calls per keystroke).
 - Useful for typeahead, filtering, resize/listen events, and more.
 - For leading edge or cancellation support, consider a more advanced debounce library.
+- Please refer to [throttleAction](throttleAction) to throttle an action or function.
 
 ---
 
