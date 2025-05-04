@@ -209,6 +209,20 @@ const sidebars: SidebarsConfig = {
 				'utilities/form/serializeForm',
 			],
 		},
+		{
+			type: 'category',
+			label: 'DOM Utilities',
+			link: {
+				type: 'doc',
+				id: 'utilities/dom/dom',
+			},
+			items: [
+				'utilities/dom/generateQueryParams',
+				'utilities/dom/getQueryParams',
+				'utilities/dom/updateQueryParam',
+				'utilities/dom/parseQueryString',
+			],
+		},
 	],
 
 	classesSidebar: [
