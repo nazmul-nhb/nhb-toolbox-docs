@@ -11,6 +11,7 @@ async function getNpmVersion(pkg: string): Promise<string> {
 	const response = await fetch(url);
 	if (!response.ok) return 'latest';
 	const data = await response.json();
+	console.log(data);
 	return data.version;
 }
 

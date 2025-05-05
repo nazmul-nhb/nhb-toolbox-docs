@@ -176,5 +176,3 @@ isEmojiOnly('');         // false
 
 - This uses the Unicode `\p{Emoji}` property from RegExp Unicode property escapes.
 - The `u` flag is required for proper Unicode handling.
-
-Would you like to proceed with more emoji-related utilities or move to a different category?
