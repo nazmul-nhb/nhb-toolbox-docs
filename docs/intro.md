@@ -37,8 +37,4 @@ pnpm add nhb-toolbox
 - 📦 **Array & Object Utilities** – Work with data structures efficiently.
 - 📝 **Form Utilities** – Handle form data transformations.
 - ⚡ **Performance Utilities** – Debounce, throttle, and optimize actions.
-- Many more Loading...
-
-## 📖 Get Started
-
-<!-- Check out the [Installation Guide](./installation) to learn how to install and use `nhb-toolbox` in your project. -->
+- ⚡ Many more Loading...

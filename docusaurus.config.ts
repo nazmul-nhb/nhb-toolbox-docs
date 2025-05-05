@@ -126,7 +126,7 @@ export default async function config(): Promise<Config> {
 
 			announcementBar: {
 				id: 'announcement',
-				content: '🚀 Includes 175+ functions & 6 well-crafted classes.',
+				content: '🚀 Includes 180+ functions & 6 well-crafted classes.',
 				backgroundColor: '#0d1117',
 				textColor: '#ffffff',
 				isCloseable: true,
@@ -188,8 +188,20 @@ export default async function config(): Promise<Config> {
 						title: 'Docs',
 						items: [
 							{
-								label: 'Introduction',
+								label: 'Overview',
 								to: '/docs/intro',
+							},
+							{
+								label: 'Utilities',
+								to: '/docs/utilities',
+							},
+							{
+								label: 'Classes',
+								to: '/docs/classes',
+							},
+							{
+								label: 'Predicates & Type Guards',
+								to: '/docs/predicates-guards',
 							},
 						],
 					},
@@ -197,12 +209,16 @@ export default async function config(): Promise<Config> {
 						title: 'Community',
 						items: [
 							{
-								label: 'LeetCode',
-								href: 'https://leetcode.com/u/nazmul-nhb',
+								label: 'LinkedIn',
+								href: 'https://linkedin.com/in/nazmul-nhb',
 							},
 							{
-								label: 'Linked In',
-								href: 'https://linkedin.com/in/nazmul-nhb',
+								label: 'Facebook',
+								href: 'https://fb.com/nazmul.batchu',
+							},
+							{
+								label: 'LeetCode',
+								href: 'https://leetcode.com/u/nazmul-nhb',
 							},
 							{
 								label: 'Discord',
@@ -217,10 +233,18 @@ export default async function config(): Promise<Config> {
 								label: 'GitHub',
 								href: 'https://github.com/nazmul-nhb',
 							},
+							{
+								label: 'NPM Registry',
+								href: 'https://www.npmjs.com/package/nhb-toolbox',
+							},
+							{
+								label: 'Website',
+								href: 'https://nazmul-nhb.vercel.app',
+							},
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan & NHB Toolbox.`,
+				copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
 			},
 			prism: {
 				theme: prismThemes.github,
