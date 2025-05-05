@@ -8,10 +8,13 @@ dotenv.config({ path: resolve(__dirname, '.env') });
 
 async function getNpmVersion(pkg: string): Promise<string> {
 	const url = `https://registry.npmjs.org/${pkg}/latest`;
+
 	const response = await fetch(url);
+
 	if (!response.ok) return 'latest';
+
 	const data = await response.json();
-	console.log(data);
+
 	return data.version;
 }
 

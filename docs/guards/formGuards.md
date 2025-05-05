@@ -44,7 +44,7 @@ isValidFormData({}); // false
 
 ## isOriginFileObj
 
-Checks if a value is an `OriginFileObj` (extended `File` with UID).
+Checks if a value is an `OriginFileObj` (extended `File` with UID). For `Ant-Design Upload` component.
 
 ### Function Signature
 

@@ -1,6 +1,6 @@
 ---
 id: generateRandomID
-title: Generate a Random ID
+title: Generate Random ID
 ---
 
 ## generateRandomID
