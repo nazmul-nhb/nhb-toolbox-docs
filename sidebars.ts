@@ -265,10 +265,58 @@ const sidebars: SidebarsConfig = {
 				id: 'classes/Chronos',
 			},
 			items: [
-				'classes/Chronos',
-				// 'classes/finder',
-				// add more class docs here
+				// 'classes/chronos/getters',
+				// 'classes/chronos/format',
+				// 'classes/chronos/calculations',
+				// 'classes/chronos/statics',
+				// 'classes/chronos/checkers',
+				// 'classes/chronos/symbols',
 			],
+		},
+		{
+			type: 'category',
+			label: 'Color',
+			link: {
+				type: 'doc',
+				id: 'classes/Color',
+			},
+			items: ['classes/Color'],
+		},
+		{
+			type: 'category',
+			label: 'Paginator',
+			link: {
+				type: 'doc',
+				id: 'classes/Chronos',
+			},
+			items: ['classes/Chronos'],
+		},
+		{
+			type: 'category',
+			label: 'Finder',
+			link: {
+				type: 'doc',
+				id: 'classes/Chronos',
+			},
+			items: ['classes/Chronos'],
+		},
+		{
+			type: 'category',
+			label: 'Unit',
+			link: {
+				type: 'doc',
+				id: 'classes/Chronos',
+			},
+			items: ['classes/Chronos'],
+		},
+		{
+			type: 'category',
+			label: 'Currency',
+			link: {
+				type: 'doc',
+				id: 'classes/Chronos',
+			},
+			items: ['classes/Chronos'],
 		},
 	],
 
