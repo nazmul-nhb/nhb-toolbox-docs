@@ -47,7 +47,14 @@ const sidebars: SidebarsConfig = {
 				id: 'classes/classes',
 				type: 'doc',
 			},
-			items: [],
+			items: [
+				'classes/Chronos',
+				'classes/Color',
+				'classes/Paginator',
+				'classes/Finder',
+				'classes/Unit',
+				'classes/Currency',
+			],
 		},
 		{
 			type: 'category',
@@ -256,6 +263,7 @@ const sidebars: SidebarsConfig = {
 		{
 			type: 'doc',
 			id: 'classes/classes',
+			label: 'Classes',
 		},
 		{
 			type: 'category',
@@ -280,16 +288,20 @@ const sidebars: SidebarsConfig = {
 				type: 'doc',
 				id: 'classes/Color',
 			},
-			items: ['classes/Color'],
+			items: [
+				// 'classes/Color'
+			],
 		},
 		{
 			type: 'category',
 			label: 'Paginator',
 			link: {
 				type: 'doc',
-				id: 'classes/Chronos',
+				id: 'classes/Paginator',
 			},
-			items: ['classes/Chronos'],
+			items: [
+				// 'classes/Paginator'
+			],
 		},
 		{
 			type: 'category',
@@ -313,18 +325,22 @@ const sidebars: SidebarsConfig = {
 			label: 'Unit',
 			link: {
 				type: 'doc',
-				id: 'classes/Chronos',
+				id: 'classes/Unit',
 			},
-			items: ['classes/Chronos'],
+			items: [
+				// 'classes/Unit'
+			],
 		},
 		{
 			type: 'category',
 			label: 'Currency',
 			link: {
 				type: 'doc',
-				id: 'classes/Chronos',
+				id: 'classes/Currency',
 			},
-			items: ['classes/Chronos'],
+			items: [
+				// 'classes/Currency'
+			],
 		},
 	],
 

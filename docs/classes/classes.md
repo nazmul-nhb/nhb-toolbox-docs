@@ -1,4 +1,4 @@
 ---
 id: classes
-title: Classes
+title: Classes - Explore the well-crafted classes for efficiency.
 ---

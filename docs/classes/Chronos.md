@@ -1,4 +1,4 @@
 ---
 id: Chronos
-title: Chronos - Play with Time & Date
+title: Chronos - Play with Time and Date like Chronos.
 ---

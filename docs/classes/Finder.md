@@ -1,6 +1,6 @@
 ---
 id: Finder
-title: Finder
+title: Finder - Search in array with efficiency.
 ---
 
 Optimized searching utility with support for binary search, fuzzy matching, and smart caching.
