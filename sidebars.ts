@@ -296,9 +296,17 @@ const sidebars: SidebarsConfig = {
 			label: 'Finder',
 			link: {
 				type: 'doc',
-				id: 'classes/Chronos',
+				id: 'classes/Finder',
 			},
-			items: ['classes/Chronos'],
+			items: [
+				'classes/Finder/findOne',
+				'classes/Finder/findAll',
+				'classes/Finder/findOneAsync',
+				'classes/Finder/findAllAsync',
+				'classes/Finder/binarySearch',
+				'classes/Finder/fuzzySearch',
+				'classes/Finder/clearCache',
+			],
 		},
 		{
 			type: 'category',
