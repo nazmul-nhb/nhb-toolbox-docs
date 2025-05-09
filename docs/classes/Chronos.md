@@ -14,14 +14,15 @@ This documentation provides complete coverage of all 80 instance methods and 12 
 
 ## Table of Contents
 
-1. [Getters](#getters)
-2. [Format Methods](#format-methods)
-3. [Calculation Methods](#calculation-methods)
-4. [Static Methods](#static-methods)
-5. [Checker Methods](#checker-methods)
-6. [Conversion Methods](#conversion-methods)
-7. [Component Methods](#component-methods)
-8. [Symbol Methods](#symbol-methods)
+- [Getters](#getters)
+- [Format Methods](#format-methods)
+- [Calculation Methods](#calculation-methods)
+- [Static Methods](#static-methods)
+- [Checker Methods](#checker-methods)
+- [Conversion Methods](#conversion-methods)
+- [Component Methods](#component-methods)
+- [Relative Comparison Methods](#relative-comparison-methods)
+- [Symbol Methods](#symbol-methods)
 
 ---
 
