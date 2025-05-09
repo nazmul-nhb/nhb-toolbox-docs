@@ -181,6 +181,7 @@ export interface FormDataConfigs<T> {
 
 - Empty objects/arrays are included if marked as required
 - Null/undefined values are included if marked as required
+- Date-like objects such as native `Date`, [Chronos](../../classes/Chronos.md), `Dayjs` or `Moment.js` are serialized in ISO string format (either in UTC or in local)
 - File upload components are deeply inspected
 - Circular references may cause issues (not handled)
 

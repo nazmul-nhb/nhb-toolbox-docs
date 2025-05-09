@@ -358,6 +358,7 @@ const sidebars: SidebarsConfig = {
 			},
 			items: [
 				'predicates/isDeepEqual',
+				'predicates/isDateLike',
 				'predicates/number-checkers',
 				'predicates/string-checkers',
 				'predicates/array-checkers',
