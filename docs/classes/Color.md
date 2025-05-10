@@ -4,7 +4,7 @@ title: Color - Play with Colors - Convert, blend, manipulate and do more.
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-## Comprehensive API Reference  
+## API Reference for Color
 
 The `Color` class provides a robust way to work with colors in various formats (i.e. Hex, Hex8, RGB, HSL, RGBA, HSLA) and includes methods for color manipulation, blending, and accessibility checks.  
 
@@ -12,10 +12,10 @@ The `Color` class provides a robust way to work with colors in various formats (
 
 ## Table of Contents
 
-- [Color Manipulation Methods](./Color/manipulation)
-- [Color Scheme Generation](./Color/scheme-generation)
-- [Accessibility & Contrast Methods](./Color/contrast-accessibility)
-- [Static Validation Methods](./Color/static-validation)
+- [Color Manipulation Methods](Color/manipulation)
+- [Color Scheme Generation](Color/scheme-generation)
+- [Accessibility & Contrast Methods](Color/contrast-accessibility)
+- [Static Validation Methods](Color/static-validation)
 
 ---
 
