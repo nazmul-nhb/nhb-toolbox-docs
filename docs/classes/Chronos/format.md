@@ -3,6 +3,8 @@ id: format
 title: Format Methods
 ---
 
+import Copy from '@site/src/components/Copy'
+
 <!-- markdownlint-disable-file MD024 -->
 ## format()
 
@@ -23,36 +25,37 @@ format(format?: string, useUTC?: boolean): string
 
 ### Format Tokens
 
-| Token | Output | Example |
-|-------|--------|---------|
-| YYYY  | Full year | 2025 |
-| YY    | 2-digit year | 23 |
-| MMMM  | Full month | January |
-| MMM   | Short month | Jan |
-| MM    | 2-digit month | 01-12 |
-| M     | Month | 1-12 |
-| DD    | 2-digit day | 01-31 |
-| D     | Day | 1-31 |
-| Do    | Ordinal day | 1st, 2nd |
-| dddd  | Full weekday | Monday |
-| ddd   | Short weekday | Mon |
-| HH    | 24-hour (00-23) | 14 |
-| H     | 24-hour (0-23) | 14 |
-| hh    | 12-hour (01-12) | 02 |
-| h     | 12-hour (1-12) | 2 |
-| mm    | Minutes (00-59) | 05 |
-| m     | Minutes (0-59) | 5 |
-| ss    | Seconds (00-59) | 09 |
-| s     | Seconds (0-59) | 9 |
-| A     | AM/PM | PM |
-| a     | am/pm | pm |
+| Token                                        | Output           | Example  |
+|----------------------------------------------|------------------|----------|
+| <Copy text="YYYY" /> or <Copy text="yyyy" /> | Full year        | 2025     |
+| <Copy text="YY" /> or <Copy text="yy" />     | 2-digit year     | 23       |
+| <Copy text="mmmm" />                         | Full month       | January  |
+| <Copy text="mmm" />                          | Short month      | Jan      |
+| <Copy text="MM" />                           | 2-digit month    | 01-12    |
+| <Copy text="M" />                            | Month            | 1-12     |
+| <Copy text="DD" />                           | 2-digit day      | 01-31    |
+| <Copy text="D" />                            | Day              | 1-31     |
+| <Copy text="Do" />                           | Ordinal day      | 1st, 2nd |
+| <Copy text="ddd" />                          | Full weekday     | Monday   |
+| <Copy text="dd" />                           | Short weekday    | Mon      |
+| <Copy text="d" />                            | Shorter weekday  | Mo       |
+| <Copy text="HH" />                           | 24-hour (00-23)  | 09       |
+| <Copy text="H" />                            | 24-hour (0-23)   | 9       |
+| <Copy text="hh" />                           | 12-hour (01-12)  | 02       |
+| <Copy text="h" />                            | 12-hour (1-12)   | 2        |
+| <Copy text="mm" />                           | Minutes (00-59)  | 05       |
+| <Copy text="m" />                            | Minutes (0-59)   | 5        |
+| <Copy text="ss" />                           | Seconds (00-59)  | 09       |
+| <Copy text="s" />                            | Seconds (0-59)   | 9        |
+| <Copy text="A" />                            | AM/PM            | PM       |
+| <Copy text="a" />                            | am/pm            | pm       |
 
 ### Example
 
 ```javascript
 const date = new Chronos('2025-01-15T14:30:00');
 date.format('YYYY-MM-DD'); // "2025-01-15"
-date.format('dddd, MMMM Do YYYY'); // "Wednesday, January 15th 2025"
+date.format('dddd, mmmm Do YYYY'); // "Wednesday, January 15th 2025"
 date.format('h:mm A'); // "2:30 PM"
 ```
 

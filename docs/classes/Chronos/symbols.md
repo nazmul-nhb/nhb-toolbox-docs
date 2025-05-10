@@ -30,8 +30,8 @@ title: Symbol Methods
 #### Example
 
 ```javascript
-+new Chronos(); // timestamp
-`${new Chronos()}`; // ISO string
++new Chronos(); // timestamp 1746866213184
+`${new Chronos()}`; // ISO string 2025-05-10T14:37:20.105+06:00
 ```
 
 ### [Symbol.toStringTag]
@@ -53,7 +53,7 @@ get [Symbol.toStringTag](): string
 #### Example
 
 ```javascript
-Object.prototype.toString.call(new Chronos()); // "[object Chronos]"
+Object.prototype.toString.call(new Chronos()); // [object 2025-05-10T14:34:55.615+06:00]
 ```
 
 ### [Symbol.iterator]
@@ -78,7 +78,16 @@ Object.prototype.toString.call(new Chronos()); // "[object Chronos]"
 for (const [key, value] of new Chronos()) {
   console.log(key, value);
 }
-// "year" 2025
-// "month" 0
-// ...
+// year 2025
+// month 4
+// isoMonth 5
+// date 10
+// weekDay 6
+// isoWeekDay 7
+// hour 14
+// minute 38
+// second 9
+// millisecond 329
+// timestamp 1746866289329
+// unix 1746866289
 ```
