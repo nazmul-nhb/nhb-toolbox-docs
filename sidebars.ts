@@ -292,7 +292,10 @@ const sidebars: SidebarsConfig = {
 				id: 'classes/Color',
 			},
 			items: [
-				// 'classes/Color'
+				'classes/Color/manipulation',
+				'classes/Color/scheme-generation',
+				'classes/Color/contrast-accessibility',
+				'classes/Color/static-validation',
 			],
 		},
 		{
