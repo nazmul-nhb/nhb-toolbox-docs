@@ -338,7 +338,19 @@ const sidebars: SidebarsConfig = {
 				id: 'classes/Unit',
 			},
 			items: [
-				// 'classes/Unit'
+				'classes/Unit/instance-methods',
+				'classes/Unit/length-conversions',
+				'classes/Unit/mass-weight',
+				'classes/Unit/temperature-conversions',
+				'classes/Unit/volume-conversions',
+				'classes/Unit/area-conversions',
+				'classes/Unit/speed-conversions',
+				'classes/Unit/time-conversions',
+				'classes/Unit/digital-storage',
+				'classes/Unit/power-conversions',
+				'classes/Unit/energy-conversions',
+				'classes/Unit/pressure-conversions',
+				'classes/Unit/frequency-conversions',
 			],
 		},
 		{
