@@ -361,7 +361,9 @@ const sidebars: SidebarsConfig = {
 				id: 'classes/Currency',
 			},
 			items: [
-				// 'classes/Currency'
+				'classes/Currency/format',
+				'classes/Currency/convert',
+				'classes/Currency/clearRateCache',
 			],
 		},
 	],

@@ -34,130 +34,14 @@ constructor(amount: Numeric, code: CurrencyCode)
 new Currency(100, 'USD'); // $100.00
 ```
 
-## Static Methods
+## Available Methods
 
-### clearRateCache()
+- Static Methods
+  - [clearRateCache](Currency/clearRateCache)
 
-Clears all cached exchange rates to force fresh API calls.
-
-#### Signature
-
-```typescript
-static clearRateCache(): void
-```
-
-#### Example
-
-```javascript
-Currency.clearRateCache();
-```
-
-## Instance Methods
-
-### format()
-
-Formats the currency amount according to specified locale rules.
-
-#### Signature
-
-```typescript
-format(locale?: LocaleCode): string
-```
-
-#### Parameters
-
-- `locale`: Optional BCP 47 locale code (e.g., 'de-DE')
-
-#### Return Value
-
-Formatted currency string
-
-#### Example
-
-```javascript
-new Currency(1000, 'EUR').format('de-DE'); // "1.000,00 €"
-```
-
-### convert()
-
-Converts currency to target currency using live exchange rates from `Frankfurter API`.
-
-#### Signature
-
-```typescript
-async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): Promise<number>
-```
-
-#### Parameters
-
-- `to`: Target currency code
-- `options`: Optional conversion settings
-  - `fallbackRate`: Manual rate if API fails
-  - `forceRefresh`: Bypass cache
-
-#### Return Value
-
-Converted amount as number
-
-#### Supported Currencies
-
-AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, ISK, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, ZAR
-
-#### Example
-
-```javascript
-await new Currency(100, 'USD').convert('EUR');
-```
-
-## Type Definitions
-
-### CurrencyCode
-
-```typescript
-type CurrencyCode = keyof typeof CURRENCY_LOCALES | (typeof CURRENCY_CODES)[number]
-```
-
-Union of supported currency codes including ISO 4217 codes.
-
-### LocaleCode
-
-```typescript
-type LocaleCode = (typeof CURRENCY_LOCALES)[keyof typeof CURRENCY_LOCALES] | (typeof LOCALE_CODES)[number]
-```
-
-Supported BCP 47 locale codes for formatting.
-
-### SupportedCurrency
-
-```typescript
-type SupportedCurrency = (typeof SUPPORTED_CURRENCIES)[number]
-```
-
-Fiat currencies supported by Frankfurter API.
-
-### ConvertOptions
-
-```typescript
-interface ConvertOptions {
-  fallbackRate?: number;
-  forceRefresh?: boolean;
-}
-```
-
-Options for currency conversion.
-
-### FrankFurter
-
-```typescript
-interface FrankFurter {
-  amount: number;
-  base: CurrencyCode;
-  date: string;
-  rates: Record<CurrencyCode, number>;
-}
-```
-
-Response structure from Frankfurter API.
+- Instance Methods
+  - [format](Currency/format)
+  - [convert](Currency/convert)
 
 ## Properties
 
@@ -167,7 +51,7 @@ Response structure from Frankfurter API.
 readonly currency: string
 ```
 
-Pre-formatted currency string using 'en-US' locale.
+Pre-formatted currency string using `'en-US'` locale.
 
 ## Examples
 
