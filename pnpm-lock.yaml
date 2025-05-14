@@ -39,11 +39,11 @@ importers:
         specifier: ^16.5.0
         version: 16.5.0
       nhb-hooks:
-        specifier: ^1.2.3
-        version: 1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.10.3
+        version: 1.10.3(nhb-toolbox@4.10.50)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.10.44
-        version: 4.10.44
+        specifier: ^4.10.50
+        version: 4.10.50
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -3458,14 +3458,15 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nhb-hooks@1.2.3:
-    resolution: {integrity: sha512-Gs5IeWMSh4kyxZ05QzHS7yP64uzMGgoMlwNUsLJuxIRCAJbuMBUNLSruCvodT5Y9cYrIQg40hFrnhviJb1x2RQ==}
+  nhb-hooks@1.10.3:
+    resolution: {integrity: sha512-hLXDS8oHRZzdmb2WD5po07ZFsTuEWhUsWmv5XY+QDfO5h7fKFXDMb+1J5rvxIaovq+/Pk7Sl4fpibaGnmyWFnw==}
     peerDependencies:
+      nhb-toolbox: '>=4.0.0'
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  nhb-toolbox@4.10.44:
-    resolution: {integrity: sha512-2n2rM7rk5kc1aDh0SWPHSdIxDL40hn3CVIW/HACVKnAyrmTYeB+Y8UuB6JkRJCp8KV31ls9kPg+HYsmsXtmFpA==}
+  nhb-toolbox@4.10.50:
+    resolution: {integrity: sha512-BdWEA5IL8cEDVVgeiFEVYBIeTZn2gXTHdUeX5XdKomzvT0MWtOeZm/xHt5I0WkU+P3QkCKXws9k8ankIF+knEQ==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -9668,12 +9669,13 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.10.3(nhb-toolbox@4.10.50)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
+      nhb-toolbox: 4.10.50
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-toolbox@4.10.44: {}
+  nhb-toolbox@4.10.50: {}
 
   no-case@3.0.4:
     dependencies:
