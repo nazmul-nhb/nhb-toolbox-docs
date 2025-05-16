@@ -3,6 +3,8 @@ id: form-guards
 title: Form Guards
 ---
 
+> Most of the guards here are file checkers, which should have been in separate `file-guards` page/section, they are here because they were used in FormData creation and validation.
+
 <!-- markdownlint-disable-file MD024 -->
 ## isValidFormData
 
@@ -184,7 +186,7 @@ Checks if a value is an array of native File objects.
 ### Function Signature
 
 ```typescript
-function isFileArray(value: unknown): value is File[]
+function isFileArray(value: unknown): value is File[] | Blob[]
 ```
 
 ### Validation Rules
@@ -221,6 +223,32 @@ function isFileList(value: unknown): value is FileList
 ```typescript
 const fileInput = document.querySelector('input[type="file"]');
 isFileList(fileInput.files); // true
+```
+
+---
+
+## isFileOrBlob
+
+Checks if a given value is an instance of `File` or `Blob`.
+
+### Function Signature
+
+```typescript
+function isFileOrBlob(value: unknown): value is File | Blob
+```
+
+### Validation Rules
+
+- Must be File/Blob instance
+- Available in browser environments
+
+### Example
+
+```typescript
+const file = new File(['hello world'], 'hello.txt', {
+ type: 'text/plain',
+});
+isFileOrBlob(file); // true
 ```
 
 ---

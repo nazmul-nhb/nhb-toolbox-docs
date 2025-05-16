@@ -212,12 +212,33 @@ isUndefined(null);      // false
 
 ### `isPrimitive`
 
-Validates if a value is a JavaScript primitive.
+Validates if a value is a JavaScript primitive. It covers `string | number | boolean | symbol | bigint | null | undefined`
 
 **Signature:**
 
 ```typescript
 function isPrimitive(value: unknown): value is Primitive
+```
+
+**Examples:**
+
+```typescript
+isPrimitive('hello');       // true
+isPrimitive(42);            // true
+isPrimitive(null);          // true
+isPrimitive({});            // false
+isPrimitive(Symbol('id'));  // true
+isPrimitive(123n);          // true (Bigint)
+```
+
+### `isNormalPrimitive`
+
+Validates if a value is a normal JavaScript primitive. It covers `string | number | boolean | null | undefined`
+
+**Signature:**
+
+```typescript
+function isPrimitive(value: unknown): value is NormalPrimitive
 ```
 
 **Examples:**

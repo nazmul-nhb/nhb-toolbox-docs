@@ -1,6 +1,6 @@
 {
-  "name": "nhb-toolbox",
-  "version": "1.4.2",
+  "name": "nhb-toolbox-docs",
+  "version": "4.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -13,7 +13,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "commit": "nhb-commit"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
@@ -26,7 +27,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "nhb-hooks": "^1.10.3",
-    "nhb-toolbox": "^4.10.50",
+    "nhb-toolbox": "^4.10.54",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -38,6 +39,7 @@
     "@docusaurus/types": "3.7.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
+    "nhb-scripts": "^0.5.10",
     "typescript": "~5.8.3"
   },
   "browserslist": {
