@@ -40,6 +40,9 @@ function HomepageHeader() {
 					<div className={styles.heroHighlightItem}>
 						<strong>Zero Dependencies</strong> lightweight solution
 					</div>
+					<div className={styles.heroHighlightItem}>
+						<strong>Tree-Shakable</strong> — bundle only what you use
+					</div>
 				</div>
 
 				<div style={{ margin: '16px auto 0px' }}>
