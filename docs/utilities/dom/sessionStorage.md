@@ -2,7 +2,7 @@
 id: session-storage
 title: Session Storage Utilities
 ---
-<!-- markdownlint-disable-file MD024 -->
+
 Convenient utilities to safely interact with the browser's [Session Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). Store, retrieve, and remove typed items for per-tab and per-session persistence.
 
 ---
@@ -10,6 +10,7 @@ Convenient utilities to safely interact with the browser's [Session Storage API]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<!-- markdownlint-disable-file MD024 -->
 ## Import
 
 ```typescript

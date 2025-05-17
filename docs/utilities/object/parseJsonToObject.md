@@ -3,6 +3,8 @@ id: parseJsonToObject
 title: Parse JSON To Object
 ---
 
+## parseJsonToObject
+
 Safely parses a JSON string into an object with optional primitive value conversion.
 
 ## Import

@@ -3,6 +3,8 @@ id: convertArrayToString
 title: Convert Array to String
 ---
 
+## convertArrayToString
+
 Joins elements of an array into a single string, using a custom separator.
 
 ## Import

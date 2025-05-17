@@ -3,6 +3,8 @@ id: parseQueryString
 title: Parse Query String into Object
 ---
 
+## parseQueryString
+
 Parses a query string (optionally starting with `?`) into a JavaScript object.  
 Supports arrays for duplicate keys, and can intelligently convert string values to primitives (numbers, booleans, null).
 

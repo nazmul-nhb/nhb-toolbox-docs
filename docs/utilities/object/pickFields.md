@@ -3,6 +3,8 @@ id: pickFields
 title: Pick Object Fields
 ---
 
+## pickFields
+
 Creates a new object containing only the specified properties from a source object.
 
 ## Import

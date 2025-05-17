@@ -3,6 +3,8 @@ id: mergeAndFlattenObjects
 title: Merge And Flatten Objects
 ---
 
+## mergeAndFlattenObjects
+
 Deeply merges multiple objects and flattens the resulting structure using dot notation. Duplicate keys are resolved with last-in-wins behavior.
 
 ## Import

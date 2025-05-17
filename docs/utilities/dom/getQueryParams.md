@@ -3,6 +3,8 @@ id: getQueryParams
 title: Get Query Parameters as Object
 ---
 
+## getQueryParams
+
 Retrieves URL query parameters and converts them into a standard JavaScript object with string keys and values.
 
 ## Import

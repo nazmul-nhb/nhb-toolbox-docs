@@ -3,6 +3,8 @@ id: extractNewFields
 title: Extract New Fields
 ---
 
+## extractNewFields
+
 Extracts only new fields that exist in an updated object but not in a base object, including nested fields.
 
 ## Import

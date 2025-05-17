@@ -3,14 +3,14 @@ id: createFormData
 title: Create Controlled FormData  
 ---
 
-## createControlledFormData
+## createFormData
 
 A utility function that converts JavaScript objects into FormData with extensive configuration options for handling nested structures, file uploads, and data transformations.
 
 ### Function Signature
 
 ```typescript
-function createControlledFormData<T extends GenericObject>(
+function createFormData<T extends GenericObject>(
   data: T,
   configs?: FormDataConfigs<T>
 ): FormData
@@ -73,9 +73,9 @@ function createControlledFormData<T extends GenericObject>(
 ### Example Usage
 
 ```typescript
-import { createControlledFormData } from 'nhb-toolbox';
+import { createFormData } from 'nhb-toolbox';
 
-const formData = createControlledFormData({
+const formData = createFormData({
   user: {
     name: ' John Doe ',
     age: 30,
@@ -99,8 +99,8 @@ const formData = createControlledFormData({
 
 ### Aliases
 
-- `createFormData`
 - `convertIntoFormData`
+- `createControlledFormData`
 
 ### Type Definitions
 
@@ -193,7 +193,7 @@ This utility may not work as expected in SSR environments (like Next.js Server C
 
 ### Conclusion
 
-The `createControlledFormData` function provides:
+The `createFormData` function provides:
 
 1. **Comprehensive** object-to-FormData conversion
 2. **Fine-grained control** over data formatting

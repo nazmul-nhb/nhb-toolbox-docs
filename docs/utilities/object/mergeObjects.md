@@ -3,6 +3,8 @@ id: mergeObjects
 title: Merge Objects
 ---
 
+## mergeObjects
+
 Deeply merges two or more objects using a Map for efficient key-value storage and conflict resolution.
 
 ## Import

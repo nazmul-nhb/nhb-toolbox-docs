@@ -3,6 +3,8 @@ id: remapFields
 title: Remap Object Fields
 ---
 
+## remapFields
+
 Transforms an object's structure by mapping properties to new names according to a provided field mapping.
 
 ## Import

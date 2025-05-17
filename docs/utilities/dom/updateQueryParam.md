@@ -3,6 +3,8 @@ id: updateQueryParam
 title: Update Query Parameter in URL
 ---
 
+## updateQueryParam
+
 Updates a query parameter in the browser's current URL without reloading the page, using the History API.
 
 ## Import

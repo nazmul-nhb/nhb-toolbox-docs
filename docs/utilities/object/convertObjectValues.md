@@ -6,6 +6,8 @@ title: Convert Object Values
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## convertObjectValues
+
 Converts specified values in objects or arrays of objects between string and number types, supporting nested properties via dot notation.
 
 ## Import

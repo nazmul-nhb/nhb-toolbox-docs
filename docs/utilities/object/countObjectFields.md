@@ -6,6 +6,8 @@ title: Count Object Fields
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## countObjectFields
+
 Counts the number of enumerable properties in an object.
 
 ## Import

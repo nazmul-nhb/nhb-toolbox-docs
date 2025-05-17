@@ -3,6 +3,8 @@ id: smoothScrollTo
 title: Smooth Scroll to Element
 ---
 
+## smoothScrollTo
+
 Smoothly scrolls the webpage to a given HTML element, with optional vertical pixel offset for fine positioning.
 
 ## Import

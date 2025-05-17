@@ -4,7 +4,7 @@ title: Number to Words
 ---
 
 Converts a numeric value into its English word representation.  
-**Supports up to `10^20` (one hundred quintillion)**. Decimal fractions are ignored.
+**Supports up to `10e19` or `10^20` (one hundred quintillion)**. Decimal fractions are ignored.
 
 ---
 

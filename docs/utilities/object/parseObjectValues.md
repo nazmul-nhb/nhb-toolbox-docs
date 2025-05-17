@@ -3,6 +3,8 @@ id: parseObjectValues
 title: Parse Object Values
 ---
 
+## parseObjectValues
+
 Recursively converts stringified primitive values within objects and arrays to their proper types (boolean, number, null, etc.), while preserving non-string values and handling nested structures.
 
 ## Import

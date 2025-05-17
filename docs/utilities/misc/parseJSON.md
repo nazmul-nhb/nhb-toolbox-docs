@@ -3,6 +3,8 @@ id: parseJSON
 title: Parse Any JSON (Flexible Root)
 ---
 
+## parseJSON
+
 Parses any valid JSON string (including arrays, primitives, or objects) and optionally converts stringified primitives in nested arrays or objects. This utility is ideal when the root value of the JSON could be anything, not just an object.
 
 ---

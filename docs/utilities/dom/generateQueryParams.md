@@ -3,6 +3,8 @@ id: generateQueryParams
 title: Generate Query Parameters  
 ---
 
+## generateQueryParams  
+
 Generates a URL-encoded query string from an object, flattening nested fields and supporting arrays, booleans, and various primitive types.
 
 ## Import

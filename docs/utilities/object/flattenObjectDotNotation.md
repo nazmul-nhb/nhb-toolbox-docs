@@ -3,6 +3,8 @@ id: flattenObjectDotNotation
 title: Flatten Object Dot Notation
 ---
 
+## flattenObjectDotNotation
+
 Converts a nested object structure into a flat object using dot notation for keys.
 
 ## Import

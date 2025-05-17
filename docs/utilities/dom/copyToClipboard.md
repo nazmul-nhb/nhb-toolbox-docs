@@ -3,6 +3,8 @@ id: copyToClipboard
 title: Copy Text to Clipboard
 ---
 
+## copyToClipboard
+
 Copies text to the user's clipboard using modern clipboard APIs when available, falling back to older methods for browser compatibility. Returns a Promise that resolves when the operation completes.
 
 ## Import

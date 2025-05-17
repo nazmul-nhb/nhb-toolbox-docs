@@ -1,7 +1,9 @@
 ---
 id: throttleAction
-title: Throttle Function
+title: Throttle Function/Action
 ---
+
+## throttleAction
 
 Creates a throttled version of a callback that ensures it executes at most once every specified interval. Ideal for controlling calls on rapid, repeat events like scrolling or resizing.
 

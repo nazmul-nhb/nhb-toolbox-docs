@@ -1,7 +1,9 @@
 ---
 id: debounceAction
-title: Debounce Function
+title: Debounce Function/Action
 ---
+
+## debounceAction
 
 Creates a debounced version of a callback that delays its execution until after a specified period of inactivity. Useful for search, auto-complete, resize, and other rapid trigger scenarios.
 

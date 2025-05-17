@@ -2,7 +2,7 @@
 id: local-storage
 title: Local Storage Utilities
 ---
-<!-- markdownlint-disable-file MD024 -->
+
 A simple set of utilities to interact safely and conveniently with the browser's [Local Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Handles storing, retrieving, and removing typed items.
 
 ---
@@ -10,6 +10,7 @@ A simple set of utilities to interact safely and conveniently with the browser's
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<!-- markdownlint-disable-file MD024 -->
 ## Import
 
 ```typescript

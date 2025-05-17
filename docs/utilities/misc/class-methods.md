@@ -2,11 +2,12 @@
 id: class-methods
 title: Class Methods Inspection Utilities
 ---
-<!-- markdownlint-disable-file MD024 -->
+
 Powerful utilities for examining and summarizing the instance/static methods of JavaScript/TypeScript classes. Analyze class APIs, count methods, and get comprehensive breakdowns—great for meta-programming, documentation tooling, and runtime validation.
 
 ---
 
+<!-- markdownlint-disable-file MD024 -->
 ## Import
 
 ```typescript

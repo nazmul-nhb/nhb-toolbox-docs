@@ -6,6 +6,8 @@ title: Sanitize Data
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## sanitizeData
+
 A versatile utility that cleans and normalizes strings, arrays, and objects by trimming whitespace, removing empty values, and applying customizable filters.
 
 ## Import

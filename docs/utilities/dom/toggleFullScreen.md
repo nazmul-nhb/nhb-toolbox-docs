@@ -3,6 +3,8 @@ id: toggleFullScreen
 title: Toggle Full Screen Mode
 ---
 
+## toggleFullScreen
+
 Toggles the browser’s full-screen mode for a given element, or the entire document by default. Handles browser compatibility (including WebKit/Safari).
 
 ## Import

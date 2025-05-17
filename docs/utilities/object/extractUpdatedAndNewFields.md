@@ -3,6 +3,8 @@ id: extractUpdatedAndNewFields
 title: Extract Updated And New Fields
 ---
 
+## extractUpdatedAndNewFields
+
 Identifies both changed and newly added fields between two objects, including deep/nested changes.
 
 ## Import

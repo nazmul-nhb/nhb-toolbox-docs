@@ -3,6 +3,8 @@ id: pickFieldsByCondition
 title: Pick Object Fields By Condition
 ---
 
+## pickFieldsByCondition
+
 Creates a new object containing only the properties that satisfy a given condition.
 
 ## Import

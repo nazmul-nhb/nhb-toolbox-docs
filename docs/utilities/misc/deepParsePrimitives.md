@@ -3,6 +3,8 @@ id: deepParsePrimitives
 title: Deep Parse Primitive Values
 ---
 
+## deepParsePrimitives
+
 Recursively parses an input—object, array, or primitive—and converts stringified numbers, booleans, `null`, and `undefined` to their proper JavaScript types throughout the structure.
 
 ---
