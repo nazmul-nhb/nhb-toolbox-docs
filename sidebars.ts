@@ -200,6 +200,7 @@ const sidebars: SidebarsConfig = {
 				id: 'utilities/date/date',
 			},
 			items: [
+				'utilities/date/chronos',
 				'utilities/date/getGreeting',
 				'utilities/date/formatUTCOffset',
 				'utilities/date/extractHourMinute',
