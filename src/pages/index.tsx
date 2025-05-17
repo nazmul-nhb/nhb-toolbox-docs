@@ -45,11 +45,11 @@ function HomepageHeader() {
 				<div style={{ margin: '16px auto 0px' }}>
 					<a
 						href="https://www.npmjs.com/package/nhb-toolbox"
-						aria-label="Downloads"
+						aria-label="Downloads per Month"
 					>
 						<img
 							src="https://img.shields.io/npm/dm/nhb-toolbox.svg?label=downloads&style=for-the-badge&color=teal"
-							alt="Downloads"
+							alt="Downloads per Month"
 						/>
 					</a>
 				</div>

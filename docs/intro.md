@@ -7,7 +7,9 @@ slug: /intro
 <!-- markdownlint-disable MD025 -->
 # Welcome to NHB Toolbox 📦
 
-`nhb-toolbox` provides battle-tested utilities for professional TypeScript development. Carefully crafted to solve common challenges with elegant, production-ready solutions:
+> **Replace Boilerplate(s) with One-Liner(s)**
+
+`nhb-toolbox` provides battle-tested utilities for professional TypeScript/JavaScript development. Carefully crafted to solve common challenges with elegant, production-ready solutions:
 
 - **Helper Functions & Classes**: Reusable solutions for everyday tasks
 - **Type Guards & Predicates**: Runtime safety with perfect type inference
@@ -42,3 +44,26 @@ pnpm add nhb-toolbox
 - **IDE Support**: Full type hints with JSDoc-powered API references in your editor
 - **Battle-Tested**: Reliable utilities refined through real-world production use
 - **Optimized for Production**: Focused on clean, efficient implementations
+
+## 🔗 Related Packages
+
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <a target="_blank" href="https://www.npmjs.com/package/nhb-hooks">
+    <img src="https://img.shields.io/badge/React_Hooks-nhb--hooks-blue" alt="nhb-hooks" />
+  </a>
+  <span style={{ marginTop: -8 }}>- React hooks collection for React applications</span>
+</div>
+
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <a target="_blank" href="https://www.npmjs.com/package/nhb-anagram-generator">
+    <img src="https://img.shields.io/badge/Anagram_Generator-nhb--anagram--generator-teal" alt="nhb-anagram-generator" />
+  </a>
+  <span style={{ marginTop: -8 }}>- Generate meaningful anagrams</span>
+</div>
+
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <a target="_blank" href="https://www.npmjs.com/package/nhb-scripts">
+    <img src="https://img.shields.io/badge/Scripts-nhb--scripts-red" alt="nhb-scripts" />
+  </a>
+  <span style={{ marginTop: -8 }}>- Development scripts for package.json (Experimental)</span>
+</div>

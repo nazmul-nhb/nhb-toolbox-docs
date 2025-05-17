@@ -203,7 +203,7 @@ export default async function config(): Promise<Config> {
 								to: '/docs/classes',
 							},
 							{
-								label: 'Predicates & Type Guards',
+								label: 'Predicates',
 								to: '/docs/predicates-guards',
 							},
 						],
@@ -241,7 +241,11 @@ export default async function config(): Promise<Config> {
 								href: 'https://www.npmjs.com/package/nhb-toolbox',
 							},
 							{
-								label: 'Website',
+								label: 'NHB Hooks',
+								href: 'https://www.npmjs.com/package/nhb-hooks',
+							},
+							{
+								label: 'Personal Website',
 								href: 'https://nazmul-nhb.vercel.app',
 							},
 						],
