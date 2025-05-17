@@ -17,6 +17,12 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 
 ## Usage
 
+### Import
+
+```ts
+import { chronos } from 'nhb-toolbox';
+```
+
 ### Basic Instantiation
 
 ```typescript
@@ -69,6 +75,18 @@ Chronos.parse('2023-12-31', 'YYYY-MM-DD')
 Chronos.today()
 Chronos.isLeapYear(2024)
 ```
+
+## Aliases
+
+The `chronos` function is also available under the following aliases:
+
+- `chronosjs`
+- `chronosts`
+- `chronus`
+- `chronusjs`
+- `chronusts`
+
+> These aliases exist to support flexible naming conventions and common user preferences.
 
 ## Full Documentation
 
