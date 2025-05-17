@@ -3,6 +3,17 @@ id: guards
 title: Type Guards
 ---
 
+## Runtime Type Safety with Zero Compromise
+
+NHB Toolbox delivers predicate functions and type guards that work seamlessly with TypeScript's type system. These guards validate your data at runtime while maintaining perfect static type inference.
+
+### Why Guards Stand Out
+
+- **No More `as` Casting** - Real type narrowing that TypeScript trusts
+- **Composite Guards** - Combine validations with `&&`/`||` operators
+- **Framework Agnostic** - Works anywhere TypeScript runs
+- **No Magic Strings** - Pure type-safe assertions
+
 ## Use Cases
 
 ### Data Validation Pipelines
@@ -90,3 +101,5 @@ function handleError(error: unknown) {
 4. **Edge Cases**: Handles null/undefined and exotic cases properly
 5. **Purity**: No side effects in any implementation
 6. **Cross-Realm**: Works with objects from different JavaScript realms
+
+Browse by category or use the search to find the perfect type guard for your task.

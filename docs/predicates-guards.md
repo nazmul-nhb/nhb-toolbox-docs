@@ -1,4 +1,55 @@
 ---
 id: predicates-guards
-title: Predicates & Guards
+title: Predicates & Type Guards
 ---
+
+## Runtime Validation with TypeScript Precision
+
+NHB Toolbox provides two complementary validation tools:
+
+### 1. [Predicate Functions](predicates) (Boolean Validators)
+
+Simple functions that return `boolean` without affecting TypeScript's type system:
+
+```ts
+const isValid = isEmail(input); // Returns true/false
+```
+
+### 2. [Type Guards](guards) (Type Narrowing)
+
+Functions using `x is T` syntax that narrow types in conditional blocks:
+
+```ts
+if (isString(input)) { // input is now narrowed to string type
+  input.toLowerCase(); // Type-safe access
+}
+```
+
+### Key Differences
+
+| Feature          | Predicates        | Type Guards       |
+|------------------|-------------------|-------------------|
+| Return type      | `boolean`         | `value is Type`   |
+| Type narrowing   | No                | Yes               |
+| Usage            | Anywhere          | Conditionals      |
+| Example          | `isEmail(value)`  | `isString(value)` |
+
+### Why This Matters
+
+- **Predicates** for simple validation
+- **Guards** when you need type narrowing
+- **Consistent naming**: All guards end with `Guard` suffix
+
+```ts
+// Predicate (boolean)
+const valid = isUUID(value); 
+
+// Type Guard (narrows)
+if (isUUIDGuard(value)) {
+  // value is now UUID type
+}
+```
+
+**Production Tip:** Use predicates for filtering arrays and guards for control flow.
+
+Browse by category or use the search to find the perfect predicate/type guard for your task.

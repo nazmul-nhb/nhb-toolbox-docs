@@ -1,4 +1,21 @@
 ---
 id: classes
-title: Classes - Explore well-crafted classes for efficiency during development.
+title: Explore well-crafted classes for efficiency
 ---
+
+## Specialized Classes for Complex Problems
+
+NHB Toolbox includes six robust classes that encapsulate advanced functionality
+
+- [**`Chronos`**](/docs/classes/Chronos) - Advanced date/time manipulation  
+- [**`Color`**](/docs/classes/Color) - Comprehensive color management  
+- [**`Finder`**](/docs/classes/Finder) - Sophisticated array searching  
+- [**`Paginator`**](/docs/classes/Paginator) - Elegant pagination handling  
+- [**`Unit`**](/docs/classes/Unit) & [**`Currency`**](/docs/classes/Currency) - Unit and currency handling
+
+## Key Features
+
+- Immutable operations where applicable  
+- Chainable method patterns  
+- Type-safe inputs and outputs  
+- Consistent error handling
