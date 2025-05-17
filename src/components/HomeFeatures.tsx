@@ -1,73 +1,156 @@
+import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import { type JSX, type ReactNode } from 'react';
 import styles from './styles.module.css';
 
 type FeatureItem = {
-	title: string;
+	title: ReactNode;
 	description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: 'String Utilities',
+		title: <Link to="/docs/classes">Core Classes</Link>,
 		description: (
 			<>
-				Functions for string manipulation, including capitalization, trimming,
-				truncation, case conversion, and anagram generation.
+				<strong>Specialized classes</strong> that solve complex problems:
+				<ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
+					<li>
+						<Link to="/docs/classes/Chronos">
+							<code>Chronos</code>
+						</Link>{' '}
+						- Advanced date/time manipulation
+					</li>
+					<li>
+						<Link to="/docs/classes/Color">
+							<code>Color</code>
+						</Link>{' '}
+						- Comprehensive color management
+					</li>
+					<li>
+						<Link to="/docs/classes/Finder">
+							<code>Finder</code>
+						</Link>{' '}
+						- Sophisticated array searching
+					</li>
+					<li>
+						<Link to="/docs/classes/Paginator">
+							<code>Paginator</code>
+						</Link>{' '}
+						- Elegant pagination handling
+					</li>
+					<li>
+						<Link to="/docs/classes/Unit">
+							<code>Unit</code>
+						</Link>{' '}
+						and{' '}
+						<Link to="/docs/classes/Currency">
+							<code>Currency</code>
+						</Link>{' '}
+						for unit and currency handling.
+					</li>
+				</ul>
 			</>
 		),
 	},
 	{
-		title: 'Number Utilities',
+		title: <Link to="/docs/utilities/string">String Utilities</Link>,
 		description: (
 			<>
-				Tools for numerical operations such as calculating HCF/LCM, prime number
-				identification, range generation, and number-to-words conversion.
+				Comprehensive string manipulation including case conversion, anagram
+				generation, string masking, URL/email extraction, and advanced text
+				processing with Levenshtein distance and many more.
 			</>
 		),
 	},
 	{
-		title: 'Color Utilities',
+		title: <Link to="/docs/utilities/number">Number Utilities</Link>,
 		description: (
 			<>
-				Utilities for color code conversions between HEX, RGB, HSL formats, and
-				random color generation.
+				Mathematical operations (HCF/LCM, averages), Fibonacci generators, prime
+				number utilities, number conversions (words, Roman numerals), currency
+				formatting, unit conversion, and many more.
 			</>
 		),
 	},
 	{
-		title: 'Array Utilities',
+		title: <Link to="/docs/utilities/object">Object Utilities</Link>,
 		description: (
 			<>
-				Methods for array operations like filtering, flattening, shuffling, sorting,
-				and removing duplicates.
+				Deep object operations including cloning, merging, flattening, field
+				counting, selective picking/remapping, JSON parsing/serialization, and deep
+				equality checks and many more.
 			</>
 		),
 	},
 	{
-		title: 'Form Utilities',
+		title: <Link to="/docs/utilities/array">Array Utilities</Link>,
 		description: (
 			<>
-				Functions to handle form data transformations, including conversion to
-				FormData and controlled form data creation.
+				Array transformations (flattening, shuffling), duplicate handling, natural
+				sorting, advanced element finding with Finder class, missing elements
+				detection, and robust array validation.
 			</>
 		),
 	},
 	{
-		title: 'Object Utilities',
+		title: <Link to="/docs/utilities/color">Color Utilities</Link>,
 		description: (
 			<>
-				Tools for object manipulation, such as cloning, field counting, query
-				parameter generation, and deep equality checks.
+				Advanced color manipulation with conversion between HEX, RGB, HSL formats,
+				random color generation, alpha channel support, and specialized utilities
+				for working with color initials.
 			</>
 		),
 	},
 	{
-		title: 'Miscellaneous Utilities',
+		title: <Link to="/docs/utilities/date">Date & Time Utilities</Link>,
 		description: (
 			<>
-				Additional helpers including debounce, throttle functions, and deep equality
-				checks.
+				Timezone handling, UTC conversions, greeting generation, leap year
+				detection, and comprehensive date validation with strict type guards. With{' '}
+				<code>
+					<Link to="/docs/classes/Chronos">Chronos</Link>
+				</code>{' '}
+				class or its wrapper <code>chronos</code> date and time can be manipulated
+				so easily.
+			</>
+		),
+	},
+	{
+		title: <Link to="/docs/utilities/form">Form Utilities</Link>,
+		description: (
+			<>
+				Form data handling with type-safe FormData creation, parsing, serialization,
+				and comprehensive file upload validation with multiple guard utilities.
+			</>
+		),
+	},
+	{
+		title: <Link to="/docs/utilities/dom">DOM Utilities</Link>,
+		description: (
+			<>
+				Query parameter handling, clipboard operations, smooth scrolling, fullscreen
+				toggling, and Web Storage (local/session) management.
+			</>
+		),
+	},
+	{
+		title: <Link to="/docs/utilities/misc">Miscellaneous Utilities</Link>,
+		description: (
+			<>
+				Debounce/throttle functions, deep parsing, class introspection, Paginator
+				class, and various helper utilities for production-grade apps.
+			</>
+		),
+	},
+	{
+		title: <Link to="/docs/predicates-guards">Predicate Functions & Type Guards</Link>,
+		description: (
+			<>
+				Comprehensive runtime type checking for primitives, non-primitives, and
+				special types (Base64, Email, UUID, URLs) with perfect TypeScript type
+				inference. Also has a collection of predicte functions.
 			</>
 		),
 	},

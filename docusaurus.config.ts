@@ -89,7 +89,10 @@ export default async function config(): Promise<Config> {
 						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development',
 				},
 				{ name: 'author', content: 'Nazmul Hassan' },
-				{ name: 'copyright', content: 'Copyright © 2025 Nazmul Hassan' },
+				{
+					name: 'copyright',
+					content: `Copyright © ${new Date().getTime()} Nazmul Hassan`,
+				},
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
 				{ name: 'og:title', content: 'NHB Toolbox' },

@@ -7,9 +7,14 @@ slug: /intro
 <!-- markdownlint-disable MD025 -->
 # Welcome to NHB Toolbox 📦
 
-`nhb-toolbox` is a **utility library** that provides a collection of helpful functions and classes for **strings, numbers, arrays, objects, colors, forms, currency, units, date, pagination, and many more**.
+`nhb-toolbox` provides battle-tested utilities for professional TypeScript development. Carefully crafted to solve common challenges with elegant, production-ready solutions:
 
-## Install
+- **Helper Functions & Classes**: Reusable solutions for everyday tasks
+- **Type Guards & Predicates**: Runtime safety with perfect type inference
+- **Validation Utilities**: Robust data validation patterns
+- **Zero Dependencies**: Framework-agnostic implementation using only native TS/JS with 0 external package
+
+## ⬇️ Install
 
 - NPM
 
@@ -31,10 +36,9 @@ pnpm add nhb-toolbox
 
 ## 🚀 Features
 
-- 🔠 **String Utilities** – Manipulate, transform, and analyze strings.
-- 🔢 **Number Utilities** – Perform calculations, number conversions, and checks.
-- 🎨 **Color Utilities** – Convert and generate color codes easily.
-- 📦 **Array & Object Utilities** – Work with data structures efficiently.
-- 📝 **Form Utilities** – Handle form data transformations.
-- ⚡ **Performance Utilities** – Debounce, throttle, and optimize actions.
-- ⚡ Many more Loading...
+- **Type-Safe Utilities**:Fully typed for perfect TypeScript integration with strict type checking
+- **Modular Design**: Tree-shaking friendly – import only what you need with zero bloat
+- **Zero Dependencies**: No external dependencies - works with any JS/TS framework
+- **IDE Support**: Full type hints with JSDoc-powered API references in your editor
+- **Battle-Tested**: Reliable utilities refined through real-world production use
+- **Optimized for Production**: Focused on clean, efficient implementations
