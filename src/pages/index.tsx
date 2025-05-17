@@ -32,13 +32,13 @@ function HomepageHeader() {
 
 				<div className={styles.heroHighlights}>
 					<div className={styles.heroHighlightItem}>
-						<strong>180+ Utilities</strong> for daily development
+						<strong>180+ Utilities</strong> — for daily development
 					</div>
 					<div className={styles.heroHighlightItem}>
-						<strong>6 Core Classes</strong> for complex scenarios
+						<strong>6 Core Classes</strong> — for complex scenarios
 					</div>
 					<div className={styles.heroHighlightItem}>
-						<strong>Zero Dependencies</strong> lightweight solution
+						<strong>Zero Dependencies</strong> — lightweight solution
 					</div>
 					<div className={styles.heroHighlightItem}>
 						<strong>Tree-Shakable</strong> — bundle only what you use
