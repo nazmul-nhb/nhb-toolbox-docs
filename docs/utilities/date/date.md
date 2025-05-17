@@ -9,9 +9,9 @@ Utilities for date and time operations in TypeScript/JavaScript.
 
 ## Categories
 
-### [Chronos]('/docs/classes/Chronos') Utilities
+### Time-zone and UTC formats handling
 
-Main date/time manipulation class and functions
+Functions for handling utc time formats and conversion
 
 ### Formatting Utilities
 
