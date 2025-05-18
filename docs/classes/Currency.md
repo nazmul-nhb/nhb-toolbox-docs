@@ -1,6 +1,6 @@
 ---
 id: Currency
-title: Currency - Format and convert currencies.
+title: Currency - Format and convert currencies
 ---
 
 <!-- markdownlint-disable-file MD024 -->

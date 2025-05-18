@@ -1,6 +1,6 @@
 ---
 id: Color
-title: Color - Play with Colors - Convert, blend, manipulate and do more.
+title: Color - Play with Colors Convert, blend, manipulate and do more
 ---
 
 <!-- markdownlint-disable-file MD024 -->

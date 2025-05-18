@@ -3,7 +3,7 @@ id: predicates-guards
 title: Predicates & Type Guards
 ---
 
-## Runtime Validation with TypeScript Precision
+## Runtime Validation with Precision
 
 NHB Toolbox provides two complementary validation tools:
 

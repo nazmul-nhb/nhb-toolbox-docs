@@ -1,7 +1,9 @@
 ---
 id: Chronos
-title: Chronos - Play with Time and Date like Chronos.
+title: Chronos - Play with Time and Date like Chronos Himself
 ---
+
+> In ancient Greek mythology, **Chronos** is the personification of time itself — relentless, precise, and inescapable. Just like the god it’s named after, the `Chronos` class embodies control over the abstract flow of time in your application.
 
 <!-- markdownlint-disable-file MD024 -->
 ## API Reference for Chronos

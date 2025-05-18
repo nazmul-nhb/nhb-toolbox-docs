@@ -1,6 +1,6 @@
 ---
 id: Unit
-title: Unit - Convert between units.
+title: Unit - Convert between units
 ---
 
 <!-- markdownlint-disable-file MD024 -->
