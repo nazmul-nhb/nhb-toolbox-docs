@@ -72,6 +72,10 @@ export default function Home() {
 					name="description"
 					content="NHB Toolbox: A comprehensive collection of 180+ type-safe utilities and 6 powerful classes for professional TypeScript/JavaScript development. Featuring string/number/color utilities, FormData and date handling, type guards, and DOM operations."
 				/>
+				<meta
+					name="google-site-verification"
+					content="7RAd0Tra7ew2qzq3mqoDudfooeeFNO_2L16JApkY3YI"
+				/>
 			</Head>
 			<Layout>
 				<HomepageHeader />

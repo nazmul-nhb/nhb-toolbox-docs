@@ -77,6 +77,11 @@ export default async function config(): Promise<Config> {
 					theme: {
 						customCss: './src/css/custom.css',
 					},
+					sitemap: {
+						changefreq: 'weekly',
+						priority: 0.5,
+						filename: 'sitemap.xml',
+					},
 				} satisfies Preset.Options,
 			],
 		],
@@ -86,7 +91,7 @@ export default async function config(): Promise<Config> {
 				{
 					name: 'keywords',
 					content:
-						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development',
+						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development',
 				},
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
