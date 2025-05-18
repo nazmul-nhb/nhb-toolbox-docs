@@ -82,6 +82,13 @@ export default async function config(): Promise<Config> {
 						priority: 0.5,
 						filename: 'sitemap.xml',
 					},
+					gtag: {
+						trackingID: 'G-X2Z2YZ8LWZ',
+						anonymizeIP: true,
+					},
+					googleTagManager: {
+						containerId: 'GTM-PDNKZ4VF',
+					},
 				} satisfies Preset.Options,
 			],
 		],

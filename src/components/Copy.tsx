@@ -5,20 +5,22 @@ import toast, { Toaster } from 'react-hot-toast';
 
 interface Props {
 	text: string;
+	afterCopy?: string;
+	message?: string;
 }
 
-export default function Copy({ text }: Props) {
+export default function Copy({ text, afterCopy = '✅', message = 'Token Copied!' }: Props) {
 	const { colorMode } = useColorMode();
 
 	const { copiedText, copyToClipboard } = useCopyText({
 		onSuccess: (msg) => toast.success(msg),
-		resetTimeOut: 1000,
+		resetTimeOut: 1500,
 	});
 
 	return (
 		<Fragment>
 			<button
-				onClick={() => copyToClipboard(text, 'Token Copied')}
+				onClick={() => copyToClipboard(text, message)}
 				style={{
 					background: 'none',
 					border: 'none',
@@ -28,7 +30,7 @@ export default function Copy({ text }: Props) {
 					fontFamily: 'var(--ifm-font-family-monospace)',
 				}}
 			>
-				{copiedText ? '✅' : text}
+				{copiedText ? afterCopy : text}
 			</button>
 			<Toaster
 				toastOptions={{

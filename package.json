@@ -7,6 +7,7 @@
     "dev": "docusaurus start",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "postbuild": "node fix-sitemap.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

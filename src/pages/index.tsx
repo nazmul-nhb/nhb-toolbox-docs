@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { Fragment } from 'react';
 import HomeFeatures from '../components/HomeFeatures';
 
+import Copy from '../components/Copy';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -45,7 +46,11 @@ function HomepageHeader() {
 					</div>
 				</div>
 
-				<div style={{ margin: '16px auto 0px' }}>
+				<div
+					style={{
+						margin: '16px auto 0px',
+					}}
+				>
 					<a
 						href="https://www.npmjs.com/package/nhb-toolbox"
 						aria-label="Downloads per Month"
@@ -56,6 +61,13 @@ function HomepageHeader() {
 						/>
 					</a>
 				</div>
+				<code style={{ padding: '4px 8px' }}>
+					<Copy
+						afterCopy="installation command copied"
+						message="Copied!"
+						text="npm i nhb-toolbox"
+					/>
+				</code>
 			</div>
 		</header>
 	);

@@ -33,7 +33,7 @@ function sanitizeData<T extends GenericObject, B extends PartialOrRequired = 're
 ): B extends 'partial' ? FlattenPartial<T> : T;
 
 // Array version with return type control
-function sanitizeData<T, B extends PartialOrRequired = 'required'>(
+function sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
   array: T[],
   options?: SanitizeOptions<T>,
   _return?: B
