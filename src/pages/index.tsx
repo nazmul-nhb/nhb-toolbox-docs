@@ -42,6 +42,9 @@ function HomepageHeader() {
 						<strong>Zero Dependencies</strong> — lightweight solution
 					</div>
 					<div className={styles.heroHighlightItem}>
+						<strong>Framework Agnostic</strong> — works with any JS/TS setup
+					</div>
+					<div className={styles.heroHighlightItem}>
 						<strong>Tree-Shakable</strong> — bundle only what you use
 					</div>
 				</div>

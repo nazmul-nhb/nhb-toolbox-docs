@@ -38,7 +38,7 @@ pnpm add nhb-toolbox
 
 ## 🚀 Features
 
-- **Type-Safe Utilities**:Fully typed for perfect TypeScript integration with strict type checking
+- **Type-Safe Utilities**: Fully typed for perfect TypeScript integration with strict type checking
 - **Modular Design**: Tree-shaking friendly – import only what you need with zero bloat
 - **Zero Dependencies**: No external dependencies - works with any JS/TS framework
 - **IDE Support**: Full type hints with JSDoc-powered API references in your editor
