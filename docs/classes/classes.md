@@ -5,7 +5,7 @@ title: Explore well-crafted classes for efficiency
 
 ## Specialized Classes for Complex Problems
 
-NHB Toolbox includes six robust classes that encapsulate advanced functionality
+NHB Toolbox includes six classes that encapsulate advanced functionalities
 
 - [**`Chronos`**](/docs/classes/Chronos) - Advanced date/time manipulation  
 - [**`Color`**](/docs/classes/Color) - Comprehensive color management  
