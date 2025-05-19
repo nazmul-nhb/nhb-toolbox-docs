@@ -41,6 +41,4 @@ if (isString(input)) { // input is now narrowed to string type
 
 ---
 
-**Production Tip:** Use predicates for filtering arrays and guards for control flow.
-
 Browse by category or use the search to find the perfect predicate/type guard for your task.

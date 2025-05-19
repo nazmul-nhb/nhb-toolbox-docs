@@ -10,9 +10,9 @@ The `getNumbersInRange` function generates a sequence of numbers within a specif
 ### Function Signature
 
 ```typescript
-function getNumbersInRange<T extends GetAs>(
-  type?: NumberType,
-  options?: RangeOptions<T>
+function getNumbersInRange<T extends boolean = false>(
+ type: NumberType = 'any',
+ options?: RangeOptions<T>,
 ): RangedNumbers<T>;
 ```
 
@@ -35,20 +35,20 @@ Configuration object with these properties:
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `getAs` | `'array'` or `'string'` | `'array'` | Output format |
 | `min` | `number` | `0` | Range minimum |
 | `max` | `number` | `100` | Range maximum |
 | `includeMin` | `boolean` | `true` | Include minimum value |
 | `includeMax` | `boolean` | `true` | Include maximum value |
-| `separator` | `string` | `','` | String separator (when `getAs='string'`) |
 | `multiplesOf` | `number` | `undefined` | Filter for multiples of this number |
+| `getAsString` | `boolean` | `false` | Output format |
+| `separator` | `string` | `','` | String separator (only available when `getAsString=true`) |
 
 ### Return Value
 
 Returns either:
 
-- `number[]` when `getAs='array'`
-- `string` when `getAs='string'`
+- `number[]` when `getAsString=false`
+- `string` when `getAsString=true`
 
 ### Example Usage
 
@@ -69,9 +69,9 @@ console.log(getNumbersInRange('any', { min: 1, max: 10 }));
 console.log(getNumbersInRange('prime', { 
   min: 10, 
   max: 30, 
-  getAs: 'string' 
+  getAsString: true 
 }));
-// "11,13,17,19,23,29"
+// "11, 13, 17, 19, 23, 29"
 ```
 
 #### Custom Formatting
@@ -82,7 +82,7 @@ console.log(getNumbersInRange('even', {
   min: 0,
   max: 100,
   multiplesOf: 5,
-  getAs: 'string',
+  getAsString: true,
   separator: ' | '
 }));
 // "0 | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100"
@@ -99,21 +99,21 @@ type NumberType = 'any' | 'natural' | 'odd' | 'even' | 'prime' | 'random';
 #### `RangeOptions<T>`
 
 ```typescript
-interface RangeOptions<T extends GetAs> {
-  getAs?: T;
+interface RangeOptions<T extends boolean = false> {
   min?: number;
   max?: number;
   includeMin?: boolean;
   includeMax?: boolean;
-  separator?: string;
   multiplesOf?: number;
+  getAsString?: T;
+  separator?: string;
 }
 ```
 
 #### `RangedNumbers<T>`
 
 ```typescript
-type RangedNumbers<T extends GetAs> = T extends 'array' ? number[] : string;
+type RangedNumbers<T extends boolean = false> = T extends true ? string : number[];
 ```
 
 ### Notes

@@ -10,7 +10,9 @@ title: Chronos - Play with Time and Date like Chronos Himself
 
 This documentation provides a detailed guide to the `Chronos` class, a comprehensive date and time manipulation class. The methods are grouped into logical categories for easier navigation.
 
-## Table of Contents
+> For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
+
+### Table of Contents
 
 - [Getters](Chronos/getters)
 - [Format Methods](Chronos/format)
@@ -22,4 +24,32 @@ This documentation provides a detailed guide to the `Chronos` class, a comprehen
 - [Comparison Methods](Chronos/comparison)
 - [Symbol Methods](Chronos/symbols)
 
----
+## Overload Signatures
+
+```ts
+ constructor();
+ constructor(value: number);
+ constructor(value: string);
+ constructor(value: Date);
+ constructor(value: Chronos);
+ constructor(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number);
+ constructor(value?: ChronosInput);
+```
+
+### ChronosInput
+
+```ts
+type ChronosInput = number | string | Date | Chronos;
+```
+
+## Import
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+```
+
+## Alias
+
+The `Chronos` class is also available under the following alias:
+
+`Chronus`

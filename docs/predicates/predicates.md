@@ -26,4 +26,6 @@ if (isUUID(value)) {
 }
 ```
 
+---
+
 Browse by category or use the search to find the perfect predicate function for your task.

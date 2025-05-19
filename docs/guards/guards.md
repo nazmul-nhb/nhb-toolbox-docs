@@ -102,4 +102,6 @@ function handleError(error: unknown) {
 - **Purity**: No side effects in any implementation
 - **Cross-Realm**: Works with objects from different JavaScript realms
 
+---
+
 Browse by category or use the search to find the perfect type guard for your task.

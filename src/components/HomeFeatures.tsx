@@ -67,9 +67,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/number">Number Utilities</Link>,
 		description: (
 			<>
-				Mathematical operations (HCF/LCM, averages), Fibonacci generators, prime
-				number utilities, number conversions (words, Roman numerals), currency
-				formatting, unit conversion, and many more.
+				Mathematical operations (HCF/LCM, averages, percentage), Fibonacci
+				generators, prime number utilities, number conversions (words, Roman
+				numerals), currency formatting, and many more.
 			</>
 		),
 	},

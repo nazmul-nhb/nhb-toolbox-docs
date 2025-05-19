@@ -17,6 +17,14 @@ function calculatePercentage(options: PercentageOptions): number;
 
 - **`options`**: An object specifying the calculation mode and the necessary input values. The structure of this object varies depending on the selected mode.
 
+- Common Option:
+
+```ts
+{ roundTo?: number }
+```
+
+> Determines the number of decimal places to round the result to if it's a float.
+
 ### Modes & Parameters (Options)
 
 #### `get-percent`
@@ -105,7 +113,7 @@ Calculates what percentage the `total` is of the `part`.
 
 ### Return Value
 
-Returns the calculated number rounded to three decimal places. If the input is invalid or the calculation cannot be performed (e.g., division by zero), it returns `NaN`.
+Returns the calculated number rounded to three decimal places by default, can be configured through `roundTo` option. If the input is invalid or the calculation cannot be performed (e.g., division by zero), it returns `NaN`.
 
 ### Example Usage
 
@@ -151,8 +159,9 @@ const percentDifference = calculatePercentage({
   mode: 'get-percent-difference',
   value1: 100,
   value2: 120,
+  roundTo: 2,
 });
-console.log(percentDifference); // 18.182
+console.log(percentDifference); // 18.18 instead of 18.182
 
 const inverse = calculatePercentage({
   mode: 'inverse-percent',
@@ -237,7 +246,18 @@ interface InversePercentageOptions {
 }
 
 /** * Options for calculating percentages and related values. */
-type PercentageOptions = GetPercentOptions | GetValueOptions | GetOriginalOptions | GetChangeOptions | ApplyChangeOptions | GetDifferenceOptions | InversePercentageOptions;
+export type PercentageOptions = (
+ | GetPercentOptions
+ | GetValueOptions
+ | GetOriginalOptions
+ | GetChangeOptions
+ | ApplyChangeOptions
+ | GetDifferenceOptions
+ | InversePercentageOptions
+) & {
+ /** The number of decimal places to round the result to. */
+ roundTo?: number;
+};
 ```
 
 ### Notes
