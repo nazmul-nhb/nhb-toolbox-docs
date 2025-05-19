@@ -7,7 +7,7 @@ title: Type Guards
 
 NHB Toolbox delivers predicate functions and type guards that work seamlessly with TypeScript's type system. These guards validate your data at runtime while maintaining perfect static type inference.
 
-### Why Guards Stand Out
+### Why Type Guards Matter
 
 - **No More `as` Casting** - Real type narrowing that TypeScript trusts
 - **Composite Guards** - Combine validations with `&&`/`||` operators
@@ -46,7 +46,7 @@ async function fetchUser(id: string): Promise<User> {
   const response = await fetch(`/api/users/${id}`);
   const data = await response.json();
   
-  if (isObjectWithKeys<User>(data, ['id', 'name', 'email']) &&
+  if (isObjectWithKeys(data, ['id', 'name', 'email']) &&
       isString(data.name) &&
       isString(data.email)) {
     return data;
@@ -95,11 +95,11 @@ function handleError(error: unknown) {
 
 ## Notes
 
-1. **Performance**: All guards use minimal operations for maximum speed
-2. **Type Safety**: Each guard provides proper TypeScript type narrowing
-3. **Consistency**: Matches JavaScript's type system behavior exactly
-4. **Edge Cases**: Handles null/undefined and exotic cases properly
-5. **Purity**: No side effects in any implementation
-6. **Cross-Realm**: Works with objects from different JavaScript realms
+- **Performance**: All guards use minimal operations for maximum speed
+- **Type Safety**: Each guard provides proper TypeScript type narrowing
+- **Consistency**: Matches JavaScript's type system behavior exactly
+- **Edge Cases**: Handles null/undefined and exotic cases properly
+- **Purity**: No side effects in any implementation
+- **Cross-Realm**: Works with objects from different JavaScript realms
 
 Browse by category or use the search to find the perfect type guard for your task.

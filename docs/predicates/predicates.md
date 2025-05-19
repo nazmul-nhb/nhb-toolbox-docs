@@ -18,7 +18,7 @@ NHB Toolbox provides predicate functions that deliver simple, efficient truth te
 
 ```ts
 // 1. Array filtering
-const validEmails = userInputs.filter(isEmail);
+const validEmails = emailInputs.filter(isEmail);
 
 // 2. Conditional logic
 if (isUUID(value)) {

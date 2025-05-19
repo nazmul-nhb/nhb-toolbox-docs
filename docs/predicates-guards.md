@@ -38,17 +38,8 @@ if (isString(input)) { // input is now narrowed to string type
 
 - **Predicates** for simple validation
 - **Guards** when you need type narrowing
-- **Consistent naming**: All guards end with `Guard` suffix
 
-```ts
-// Predicate (boolean)
-const valid = isUUID(value); 
-
-// Type Guard (narrows)
-if (isUUIDGuard(value)) {
-  // value is now UUID type
-}
-```
+---
 
 **Production Tip:** Use predicates for filtering arrays and guards for control flow.
 
