@@ -18,10 +18,10 @@ NHB Toolbox provides predicate functions that deliver simple, efficient truth te
 
 ```ts
 // 1. Array filtering
-const validEmails = emailInputs.filter(isEmail);
+const validEmojis = emojiInputs.filter(isEmojiOnly);
 
 // 2. Conditional logic
-if (isUUID(value)) {
+if (isEmojiOnly(value)) {
   saveToDatabase(value);
 }
 ```

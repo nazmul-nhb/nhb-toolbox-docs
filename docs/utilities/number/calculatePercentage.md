@@ -23,7 +23,7 @@ function calculatePercentage(options: PercentageOptions): number;
 { roundTo?: number }
 ```
 
-> Determines the number of decimal places to round the result to if it's a float.
+> Determines the number of decimal places to round the result to if it's a float. Defaults to `3`.
 
 ### Modes & Parameters (Options)
 
@@ -255,7 +255,7 @@ export type PercentageOptions = (
  | GetDifferenceOptions
  | InversePercentageOptions
 ) & {
- /** The number of decimal places to round the result to. */
+ /** The number of decimal places to round the result to. Defaults to `3`. */
  roundTo?: number;
 };
 ```

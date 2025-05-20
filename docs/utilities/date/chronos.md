@@ -10,10 +10,10 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 ## Key Features
 
 - Same functionality as `new Chronos()` but with function syntax
-- Inherits all static methods from Chronos class
-- Supports all Chronos input types
+- Full access to all `Chronos` instance methods
+- Inherits all static methods from `Chronos` class (`chronos` without call signature)
+- Supports all `Chronos` input types
 - Maintains identical type safety
-- Full access to all Chronos instance methods
 
 ## Usage
 

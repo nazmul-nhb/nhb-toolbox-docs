@@ -12,7 +12,7 @@ NHB Toolbox provides two complementary validation tools:
 Simple functions that return `boolean` without affecting TypeScript's type system:
 
 ```ts
-const isValid = isEmail(input); // Returns true/false
+const prime = isPrime(number); // Returns true/false
 ```
 
 ### 2. [Type Guards](guards) (Type Narrowing)
@@ -27,12 +27,12 @@ if (isString(input)) { // input is now narrowed to string type
 
 ### Key Differences
 
-| Feature          | Predicates        | Type Guards       |
-|------------------|-------------------|-------------------|
-| Return type      | `boolean`         | `value is Type`   |
-| Type narrowing   | No                | Yes               |
-| Usage            | Anywhere          | Conditionals      |
-| Example          | `isEmail(value)`  | `isString(value)` |
+| Feature        | Predicates        | Type Guards       |
+|----------------|-------------------|-------------------|
+| Return type    | `boolean`         | `value is Type`   |
+| Type narrowing | No                | Yes               |
+| Usage          | Anywhere          | Conditionals      |
+| Example        | `isPrime(value)`  | `isString(value)` |
 
 ### Why This Matters
 

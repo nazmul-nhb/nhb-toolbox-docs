@@ -65,7 +65,6 @@ console.log(roundToNearest("100", 30));    // 90
 
 ### Aliases  
 
-- `roundNumber`: General-purpose alias  
 - `roundNumberToNearestInterval`: Explicit naming variant  
 - `roundToNearestInterval`: Similar functionality with different naming  
 
@@ -76,6 +75,12 @@ console.log(roundToNearest("100", 30));    // 90
 3. Data quantization for visualization  
 4. Measurement systems requiring specific increments  
 5. Game development for score rounding  
+
+### Related Functions
+
+- **[convertToDecimal](convertToDecimal)**: Use when you need fixed decimal places with optional string output.
+- **[roundNumber](roundNumber)**: Use when you need simple decimal place rounding (including negative places) without interval-based rounding.
+- For comparison see [here](roundNumber#comparison-with-similar-functions)
 
 ### Conclusion  
 

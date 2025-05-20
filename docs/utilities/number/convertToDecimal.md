@@ -49,11 +49,25 @@ console.log(convertToDecimal(3.14159, { isString: true }));  // "3.14"
 console.log(convertToDecimal(3.14159, { decimalPlaces: 3, isString: true }));  // "3.142"
 ```
 
+### Type: `Numeric`  
+
+A union type representing either a `number` or a numeric string (e.g., `"42.5"`):  
+
+```typescript
+type Numeric = number | `${number}`;
+```
+
 ### Notes
 
 - The function rounds the number based on the specified `decimalPlaces`, applying standard rounding rules.
 - The default behavior is to return the result as a `number`, but it can be easily configured to return a `string`.
 - If the `input` is already a numeric string, it will be automatically converted to a number for rounding.
+
+### Related Functions
+
+- **[roundNumber](roundNumber)**: Use when you need rounding to specific decimal places (including negative places for whole number rounding) without string output options.
+- **[roundToNearest](roundToNearest)**: Use when you need to round to arbitrary intervals (like multiples of 5, 10, etc.) rather than decimal places.
+- For comparison see [here](roundNumber#comparison-with-similar-functions)
 
 ### Aliases
 
