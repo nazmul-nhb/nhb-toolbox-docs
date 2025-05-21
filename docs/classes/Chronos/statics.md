@@ -36,6 +36,8 @@ static parse(dateStr: string, format: string): Chronos
 Chronos.parse('15-01-2025', 'DD-MM-YYYY'); // Jan 15 2025
 ```
 
+---
+
 ## today()
 
 ### Signature
@@ -83,6 +85,8 @@ static yesterday(): Chronos
 Chronos.yesterday(); // Chronos instance for yesterday
 ```
 
+---
+
 ## tomorrow()
 
 ### Signature
@@ -100,6 +104,8 @@ static tomorrow(): Chronos
 ```javascript
 Chronos.tomorrow(); // Chronos instance for tomorrow
 ```
+
+---
 
 ## now()
 
@@ -123,6 +129,8 @@ static now(): number
 Chronos.now(); // 1689876543210
 ```
 
+---
+
 ## utc()
 
 ### Signature
@@ -144,6 +152,52 @@ static utc(dateLike: ChronosInput): Chronos
 ```javascript
 Chronos.utc('2025-01-15'); // UTC instance
 ```
+
+---
+
+## formatTimePart()
+
+### Signature
+
+ ```ts
+static formatTimePart(time: string, format?: TimeParts): string
+
+```
+
+### Parameters
+
+- `time`: Time string to be formatted.Supported formats include:
+
+- `HH:mm` → e.g., `'14:50'`
+- `HH:mm:ss` → e.g., `'14:50:00'`
+- `HH:mm:ss.mss` → e.g., `'14:50:00.800'`
+- `HH:mm+TimeZoneOffset(HH)` → e.g., `'14:50-06'`
+- `HH:mm:ss+TimeZoneOffset(HH)` → e.g., `'14:50:00+06'`
+- `HH:mm:ss.mss+TimeZoneOffset(HH)` → e.g., `'14:50:00.800-06'`
+- `HH:mm+TimeZoneOffset(HH:mm)` → e.g., `'14:50+06:00'`
+- `HH:mm:ss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00+05:30'`
+- `HH:mm:ss.mss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00.800+06:30'`
+
+>*If no offset is provided, local system timezone is assumed.The current date will be used as the base.*
+
+- `format`: Format string accepted by the `formatStrict()` method for `TimeParts`.
+  **Default**: `'hh:mm:ss a'` → e.g., `"02:33:36 pm"`
+
+### Return Type
+
+`string` – Formatted time string in local system time.
+
+### Example
+
+ ```ts
+Chronos.formatTimePart('14:50'); 
+// "02:50:00 pm"
+
+Chronos.formatTimePart('14:50:00.800+05:30', 'HH:mm:ss');
+// "14:50:00"
+```
+
+---
 
 ## min()
 
@@ -167,6 +221,8 @@ static min(...dates: ChronosInput[]): Chronos
 Chronos.min('2025-01-01', '2025-02-01'); // Jan 1
 ```
 
+---
+
 ## max()
 
 ### Signature
@@ -188,6 +244,8 @@ static max(...dates: ChronosInput[]): Chronos
 ```javascript
 Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
 ```
+
+---
 
 ## isLeapYear()
 
@@ -211,6 +269,8 @@ static isLeapYear(date: ChronosInput): boolean
 Chronos.isLeapYear(2024); // true
 ```
 
+---
+
 ## isValidDate()
 
 ### Signature
@@ -233,6 +293,8 @@ static isValidDate(value: unknown): value is Date
 Chronos.isValidDate(new Date()); // true
 ```
 
+---
+
 ## isDateString()
 
 ### Signature
@@ -254,6 +316,8 @@ static isDateString(value: unknown): value is string
 ```javascript
 Chronos.isDateString('2025-01-01'); // true
 ```
+
+---
 
 ## isValidChronos()
 
