@@ -178,7 +178,7 @@ static formatTimePart(time: string, format?: TimeParts): string
 - `HH:mm:ss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00+05:30'`
 - `HH:mm:ss.mss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00.800+06:30'`
 
->*If no offset is provided, local system timezone is assumed.The current date will be used as the base.*
+>*If no offset is provided with time string, local (system) timezone will be used. The current date will be used as the base date for the time internally.*
 
 - `format`: Format string accepted by the `formatStrict()` method for `TimeParts`.
   **Default**: `'hh:mm:ss a'` → e.g., `"02:33:36 pm"`

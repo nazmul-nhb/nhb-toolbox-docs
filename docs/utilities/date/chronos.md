@@ -60,7 +60,7 @@ The wrapper provides access to all Chronos methods through the returned instance
 - **[Component Methods](/docs/classes/Chronos/components)** - Date part manipulation
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
 
-## Static Methods
+## [Static Methods](/docs/classes/Chronos/statics)
 
 All [`Chronos static methods`](/docs/classes/Chronos/statics) are available directly on the wrapper function:
 

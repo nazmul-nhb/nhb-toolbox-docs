@@ -17,11 +17,11 @@ This documentation provides a detailed guide to the `Chronos` class, a comprehen
 - [Getters](Chronos/getters)
 - [Format Methods](Chronos/format)
 - [Calculation Methods](Chronos/calculation)
-- [Static Methods](Chronos/statics)
 - [Checker Methods](Chronos/checkers)
 - [Conversion Methods](Chronos/conversion)
 - [Component Methods](Chronos/components)
 - [Comparison Methods](Chronos/comparison)
+- [Static Methods](Chronos/statics)
 - [Symbol Methods](Chronos/symbols)
 
 ## Overload Signatures
