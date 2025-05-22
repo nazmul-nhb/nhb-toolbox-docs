@@ -131,26 +131,37 @@ Chronos.now(); // 1689876543210
 
 ---
 
-## utc()
+## `utc()`
 
 ### Signature
 
-```typescript
-static utc(dateLike: ChronosInput): Chronos
+```ts
+static utc(dateLike?: ChronosInput): Chronos
 ```
 
 ### Parameters
 
-- `dateLike`: Date input
+- `dateLike` *(optional)* – The date input to create a UTC-based time. If omitted, the current system date and time is used.
 
 ### Return Type
 
-`Chronos` - UTC instance
+`Chronos` — A new Chronos instance representing the UTC equivalent of the given (or current) date.
+
+### Notes
+
+- Creates a Chronos instance based on Coordinated Universal Time (UTC).
+- If no `dateLike` (string/number/object) is provided, it uses the current date and time.
+- This UTC instance is considered the **base time**, meaning all time zone conversions are derived from this reference point and not the local time.
+
+> 🔁 Internally, this method adjusts the local time to its UTC equivalent by removing the time zone offset.
 
 ### Example
 
-```javascript
-Chronos.utc('2025-01-15'); // UTC instance
+```ts
+// Using a specific date string
+const utcChronos = Chronos.utc('2025-01-15T12:00:00');
+// Using the current system time
+const nowUTC = Chronos.utc();
 ```
 
 ---

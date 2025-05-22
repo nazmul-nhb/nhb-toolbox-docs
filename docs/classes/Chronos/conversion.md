@@ -26,6 +26,8 @@ toDate(): Date
 new Chronos('2025-01-15').toDate(); // Date object
 ```
 
+---
+
 ## toUTC()
 
 ### Signature
@@ -44,6 +46,8 @@ toUTC(): Chronos
 new Chronos('2025-01-15').toUTC(); // UTC-converted instance
 ```
 
+---
+
 ## toLocal()
 
 ### Signature
@@ -61,6 +65,8 @@ toLocal(): Chronos
 ```javascript
 Chronos.utc('2025-01-15').toLocal(); // Local time instance
 ```
+
+---
 
 ## timeZone()
 
@@ -84,20 +90,114 @@ timeZone(zone: TimeZone | UTCOffSet): Chronos
 new Chronos('2025-01-15').timeZone('EST'); // Eastern Time instance
 ```
 
-## getUTCOffset()
+---
+
+## `getUTCOffset()`
 
 ### Signature
 
-```typescript
+```ts
 getUTCOffset(): string
 ```
 
 ### Return Type
 
-`string` - Offset string (e.g. "+05:30")
+`string` — Offset string in the format `±HH:mm` (e.g., `+05:30`, `-06:00`)
+
+### Description
+
+Returns the **system’s current UTC offset** in string format.
+
+> ⚠️ **Note:** Unlike JavaScript's `Date.prototype.getTimezoneOffset()` which returns the offset in **minutes behind UTC** (positive for locations west of UTC), this method returns a human-readable offset using **time zone sign conventions** (e.g., `+06:00` means 6 hours ahead of UTC).
 
 ### Example
 
-```javascript
-new Chronos('2025-01-15').getUTCOffset(); // "-05:00" (EST)
+```ts
+new Chronos('2025-01-15').getUTCOffset(); // "-05:00" for EST
+```
+
+---
+
+## `getTimeZoneOffset()`
+
+### Signature
+
+```ts
+getTimeZoneOffset(): string
+```
+
+### Return Type
+
+`string` — Offset string in the format `±HH:mm`
+
+### Description
+
+Returns the **offset string of this Chronos instance’s stored timezone**, regardless of the current system's timezone.
+
+- Useful for working with date instances that were parsed with or set to a specific timezone.
+
+> ✅ Follows the same sign convention as `getUTCOffset()` — positive if ahead of UTC, negative if behind.
+
+### Example
+
+```ts
+new Chronos().toTimeZone('IST-IN').getTimeZoneOffset(); // "+05:30"
+```
+
+---
+
+## `getUTCOffsetMinutes()`
+
+### Signature
+
+```ts
+getUTCOffsetMinutes(): number
+```
+
+### Return Type
+
+`number` — The offset in minutes
+
+### Description
+
+Returns the **system’s UTC offset in minutes**, but using a **flipped sign convention** from JavaScript's native API:
+
+- Returns a **positive value** if the local time is ahead of UTC.
+- Returns a **negative value** if behind UTC.
+
+> 🧠 This matches the intuitive reading of `+06:00 → 360`, `-05:30 → -330`, unlike `Date.prototype.getTimezoneOffset()` which reverses this.
+
+### Example
+
+```ts
+new Chronos().getUTCOffsetMinutes(); // 360 for UTC+06:00
+```
+
+---
+
+## `getTimeZoneOffsetMinutes()`
+
+### Signature
+
+```ts
+getTimeZoneOffsetMinutes(): number
+```
+
+### Return Type
+
+`number` — The offset in minutes
+
+### Description
+
+Returns the **offset of the current Chronos instance's timezone in minutes**, based on the internally stored offset string (e.g., `UTC+06:00` → `360`).
+
+- Independent of system timezone
+- Matches the `±HH:mm` sign convention
+
+> Used internally for calculating UTC equivalence, especially when converting between time zones.
+
+### Example
+
+```ts
+new Chronos().toTimeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
 ```
