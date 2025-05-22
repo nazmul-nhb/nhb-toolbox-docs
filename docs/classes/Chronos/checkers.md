@@ -28,6 +28,8 @@ isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
 new Chronos('2025-01-01').isBefore('2025-02-01'); // true
 ```
 
+---
+
 ## isAfter()
 
 ### Signature
@@ -52,6 +54,8 @@ isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
 new Chronos('2025-02-01').isAfter('2025-01-01'); // true
 ```
 
+---
+
 ## isSame()
 
 ### Signature
@@ -75,6 +79,8 @@ isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
 ```javascript
 new Chronos('2025-01-15').isSame('2025-01-15', 'day'); // true
 ```
+
+---
 
 ## isBetween()
 
@@ -104,6 +110,8 @@ isBetween(
 new Chronos('2025-01-15').isBetween('2025-01-01', '2025-01-31'); // true
 ```
 
+---
+
 ## isToday()
 
 ### Signature
@@ -121,6 +129,8 @@ isToday(): boolean
 ```javascript
 new Chronos().isToday(); // true
 ```
+
+---
 
 ## isYesterday()
 
@@ -140,6 +150,8 @@ isYesterday(): boolean
 new Chronos().subtract(1, 'day').isYesterday(); // true
 ```
 
+---
+
 ## isTomorrow()
 
 ### Signature
@@ -157,6 +169,8 @@ isTomorrow(): boolean
 ```javascript
 new Chronos().add(1, 'day').isTomorrow(); // true
 ```
+
+---
 
 ## isWeekend()
 
@@ -181,6 +195,8 @@ isWeekend(weekStartsOn?: number, weekendLength?: 1 | 2): boolean
 new Chronos('2025-01-15').isWeekend(); // true (Sunday)
 ```
 
+---
+
 ## isWorkday()
 
 ### Signature
@@ -203,6 +219,8 @@ isWorkday(weekStartsOn?: number, weekendLength?: 1 | 2): boolean
 ```javascript
 new Chronos('2025-01-16').isWorkday(); // true (Monday)
 ```
+
+---
 
 ## isBusinessHour()
 
@@ -234,6 +252,8 @@ isBusinessHour(
 new Chronos('2025-01-16T10:00:00').isBusinessHour(); // true
 ```
 
+---
+
 ## isPalindromeDate()
 
 ### Signature
@@ -255,6 +275,8 @@ isPalindromeDate(shortYear?: boolean): boolean
 ```javascript
 new Chronos('2020-02-02').isPalindromeDate(); // true
 ```
+
+---
 
 ## isDST()
 
@@ -278,6 +300,8 @@ isDST(): boolean
 new Chronos('2025-07-01').isDST(); // true (in northern hemisphere)
 ```
 
+---
+
 ## isFirstDayOfMonth()
 
 ### Signature
@@ -295,6 +319,8 @@ isFirstDayOfMonth(): boolean
 ```javascript
 new Chronos('2025-01-01').isFirstDayOfMonth(); // true
 ```
+
+---
 
 ## isLastDayOfMonth()
 

@@ -4,75 +4,79 @@ title: Symbol Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-## Symbol Methods
+> Symbol Methods
 
-### [Symbol.toPrimitive]
+## [Symbol.toPrimitive]
 
-#### Signature
+### Signature
 
 ```typescript
 [Symbol.toPrimitive](hint: string): string | number
 ```
 
-#### Parameters
+### Parameters
 
 - `hint`: Conversion hint ('number' or 'string')
 
-#### Return Type
+### Return Type
 
 `string | number` - Primitive value
 
-#### Behavior
+### Behavior
 
 - `number` hint: Returns timestamp
 - Other hints: Returns ISO string
 
-#### Example
+### Example
 
 ```javascript
 +new Chronos(); // timestamp 1746866213184
 `${new Chronos()}`; // ISO string 2025-05-10T14:37:20.105+06:00
 ```
 
-### [Symbol.toStringTag]
+---
 
-#### Signature
+## [Symbol.toStringTag]
+
+### Signature
 
 ```typescript
 get [Symbol.toStringTag](): string
 ```
 
-#### Return Type
+### Return Type
 
 `string` - String tag
 
-#### Notes
+### Notes
 
 - Used by `Object.prototype.toString()`
 
-#### Example
+### Example
 
 ```javascript
 Object.prototype.toString.call(new Chronos()); // [object 2025-05-10T14:34:55.615+06:00]
 ```
 
-### [Symbol.iterator]
+---
 
-#### Signature
+## [Symbol.iterator]
+
+### Signature
 
 ```typescript
 *[Symbol.iterator](): IterableIterator<[string, number]>
 ```
 
-#### Return Type
+### Return Type
 
 `IterableIterator<[string, number]>` - Date components
 
-#### Notes
+### Notes
 
 - Allows destructuring and iteration
 
-#### Example
+### Example
 
 ```javascript
 for (const [key, value] of new Chronos()) {

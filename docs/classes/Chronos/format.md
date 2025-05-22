@@ -59,6 +59,8 @@ date.format('dddd, mmmm Do YYYY'); // "Wednesday, January 15th 2025"
 date.format('h:mm A'); // "2:30 PM"
 ```
 
+---
+
 ## formatUTC()
 
 ### Signature
@@ -85,6 +87,8 @@ formatUTC(format?: string): string
 const date = new Chronos('2025-01-15T14:30:00Z');
 date.formatUTC('YYYY-MM-DD HH:mm:ss'); // "2025-01-15 14:30:00"
 ```
+
+---
 
 ## formatStrict()
 
@@ -114,6 +118,8 @@ formatStrict(format?: StrictFormat, useUTC?: boolean): string
 date.formatStrict('YYYY-MM-DD'); // Type-safe format
 ```
 
+---
+
 ## toLocalISOString()
 
 ### Signature
@@ -136,6 +142,8 @@ toLocalISOString(): string
 new Chronos('2025-01-01T00:00:00-05:00').toLocalISOString();
 // "2025-01-01T00:00:00.000-05:00"
 ```
+
+---
 
 ## toISOString()
 
@@ -160,6 +168,8 @@ toISOString(): string
 new Chronos('2025-01-01T00:00:00-05:00').toISOString();
 // "2025-01-01T05:00:00.000Z"
 ```
+
+---
 
 ## toLocaleString()
 
@@ -197,6 +207,8 @@ new Chronos('2025-01-15').toLocaleString('en-US', {
 // "Wednesday, January 15, 2025"
 ```
 
+---
+
 ## toString()
 
 ### Signature
@@ -220,6 +232,8 @@ toString(): string
 new Chronos('2025-01-15').toString();
 // "Sun Jan 15 2025 00:00:00 GMT-0500 (Eastern Standard Time)"
 ```
+
+---
 
 ## toJSON()
 
@@ -245,6 +259,8 @@ JSON.stringify({ date: new Chronos('2025-01-15') });
 // '{"date":"2025-01-15T00:00:00.000Z"}'
 ```
 
+---
+
 ## inspect()
 
 ### Signature
@@ -269,6 +285,8 @@ new Chronos('2025-01-15').inspect();
 // "[Chronos 2025-01-15T00:00:00.000-05:00]"
 ```
 
+---
+
 ## toAcademicYear()
 
 ### Signature
@@ -292,6 +310,8 @@ new Chronos('2025-01-15').toAcademicYear(); // "2022-2025"
 new Chronos('2025-08-15').toAcademicYear(); // "2025-2024"
 ```
 
+---
+
 ## toQuarter()
 
 ### Signature
@@ -314,6 +334,8 @@ toQuarter(): Quarter
 new Chronos('2025-01-15').toQuarter(); // 1
 new Chronos('2025-04-01').toQuarter(); // 2
 ```
+
+---
 
 ## toFiscalQuarter()
 
@@ -342,6 +364,8 @@ new Chronos('2025-01-15').toFiscalQuarter(); // 3 (July-start year)
 new Chronos('2025-01-15').toFiscalQuarter(10); // 2 (October-start year)
 ```
 
+---
+
 ## calendar()
 
 ### Signature
@@ -368,6 +392,8 @@ calendar(baseDate?: ChronosInput): string
 const date = new Chronos().subtract(1, 'day');
 date.calendar(); // "Yesterday at [time]"
 ```
+
+---
 
 ## fromNow()
 
@@ -398,6 +424,8 @@ new Chronos().subtract(2, 'days').fromNow(); // "2 days ago"
 new Chronos().add(3, 'hours').fromNow(); // "in 3 hours"
 ```
 
+---
+
 ## fromNowShort()
 
 ### Signature
@@ -419,6 +447,8 @@ fromNowShort(): string
 ```javascript
 new Chronos().subtract(150, 'minutes').fromNowShort(); // "2h ago"
 ```
+
+---
 
 ## getPartOfDay()
 

@@ -27,6 +27,8 @@ get year(): number
 new Chronos('2025-01-01').year; // 2025
 ```
 
+---
+
 ## month
 
 ### Signature
@@ -50,6 +52,8 @@ get month(): number
 new Chronos('2025-01-01').month; // 0 (January)
 ```
 
+---
+
 ## date
 
 ### Signature
@@ -67,6 +71,8 @@ get date(): number
 ```javascript
 new Chronos('2025-01-15').date; // 15
 ```
+
+---
 
 ## hour
 
@@ -86,6 +92,8 @@ get hour(): number
 new Chronos('2025-01-01T14:30:00').hour; // 14
 ```
 
+---
+
 ## minute
 
 ### Signature
@@ -103,6 +111,8 @@ get minute(): number
 ```javascript
 new Chronos('2025-01-01T14:30:00').minute; // 30
 ```
+
+---
 
 ## second
 
@@ -122,6 +132,8 @@ get second(): number
 new Chronos('2025-01-01T14:30:45').second; // 45
 ```
 
+---
+
 ## millisecond
 
 ### Signature
@@ -139,6 +151,8 @@ get millisecond(): number
 ```javascript
 new Chronos('2025-01-01T14:30:45.123').millisecond; // 123
 ```
+
+---
 
 ## weekDay
 
@@ -162,6 +176,8 @@ get weekDay(): number
 new Chronos('2025-01-01').weekDay; // 0 (Sunday)
 ```
 
+---
+
 ## isoWeekday
 
 ### Signature
@@ -183,6 +199,8 @@ get isoWeekday(): number
 ```javascript
 new Chronos('2025-01-01').isoWeekday; // 7 (Sunday)
 ```
+
+---
 
 ## isoMonth
 
@@ -206,6 +224,8 @@ get isoMonth(): number
 new Chronos('2025-01-01').isoMonth; // 1
 ```
 
+---
+
 ## unix
 
 ### Signature
@@ -224,6 +244,8 @@ get unix(): number
 new Chronos('2025-01-01').unix; // 1672531200
 ```
 
+---
+
 ## timestamp
 
 ### Signature
@@ -241,6 +263,8 @@ get timestamp(): number
 ```javascript
 new Chronos('2025-01-01').timestamp; // 1672531200000
 ```
+
+---
 
 ## lastDateOfMonth
 

@@ -26,6 +26,8 @@ get(unit: TimeUnit): number
 new Chronos('2025-01-15').get('month'); // 0 (January)
 ```
 
+---
+
 ## set()
 
 ### Signature
@@ -48,6 +50,8 @@ set(unit: TimeUnit, value: number): Chronos
 ```javascript
 new Chronos('2025-01-15').set('month', 5); // June 15
 ```
+
+---
 
 ## startOf()
 
@@ -72,6 +76,8 @@ startOf(unit: TimeUnit, weekStartsOn?: number): Chronos
 new Chronos('2025-01-15').startOf('month'); // Jan 1
 ```
 
+---
+
 ## endOf()
 
 ### Signature
@@ -95,6 +101,8 @@ endOf(unit: TimeUnit, weekStartsOn?: number): Chronos
 new Chronos('2025-01-15').endOf('month'); // Jan 31 23:59:59.999
 ```
 
+---
+
 ## firstDayOfMonth()
 
 ### Signature
@@ -112,6 +120,8 @@ firstDayOfMonth(): Chronos
 ```javascript
 new Chronos('2025-01-15').firstDayOfMonth(); // Jan 1
 ```
+
+---
 
 ## lastDayOfMonth()
 
@@ -131,6 +141,8 @@ lastDayOfMonth(): Chronos
 new Chronos('2025-01-15').lastDayOfMonth(); // Jan 31
 ```
 
+---
+
 ## getWeek()
 
 ### Signature
@@ -148,6 +160,8 @@ getWeek(): number
 ```javascript
 new Chronos('2025-01-01').getWeek(); // 52 (previous year)
 ```
+
+---
 
 ## setWeek()
 
@@ -171,6 +185,8 @@ setWeek(week: number): Chronos
 new Chronos('2025-01-01').setWeek(1); // Jan 2 (ISO week 1)
 ```
 
+---
+
 ## getWeekOfYear()
 
 ### Signature
@@ -192,6 +208,8 @@ getWeekOfYear(weekStartsOn?: number): number
 ```javascript
 new Chronos('2025-01-01').getWeekOfYear(); // 1 (Sunday-start week)
 ```
+
+---
 
 ## getWeekYear()
 
@@ -215,6 +233,8 @@ getWeekYear(weekStartsOn?: number): number
 new Chronos('2025-01-01').getWeekYear(); // 2022 (ISO year)
 ```
 
+---
+
 ## getDayOfYear()
 
 ### Signature
@@ -232,6 +252,8 @@ getDayOfYear(): number
 ```javascript
 new Chronos('2025-01-01').getDayOfYear(); // 1
 ```
+
+---
 
 ## getZodiacSign()
 
@@ -251,6 +273,8 @@ getZodiacSign(): ZodiacSign
 new Chronos('2025-01-15').getZodiacSign(); // "Capricorn"
 ```
 
+---
+
 ## daysInMonth()
 
 ### Signature
@@ -268,6 +292,8 @@ daysInMonth(): number
 ```javascript
 new Chronos('2025-02-01').daysInMonth(); // 28
 ```
+
+---
 
 ## toObject()
 
@@ -304,6 +330,8 @@ interface ChronosObject {
 new Chronos('2025-01-15').toObject();
 // {year: 2025, month: 0, isoMonth: 1, ...}
 ```
+
+---
 
 ## toArray()
 
