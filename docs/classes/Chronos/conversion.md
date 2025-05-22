@@ -92,7 +92,7 @@ new Chronos('2025-01-15').timeZone('EST'); // Eastern Time instance
 
 ---
 
-## `getUTCOffset()`
+## getUTCOffset()
 
 ### Signature
 
@@ -118,7 +118,7 @@ new Chronos('2025-01-15').getUTCOffset(); // "-05:00" for EST
 
 ---
 
-## `getTimeZoneOffset()`
+## getTimeZoneOffset()
 
 ### Signature
 
@@ -141,12 +141,12 @@ Returns the **offset string of this Chronos instance’s stored timezone**, rega
 ### Example
 
 ```ts
-new Chronos().toTimeZone('IST-IN').getTimeZoneOffset(); // "+05:30"
+new Chronos().timeZone('IST-IN').getTimeZoneOffset(); // "+05:30"
 ```
 
 ---
 
-## `getUTCOffsetMinutes()`
+## getUTCOffsetMinutes()
 
 ### Signature
 
@@ -175,7 +175,7 @@ new Chronos().getUTCOffsetMinutes(); // 360 for UTC+06:00
 
 ---
 
-## `getTimeZoneOffsetMinutes()`
+## getTimeZoneOffsetMinutes()
 
 ### Signature
 
@@ -199,5 +199,5 @@ Returns the **offset of the current Chronos instance's timezone in minutes**, ba
 ### Example
 
 ```ts
-new Chronos().toTimeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
+new Chronos().timeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
 ```
