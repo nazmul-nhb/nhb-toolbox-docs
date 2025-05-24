@@ -1,6 +1,6 @@
 {
   "name": "nhb-toolbox-docs",
-  "version": "4.10.67",
+  "version": "4.10.83",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "nhb-hooks": "^1.10.3",
-    "nhb-toolbox": "^4.10.67",
+    "nhb-toolbox": "^4.10.83",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
