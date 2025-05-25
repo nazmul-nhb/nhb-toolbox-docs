@@ -20,7 +20,7 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 ### Import
 
 ```ts
-import { chronos } from 'nhb-toolbox';
+import { chronos } from 'nhb-toolbox/chronos';
 ```
 
 ### Basic Instantiation
@@ -52,6 +52,7 @@ date.formatStrict() // Formatted date string
 
 The wrapper provides access to all Chronos methods through the returned instance:
 
+- **[Public Properties](/docs/classes/Chronos#public-properties)** - Access public properties for debugging
 - **[Getters](/docs/classes/Chronos/getters)** - Access date components
 - **[Format Methods](/docs/classes/Chronos/format)** - Date display formatting
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations

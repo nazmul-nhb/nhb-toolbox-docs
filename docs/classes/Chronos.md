@@ -12,7 +12,7 @@ This documentation provides a detailed guide to the `Chronos` class, a comprehen
 
 > For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
 
-### Table of Contents
+### Chronos Methods
 
 - [Getters](Chronos/getters)
 - [Format Methods](Chronos/format)
@@ -42,10 +42,41 @@ This documentation provides a detailed guide to the `Chronos` class, a comprehen
 type ChronosInput = number | string | Date | Chronos;
 ```
 
+## Public Properties
+
+These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
+> ⚠️ However, in JavaScript (Compile-time `Error` occurs in TypScript), these properties *can technically be mutated*, but such changes **do not** affect the `Chronos` instance itself. The class internally manages equivalent **readonly private state**. These public properties exist *purely for developer convenience and sugar*.
+
+### `native: Date`
+
+Returns the underlying native JavaScript `Date` object used internally by the `Chronos` instance. This is useful for interoperability with APIs or libraries that expect a native `Date`.
+
+```ts
+const ch = new Chronos('2025-01-01');
+console.log(ch.native.toISOString()); // → 2025-01-01T00:00:00.000Z
+```
+
+### `origin: ChronosMethods | 'root'`
+
+Indicates how the current `Chronos` instance was created. This can be helpful for debugging flow logic or tracing method chains in complex date-time pipelines.
+
+Possible values:
+
+- `'root'`: if the instance was directly constructed
+- A method name string such as `'addDays'`, `'startOf'`, etc., if the instance was produced as the result of a method call (which can create a new instance of `Chronos`).
+
+```ts
+const root = new Chronos();
+const viaMethod = root.addDays(3);
+
+console.log(root.origin); // → 'root'
+console.log(viaMethod.origin); // → 'addDays'
+```
+
 ## Import
 
 ```ts
-import { Chronos } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox/chronos';
 ```
 
 ## Alias
