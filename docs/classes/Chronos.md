@@ -45,7 +45,7 @@ type ChronosInput = number | string | Date | Chronos;
 ## Public Properties
 
 These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
-> ⚠️ However, in JavaScript (Compile-time `Error` occurs in TypScript), these properties *can technically be mutated*, but such changes **do not** affect the `Chronos` instance itself. The class internally manages equivalent **readonly private state**. These public properties exist *purely for developer convenience and sugar*.
+> ⚠️ However, in JavaScript, these properties *can technically be mutated* (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist *purely for developer convenience and sugar*.
 
 ### `native: Date`
 
