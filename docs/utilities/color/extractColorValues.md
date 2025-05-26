@@ -12,7 +12,6 @@ Utility functions to extract numeric values from CSS color strings in RGB/RGBA/H
 
 ```typescript
 import { extractSolidColorValues, extractAlphaColorValues } from 'nhb-toolbox';
-import type { HSL, HSLA, RGB, RGBA } from 'nhb-toolbox';
 ```
 
 ## Function Signatures
