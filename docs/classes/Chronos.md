@@ -76,11 +76,11 @@ console.log(viaMethod.origin); // → 'addDays'
 ## Import
 
 ```ts
-import { Chronos } from 'nhb-toolbox/chronos';
+import { Chronos } from 'nhb-toolbox';
 ```
 
 ## Alias
 
 The `Chronos` class is also available under the following alias:
 
-`Chronus`
+- `Chronus`

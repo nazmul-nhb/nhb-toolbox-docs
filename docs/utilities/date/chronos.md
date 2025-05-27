@@ -20,7 +20,7 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 ### Import
 
 ```ts
-import { chronos } from 'nhb-toolbox/chronos';
+import { chronos } from 'nhb-toolbox';
 ```
 
 ### Basic Instantiation
