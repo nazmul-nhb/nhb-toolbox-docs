@@ -26,7 +26,7 @@
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
-    "nhb-hooks": "^1.11.1",
+    "nhb-hooks": "^1.11.2",
     "nhb-toolbox": "^4.12.0",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
