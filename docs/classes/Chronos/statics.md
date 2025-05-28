@@ -210,6 +210,104 @@ Chronos.formatTimePart('14:50:00.800+05:30', 'HH:mm:ss');
 
 ---
 
+## getDatesForDay()
+
+### Signature
+
+```typescript
+// Relative range signature
+static getDatesForDay(day: WeekDay, options?: RelativeRangeOptions): string[];
+
+// Absolute range signature
+static getDatesForDay(day: WeekDay, options?: DateRangeOptions): string[];
+
+// Implementation signature
+static getDatesForDay(day: WeekDay, options?: WeekdayOptions): string[]
+```
+
+### Parameters
+
+#### Common Parameter
+
+- `day`: The weekday to match (case-sensitive full day name)
+  - Type: `WeekDay` (`'Monday' | 'Tuesday' | ... | 'Sunday'`)
+  - Example: `'Wednesday'`, `'Friday'`
+
+#### Options (Differ by Signature)
+
+**1. Relative Range Options** (time span from now):
+
+```typescript
+interface RelativeRangeOptions {
+  span?: number;    // Duration quantity (default: 4)
+  unit?: TimeUnit;  // 'day' | 'week' | 'month' | 'year' (default: 'week')
+  format?: 'local' | 'utc'; // Output format (default: 'local')
+}
+```
+
+**2. Absolute Range Options** (fixed date range):
+
+```typescript
+interface DateRangeOptions {
+  from: ChronosInput; // Start date (string/Date/Chronos)
+  to: ChronosInput;   // End date (string/Date/Chronos)
+  format?: 'local' | 'utc'; // Output format (default: 'local')
+}
+```
+
+### Return Type
+
+`string[]` - Array of ISO-8601 formatted date strings
+
+### Behavior
+
+- Finds all occurrences of the specified weekday within:
+  - A relative time span from now (when using `span`/`unit`)
+  - Or between two fixed dates (when using `from`/`to`)
+- Returns dates in chronological order
+- Empty array if no matches found in range
+
+### Examples
+
+**Relative Range Example** (next 3 weeks):
+
+```javascript
+// Get all Wednesdays in the next 3 weeks
+Chronos.getDatesForDay('Wednesday', { 
+  span: 3, 
+  unit: 'week',
+  format: 'utc' 
+});
+//=> ['2025-05-28T15:00:00.000Z', '2025-06-04T15:00:00.000Z', '2025-06-11T15:00:00.000Z']
+```
+
+**Absolute Range Example** (specific date range):
+
+```javascript
+// Get all Fridays between two dates
+Chronos.getDatesForDay('Friday', {
+  from: '2025-06-01',
+  to: '2025-06-30',
+  format: 'local' // Includes timezone offset
+});
+//=> ['2025-06-06T21:16:06.198+06:00', '2025-06-13T21:16:06.198+06:00', ...]
+```
+
+### Notes
+
+- When `format: 'local'` (default):
+  - Output includes local timezone offset (e.g., `+06:00`)
+  - Uses `toLocalISOString()` internally
+- When `format: 'utc'`:
+  - Output is in UTC/Zulu time (ends with `Z`)
+  - Uses `toISOString()` internally
+- The method always starts searching from:
+  - Current date (for relative ranges)
+  - The `from` date (for absolute ranges)
+- Weekday matching is exact (case-sensitive full English day names)
+
+---
+
 ## min()
 
 ### Signature
