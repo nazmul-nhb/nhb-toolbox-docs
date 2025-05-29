@@ -115,8 +115,5 @@ Page list generation options
 ### FromMetaOptions
 
 ```typescript
-type FromMetaOptions = Pick<
-  PaginatorMeta,
-  'totalItems' | 'itemsPerPage' | 'currentPage'
->;
+type FromMetaOptions = Pick<PaginatorMeta, 'totalItems' | 'itemsPerPage' | 'currentPage'>;
 ```

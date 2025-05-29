@@ -9,14 +9,14 @@ title: Checker Methods
 ### Signature
 
 ```typescript
-isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
+isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
 
 - `other`: Date to compare
 - `unit`: Comparison unit
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -35,14 +35,14 @@ new Chronos('2025-01-01').isBefore('2025-02-01'); // true
 ### Signature
 
 ```typescript
-isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
+isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
 
 - `other`: Date to compare
 - `unit`: Comparison unit
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -61,14 +61,14 @@ new Chronos('2025-02-01').isAfter('2025-01-01'); // true
 ### Signature
 
 ```typescript
-isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: number): boolean
+isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
 
 - `other`: Date to compare
 - `unit`: Comparison unit
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -177,12 +177,12 @@ new Chronos().add(1, 'day').isTomorrow(); // true
 ### Signature
 
 ```typescript
-isWeekend(weekStartsOn?: number, weekendLength?: 1 | 2): boolean
+isWeekend(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 - `weekendLength`: Weekend days (default: 2)
 
 ### Return Type
@@ -202,12 +202,12 @@ new Chronos('2025-01-15').isWeekend(); // true (Sunday)
 ### Signature
 
 ```typescript
-isWorkday(weekStartsOn?: number, weekendLength?: 1 | 2): boolean
+isWorkday(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 - `weekendLength`: Weekend days (default: 2)
 
 ### Return Type
@@ -228,18 +228,18 @@ new Chronos('2025-01-16').isWorkday(); // true (Monday)
 
 ```typescript
 isBusinessHour(
-  businessStartHour?: number,
-  businessEndHour?: number,
-  weekStartsOn?: number,
+  businessStartHour?: Enumerate<24>,
+  businessEndHour?: Enumerate<24>,
+  weekStartsOn?: Enumerate<7>,
   weekendLength?: 1 | 2
 ): boolean
 ```
 
 ### Parameters
 
-- `businessStartHour`: Start hour (default: 9)
-- `businessEndHour`: End hour (default: 17)
-- `weekStartsOn`: Week start day (default: 0)
+- `businessStartHour`: Start hour (from `0-23`) (default: 9)
+- `businessEndHour`: End hour (from `0-23`) (default: 17)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 - `weekendLength`: Weekend days (default: 2)
 
 ### Return Type

@@ -4,7 +4,6 @@ title: Symbol Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-> Symbol Methods
 
 ## [Symbol.toPrimitive]
 

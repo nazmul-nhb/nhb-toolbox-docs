@@ -72,5 +72,5 @@ type CSSColor = keyof typeof CSS_COLORS; // All valid CSS color names
 ### Percent
 
 ```typescript
-type type Percent = (typeof PERCENT_VALUES)[number]; // 0-100
+type Percent = 0 | 1 | 2 | ... | 100; // 0-100
 ```

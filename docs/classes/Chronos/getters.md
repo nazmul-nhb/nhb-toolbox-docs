@@ -34,12 +34,12 @@ new Chronos('2025-01-01').year; // 2025
 ### Signature
 
 ```typescript
-get month(): number
+get month(): 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
 ```
 
 ### Return Type
 
-`number` - Month (0-11)
+`0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11` - Month (0-11)
 
 ### Notes
 
@@ -59,12 +59,12 @@ new Chronos('2025-01-01').month; // 0 (January)
 ### Signature
 
 ```typescript
-get date(): number
+get date(): NumberRange<1, 31>
 ```
 
 ### Return Type
 
-`number` - Day of month (1-31)
+`NumberRange<1, 31>` - Day of month (1-31)
 
 ### Example
 
@@ -79,12 +79,12 @@ new Chronos('2025-01-15').date; // 15
 ### Signature
 
 ```typescript
-get hour(): number
+get hour(): 0 | 1 | 2 | 3 | 4 | 5 | ... | 23
 ```
 
 ### Return Type
 
-`number` - Hour (0-23)
+`0 | 1 | 2 | 3 | 4 | 5 | ... | 23` - Hour (0-23)
 
 ### Example
 
@@ -99,12 +99,12 @@ new Chronos('2025-01-01T14:30:00').hour; // 14
 ### Signature
 
 ```typescript
-get minute(): number
+get minute(): 0 | 1 | 2 | 3 | 4 | 5 | ... | 59
 ```
 
 ### Return Type
 
-`number` - Minute (0-59)
+`0 | 1 | 2 | 3 | 4 | 5 | ... | 59` - Minute (0-59)
 
 ### Example
 
@@ -119,12 +119,12 @@ new Chronos('2025-01-01T14:30:00').minute; // 30
 ### Signature
 
 ```typescript
-get second(): number
+get second(): 0 | 1 | 2 | 3 | 4 | 5 | ... | 59
 ```
 
 ### Return Type
 
-`number` - Second (0-59)
+`0 | 1 | 2 | 3 | 4 | 5 | ... | 59` - Second (0-59)
 
 ### Example
 
@@ -139,12 +139,12 @@ new Chronos('2025-01-01T14:30:45').second; // 45
 ### Signature
 
 ```typescript
-get millisecond(): number
+get millisecond(): MilliSecond
 ```
 
 ### Return Type
 
-`number` - Millisecond (0-999)
+`MilliSecond` - Millisecond (0-999)
 
 ### Example
 
@@ -159,12 +159,12 @@ new Chronos('2025-01-01T14:30:45.123').millisecond; // 123
 ### Signature
 
 ```typescript
-get weekDay(): number
+get weekDay(): 0 | 1 | 2 | 3 | 4 | 5 | 6
 ```
 
 ### Return Type
 
-`number` - Day of week (0-6)
+`0 | 1 | 2 | 3 | 4 | 5 | 6` - Day of week (0-6)
 
 ### Notes
 
@@ -183,12 +183,12 @@ new Chronos('2025-01-01').weekDay; // 0 (Sunday)
 ### Signature
 
 ```typescript
-get isoWeekday(): number
+get isoWeekday(): 1 | 2 | 3 | 4 | 5 | 6 | 7
 ```
 
 ### Return Type
 
-`number` - ISO day of week (1-7)
+`1 | 2 | 3 | 4 | 5 | 6 | 7` - ISO day of week (1-7)
 
 ### Notes
 
@@ -207,12 +207,12 @@ new Chronos('2025-01-01').isoWeekday; // 7 (Sunday)
 ### Signature
 
 ```typescript
-get isoMonth(): number
+get isoMonth(): NumberRange<1, 12>
 ```
 
 ### Return Type
 
-`number` - Month (1-12)
+`NumberRange<1, 12>` - Month (1-12)
 
 ### Notes
 
@@ -271,12 +271,12 @@ new Chronos('2025-01-01').timestamp; // 1672531200000
 ### Signature
 
 ```typescript
-get lastDateOfMonth(): 28 | 29 | 30 | 31
+get lastDateOfMonth(): NumberRange<28, 31>
 ```
 
 ### Return Type
 
-`28 | 29 | 30 | 31` - Last day of month
+`NumberRange<28, 31>` - Last day of month `(28, 29, 30 or 31)`
 
 ### Notes
 

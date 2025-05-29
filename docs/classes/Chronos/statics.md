@@ -131,7 +131,7 @@ Chronos.now(); // 1689876543210
 
 ---
 
-## `utc()`
+## utc()
 
 ### Signature
 
@@ -153,7 +153,9 @@ static utc(dateLike?: ChronosInput): Chronos
 - If no `dateLike` (string/number/object) is provided, it uses the current date and time.
 - This UTC instance is considered the **base time**, meaning all time zone conversions are derived from this reference point and not the local time.
 
-> 🔁 Internally, this method adjusts the local time to its UTC equivalent by removing the time zone offset.
+:::info
+Internally, this method adjusts the local time to its UTC equivalent by removing the time zone offset.
+:::
 
 ### Example
 
@@ -189,7 +191,9 @@ static formatTimePart(time: string, format?: TimeParts): string
 - `HH:mm:ss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00+05:30'`
 - `HH:mm:ss.mss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00.800+06:30'`
 
->*If no offset is provided with time string, local (system) timezone will be used. The current date will be used as the base date for the time internally.*
+:::caution
+*If no offset is provided with time string, local (system) timezone will be used. The current date will be used as the base date for the time internally.*
+:::
 
 - `format`: Format string accepted by the `formatStrict()` method for `TimeParts`.
   **Default**: `'hh:mm:ss a'` → e.g., `"02:33:36 pm"`

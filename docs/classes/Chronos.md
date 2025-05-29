@@ -3,14 +3,18 @@ id: Chronos
 title: Chronos - Play with Time and Date like Chronos Himself
 ---
 
-> In ancient Greek mythology, **Chronos** is the personification of time itself — relentless, precise, and inescapable. Just like the god it’s named after, the `Chronos` class embodies control over the abstract flow of time in your application.
+:::tip[About Chronos]
+In ancient Greek mythology, **Chronos** is the personification of time itself — relentless, precise, and inescapable. Just like the god it’s named after, the `Chronos` class embodies control over the abstract flow of time in your application.
+:::
 
 <!-- markdownlint-disable-file MD024 -->
 ## API Reference for Chronos
 
 This documentation provides a detailed guide to the `Chronos` class, a comprehensive date and time manipulation class. The methods are grouped into logical categories for easier navigation.
 
-> For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
+:::note
+For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
+:::
 
 ### Chronos Methods
 
@@ -45,7 +49,10 @@ type ChronosInput = number | string | Date | Chronos;
 ## Public Properties
 
 These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
-> ⚠️ However, in JavaScript, these properties *can technically be mutated* (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist *purely for developer convenience and sugar*.
+
+:::info
+However, in JavaScript, these properties *can technically be mutated* (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist *purely for developer convenience and sugar*.
+:::
 
 ### `native: Date`
 

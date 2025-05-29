@@ -4,10 +4,15 @@ title: Introduction
 slug: /intro
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <!-- markdownlint-disable MD025 -->
 # Welcome to NHB Toolbox 📦
 
-> **Replace Boilerplate(s) with One-Liner(s)**
+:::tip[Benefits!]
+**Replace Boilerplate(s) with One-Liner(s)**
+:::
 
 `nhb-toolbox` provides battle-tested utilities for professional TypeScript/JavaScript development. Carefully crafted to solve common challenges with elegant, production-ready solutions:
 
@@ -16,25 +21,94 @@ slug: /intro
 - **Validation Utilities**: Robust data validation patterns
 - **Zero Dependencies**: Framework-agnostic implementation using only native TS/JS with 0 external package
 
-## ⬇️ Install
+## 🧰 Installation
 
-- NPM
+### 📦 Install as Main Dependency
+
+<Tabs groupId="package-manager">
+
+<TabItem value="npm" label="📦 npm">
 
 ```shell
 npm i nhb-toolbox
 ```
 
-- Yarn
+</TabItem>
+
+<TabItem value="yarn" label="🧶 yarn">
 
 ```shell
 yarn add nhb-toolbox
 ```
 
-- PNPM
+</TabItem>
+
+<TabItem value="pnpm" label="🚀 pnpm">
 
 ```shell
 pnpm add nhb-toolbox
 ```
+
+</TabItem>
+</Tabs>
+
+### 🛠️ Install as Dev Dependency
+
+<Tabs groupId="package-manager">
+
+<TabItem value="npm" label="📦 npm">
+
+```shell
+npm i -D nhb-toolbox
+```
+
+</TabItem>
+
+<TabItem value="yarn" label="🧶 yarn">
+
+```shell
+yarn add -D nhb-toolbox
+```
+
+</TabItem>
+
+<TabItem value="pnpm" label="🚀 pnpm">
+
+```shell
+pnpm add -D nhb-toolbox
+```
+
+</TabItem>
+</Tabs>
+
+### 🌐  Install Globally
+
+<Tabs groupId="package-manager">
+
+<TabItem value="npm" label="📦 npm">
+
+```shell
+npm i -g nhb-toolbox
+```
+
+</TabItem>
+
+<TabItem value="yarn" label="🧶 yarn">
+
+```shell
+yarn add -g nhb-toolbox
+```
+
+</TabItem>
+
+<TabItem value="pnpm" label="🚀 pnpm">
+
+```shell
+pnpm add -g nhb-toolbox
+```
+
+</TabItem>
+</Tabs>
 
 ## 🚀 Features
 
@@ -63,7 +137,7 @@ pnpm add nhb-toolbox
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
   <a target="_blank" href="https://www.npmjs.com/package/nhb-scripts">
-    <img src="https://img.shields.io/badge/Development_Scripts-nhb--scripts-red" alt="nhb-scripts" />
+    <img src="https://img.shields.io/badge/Development_Scripts_[beta]-nhb--scripts-red" alt="nhb-scripts" />
   </a>
   <!-- <span style={{ marginTop: -8 }}>- Development scripts for package.json (Experimental)</span> -->
 </div>

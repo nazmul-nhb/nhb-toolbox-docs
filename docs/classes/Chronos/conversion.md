@@ -108,7 +108,9 @@ getUTCOffset(): string
 
 Returns the **system’s current UTC offset** in string format.
 
-> ⚠️ **Note:** Unlike JavaScript's `Date.prototype.getTimezoneOffset()` which returns the offset in **minutes behind UTC** (positive for locations west of UTC), this method returns a human-readable offset using **time zone sign conventions** (e.g., `+06:00` means 6 hours ahead of UTC).
+:::caution[Note]
+Unlike JavaScript's `Date.prototype.getTimezoneOffset()` which returns the offset in **minutes behind UTC** (positive for locations west of UTC), this method returns a human-readable offset using **time zone sign conventions** (e.g., `+06:00` means 6 hours ahead of UTC).
+:::
 
 ### Example
 
@@ -136,7 +138,9 @@ Returns the **offset string of this Chronos instance’s stored timezone**, rega
 
 - Useful for working with date instances that were parsed with or set to a specific timezone.
 
-> ✅ Follows the same sign convention as `getUTCOffset()` — positive if ahead of UTC, negative if behind.
+:::info
+Follows the same sign convention as `getUTCOffset()` — positive if ahead of UTC, negative if behind.
+:::
 
 ### Example
 
@@ -165,7 +169,9 @@ Returns the **system’s UTC offset in minutes**, but using a **flipped sign con
 - Returns a **positive value** if the local time is ahead of UTC.
 - Returns a **negative value** if behind UTC.
 
-> 🧠 This matches the intuitive reading of `+06:00 → 360`, `-05:30 → -330`, unlike `Date.prototype.getTimezoneOffset()` which reverses this.
+:::tip[Note]
+🧠 This matches the intuitive reading of `+06:00 → 360`, `-05:30 → -330`, unlike `Date.prototype.getTimezoneOffset()` which reverses this.
+:::
 
 ### Example
 
@@ -194,7 +200,9 @@ Returns the **offset of the current Chronos instance's timezone in minutes**, ba
 - Independent of system timezone
 - Matches the `±HH:mm` sign convention
 
-> Used internally for calculating UTC equivalence, especially when converting between time zones.
+:::note
+Used internally for calculating UTC equivalence, especially when converting between time zones.
+:::
 
 ### Example
 

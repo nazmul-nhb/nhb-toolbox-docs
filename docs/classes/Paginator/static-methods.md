@@ -16,10 +16,7 @@ static fromMeta(meta: FromMetaOptions): Paginator
 #### Parameters
 
 ```typescript
-type FromMetaOptions = Pick<
-  PaginatorMeta, 
-  'totalItems' | 'itemsPerPage' | 'currentPage'
->;
+type FromMetaOptions = Pick<PaginatorMeta, 'totalItems' | 'itemsPerPage' | 'currentPage'>;
 ```
 
 #### Return Type

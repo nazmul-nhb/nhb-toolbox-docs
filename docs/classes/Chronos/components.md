@@ -1,6 +1,6 @@
 ---
 id: components
-title: Component Get & Set Methods
+title: Get & Set Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
@@ -58,13 +58,13 @@ new Chronos('2025-01-15').set('month', 5); // June 15
 ### Signature
 
 ```typescript
-startOf(unit: TimeUnit, weekStartsOn?: number): Chronos
+startOf(unit: TimeUnit, weekStartsOn?: Enumerate<7>): Chronos
 ```
 
 ### Parameters
 
 - `unit`: Unit to start from
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -83,13 +83,13 @@ new Chronos('2025-01-15').startOf('month'); // Jan 1
 ### Signature
 
 ```typescript
-endOf(unit: TimeUnit, weekStartsOn?: number): Chronos
+endOf(unit: TimeUnit, weekStartsOn?: Enumerate<7>): Chronos
 ```
 
 ### Parameters
 
 - `unit`: Unit to end at
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -148,17 +148,17 @@ new Chronos('2025-01-15').lastDayOfMonth(); // Jan 31
 ### Signature
 
 ```typescript
-getWeek(): number
+getWeek(): NumberRange<1, 53>
 ```
 
 ### Return Type
 
-`number` - ISO week number (1-53)
+`NumberRange<1, 53>` - ISO week number (1-53)
 
 ### Example
 
 ```javascript
-new Chronos('2025-01-01').getWeek(); // 52 (previous year)
+new Chronos('2022-01-01').getWeek(); // 52 (previous year)
 ```
 
 ---
@@ -168,12 +168,12 @@ new Chronos('2025-01-01').getWeek(); // 52 (previous year)
 ### Signature
 
 ```typescript
-setWeek(week: number): Chronos
+setWeek(week: NumberRange<1, 53>): Chronos
 ```
 
 ### Parameters
 
-- `week`: Week number to set
+- `week`: Week number to set (from `1-53`)
 
 ### Return Type
 
@@ -192,16 +192,16 @@ new Chronos('2025-01-01').setWeek(1); // Jan 2 (ISO week 1)
 ### Signature
 
 ```typescript
-getWeekOfYear(weekStartsOn?: number): number
+getWeekOfYear(weekStartsOn?: number): NumberRange<1, 53>
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
-`number` - Week number (1-53)
+`NumberRange<1, 53>` - Week number (`1-53`)
 
 ### Example
 
@@ -216,12 +216,12 @@ new Chronos('2025-01-01').getWeekOfYear(); // 1 (Sunday-start week)
 ### Signature
 
 ```typescript
-getWeekYear(weekStartsOn?: number): number
+getWeekYear(weekStartsOn?: Enumerate<7>): number
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (default: 0)
+- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
 
 ### Return Type
 
@@ -240,12 +240,12 @@ new Chronos('2025-01-01').getWeekYear(); // 2022 (ISO year)
 ### Signature
 
 ```typescript
-getDayOfYear(): number
+getDayOfYear(): NumberRange<1, 366>
 ```
 
 ### Return Type
 
-`number` - Day of year (1-366)
+`NumberRange<1, 366>` - Day of year (1-366)
 
 ### Example
 
@@ -280,12 +280,12 @@ new Chronos('2025-01-15').getZodiacSign(); // "Capricorn"
 ### Signature
 
 ```typescript
-daysInMonth(): number
+daysInMonth(): NumberRange<28, 31>
 ```
 
 ### Return Type
 
-`number` - Days in month
+`NumberRange<28, 31>` - Days in month (`28 | 29 | 30 | 31`)
 
 ### Example
 
