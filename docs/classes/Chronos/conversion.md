@@ -209,3 +209,71 @@ Used internally for calculating UTC equivalence, especially when converting betw
 ```ts
 new Chronos().timeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
 ```
+
+---
+
+## day()
+
+Get the name of a weekday
+
+### Signature
+
+```ts
+day(index?: Enumerate<7>): WeekDay
+```
+
+### Parameter
+
+- `index` *(optional)*: A number from `0` to `6` representing the day of the week, where `0` is Sunday and `6` is Saturday. If omitted, it defaults to the current day from the `Chronos` instance.
+
+### Return Value
+
+- `WeekDay` — The full name of the corresponding weekday (`"Sunday"`, `"Monday"`, ..., `"Saturday"`).
+
+### Example Usage
+
+```ts
+new Chronos('2025-05-29').day(); // "Thursday"
+new Chronos().day(0);            // "Sunday"
+```
+
+:::note
+
+- This method supports overriding the current day with a specific index.
+- Internally, it maps indices `0–6` to the English names of the weekdays.
+
+:::
+
+---
+
+## monthName()
+
+Get the name of a month
+
+### Signature
+
+```ts
+monthName(index?: Enumerate<12>): MonthName
+```
+
+### Parameters
+
+- `index` *(optional)*: A number from `0` to `11` representing the month, where `0` is January and `11` is December. If omitted, it defaults to the current month from the `Chronos` instance.
+
+### Return Value
+
+- `MonthName` — The full name of the month (`"January"`, `"February"`, ..., `"December"`).
+
+### Example Usage
+
+```ts
+new Chronos('2025-05-29').monthName(); // "May"
+new Chronos().monthName(11);           // "December"
+```
+
+:::note
+
+- This method supports overriding the current month with a specific index.
+- Internally, it maps indices `0–11` to the English names of the months.
+
+:::

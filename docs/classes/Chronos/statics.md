@@ -362,6 +362,17 @@ Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
 
 ## isLeapYear()
 
+:::info
+
+- A year is a leap year if it is divisible by 4.
+- However, years divisible by 100 are not leap years **unless** they are also divisible by 400.
+- For example:
+
+  - `2000`, `2400` → leap years ✅
+  - `1900`, `2100` → not leap years ❌s
+
+:::
+
 ### Signature
 
 ```typescript

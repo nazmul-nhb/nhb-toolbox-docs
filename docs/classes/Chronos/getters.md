@@ -288,5 +288,3 @@ get lastDateOfMonth(): NumberRange<28, 31>
 new Chronos('2025-02-01').lastDateOfMonth; // 28
 new Chronos('2024-02-01').lastDateOfMonth; // 29
 ```
-
----

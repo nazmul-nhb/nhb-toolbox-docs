@@ -5,7 +5,9 @@ title: Chronos Wrapper Function
 
 ## Overview
 
+:::info
 Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provides identical functionality with a simpler interface. All Chronos features are available through this function.
+:::
 
 ## Key Features
 

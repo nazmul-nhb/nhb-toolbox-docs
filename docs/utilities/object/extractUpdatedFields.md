@@ -30,7 +30,7 @@ const changes = extractUpdatedFields(original, updated);
 const v1 = { user: { id: 1, profile: { name: 'Alice' } } };
 const v2 = { user: { id: 1, profile: { name: 'Alice', active: true } } };
 extractUpdatedFields(v1, v2);
-// Returns { user: { profile: { active: true } } }
+// Returns { }
 ```
 
 ## API Reference

@@ -1,6 +1,6 @@
 ---
 id: Chronos
-title: Chronos - Play with Time and Date like Chronos Himself
+title: Chronos - Play with Time and Date, Be a Time Master like Chronos
 ---
 
 :::tip[About Chronos]
@@ -12,7 +12,7 @@ In ancient Greek mythology, **Chronos** is the personification of time itself â€
 
 This documentation provides a detailed guide to the `Chronos` class, a comprehensive date and time manipulation class. The methods are grouped into logical categories for easier navigation.
 
-:::note
+:::info
 For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
 :::
 

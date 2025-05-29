@@ -339,3 +339,39 @@ isLastDayOfMonth(): boolean
 ```javascript
 new Chronos('2025-01-31').isLastDayOfMonth(); // true
 ```
+
+---
+
+## isLeapYear()
+
+:::info
+
+- A year is a leap year if it is divisible by 4.
+- However, years divisible by 100 are not leap years **unless** they are also divisible by 400.
+- For example:
+
+  - `2000`, `2400` → leap years ✅
+  - `1900`, `2100` → not leap years ❌s
+
+:::
+
+### Signature
+
+```typescript
+isLeapYear(year?: number): boolean
+```
+
+### Parameters
+
+ `year` *(optional)*: The year to check. If omitted, the method uses the year from the current `Chronos` instance.
+
+### Return Value
+
+ `boolean` — Returns `true` if the year is a leap year, otherwise `false`.
+
+### **Example Usage**
+
+```ts
+new Chronos().isLeapYear(2024); // true
+new Chronos('2025-05-29').isLeapYear(); // false
+```
