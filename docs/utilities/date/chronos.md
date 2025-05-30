@@ -17,6 +17,24 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 - Supports all `Chronos` input types
 - Maintains identical type safety
 
+### 🧩 Plugin System
+
+Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` static method.
+
+#### How it works
+
+```ts
+import { chronos, seasonPlugin } from 'nhb-toolbox';
+
+chronos.use(seasonPlugin); // Register the plugin before using its methods
+
+console.log(chronos().season()); // ✅ Safe to use after plugin registration
+```
+
+:::info
+Each plugin enhances the `Chronos` prototype and becomes available globally after registration.
+:::
+
 ## Usage
 
 ### Import
@@ -50,7 +68,7 @@ date.year // 2023
 date.formatStrict() // Formatted date string
 ```
 
-## Method Categories
+## Available Methods
 
 The wrapper provides access to all Chronos methods through the returned instance:
 
@@ -63,14 +81,20 @@ The wrapper provides access to all Chronos methods through the returned instance
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations
 - **[Component Methods](/docs/classes/Chronos/components)** - Date part manipulation
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
+- **[Chronos Plugins](/docs/classes/Chronos/plugins)** - Learn about Chronos plugins
+- **[String Methods](/docs/classes/Chronos/strings)** - Get time as string (some are just augmentation of JS defaults)
+- **[Extra Time Information](/docs/classes/Chronos/comparison)** - Get extra information about part of year, month, day/date etc.
 
 ## [Static Methods](/docs/classes/Chronos/statics)
 
 All [`Chronos static methods`](/docs/classes/Chronos/statics) are available directly on the wrapper function:
 
 ```typescript
+import { chronos, timeZonePlugin } from 'nhb-toolbox';
+
 // Using wrapper function
 chronos.parse('2023-12-31', 'YYYY-MM-DD')
+chronos.use(timeZonePlugin)
 chronos.today()
 chronos.isLeapYear(2024)
 

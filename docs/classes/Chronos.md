@@ -4,7 +4,11 @@ title: Chronos - Play with Time and Date, Be a Time Master like Chronos
 ---
 
 :::tip[About Chronos]
-In ancient Greek mythology, **Chronos** is the personification of time itself — relentless, precise, and inescapable. Just like the god it’s named after, the `Chronos` class embodies control over the abstract flow of time in your application.
+In ancient Greek mythology, **Chronos** is the primordial embodiment of time — not merely tracking moments, but **defining their very existence**. Like its mythological namesake, the `Chronos` class offers **precise, immutable, and expressive control** over time within your application.
+
+Designed to go beyond `Date`, it empowers you to manipulate, format, compare, and traverse time with **clarity, reliability, and confidence** — all while staying immutable and framework-agnostic.
+
+Whether you're building a calendar, a countdown, or scheduling logic, `Chronos` gives you the power to shape time as you see fit.
 :::
 
 <!-- markdownlint-disable-file MD024 -->
@@ -24,9 +28,12 @@ For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/da
 - [Name Getter Methods](Chronos/names)
 - [Checker Methods](Chronos/checkers)
 - [Conversion Methods](Chronos/conversion)
-- [Component Methods](Chronos/components)
 - [Comparison Methods](Chronos/comparison)
+- [Component Methods](Chronos/components)
 - [Static Methods](Chronos/statics)
+- [Chronos Plugins](Chronos/plugins)
+- [String Methods](Chronos/strings)
+- [Extra Time Information](Chronos/extras)
 - [Symbol Methods](Chronos/symbols)
 
 ## Overload Signatures
@@ -47,6 +54,12 @@ For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/da
 type ChronosInput = number | string | Date | Chronos;
 ```
 
+## Import
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+```
+
 ## Public Properties
 
 These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
@@ -58,6 +71,10 @@ However, in JavaScript, these properties *can technically be mutated* (Compile-t
 ### `native: Date`
 
 Returns the underlying native JavaScript `Date` object used internally by the `Chronos` instance. This is useful for interoperability with APIs or libraries that expect a native `Date`.
+
+:::danger[Note]
+It is **HIGHLY** advised not to rely on this `native` public property to access native JS Date. It's not reliable when timezone and/or UTC related operations are performed. This particular `native` Date always shows a relative UTC time of the current instance even for UTC or zoned time. If you really need to use correct native `Date`, use [`toDate()`](Chronos/conversion#todate) instance method.
+:::
 
 ```ts
 const ch = new Chronos('2025-01-01');
@@ -71,7 +88,7 @@ Indicates how the current `Chronos` instance was created. This can be helpful fo
 Possible values:
 
 - `'root'`: if the instance was directly constructed
-- A method name string such as `'addDays'`, `'startOf'`, etc., if the instance was produced as the result of a method call (which can create a new instance of `Chronos`).
+- A method name string such as `'addDays'`, `'startOf'`, etc., if the instance was produced as the result of a method call (which can create a new instance of `Chronos`). If no such method was called it shows the last previous method name as `origin`, if there is none, it shows `root`.
 
 ```ts
 const root = new Chronos();
@@ -81,11 +98,24 @@ console.log(root.origin); // → 'root'
 console.log(viaMethod.origin); // → 'addDays'
 ```
 
-## Import
+## Plugin System
+
+Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` static method.
+
+### How it works
 
 ```ts
-import { Chronos } from 'nhb-toolbox';
+import { Chronos, seasonPlugin } from 'nhb-toolbox';
+
+Chronos.use(seasonPlugin); // Register the plugin before using its methods
+
+const now = new Chronos();
+console.log(now.season()); // ✅ Safe to use after plugin registration
 ```
+
+:::info
+Each plugin enhances the `Chronos` prototype and becomes available globally after registration.
+:::
 
 ## Alias
 

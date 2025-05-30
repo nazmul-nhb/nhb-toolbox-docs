@@ -92,10 +92,16 @@ season(options?: SeasonOptions): string
 
 The `season()` method determines the current season based on either predefined regional presets or custom season definitions. It supports both month-based and exact date-based season boundaries.
 
+:::danger[Note]
+This method is provided by the `seasonPlugin`. You must register it using `Chronos.use(seasonPlugin)` before calling `.season()`. Once registered, all Chronos instances will have access to the `.season()` method.
+:::
+
 ### Usage
 
 ```typescript
-import Chronos from 'nhb-toolbox';
+import { Chronos, seasonPlugin } from 'nhb-toolbox';
+
+Chronos.use(seasonPlugin)
 
 // Using default preset (Western seasons)
 const now = new Chronos();
@@ -333,12 +339,63 @@ When using month-based boundaries (`MonthBoundary`), the season calculation only
 getZodiacSign(): ZodiacSign
 ```
 
+:::danger[Note]
+This method is provided by the `zodiacPlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.getZodiacSign()`. Once registered, all Chronos instances will have access to the `.getZodiacSign()` method.
+:::
+
 ### Return Type
 
 `ZodiacSign` - Western zodiac sign
 
 ### Example
 
-```javascript
+```ts
+import { Chronos, zodiacPlugin } from 'nhb-toolbox';
+
+Chronos.use(zodiacPlugin)
+
 new Chronos('2025-01-15').getZodiacSign(); // "Capricorn"
+```
+
+---
+
+## getPartOfDay()
+
+:::danger[Note]
+This method is provided by the `dayPartPlugin`. You must register it using `Chronos.use(dayPartPlugin)` before calling `.getPartOfDay()`. Once registered, all Chronos instances will have access to the `.getPartOfDay()` method.
+:::
+
+### Signature
+
+```typescript
+getPartOfDay(config?: Partial<DayPartConfig>): DayPart
+```
+
+### Parameters
+
+- `config`: Custom day part ranges
+
+### Return Type
+
+`DayPart` - Current part of day
+
+### Default Ranges
+
+| Part      | Range       |
+|-----------|-------------|
+| midnight  | 00:00-01:00 |
+| lateNight | 02:00-04:00 |
+| morning   | 05:00-11:00 |
+| afternoon | 12:00-16:00 |
+| evening   | 17:00-20:00 |
+| night     | 21:00-23:00 |
+
+### Example
+
+```ts
+import { Chronos, dayPartPlugin } from 'nhb-toolbox';
+
+Chronos.use(dayPartPlugin)
+
+new Chronos('2025-01-15T09:00:00').getPartOfDay(); // "morning"
 ```
