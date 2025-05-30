@@ -129,7 +129,7 @@ interface SeasonOptions {
 ```
 
 - `seasons`: Custom array of season definitions (overrides preset if provided)
-- `preset`: Name of predefined season configuration (default: `'default'`)
+- `preset`: Name of predefined season configuration (default: `'default'` - Western Seasons)
 
 #### SeasonDefinition
 
@@ -156,7 +156,7 @@ Boundary can be either:
 ### Available Presets
 
 <Tabs>
-<TabItem value="default" label="Western (Default)">
+<TabItem value="default" label={ <span style={{ whiteSpace: 'nowrap' }}>Default (Western)</span> }>
 
 ```typescript
 [
@@ -182,20 +182,7 @@ Boundary can be either:
 ```
 
 </TabItem>
-<TabItem value="india" label="India (IMD)">
-
-```typescript
-[
-  { name: 'Winter', boundary: { startMonth: 0, endMonth: 1 } },       // Jan-Feb
-  { name: 'Pre-Monsoon', boundary: { startMonth: 2, endMonth: 4 } },  // Mar-May
-  { name: 'Monsoon', boundary: { startMonth: 5, endMonth: 8 } },      // Jun-Sep
-  { name: 'Post-Monsoon', boundary: { startMonth: 9, endMonth: 10 } },// Oct-Nov
-  { name: 'Cool Season', boundary: { startMonth: 11, endMonth: 11 } } // Dec
-]
-```
-
-</TabItem>
-<TabItem value="vedic" label="India (Vedic)">
+<TabItem value="vedic" label="Vedic">
 
 ```typescript
 [
@@ -209,7 +196,7 @@ Boundary can be either:
 ```
 
 </TabItem>
-<TabItem value="tamil" label="India (Tamil)">
+<TabItem value="tamil" label="Tamil">
 
 ```typescript
 [
@@ -219,6 +206,19 @@ Boundary can be either:
   { name: 'Koothir (Autumn)', boundary: { startMonth: 9, endMonth: 10 } },       // Oct-Nov
   { name: 'Munpani (Early-Winter)', boundary: { startMonth: 10, endMonth: 0 } }, // Nov-Jan
   { name: 'Pinpani (Late-Winter)', boundary: { startMonth: 0, endMonth: 2 } }    // Jan-Mar
+]
+```
+
+</TabItem>
+<TabItem value="india" label={ <span style={{ whiteSpace: 'nowrap' }}>India (IMD)</span> }>
+
+```typescript
+[
+  { name: 'Winter', boundary: { startMonth: 0, endMonth: 1 } },       // Jan-Feb
+  { name: 'Pre-Monsoon', boundary: { startMonth: 2, endMonth: 4 } },  // Mar-May
+  { name: 'Monsoon', boundary: { startMonth: 5, endMonth: 8 } },      // Jun-Sep
+  { name: 'Post-Monsoon', boundary: { startMonth: 9, endMonth: 10 } },// Oct-Nov
+  { name: 'Cool Season', boundary: { startMonth: 11, endMonth: 11 } } // Dec
 ]
 ```
 
@@ -233,7 +233,7 @@ Boundary can be either:
 ```
 
 </TabItem>
-<TabItem value="academic_us" label="US Academic">
+<TabItem value="academic_us" label={ <span style={{ whiteSpace: 'nowrap' }}>US Academic</span> } >
 
 ```typescript
 [
