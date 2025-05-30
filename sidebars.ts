@@ -296,6 +296,7 @@ const sidebars: SidebarsConfig = {
 						'classes/Chronos/getters',
 						'classes/Chronos/format',
 						'classes/Chronos/calculation',
+						'classes/Chronos/names',
 						'classes/Chronos/checkers',
 						'classes/Chronos/conversion',
 						'classes/Chronos/comparison',

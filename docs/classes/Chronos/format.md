@@ -5,6 +5,52 @@ title: Format Methods
 
 import Copy from '@site/src/components/Copy'
 
+## Format Tokens
+
+:::info
+Chronos supports a rich set of format tokens that you can use to customize how a date is displayed. These tokens work across `format`, `formatUTC`, and `formatStrict` methods as well as for other methods that accept a format, and behave similarly to libraries like `Moment.js` or `Day.js`.
+:::
+
+Use square brackets (`[ ]`) to escape literal text. Unescaped characters will be treated as formatting tokens and replaced accordingly.
+
+Below is a list of all supported tokens:
+
+| Token                                        | Output           | Example           |
+|----------------------------------------------|------------------|-------------------|
+| <Copy text="YYYY" /> or <Copy text="yyyy" /> | Full year        | 2025              |
+| <Copy text="YY" /> or <Copy text="yy" />     | 2-digit year     | 23                |
+| <Copy text="mmmm" />                         | Full month       | January           |
+| <Copy text="mmm" />                          | Short month      | Jan               |
+| <Copy text="MM" />                           | 2-digit month    | 01-12             |
+| <Copy text="M" />                            | Month            | 1-12              |
+| <Copy text="DD" />                           | 2-digit day      | 01-31             |
+| <Copy text="D" />                            | Day              | 1-31              |
+| <Copy text="Do" />                           | Ordinal day      | 1st, 2nd          |
+| <Copy text="ddd" />                          | Full weekday     | Monday            |
+| <Copy text="dd" />                           | Short weekday    | Mon               |
+| <Copy text="d" />                            | Shorter weekday  | Mo                |
+| <Copy text="HH" />                           | 24-hour (00-23)  | 09                |
+| <Copy text="H" />                            | 24-hour (0-23)   | 9                 |
+| <Copy text="hh" />                           | 12-hour (01-12)  | 02                |
+| <Copy text="h" />                            | 12-hour (1-12)   | 2                 |
+| <Copy text="mm" />                           | Minutes (00-59)  | 05                |
+| <Copy text="m" />                            | Minutes (0-59)   | 5                 |
+| <Copy text="ss" />                           | Seconds (00-59)  | 09                |
+| <Copy text="s" />                            | Seconds (0-59)   | 9                 |
+| <Copy text="A" />                            | AM/PM            | PM                |
+| <Copy text="a" />                            | am/pm            | pm                |
+| <Copy text="ZZ" />                           | TZ Offset ±HH:mm | +06:00 or Z (UTC) |
+
+:::danger
+
+- To output raw text (i.e., not interpreted as a date token), wrap it in square brackets.
+- For example, `[Today is] ddd` results in `Today is Sunday`, and `YYYY[ year]` results in `2025 year`.
+
+- Supported format tokens include: `YYYY`, `YY`, `MMMM`, `MMM`, `MM`, `M`, `DD`, `D`, `dd`, `ddd`, `Do`, `HH`, `H`, `hh`, `h`, `mm`, `m`, `ss`, `s`, `mss`, `a`, `A`, and `ZZ`.
+- *Any token not wrapped in brackets will be parsed and replaced with its corresponding date component.*
+
+:::
+
 <!-- markdownlint-disable-file MD024 -->
 ## format()
 
@@ -23,39 +69,12 @@ format(format?: string, useUTC?: boolean): string
 
 `string` - Formatted date
 
-### Format Tokens
-
-| Token                                        | Output           | Example  |
-|----------------------------------------------|------------------|----------|
-| <Copy text="YYYY" /> or <Copy text="yyyy" /> | Full year        | 2025     |
-| <Copy text="YY" /> or <Copy text="yy" />     | 2-digit year     | 23       |
-| <Copy text="mmmm" />                         | Full month       | January  |
-| <Copy text="mmm" />                          | Short month      | Jan      |
-| <Copy text="MM" />                           | 2-digit month    | 01-12    |
-| <Copy text="M" />                            | Month            | 1-12     |
-| <Copy text="DD" />                           | 2-digit day      | 01-31    |
-| <Copy text="D" />                            | Day              | 1-31     |
-| <Copy text="Do" />                           | Ordinal day      | 1st, 2nd |
-| <Copy text="ddd" />                          | Full weekday     | Monday   |
-| <Copy text="dd" />                           | Short weekday    | Mon      |
-| <Copy text="d" />                            | Shorter weekday  | Mo       |
-| <Copy text="HH" />                           | 24-hour (00-23)  | 09       |
-| <Copy text="H" />                            | 24-hour (0-23)   | 9       |
-| <Copy text="hh" />                           | 12-hour (01-12)  | 02       |
-| <Copy text="h" />                            | 12-hour (1-12)   | 2        |
-| <Copy text="mm" />                           | Minutes (00-59)  | 05       |
-| <Copy text="m" />                            | Minutes (0-59)   | 5        |
-| <Copy text="ss" />                           | Seconds (00-59)  | 09       |
-| <Copy text="s" />                            | Seconds (0-59)   | 9        |
-| <Copy text="A" />                            | AM/PM            | PM       |
-| <Copy text="a" />                            | am/pm            | pm       |
-
 ### Example
 
 ```javascript
 const date = new Chronos('2025-01-15T14:30:00');
 date.format('YYYY-MM-DD'); // "2025-01-15"
-date.format('dddd, mmmm Do YYYY'); // "Wednesday, January 15th 2025"
+date.format('ddd, mmmm Do YYYY'); // "Wednesday, January 15th 2025"
 date.format('h:mm A'); // "2:30 PM"
 ```
 
@@ -342,7 +361,7 @@ new Chronos('2025-04-01').toQuarter(); // 2
 ### Signature
 
 ```typescript
-toFiscalQuarter(startMonth?: number): Quarter
+toFiscalQuarter(startMonth?: NumberRange<1, 12>): Quarter
 ```
 
 ### Parameters

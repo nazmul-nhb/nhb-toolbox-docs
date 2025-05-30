@@ -17,12 +17,12 @@ function getGreeting(configs?: GreetingConfigs): string;
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `morningEnds` | `Time` | `'11:59'` | When morning period ends (HH:MM) |
-| `noonEnds` | `Time` | `'12:59'` | When noon period ends |
-| `afternoonEnds` | `Time` | `'17:59'` | When afternoon period ends |
-| `eveningEnds` | `Time` | `'23:59'` | When evening period ends |
-| `midnightEnds` | `Time` | `'02:59'` | When midnight period ends |
-| `currentTime` | `Time` | Current time | Override current time (HH:MM) |
+| `morningEnds` | `ClockTime` | `'11:59'` | When morning period ends (HH:MM) |
+| `noonEnds` | `ClockTime` | `'12:59'` | When noon period ends |
+| `afternoonEnds` | `ClockTime` | `'17:59'` | When afternoon period ends |
+| `eveningEnds` | `ClockTime` | `'23:59'` | When evening period ends |
+| `midnightEnds` | `ClockTime` | `'02:59'` | When midnight period ends |
+| `currentTime` | `ClockTime` | Current time | Override current time (HH:MM) |
 | `appendToMsg` | `string` | `''` | Text to append to messages |
 | `prependToMsg` | `string` | `''` | Text to prepend to messages |
 | `morningMessage` | `string` | `'Good Morning!'` | Custom morning greeting |
@@ -95,23 +95,23 @@ greet({ morningMessage: 'Rise and shine!' });
 #### Time Types
 
 ```typescript
-type Hours = '00'|'01'|'02'|'03'|...'23';
+type ClockHour = '00'|'01'|'02'|'03'|...'23';
 
-type Minutes = '00'|'01'|'02'|'03'...|'59';
+type ClockMinute = '00'|'01'|'02'|'03'...|'59';
 
-type Time = `${Hours}:${Minutes}`;
+type ClockTime = `${ClockHour}:${ClockMinute}`;
 ```
 
 #### GreetingConfigs Interface
 
 ```typescript
 interface GreetingConfigs {
-  morningEnds?: Time;
-  noonEnds?: Time;
-  afternoonEnds?: Time;
-  eveningEnds?: Time;
-  midnightEnds?: Time;
-  currentTime?: Time;
+  morningEnds?: ClockTime;
+  noonEnds?: ClockTime;
+  afternoonEnds?: ClockTime;
+  eveningEnds?: ClockTime;
+  midnightEnds?: ClockTime;
+  currentTime?: ClockTime;
   appendToMsg?: string;
   prependToMsg?: string;
   morningMessage?: string;

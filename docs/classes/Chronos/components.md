@@ -192,7 +192,7 @@ new Chronos('2025-01-01').setWeek(1); // Jan 2 (ISO week 1)
 ### Signature
 
 ```typescript
-getWeekOfYear(weekStartsOn?: number): NumberRange<1, 53>
+getWeekOfYear(weekStartsOn?: Enumerate<7>): NumberRange<1, 53>
 ```
 
 ### Parameters
@@ -251,26 +251,6 @@ getDayOfYear(): NumberRange<1, 366>
 
 ```javascript
 new Chronos('2025-01-01').getDayOfYear(); // 1
-```
-
----
-
-## getZodiacSign()
-
-### Signature
-
-```typescript
-getZodiacSign(): ZodiacSign
-```
-
-### Return Type
-
-`ZodiacSign` - Western zodiac sign
-
-### Example
-
-```javascript
-new Chronos('2025-01-15').getZodiacSign(); // "Capricorn"
 ```
 
 ---

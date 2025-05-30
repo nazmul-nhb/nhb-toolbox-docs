@@ -10,7 +10,7 @@ Extracts the hour and minute components from a time string in `HH:MM` or `-HH:MM
 ### Function Signature
 
 ```typescript
-function extractHourMinute(time: `-${Time}` | Time): [number, number];
+function extractHourMinute(time: `-${ClockTime}` | ClockTime): [number, number];
 ```
 
 ### Parameters
@@ -55,9 +55,9 @@ console.log(minute2);  // 30
 The input type ensures only valid formats are accepted:
 
 ```typescript
-type Time = `${Hours}:${Minutes}`;  // HH:MM format
-type Hours = '00'|'01'|...|'23';    // Valid hours
-type Minutes = '00'|'01'|...|'59';  // Valid minutes
+type ClockTime = `${ClockHour}:${ClockMinute}`;  // HH:MM format
+type ClockHour = '00'|'01'|...|'23';    // Valid hours
+type ClockMinute = '00'|'01'|...|'59';  // Valid minutes
 ```
 
 ### Edge Cases

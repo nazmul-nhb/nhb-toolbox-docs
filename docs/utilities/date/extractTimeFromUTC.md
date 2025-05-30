@@ -57,7 +57,7 @@ console.log(extractTimeFromUTC("UTC+00:00"));  // "00:00"
 
 ```typescript
 type UTCOffSet = `UTC${'+00'|'+01'|...|'+14'|'-00'|'-01'|...|'-14'}:${'00'|'15'|'30'|'45'}`;
-type Time = `${Hours}:${Minutes}`;
+type ClockTime = `${ClockHour}:${ClockMinute}`;
 ```
 
 ### Use Cases

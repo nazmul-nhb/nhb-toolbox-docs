@@ -57,6 +57,7 @@ The wrapper provides access to all Chronos methods through the returned instance
 - **[Public Properties](/docs/classes/Chronos#public-properties)** - Access public properties for debugging
 - **[Getters](/docs/classes/Chronos/getters)** - Access date components
 - **[Format Methods](/docs/classes/Chronos/format)** - Date display formatting
+- **[Name Getter Methods](/docs/classes/Chronos/names)** - Get names of the date parts (day-name, month-name etc.)
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations
 - **[Checker Methods](/docs/classes/Chronos/checkers)** - Date validation
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations

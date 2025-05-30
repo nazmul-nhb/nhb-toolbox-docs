@@ -21,6 +21,7 @@ For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/da
 - [Getters](Chronos/getters)
 - [Format Methods](Chronos/format)
 - [Calculation Methods](Chronos/calculation)
+- [Name Getter Methods](Chronos/names)
 - [Checker Methods](Chronos/checkers)
 - [Conversion Methods](Chronos/conversion)
 - [Component Methods](Chronos/components)

@@ -10,7 +10,7 @@ Converts a time string in `HH:MM` or `-HH:MM` format into total minutes from `00
 ### Function Signature
 
 ```typescript
-function getTotalMinutes(time: `-${Time}` | Time): number;
+function getTotalMinutes(time: `-${ClockTime}` | ClockTime): number;
 ```
 
 ### Parameters
@@ -64,9 +64,9 @@ console.log(getTotalMinutes("-00:00")); // 0
 Input is strictly validated through types:
 
 ```typescript
-type Time = `${Hours}:${Minutes}`;
-type Hours = '00'|'01'|...|'23';
-type Minutes = '00'|'01'|...|'59';
+type ClockTime = `${ClockHour}:${ClockMinute}`;
+type ClockHour = '00'|'01'|...|'23';
+type ClockMinute = '00'|'01'|...|'59';
 ```
 
 ### Use Cases

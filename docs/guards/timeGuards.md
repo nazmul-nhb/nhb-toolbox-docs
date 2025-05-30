@@ -47,9 +47,9 @@ console.log(isValidTime(1234));    // false (not a string)
 ### Type Definition
 
 ```typescript
-type Time = `${Hours}:${Minutes}`;
-type Hours = '00'|'01'|...|'23';
-type Minutes = '00'|'01'|...|'59';
+type ClockTime = `${ClockHour}:${ClockMinute}`;
+type ClockHour = '00'|'01'|...|'23';
+type ClockMinute = '00'|'01'|...|'59';
 ```
 
 ---
