@@ -11,7 +11,7 @@ Chronos supports a powerful **plugin system** that allows developers to inject a
 
 ---
 
-## 🧱 What Is a Plugin?
+## 🧩 What Is a Plugin?
 
 A plugin is a function that takes the `Chronos` class constructor and augments it—usually by adding prototype methods.
 
@@ -66,6 +66,9 @@ To enable a plugin, use the static `Chronos.use()` method **before creating inst
 ```ts
 import { Chronos } from 'nhb-toolbox';
 import { customPlugin } from './plugins/customPlugin';
+
+// For importing an actual plugin from the package
+import { somePlugin } from 'nhb-toolbox/plugins/plugin-path';
 
 Chronos.use(customPlugin);
 

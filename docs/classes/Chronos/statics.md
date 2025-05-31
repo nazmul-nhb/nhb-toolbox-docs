@@ -29,7 +29,7 @@ static use(plugin: ChronosPlugin): void
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
-import { timeZonePlugin } from './plugins/timeZone';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/time-zone';
 
 Chronos.use(timeZonePlugin); // Injects timeZone() method
 ````
@@ -47,7 +47,7 @@ c.timeZone('UTC+06:00');
 
 * Plugins should be injected **before** any instance creation.
 * Internally, Chronos maintains a `#plugins` set to prevent duplicate injections.
-* This system is ideal for modular features like `seasons`, `zodiac`, or `timezone` support.
+* This system is ideal for modular features like `seasons`, `zodiac`, or `timeZone` etc. support.
 
 :::
 

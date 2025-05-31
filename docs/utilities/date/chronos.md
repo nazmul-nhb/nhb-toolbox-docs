@@ -24,7 +24,8 @@ Chronos supports a modular plugin system that allows you to extend its capabilit
 #### How it works
 
 ```ts
-import { chronos, seasonPlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { seasonPlugin } from 'nhb-toolbox/plugins/season';
 
 chronos.use(seasonPlugin); // Register the plugin before using its methods
 
@@ -90,7 +91,8 @@ The wrapper provides access to all Chronos methods through the returned instance
 All [`Chronos static methods`](/docs/classes/Chronos/statics) are available directly on the wrapper function:
 
 ```typescript
-import { chronos, timeZonePlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/time-zone';
 
 // Using wrapper function
 chronos.parse('2023-12-31', 'YYYY-MM-DD')

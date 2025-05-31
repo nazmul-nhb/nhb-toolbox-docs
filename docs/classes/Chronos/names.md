@@ -99,7 +99,8 @@ This method is provided by the `seasonPlugin`. You must register it using `Chron
 ### Usage
 
 ```typescript
-import { Chronos, seasonPlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { seasonPlugin } from 'nhb-toolbox/plugins/season';
 
 Chronos.use(seasonPlugin)
 
@@ -172,12 +173,12 @@ Boundary can be either:
 
 ```typescript
 [
-  { name: 'Grishsho (Summer)', boundary: { startDate: '04-15', endDate: '06-14' } },
-  { name: 'Bôrsha (Monsoon)', boundary: { startDate: '06-15', endDate: '08-14' } },
-  { name: 'Shôrot (Autumn)', boundary: { startDate: '08-15', endDate: '10-14' } },
-  { name: 'Hemonto (Late Autumn)', boundary: { startDate: '10-15', endDate: '12-14' } },
-  { name: 'Sheet (Winter)', boundary: { startDate: '12-15', endDate: '02-14' } },
-  { name: 'Bôshonto (Spring)', boundary: { startDate: '02-15', endDate: '04-14' } }
+ { name: 'Grisma (Summer)', boundary: { startDate: '04-15', endDate: '06-14' } },
+ { name: 'Barsa (Monsoon)', boundary: { startDate: '06-15', endDate: '08-14' } },
+ { name: 'Sarat (Autumn)', boundary: { startDate: '08-15', endDate: '10-14' } },
+ { name: 'Hemanta (Late-Autumn)', boundary: { startDate: '10-15', endDate: '12-14' } },
+ { name: 'Shhit (Winter)', boundary: { startDate: '12-15', endDate: '02-14' } },
+ { name: 'Basanta (Spring)', boundary: { startDate: '02-15', endDate: '04-14' } }
 ]
 ```
 
@@ -191,7 +192,7 @@ Boundary can be either:
   { name: 'Grishma (Summer)', boundary: { startDate: '04-15', endDate: '06-14' } },
   { name: 'Varsha (Monsoon)', boundary: { startDate: '06-15', endDate: '08-14' } },
   { name: 'Sharad (Autumn)', boundary: { startDate: '08-15', endDate: '10-14' } },
-  { name: 'Hemant (Late Autumn)', boundary: { startDate: '10-15', endDate: '12-14' } }
+  { name: 'Hemant (Late-Autumn)', boundary: { startDate: '10-15', endDate: '12-14' } }
 ]
 ```
 
@@ -240,7 +241,7 @@ Boundary can be either:
   { name: 'Spring', boundary: { startDate: '01-10', endDate: '05-15' } },
   { name: 'Summer', boundary: { startDate: '05-16', endDate: '08-15' } },
   { name: 'Fall', boundary: { startDate: '08-16', endDate: '12-20' } },
-  { name: 'Winter', boundary: { startDate: '12-21', endDate: '01-09' } }
+  { name: 'Winter Break', boundary: { startDate: '12-21', endDate: '01-09' } }
 ]
 ```
 
@@ -336,28 +337,137 @@ When using month-based boundaries (`MonthBoundary`), the season calculation only
 ### Signature
 
 ```typescript
-getZodiacSign(): ZodiacSign
+getZodiacSign(options?: ZodiacOptions): ZodiacSign
 ```
+
+### Overview
+
+The `getZodiacSign()` method determines the zodiac sign based on either predefined presets (Western or Vedic) or custom zodiac definitions. It supports both instance date and custom birthdate inputs.
 
 :::danger[Note]
 This method is provided by the `zodiacPlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.getZodiacSign()`. Once registered, all Chronos instances will have access to the `.getZodiacSign()` method.
 :::
 
-### Return Type
+### Usage
 
-`ZodiacSign` - Western zodiac sign
-
-### Example
-
-```ts
-import { Chronos, zodiacPlugin } from 'nhb-toolbox';
+```typescript
+import { Chronos } from 'nhb-toolbox';
+import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiac';
 
 Chronos.use(zodiacPlugin)
 
-new Chronos('2025-01-15').getZodiacSign(); // "Capricorn"
+// Using default preset (Western)
+const now = new Chronos();
+console.log(now.getZodiacSign()); // "Leo" (if between Jul 23-Aug 22)
+
+// Using Vedic preset
+console.log(now.getZodiacSign({ preset: 'vedic' }));
+
+// Custom birthdate
+console.log(now.getZodiacSign({ birthDate: '05-21' })); // "Gemini"
+
+// Custom zodiac definitions
+const customZodiac = [
+  ['Aries', [3, 21]],
+  ['Taurus', [4, 20]],
+  // ...other signs
+];
+console.log(now.getZodiacSign({ custom: customZodiac }));
 ```
 
----
+### Configuration
+
+#### ZodiacOptions
+
+```typescript
+interface ZodiacOptions {
+  birthDate?: MonthDateString; // 'MM-DD' format (1-based month)
+  preset?: ZodiacPreset;       // 'western' | 'vedic' | 'tropical' | 'sidereal'
+  custom?: ZodiacArray;        // Custom zodiac definitions
+}
+```
+
+- `birthDate`: Optional date in 'MM-DD' format to use instead of instance date
+- `preset`: Name of predefined zodiac configuration (default: `'western'`)
+- `custom`: Custom array of zodiac definitions (overrides preset if provided)
+
+### Available Presets
+
+<Tabs>
+<TabItem value="western" label="Western/Tropical">
+
+```typescript
+[
+  ['Capricorn', [12, 22]],
+  ['Aquarius', [1, 20]],
+  ['Pisces', [2, 19]],
+  ['Aries', [3, 21]],
+  ['Taurus', [4, 20]],
+  ['Gemini', [5, 21]],
+  ['Cancer', [6, 21]],
+  ['Leo', [7, 23]],
+  ['Virgo', [8, 23]],
+  ['Libra', [9, 23]],
+  ['Scorpio', [10, 23]],
+  ['Sagittarius', [11, 22]],
+  ['Capricorn', [12, 22]]
+]
+```
+
+</TabItem>
+<TabItem value="vedic" label="Vedic/Sidereal">
+
+```typescript
+[
+  ['Capricorn', [1, 14]],
+  ['Aquarius', [2, 13]],
+  ['Pisces', [3, 14]],
+  ['Aries', [4, 13]],
+  ['Taurus', [5, 14]],
+  ['Gemini', [6, 14]],
+  ['Cancer', [7, 16]],
+  ['Leo', [8, 16]],
+  ['Virgo', [9, 16]],
+  ['Libra', [10, 16]],
+  ['Scorpio', [11, 15]],
+  ['Sagittarius', [12, 15]],
+  ['Capricorn', [1, 14]]
+]
+```
+
+</TabItem>
+</Tabs>
+
+:::tip[Custom Zodiac]
+You can create custom zodiac configurations by providing your own array of zodiac definitions but must use the 12 existing zodiac sign names, **only date ranges are customizable**:
+
+```typescript
+const customZodiac = [
+  ['Capricorn', [1, 1]], 
+  ['Sagittarius', [2, 1]],
+  // ...other signs
+];
+
+const currentSign = new Chronos().getZodiacSign({ custom: customZodiac });
+```
+
+:::
+
+### Type Definitions
+
+```typescript
+type ZodiacPreset = 'western' | 'vedic' | 'tropical' | 'sidereal';
+type ZodiacSign = 'Aries' | 'Taurus' | ...; // All zodiac sign names
+type ZodiacArray = Array<[ZodiacSign, [month: 1 | 2 | ... | 12, day: 1 | 2 | ... | 31]]>;
+```
+
+:::info[Date Handling]
+
+- Month values are 1-based (1 = January)
+- Supports both instance date and custom birthdate input
+- Returns the first sign if no matches found (shouldn't occur with proper definitions)
+
+:::
 
 ## getPartOfDay()
 
@@ -393,7 +503,8 @@ getPartOfDay(config?: Partial<DayPartConfig>): DayPart
 ### Example
 
 ```ts
-import { Chronos, dayPartPlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { dayPartPlugin } from 'nhb-toolbox/plugins/day-part';
 
 Chronos.use(dayPartPlugin)
 

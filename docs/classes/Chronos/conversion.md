@@ -71,7 +71,7 @@ Chronos.utc('2025-01-15').toLocal(); // Local time instance
 ## timeZone()
 
 :::danger[Note]
-This method is provided by the `timeZonePlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.timeZone()`. Once registered, all Chronos instances will have access to the `.timeZone()` method.
+This method is provided by the `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all Chronos instances will have access to the `.timeZone()` method.
 :::
 
 ### Signature
@@ -91,7 +91,8 @@ timeZone(zone: TimeZone | UTCOffSet): Chronos
 ### Example
 
 ```ts
-import { Chronos, timeZonePlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/time-zone';
 
 Chronos.use(timeZonePlugin)
 
