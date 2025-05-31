@@ -93,7 +93,7 @@ season(options?: SeasonOptions): string
 The `season()` method determines the current season based on either predefined regional presets or custom season definitions. It supports both month-based and exact date-based season boundaries.
 
 :::danger[Note]
-This method is provided by the `seasonPlugin`. You must register it using `Chronos.use(seasonPlugin)` before calling `.season()`. Once registered, all Chronos instances will have access to the `.season()` method.
+This method is provided by `seasonPlugin`. You must register it using `Chronos.use(seasonPlugin)` before calling `.season()`. Once registered, all Chronos instances will have access to the `.season()` method.
 :::
 
 ### Usage
@@ -345,7 +345,7 @@ getZodiacSign(options?: ZodiacOptions): ZodiacSign
 The `getZodiacSign()` method determines the zodiac sign based on either predefined presets (Western or Vedic) or custom zodiac definitions. It supports both instance date and custom birthdate inputs.
 
 :::danger[Note]
-This method is provided by the `zodiacPlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.getZodiacSign()`. Once registered, all Chronos instances will have access to the `.getZodiacSign()` method.
+This method is provided by `zodiacPlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.getZodiacSign()`. Once registered, all Chronos instances will have access to the `.getZodiacSign()` method.
 :::
 
 ### Usage
@@ -472,7 +472,7 @@ type ZodiacArray = Array<[ZodiacSign, [month: 1 | 2 | ... | 12, day: 1 | 2 | ...
 ## getPartOfDay()
 
 :::danger[Note]
-This method is provided by the `dayPartPlugin`. You must register it using `Chronos.use(dayPartPlugin)` before calling `.getPartOfDay()`. Once registered, all Chronos instances will have access to the `.getPartOfDay()` method.
+This method is provided by `dayPartPlugin`. You must register it using `Chronos.use(dayPartPlugin)` before calling `.getPartOfDay()`. Once registered, all Chronos instances will have access to the `.getPartOfDay()` method.
 :::
 
 ### Signature

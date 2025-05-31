@@ -71,7 +71,7 @@ Chronos.utc('2025-01-15').toLocal(); // Local time instance
 ## timeZone()
 
 :::danger[Note]
-This method is provided by the `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all Chronos instances will have access to the `.timeZone()` method.
+This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all Chronos instances will have access to the `.timeZone()` method.
 :::
 
 ### Signature
