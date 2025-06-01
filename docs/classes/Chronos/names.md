@@ -98,11 +98,11 @@ This method is provided by `seasonPlugin`. You must register it using `Chronos.u
 
 ### Usage
 
-```typescript
+```ts
 import { Chronos } from 'nhb-toolbox';
-import { seasonPlugin } from 'nhb-toolbox/plugins/season';
+import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
 
-Chronos.use(seasonPlugin)
+Chronos.use(seasonPlugin);
 
 // Using default preset (Western seasons)
 const now = new Chronos();
@@ -352,9 +352,9 @@ This method is provided by `zodiacPlugin`. You must register it using `Chronos.u
 
 ```typescript
 import { Chronos } from 'nhb-toolbox';
-import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiac';
+import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiacPlugin';
 
-Chronos.use(zodiacPlugin)
+Chronos.use(zodiacPlugin);
 
 // Using default preset (Western)
 const now = new Chronos();
@@ -504,9 +504,9 @@ getPartOfDay(config?: Partial<DayPartConfig>): DayPart
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
-import { dayPartPlugin } from 'nhb-toolbox/plugins/day-part';
+import { dayPartPlugin } from 'nhb-toolbox/plugins/dayPartPlugin';
 
-Chronos.use(dayPartPlugin)
+Chronos.use(dayPartPlugin);
 
 new Chronos('2025-01-15T09:00:00').getPartOfDay(); // "morning"
 ```

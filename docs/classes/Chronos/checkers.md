@@ -114,6 +114,10 @@ new Chronos('2025-01-15').isBetween('2025-01-01', '2025-01-31'); // true
 
 ## isToday()
 
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isToday()`. Once registered, all Chronos instances will have access to the `.isToday()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -126,33 +130,22 @@ isToday(): boolean
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 new Chronos().isToday(); // true
 ```
 
 ---
 
-## isYesterday()
-
-### Signature
-
-```typescript
-isYesterday(): boolean
-```
-
-### Return Type
-
-`boolean` - Whether date is yesterday
-
-### Example
-
-```javascript
-new Chronos().subtract(1, 'day').isYesterday(); // true
-```
-
----
-
 ## isTomorrow()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isTomorrow()`. Once registered, all Chronos instances will have access to the `.isTomorrow()` method.
+:::
 
 ### Signature
 
@@ -166,13 +159,51 @@ isTomorrow(): boolean
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 new Chronos().add(1, 'day').isTomorrow(); // true
 ```
 
 ---
 
+## isYesterday()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isYesterday()`. Once registered, all Chronos instances will have access to the `.isYesterday()` method.
+:::
+
+### Signature
+
+```typescript
+isYesterday(): boolean
+```
+
+### Return Type
+
+`boolean` - Whether date is yesterday
+
+### Example
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
+new Chronos().subtract(1, 'day').isYesterday(); // true
+```
+
+---
+
 ## isWeekend()
+
+:::danger[Note]
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWeekend()`. Once registered, all Chronos instances will have access to the `.isWeekend()` method.
+:::
 
 ### Signature
 
@@ -191,13 +222,22 @@ isWeekend(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
+
+Chronos.use(businessPlugin);
+
 new Chronos('2025-01-15').isWeekend(); // true (Sunday)
 ```
 
 ---
 
 ## isWorkday()
+
+:::danger[Note]
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWorkday()`. Once registered, all Chronos instances will have access to the `.isWorkday()` method.
+:::
 
 ### Signature
 
@@ -216,7 +256,12 @@ isWorkday(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
+
+Chronos.use(businessPlugin);
+
 new Chronos('2025-01-16').isWorkday(); // true (Monday)
 ```
 
@@ -224,23 +269,34 @@ new Chronos('2025-01-16').isWorkday(); // true (Monday)
 
 ## isBusinessHour()
 
+:::danger[Note]
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isBusinessHour()`. Once registered, all Chronos instances will have access to the `.isBusinessHour()` method.
+:::
+
 ### Signature
 
-```typescript
-isBusinessHour(
-  businessStartHour?: Enumerate<24>,
-  businessEndHour?: Enumerate<24>,
-  weekStartsOn?: Enumerate<7>,
-  weekendLength?: 1 | 2
-): boolean
+```ts
+isBusinessHour(options?: BusinessHourOptions): boolean
 ```
 
 ### Parameters
 
-- `businessStartHour`: Start hour (from `0-23`) (default: 9)
-- `businessEndHour`: End hour (from `0-23`) (default: 17)
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
-- `weekendLength`: Weekend days (default: 2)
+- `options`:Options to configure business hour
+
+#### Options Type Definitions
+
+```ts
+interface BusinessHourOptions {
+ /** - Optional starting hour of business time (0–23). Defaults to `9` (9 AM). */
+ businessStartHour?: Enumerate<24>;
+ /**- Optional ending hour of business time (0–23). Defaults to `17` (5 PM). */
+ businessEndHour?: Enumerate<24>;
+ /** - Optional day the week starts on (0–6). Default is `0` (Sunday). */
+ weekStartsOn?: Enumerate<7>;
+ /**- Optional weekend length (1 or 2). Default is `2`.*/
+ weekendLength?: 1 | 2;
+}
+```
 
 ### Return Type
 
@@ -248,13 +304,22 @@ isBusinessHour(
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
+
+Chronos.use(businessPlugin);
+
 new Chronos('2025-01-16T10:00:00').isBusinessHour(); // true
 ```
 
 ---
 
 ## isPalindromeDate()
+
+:::danger[Note]
+This method is provided by `palindromePlugin`. You must register it using `Chronos.use(palindromePlugin)` before calling `.isPalindromeDate()`. Once registered, all Chronos instances will have access to the `.isPalindromeDate()` method.
+:::
 
 ### Signature
 
@@ -272,7 +337,11 @@ isPalindromeDate(shortYear?: boolean): boolean
 
 ### Example
 
-```javascript
+```ts
+import { palindromePlugin } from 'nhb-toolbox/plugins/palindromePlugin';
+
+Chronos.use(palindromePlugin);
+
 new Chronos('2020-02-02').isPalindromeDate(); // true
 ```
 
@@ -351,7 +420,7 @@ new Chronos('2025-01-31').isLastDayOfMonth(); // true
 - For example:
 
   - `2000`, `2400` → leap years ✅
-  - `1900`, `2100` → not leap years ❌s
+  - `1900`, `2100` → not leap years ❌
 
 :::
 

@@ -105,7 +105,8 @@ Chronos supports a modular plugin system that allows you to extend its capabilit
 ### How it works
 
 ```ts
-import { Chronos, seasonPlugin } from 'nhb-toolbox';
+import { Chronos } from 'nhb-toolbox';
+import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
 
 Chronos.use(seasonPlugin); // Register the plugin before using its methods
 

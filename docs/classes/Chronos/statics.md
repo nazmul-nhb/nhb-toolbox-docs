@@ -29,7 +29,7 @@ static use(plugin: ChronosPlugin): void
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
-import { timeZonePlugin } from 'nhb-toolbox/plugins/time-zone';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 
 Chronos.use(timeZonePlugin); // Injects timeZone() method
 ````

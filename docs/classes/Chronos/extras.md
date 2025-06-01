@@ -129,6 +129,10 @@ new Chronos().timeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
 
 ## toAcademicYear()
 
+:::danger[Note]
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toAcademicYear()`. Once registered, all Chronos instances will have access to the `.toAcademicYear()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -145,7 +149,12 @@ toAcademicYear(): `${number}-${number}`
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
+
+Chronos.use(businessPlugin);
+
 new Chronos('2025-01-15').toAcademicYear(); // "2022-2025"
 new Chronos('2025-08-15').toAcademicYear(); // "2025-2024"
 ```
@@ -179,6 +188,10 @@ new Chronos('2025-04-01').toQuarter(); // 2
 
 ## toFiscalQuarter()
 
+:::danger[Note]
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toFiscalQuarter()`. Once registered, all Chronos instances will have access to the `.toFiscalQuarter()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -199,7 +212,12 @@ toFiscalQuarter(startMonth?: NumberRange<1, 12>): Quarter
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
+
+Chronos.use(businessPlugin);
+
 new Chronos('2025-01-15').toFiscalQuarter(); // 3 (July-start year)
 new Chronos('2025-01-15').toFiscalQuarter(10); // 2 (October-start year)
 ```

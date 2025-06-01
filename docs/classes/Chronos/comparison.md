@@ -8,6 +8,10 @@ title: Comparison Methods
 
 ## compare()
 
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.compare()`. Once registered, all Chronos instances will have access to the `.compare()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -31,7 +35,12 @@ compare(unit: TimeUnit = 'minute', time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const pastDate = new Chronos().subtract(2, 'days');
 pastDate.compare('day'); // -2
 
@@ -42,6 +51,10 @@ futureDate.compare('hour'); // 3
 ---
 
 ## getRelativeYear()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeYear()`. Once registered, all Chronos instances will have access to the `.getRelativeYear()` method.
+:::
 
 ### Signature
 
@@ -64,7 +77,12 @@ getRelativeYear(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos('2020-06-15');
 date.getRelativeYear('2023-05-01'); // -2 (not quite 3 years)
 date.getRelativeYear('2023-07-01'); // -3
@@ -73,6 +91,10 @@ date.getRelativeYear('2023-07-01'); // -3
 ---
 
 ## getRelativeMonth()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMonth()`. Once registered, all Chronos instances will have access to the `.getRelativeMonth()` method.
+:::
 
 ### Signature
 
@@ -96,6 +118,11 @@ getRelativeMonth(time?: ChronosInput): number
 ### Example
 
 ```javascript
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos('2023-01-15');
 date.getRelativeMonth('2023-03-10'); // -1 (not quite 2 months)
 date.getRelativeMonth('2023-03-20'); // -2
@@ -103,7 +130,49 @@ date.getRelativeMonth('2023-03-20'); // -2
 
 ---
 
+## getRelativeWeek()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeWeek()`. Once registered, all Chronos instances will have access to the `.getRelativeWeek()` method.
+:::
+
+### Signature
+
+```typescript
+getRelativeWeek(time?: ChronosInput): number
+```
+
+### Parameters
+
+- `time`: Optional comparison time (default: now)
+
+### Return Type
+
+`number` - Week difference
+
+### Notes
+
+- Based on 7-day periods
+- Uses same calculation as `getRelativeDay()` divided by 7
+
+### Example
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
+new Chronos().getRelativeWeek('2023-01-01'); // Weeks between dates
+```
+
+---
+
 ## getRelativeDay()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeDay()`. Once registered, all Chronos instances will have access to the `.getRelativeDay()` method.
+:::
 
 ### Signature
 
@@ -127,7 +196,12 @@ getRelativeDay(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const today = new Chronos();
 today.getRelativeDay(); // 0
 
@@ -140,36 +214,11 @@ tomorrow.getRelativeDay(); // 1
 
 ---
 
-## getRelativeWeek()
-
-### Signature
-
-```typescript
-getRelativeWeek(time?: ChronosInput): number
-```
-
-### Parameters
-
-- `time`: Optional comparison time (default: now)
-
-### Return Type
-
-`number` - Week difference
-
-### Notes
-
-- Based on 7-day periods
-- Uses same calculation as `getRelativeDay()` divided by 7
-
-### Example
-
-```javascript
-new Chronos().getRelativeWeek('2023-01-01'); // Weeks between dates
-```
-
----
-
 ## getRelativeHour()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeHour()`. Once registered, all Chronos instances will have access to the `.getRelativeHour()` method.
+:::
 
 ### Signature
 
@@ -187,7 +236,12 @@ getRelativeHour(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos().add(90, 'minutes');
 date.getRelativeHour(); // 1 (full hours)
 ```
@@ -195,6 +249,10 @@ date.getRelativeHour(); // 1 (full hours)
 ---
 
 ## getRelativeMinute()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMinute()`. Once registered, all Chronos instances will have access to the `.getRelativeMinute()` method.
+:::
 
 ### Signature
 
@@ -212,7 +270,12 @@ getRelativeMinute(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos().add(150, 'seconds');
 date.getRelativeMinute(); // 2 (full minutes)
 ```
@@ -220,6 +283,10 @@ date.getRelativeMinute(); // 2 (full minutes)
 ---
 
 ## getRelativeSecond()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeSecond()`. Once registered, all Chronos instances will have access to the `.getRelativeSecond()` method.
+:::
 
 ### Signature
 
@@ -237,7 +304,12 @@ getRelativeSecond(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos().add(1500, 'milliseconds');
 date.getRelativeSecond(); // 1 (full seconds)
 ```
@@ -245,6 +317,10 @@ date.getRelativeSecond(); // 1 (full seconds)
 ---
 
 ## getRelativeMilliSecond()
+
+:::danger[Note]
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMilliSecond()`. Once registered, all Chronos instances will have access to the `.getRelativeMilliSecond()` method.
+:::
 
 ### Signature
 
@@ -267,7 +343,12 @@ getRelativeMilliSecond(time?: ChronosInput): number
 
 ### Example
 
-```javascript
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';
+
+Chronos.use(relativeTimePlugin);
+
 const date = new Chronos().add(500, 'milliseconds');
 date.getRelativeMilliSecond(); // 500
 ```

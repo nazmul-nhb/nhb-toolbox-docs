@@ -170,6 +170,10 @@ date.calendar(); // "Yesterday at [time]"
 
 ## fromNow()
 
+:::danger[Note]
+This method is provided by `fromNowPlugin`. You must register it using `Chronos.use(fromNowPlugin)` before calling `.fromNow()`. Once registered, all Chronos instances will have access to the `.fromNow()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -192,7 +196,11 @@ fromNow(
 
 ### Example
 
-```javascript
+```ts
+import { fromNowPlugin } from 'nhb-toolbox/plugins/fromNowPlugin';
+
+Chronos.use(fromNowPlugin);
+
 new Chronos().subtract(2, 'days').fromNow(); // "2 days ago"
 new Chronos().add(3, 'hours').fromNow(); // "in 3 hours"
 ```

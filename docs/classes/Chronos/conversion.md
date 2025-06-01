@@ -92,9 +92,9 @@ timeZone(zone: TimeZone | UTCOffSet): Chronos
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
-import { timeZonePlugin } from 'nhb-toolbox/plugins/time-zone';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 
-Chronos.use(timeZonePlugin)
+Chronos.use(timeZonePlugin);
 
 new Chronos('2025-01-15').timeZone('EST'); // Eastern Time instance
 new Chronos('2025-01-15').timeZone('UTC+08:00'); // 8 hours ahead of UTC/GMT
