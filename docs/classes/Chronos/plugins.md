@@ -21,10 +21,13 @@ A plugin is a function that takes the `Chronos` class constructor and augments i
 type ChronosPlugin = (ChronosClass: typeof Chronos) => void;
 ```
 
-You can inject plugins via the static `Chronos.use()` method:
+You can inject plugins via the static `Chronos.use()` method or its wrapper function:
 
 ```ts
-Chronos.use(myPlugin);
+Chronos.use(pluginName);
+
+// or 
+chronos.use(pluginName)
 ```
 
 :::tip
@@ -36,22 +39,27 @@ Chronos.use(myPlugin);
 
 ---
 
-## ✅ Using the Plugin
+## ✅ Using a Plugin
 
 To enable a plugin, use the static `Chronos.use()` method **before creating instances**:
 
 ```ts
-import { Chronos } from 'nhb-toolbox';
+import { Chronos, chronos } from 'nhb-toolbox';
 
-// For importing a plugin from the package plugin name and import path are same
+// For importing a plugin from the package, plugin name and import path are same
 import { pluginName } from 'nhb-toolbox/plugins/pluginName';
 
 // Using the plugin
 Chronos.use(pluginName);
+// or 
+chronos.use(pluginName)
 
 // Using the method enabled by that plugin
 const c = new Chronos();
 c.enabledMethod();
+
+// or 
+chronos().enabledMethod()
 ```
 
 ---

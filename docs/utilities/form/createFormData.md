@@ -5,7 +5,7 @@ title: Create Controlled FormData
 
 ## createFormData
 
-A utility function that converts JavaScript objects into FormData with extensive configuration options for handling nested structures, file uploads, and data transformations.
+A utility function that converts JavaScript objects into FormData with extensive configuration options for handling nested structures, files, and data transformations.
 
 ### Function Signature
 
@@ -84,7 +84,7 @@ const formData = createFormData({
   files: [file1, file2]
 }, {
   trimStrings: true,
-  lowerCaseKeys: ['user.name'],
+  lowerCaseValues: ['user.name'],
   dotNotateNested: ['user.preferences'],
   breakArray: ['files']
 });
