@@ -13,22 +13,24 @@ function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
 
 	return (
-		<header className={clsx('hero hero--dark', styles.heroBanner)}>
+		<header
+			className={clsx('hero hero--dark', styles.heroBanner, styles.heroAnimation)}
+		>
 			<div className="container">
 				<h1 className="hero__title">{siteConfig.title}</h1>
 				<p className="hero__subtitle">{siteConfig.tagline}</p>
 
 				<div style={{ marginBottom: 16 }} className={styles.buttons}>
 					<Link className="button button--info button--md" to="/docs/intro">
-						Explore Docs 📚
+						📑 Explore Docs
 					</Link>
-					<Link
+					{/* <Link
 						className="button button--success button--md margin-left--md"
 						to="https://www.npmjs.com/package/nhb-toolbox"
 						target="_blank"
 					>
 						NPM Registry 📦
-					</Link>
+					</Link> */}
 				</div>
 
 				<div className={styles.heroHighlights}>
@@ -59,7 +61,7 @@ function HomepageHeader() {
 						aria-label="Downloads per Month"
 					>
 						<img
-							src="https://img.shields.io/npm/dm/nhb-toolbox.svg?label=downloads&style=for-the-badge&color=teal"
+							src="https://img.shields.io/npm/dm/nhb-toolbox.svg?label=DOWNLOADS&style=flat&color=darkred&logo=npm"
 							alt="Downloads per Month"
 						/>
 					</a>

@@ -4,20 +4,97 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+	padding: 4rem 0;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+	.heroBanner {
+		padding: 2rem;
+	}
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .heroAnimation {
+	position: relative;
+	background: linear-gradient(135deg, #131313, #001116, #01122e);
+	background-size: 600% 600%;
+	animation: gradientShift 16s ease infinite;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
+
+.heroAnimation {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(270deg, #131313, #001116, #01122e, #001116, #131313);
+	background-size: 800% 800%;
+	animation: heroBgShift 60s linear infinite;
+	transition: background-position 0.4s ease;
+}
+
+/* Fix sudden jump by mirroring the gradient */
+@keyframes heroBgShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}
+
+/* Hover pulse effect */
+.heroAnimation:hover {
+	background-position: 30% 50%;
+	opacity: 0.8;
+	transition: 0.5s ease-in-out;
+}
+
+/* Subtle moving particles */
+.heroAnimation::before,
+.heroAnimation::after {
+	content: '';
+	position: absolute;
+	top: -10%;
+	left: -10%;
+	width: 200%;
+	height: 200%;
+	pointer-events: none;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.035) 15%, transparent 75%)
+		repeat;
+	background-size: 60px 60px;
+	animation: particlesMove 120s linear infinite;
+	z-index: 1;
+}
+
+.heroAnimation::after {
+	animation-delay: 6s;
+	opacity: 0.25;
+}
+
+/* Diagonal drift, seamless */
+@keyframes particlesMove {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(-80px, -80px);
+	}
 }
