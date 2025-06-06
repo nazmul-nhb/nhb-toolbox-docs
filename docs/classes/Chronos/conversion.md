@@ -145,16 +145,16 @@ new Chronos('2025-01-15').toObject();
 ### Signature
 
 ```typescript
-toArray(): number[]
+toArray(): TupleOf<number, 12>
 ```
 
 ### Return Type
 
-`number[]` - Date component values
+`number[]` - Date component values array of numbers (12 elements, the values of `ChronosObject` from [toObject](#toobject) method)
 
 ### Example
 
 ```javascript
 new Chronos('2025-01-15').toArray();
-// [2025, 0, 1, 15, 0, 0, 0, 0, 0, 1673740800000, 1673740800]
+// [ 2025, 0, 1, 15, 3, 3, 6, 0, 0, 0, 1736899200000, 1736899200 ]
 ```
