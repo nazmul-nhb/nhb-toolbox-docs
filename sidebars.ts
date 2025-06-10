@@ -118,6 +118,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						'utilities/number/calculatePercentage',
 						'utilities/number/numberToWords',
+						'utilities/number/numberToWordsOrdinal',
 						{
 							type: 'doc',
 							id: 'utilities/number/roundNumber',

@@ -26,10 +26,12 @@ function numberToWords(number: Numeric): string;
 
 - A `string` containing the English word representation of the integer portion of the input.
 
-### Warnings
+:::caution[Warning]
 
 - ⚠️ **Supports only values up to `10e19` aka `10^20` (one hundred quintillion).**
 - ⚠️ **Decimal values are **ignored**; Only the integer part is processed.**
+
+:::
 
 ### Examples
 
@@ -54,6 +56,8 @@ numberToWords(1e21);
 
 ### Aliases
 
+`numberToWords` can also be imported as following alias:
+
 - `convertNumberToWords`
 
 ---
@@ -61,9 +65,10 @@ numberToWords(1e21);
 ### Notes
 
 - The function uses predefined constants for **ones**, **teens**, **tens**, and **thousands** to construct the word form.
-- Internally, `_convertLessThanThousand()` handles grouping logic (e.g., "hundred", "thousand").
+<!-- - Internally, `_convertLessThanThousand()` handles grouping logic (e.g., "hundred", "thousand"). -->
 - Leading/trailing/multiple spaces are trimmed to return a clean result.
 - Negative numbers are correctly prefixed with `"minus"`.
+- For ordinal word representation of a numeric value please refer to [numberToWordsOrdinal](numberToWordsOrdinal).
 
 ---
 

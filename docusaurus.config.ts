@@ -103,7 +103,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
 					name: 'copyright',
-					content: `Copyright © ${new Date().getTime()} Nazmul Hassan`,
+					content: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
 				},
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
@@ -141,7 +141,7 @@ export default async function config(): Promise<Config> {
 
 			announcementBar: {
 				id: 'announcement',
-				content: '🚀 Includes 180+ functions & 6 well-crafted classes.',
+				content: '🚀 Includes 190+ functions & 6 well-crafted classes.',
 				backgroundColor: '#0d1117',
 				textColor: '#ffffff',
 				isCloseable: true,
