@@ -3,14 +3,12 @@ id: numberToWords
 title: Number to Words
 ---
 
+## numberToWords
+
 Converts a numeric value into its English word representation.  
 **Supports up to `10e19` or `10^20` (one hundred quintillion)**. Decimal fractions are ignored.
 
 ---
-
-## numberToWords
-
-Converts a number into English words.
 
 ### Function Signature
 

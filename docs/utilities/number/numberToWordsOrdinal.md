@@ -3,6 +3,8 @@ id: numberToWordsOrdinal
 title: Number to Ordinal Words
 ---
 
+## numberToWordsOrdinal
+
 Converts a number, numeric string, or cardinal word string into its **ordinal word** representation (e.g. `"first"`, `"twenty-third"` etc.).
 
 ---
