@@ -26,8 +26,8 @@ function numberToWords(number: Numeric): string;
 
 :::caution[Warning]
 
-- ⚠️ **Supports only values up to `10e19` aka `10^20` (one hundred quintillion).**
-- ⚠️ **Decimal values are **ignored**; Only the integer part is processed.**
+- **Supports only values up to `10e19` (`10^20`) (one hundred quintillion).**
+- **Decimal values are **ignored**; Only the integer part is processed.**
 
 :::
 

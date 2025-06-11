@@ -19,9 +19,10 @@ function numberToWordsOrdinal(number: Numeric | string): string
 
 ### Parameters
 
-| Name     | Type                | Description                                                                                |
-| -------- | ------------------- | ------------------------------------------------------------------------------------------ |
-| `number` | `Numeric \| string` | A number (e.g. `42`), numeric string (e.g. `"42"`), or cardinal word (e.g. `"forty-two"`). |
+| Name     | Type       | Description                                           |
+| -------- | ---------- | ----------------------------------------------------- |
+| `number` | `Numeric`  | A number (e.g. `42`) ot numeric string (e.g. `"42"`). |
+| `number` | `string`   | A cardinal word (e.g. `"forty-two"`).                 |
 
 ---
 
@@ -33,8 +34,8 @@ function numberToWordsOrdinal(number: Numeric | string): string
 
 :::caution[Warning]
 
-- ⚠️ **Supports only values up to `10e19` aka `10^20` (one hundred quintillion).**
-- ⚠️ **Decimal values are **ignored**; Only the integer part is processed.**
+- **Supports only values up to `10e19` (`10^20`) (one hundred quintillion).**
+- **Decimal values are **ignored**; Only the integer part is processed.**
 
 :::
 
@@ -57,7 +58,7 @@ numberToWordsOrdinal("twenty-three"); // "twenty-third"
 - Accepts inputs as numbers, numeric strings, or cardinal words.
 - Case-insensitive input handling (`"Twenty-Three"` also works).
 - The result is always returned in lowercase.
-- Internally uses [numberToWords](numberToWords) to convert a numeric vale to words (cardinal).
+- Internally uses [numberToWords](numberToWords) to convert a numeric value to (cardinal) words.
 
 ---
 
