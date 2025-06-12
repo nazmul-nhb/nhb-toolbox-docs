@@ -11,7 +11,7 @@ Converts currency to target currency using live exchange rates from `Frankfurter
 ### Signature
 
 ```typescript
-async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): Promise<number>
+async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): Promise<Currency>
 ```
 
 ### Parameters

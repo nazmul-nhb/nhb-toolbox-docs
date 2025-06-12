@@ -60,23 +60,23 @@ Pre-formatted currency string using `'en-US'` locale.
 ```javascript
 const usd = new Currency(100, 'USD');
 console.log(usd.currency); // "$100.00"
-console.log(usd.format('ja-JP')); // "￥100"
+console.log(usd.format('ja-JP', 'JPY')); // "￥ 100"
 ```
 
 ### Currency Conversion
 
 ```javascript
-const amount = await new Currency(100, 'USD').convert('EUR', {
+const converted = await new Currency(100, 'USD').convert('EUR', {
   fallbackRate: 0.85
 });
-console.log(amount); // Current EUR equivalent
+console.log(converted.currency); // Current EUR equivalent
 ```
 
 ### Error Handling
 
 ```javascript
 try {
-  const amount = await new Currency(100, 'USD').convert('XYZ');
+  const converted = await new Currency(100, 'USD').convert('XYZ');
 } catch (error) {
   console.error('Conversion failed:', error.message);
 }
