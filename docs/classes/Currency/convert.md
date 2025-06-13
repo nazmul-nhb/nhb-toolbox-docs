@@ -23,7 +23,7 @@ async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): P
 ### Parameters
 
 * `to`:
-  Target currency code to convert to. Must be a valid [Supported Currency](#supported-currencies), e.g., `'EUR'`, `'USD'`.
+  Target currency code to convert to. Must be a valid [Supported Currency](#supported-currencies), e.g., `'EUR'`, `'USD'` etc.
 
 * `options` _(optional)_:
 
@@ -119,10 +119,12 @@ interface ConvertOptions {
 
 Optional configuration object for the `convert()` method.
 
+---
+
 ## convertSync()
 
-Converts currency synchronously using either a cached rate or a manually provided exchange rate.
-No network requests are made.
+Converts currency _synchronously_ using either a cached rate or a manually provided exchange rate.
+_No network requests are made._
 
 ### Signature
 

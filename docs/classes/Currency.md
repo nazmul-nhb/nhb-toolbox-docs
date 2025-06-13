@@ -41,7 +41,8 @@ new Currency(100, 'USD'); // $100.00
 
 - Instance Methods
   - [format](Currency/format)
-  - [convert](Currency/convert)
+  - [convert](Currency/convert#convert)
+  - [convertSync](Currency/convert#convertsync)
 
 ## Properties
 

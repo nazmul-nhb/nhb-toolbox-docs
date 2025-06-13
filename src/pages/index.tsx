@@ -35,7 +35,7 @@ function HomepageHeader() {
 
 				<div className={styles.heroHighlights}>
 					<div className={styles.heroHighlightItem}>
-						<strong>180+ Utilities</strong> — for daily development
+						<strong>190+ Utilities</strong> — for daily development
 					</div>
 					<div className={styles.heroHighlightItem}>
 						<strong>6 Core Classes</strong> — for complex scenarios
