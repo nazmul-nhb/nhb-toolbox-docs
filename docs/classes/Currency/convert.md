@@ -3,10 +3,12 @@ id: convert
 title: Convert Currency
 ---
 
+<!-- markdownlint-disable-file MD024 -->
+
 ## convert()
 
 Converts the current currency amount to a target currency using **real-time exchange rates** from [api.frankfurter.app](https://api.frankfurter.app/).  
-Includes automatic caching, error fallback handling, and support for manually defined rates.
+Includes automatic caching, error fallback handling, and support for manually defined rates. Please refer to [convertSync](#convertsync) for synchronous and network independent solution with manual exchange rate.
 
 ---
 
@@ -89,7 +91,7 @@ const inr = await usd.convert('INR', {
 ### CurrencyCode
 
 ```ts
-type CurrencyCode = keyof typeof CURRENCY_LOCALES | (typeof CURRENCY_CODES)[number]
+type CurrencyCode = 'AED' | 'AUD' ... | 'USD' etc.
 ```
 
 Union of all supported currency codes in your system, including ISO 4217 and custom mappings.
@@ -99,10 +101,10 @@ Union of all supported currency codes in your system, including ISO 4217 and cus
 ### SupportedCurrency
 
 ```ts
-type SupportedCurrency = (typeof SUPPORTED_CURRENCIES)[number]
+type SupportedCurrency = 'AUD' | 'BGN' | 'BRL' ... | 'USD' etc.
 ```
 
-Subset of `CurrencyCode` that are officially supported by the Frankfurter API.
+Subset of `CurrencyCode` that are officially supported by the Frankfurter API. See [Supported currency list](#supported-currencies)
 
 ---
 
@@ -116,3 +118,31 @@ interface ConvertOptions {
 ```
 
 Optional configuration object for the `convert()` method.
+
+## convertSync()
+
+Converts currency synchronously using either a cached rate or a manually provided exchange rate.
+No network requests are made.
+
+### Signature
+
+```ts
+convertSync(to: CurrencyCode, rate: number): Currency
+```
+
+### Parameters
+
+* `to`: Target currency code
+* `rate`: Manual exchange rate to use if no cached rate is available
+
+### Return Value
+
+* A new `Currency` instance with the converted amount.
+* If no cached rate is found, the given manual rate is used.
+* If no exchange rate is valid, returns the original currency instance.
+
+### Example
+
+```ts
+const eur = new Currency(100, 'USD').convertSync('EUR', 0.92);
+```
