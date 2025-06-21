@@ -150,7 +150,7 @@ toArray(): TupleOf<number, 12>
 
 ### Return Type
 
-`TupleOf<number, 12>` - Date component values as array of numbers (12 elements, the values of `ChronosObject` from [toObject](#toobject) method)
+`TupleOf<number, 12>` - Date component values as array (tuple) of numbers (12 elements, the values of `ChronosObject` from [toObject](#toobject) method)
 
 ### Example
 

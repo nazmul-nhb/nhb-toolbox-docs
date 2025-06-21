@@ -4,6 +4,10 @@ title: Calculation Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## add()
 
 ### Signature
@@ -171,3 +175,180 @@ new Chronos('2025-01-15T14:35:30').round('minute', 15);  // 2025-01-15T14:30:00
   - If the current date is **closer to the next Monday**, it rounds forward.
   - Otherwise, it rounds back to the previous (or same) Monday.
   - Rounded weeks are treated as **0-indexed** relative to the year.
+
+---
+
+## getDatesInRange()
+
+Generate an array of ISO date strings within a specified date range.
+
+### Signatures
+
+<Tabs>
+<TabItem value="fixed" label="Fixed Range">
+
+```ts
+getDatesInRange(options?: RangeWithDates): string[]
+```
+
+</TabItem>
+<TabItem value="relative" label="Relative Range">
+
+```ts
+getDatesInRange(options?: RelativeDateRange): string[]
+```
+
+</TabItem>
+<TabItem value="implementation" label="Implementation">
+
+```ts
+getDatesInRange(options?: DatesInRangeOptions): string[]
+```
+
+</TabItem>
+</Tabs>
+
+### Overview
+
+Generates dates between two points in time with:
+
+- Fixed date ranges (`from`/`to`) or relative ranges (`span`/`unit`)
+- Weekday filtering (`skipDays`/`onlyDays`)
+- Format control (`local`/`utc`)
+- Date boundary rounding
+
+### Parameters
+
+#### `options` *(Optional)*
+
+Configuration object accepting either fixed or relative range parameters:
+
+| Parameter   | Type                             | Required | Default         | Description                                        |
+|-------------|----------------------------------|----------|-----------------|----------------------------------------------------|
+| `from`      | `ChronosInput`                   | ❌      | Current date     | Start date (inclusive)                            |
+| `to`        | `ChronosInput`                   | ❌      | 4 weeks from now | End date (inclusive)                              |
+| `span`      | `number`                         | ❌      | 4                | Number of time units                              |
+| `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌      | 'week'           | Unit of time for relative ranges                  |
+| `format`    | `'local'\|'utc'`                 | ❌      | 'local'          | Output format for ISO strings                     |
+| `skipDays`  | `WeekDay[]`                      | ❌      | [ ]               | Weekdays to exclude (e.g. `['Saturday']`)         |
+| `onlyDays`  | `WeekDay[]`                      | ❌      | [ ]               | Only include these weekdays (overrides `skipDays`) |
+| `roundDate` | `boolean`                        | ❌      | `false`          | Round dates to start of day                       |
+
+<Tabs>
+<TabItem value="fixed-options" label="Fixed Range Options">
+
+```ts
+interface RangeWithDates {
+  /** Start date (inclusive). Default: current date */
+  from?: ChronosInput;
+  /** End date (inclusive). Default: 4 weeks from now */
+  to?: ChronosInput;
+  /** Output format. Default: 'local' */
+  format?: 'local' | 'utc';
+  /** Weekdays to exclude (e.g. ['Saturday', 'Sunday']) */
+  skipDays?: WeekDay[];
+  /** Only include these weekdays (overrides skipDays) */
+  onlyDays?: WeekDay[];
+  /** Round dates to start of day. Default: false */
+  roundDate?: boolean;
+}
+```
+
+</TabItem>
+<TabItem value="relative-options" label="Relative Range Options">
+
+```ts
+interface RelativeDateRange {
+  /** Number of time units. Default: 4 */
+  span?: number;
+  /** Unit of time. Default: 'week' */
+  unit?: 'year' | 'month' | 'week' | 'day';
+  /** Output format. Default: 'local' */
+  format?: 'local' | 'utc';
+  /** Weekdays to exclude */
+  skipDays?: WeekDay[];
+  /** Only include these weekdays */
+  onlyDays?: WeekDay[];
+  /** Round dates to start of day. Default: false */
+  roundDate?: boolean;
+}
+```
+
+</TabItem>
+<TabItem value="implementation-options" label="Implementation Options">
+
+```ts
+/** - Unified type that supports either a fixed or relative date range configuration. */
+export type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
+```
+
+</TabItem>
+</Tabs>
+
+### Return Value
+
+`string[]` - Array of ISO date strings
+
+### Behavior
+
+- **Fixed ranges**: Includes all dates between `from` and `to` (inclusive)
+- **Relative ranges**: Generates dates forward from current date
+- `onlyDays` takes precedence over `skipDays` when both are provided
+- Defaults to 4-week range when no options provided
+
+### Examples
+
+<Tabs>
+<TabItem value="fixed-example" label="Fixed Range">
+
+```ts
+// Get all dates in January 2025
+new Chronos().getDatesInRange({
+  from: '2025-01-01',
+  to: '2025-01-31',
+  skipDays: ['Saturday', 'Sunday']
+});
+```
+
+</TabItem>
+<TabItem value="relative-example" label="Relative Range">
+
+```ts
+// Get UTC dates for next 10 business days
+new Chronos().getDatesInRange({
+  span: 10,
+  unit: 'day',
+  skipDays: ['Saturday', 'Sunday'],
+  format: 'utc'
+});
+```
+
+</TabItem>
+<TabItem value="rounding-example" label="With Rounding">
+
+```ts
+// Get rounded dates for current month
+const now = new Chronos();
+now.getDatesInRange({
+  from: now.startOf('month'),
+  to: now.endOf('month'),
+  roundDate: true
+});
+```
+
+</TabItem>
+</Tabs>
+
+### Notes
+
+:::danger Important
+
+- Weekday names must exactly match: `'Monday'`, `'Tuesday'`, etc. (case-sensitive)
+- When using `onlyDays`, all other days are excluded regardless of `skipDays`
+:::
+
+:::tip Similar Static Method
+
+- [getDatesForDay](statics#getdatesforday)
+
+:::

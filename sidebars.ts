@@ -218,7 +218,12 @@ const sidebars: SidebarsConfig = {
 						'utilities/date/chronos',
 						'utilities/date/getGreeting',
 						'utilities/date/formatUTCOffset',
-						'utilities/date/extractHourMinute',
+						{
+							type: 'doc',
+							id: 'utilities/date/extractHourMinute',
+							label: 'Extract Hour & Minutes',
+						},
+						'utilities/date/convertMinutesToTime',
 						'utilities/date/getTotalMinutes',
 						'utilities/date/extractMinutesFromUTC',
 						'utilities/date/extractTimeFromUTC',

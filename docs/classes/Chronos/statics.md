@@ -5,6 +5,9 @@ title: Static Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## use()
 
 Injects a plugin into the Chronos system. This enables dynamic extension of the `Chronos` class at runtime by registering external functionality as methods on its prototype.
@@ -81,7 +84,7 @@ static parse(dateStr: string, format: string): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.parse('15-01-2025', 'DD-MM-YYYY'); // Jan 15 2025
 ```
 
@@ -112,7 +115,7 @@ interface FormatOptions {
 
 ### Example
 
-```javascript
+```ts
 Chronos.today({format: 'YYYY-MM-DD'}); // "2025-07-20"
 ```
 
@@ -130,7 +133,7 @@ static yesterday(): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.yesterday(); // Chronos instance for yesterday
 ```
 
@@ -150,7 +153,7 @@ static tomorrow(): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.tomorrow(); // Chronos instance for tomorrow
 ```
 
@@ -174,7 +177,7 @@ static now(): number
 
 ### Example
 
-```javascript
+```ts
 Chronos.now(); // 1689876543210
 ```
 
@@ -280,6 +283,16 @@ static getDatesForDay(day: WeekDay, options?: WeekdayOptions): string[]
 
 ### Parameters
 
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `day` | `WeekDay` | ✅ | - | Target weekday name (case-sensitive) |
+| `span` | `number` | ❌ | 4 | Number of time units for relative range |
+| `unit` | `TimeUnit` | ❌ | 'week' | Unit for relative range ('day'/'week'/'month'/'year') |
+| `from` | `ChronosInput` | ❌ | Current date | Start date for absolute range |
+| `to` | `ChronosInput` | ❌ | 4 weeks from now | End date for absolute range |
+| `format` | `'local'\|'utc'` | ❌ | 'local' | Output format for ISO strings |
+| `roundDate` | `boolean` | ❌ | false | Round dates to start of day |
+
 #### Common Parameter
 
 * `day`: The weekday to match (case-sensitive full day name)
@@ -288,25 +301,32 @@ static getDatesForDay(day: WeekDay, options?: WeekdayOptions): string[]
 
 #### Options (Differ by Signature)
 
-**1. Relative Range Options** (time span from now):
+<Tabs>
+<TabItem value="relative-options" label="Relative Range Options">
 
 ```typescript
 interface RelativeRangeOptions {
   span?: number;    // Duration quantity (default: 4)
   unit?: TimeUnit;  // 'day' | 'week' | 'month' | 'year' (default: 'week')
   format?: 'local' | 'utc'; // Output format (default: 'local')
+  roundDate?: boolean; // Round to start of day (default: false)
 }
 ```
 
-**2. Absolute Range Options** (fixed date range):
+</TabItem>
+<TabItem value="absolute-options" label="Absolute Range Options">
 
 ```typescript
 interface DateRangeOptions {
-  from: ChronosInput; // Start date (string/Date/Chronos)
-  to: ChronosInput;   // End date (string/Date/Chronos)
+  from?: ChronosInput; // Start date (default: now)
+  to?: ChronosInput;   // End date (default: 4 weeks from now)
   format?: 'local' | 'utc'; // Output format (default: 'local')
+  roundDate?: boolean; // Round to start of day (default: false)
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ### Return Type
 
@@ -322,29 +342,35 @@ interface DateRangeOptions {
 
 ### Examples
 
-**Relative Range Example** (next 3 weeks):
+<Tabs>
+<TabItem value="relative-example" label="Relative Range">
 
-```javascript
-// Get all Wednesdays in the next 3 weeks
+```ts
+// Get rounded UTC Wednesdays for next month
 Chronos.getDatesForDay('Wednesday', { 
-  span: 3, 
-  unit: 'week',
-  format: 'utc' 
+  span: 1,
+  unit: 'month',
+  format: 'utc',
+  roundDate: true
 });
-//=> ['2025-05-28T15:00:00.000Z', '2025-06-04T15:00:00.000Z', '2025-06-11T15:00:00.000Z']
+//=> ['2025-05-28T00:00:00.000Z', '2025-06-04T00:00:00.000Z', ...]
 ```
 
-**Absolute Range Example** (specific date range):
+</TabItem>
+<TabItem value="absolute-example" label="Absolute Range">
 
-```javascript
-// Get all Fridays between two dates
+```ts
+// Get local Fridays in Q3 2025 (rounded)
 Chronos.getDatesForDay('Friday', {
-  from: '2025-06-01',
-  to: '2025-06-30',
-  format: 'local' // Includes timezone offset
+  from: '2025-07-01',
+  to: '2025-09-30',
+  roundDate: true
 });
-//=> ['2025-06-06T21:16:06.198+06:00', '2025-06-13T21:16:06.198+06:00', ...]
+//=> ['2025-07-04T00:00:00+06:00', '2025-07-11T00:00:00+06:00', ...]
 ```
+
+</TabItem>
+</Tabs>
 
 ### Notes
 
@@ -357,7 +383,15 @@ Chronos.getDatesForDay('Friday', {
 * The method always starts searching from:
   * Current date (for relative ranges)
   * The `from` date (for absolute ranges)
-* Weekday matching is exact (case-sensitive full English day names)
+* Weekday names must exactly match: `'Monday'`, `'Tuesday'`, etc. (case-sensitive English day-names)
+* When `roundDate: true`, all times are set to `00:00:00`
+* Default range is `4 weeks` when no dates specified
+
+:::tip Similar Instance Method
+
+* [getDatesInRange](calculation#getdatesinrange)
+
+:::
 
 ---
 
@@ -379,7 +413,7 @@ static min(...dates: ChronosInput[]): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.min('2025-01-01', '2025-02-01'); // Jan 1
 ```
 
@@ -403,7 +437,7 @@ static max(...dates: ChronosInput[]): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
 ```
 
@@ -438,7 +472,7 @@ static isLeapYear(date: ChronosInput): boolean
 
 ### Example
 
-```javascript
+```ts
 Chronos.isLeapYear(2024); // true
 ```
 
@@ -462,7 +496,7 @@ static isValidDate(value: unknown): value is Date
 
 ### Example
 
-```javascript
+```ts
 Chronos.isValidDate(new Date()); // true
 ```
 
@@ -486,7 +520,7 @@ static isDateString(value: unknown): value is string
 
 ### Example
 
-```javascript
+```ts
 Chronos.isDateString('2025-01-01'); // true
 ```
 
@@ -510,6 +544,6 @@ static isValidChronos(value: unknown): value is Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.isValidChronos(new Chronos()); // true
 ```
