@@ -230,8 +230,8 @@ Configuration object accepting either fixed or relative range parameters:
 | `span`      | `number`                         | ❌      | 4                | Number of time units                              |
 | `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌      | 'week'           | Unit of time for relative ranges                  |
 | `format`    | `'local'\|'utc'`                 | ❌      | 'local'          | Output format for ISO strings                     |
-| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`         | Weekdays to exclude (e.g. `['Saturday']` or `[0, 6]`) |
-| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]` | ❌ | `[]` | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
+| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`             | Weekdays to exclude (e.g. `['Sunday', 'Saturday']` or `[0, 6]`) |
+| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`             | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
 | `roundDate` | `boolean`                        | ❌      | `false`          | Round dates to start of day                       |
 
 <Tabs>
@@ -273,18 +273,18 @@ interface RelativeDateRange {
   unit?: 'year' | 'month' | 'week' | 'day';
   /** Output format. Default: 'local' */
   format?: 'local' | 'utc';
- /**
+  /**
   * An array of weekdays to exclude from the date range.
   * - Accepts either weekday names (e.g., `'Saturday'`, `'Sunday'`) or numeric indices (0 for Sunday to 6 for Saturday).
   * - Ignored if `onlyDays` is provided.
   */
- skipDays?: Array<WeekDay> | Array<Enumerate<7>>;
- /**
+  skipDays?: Array<WeekDay> | Array<Enumerate<7>>;
+  /**
   * An array of weekdays to explicitly include in the date range.
   * - Accepts either weekday names (e.g., `'Monday'`, `'Wednesday'`) or numeric indices (0 for Sunday to 6 for Saturday).
   * - When provided, this overrides `skipDays` and includes only the specified days.
   */
- onlyDays?: Array<WeekDay> | Array<Enumerate<7>>;
+  onlyDays?: Array<WeekDay> | Array<Enumerate<7>>;
   /** Round dates to start of day. Default: false */
   roundDate?: boolean;
 }
@@ -310,7 +310,7 @@ export type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 - **Fixed ranges**: Includes all dates between `from` and `to` (inclusive)
 - **Relative ranges**: Generates dates forward from current date
 - `onlyDays` takes precedence over `skipDays` when both are provided
-- Defaults to 4-week range when no options provided
+- Defaults to `4-week range` when no options provided
 
 ### Examples
 
@@ -322,7 +322,23 @@ export type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 new Chronos().getDatesInRange({
   from: '2025-01-01',
   to: '2025-01-31',
-  skipDays: ['Saturday', 'Sunday']
+  skipDays: ['Saturday', 'Sunday'] // or [6, 0]
+});
+
+// Include only Fridays in a full month range
+const now = new Chronos();
+now.getDatesInRange({
+  from: now.startOf('month'),
+  to: now.endOf('month'),
+  onlyDays: ['Friday'],
+  roundDate: true
+});
+
+// Include only Mondays and Wednesdays in the range
+new Chronos().getDatesInRange({
+  from: '2025-07-01',
+  to: '2025-07-15',
+  onlyDays: ['Monday', 'Wednesday']
 });
 ```
 
@@ -334,8 +350,15 @@ new Chronos().getDatesInRange({
 new Chronos().getDatesInRange({
   span: 10,
   unit: 'day',
-  skipDays: ['Saturday', 'Sunday'],
+  skipDays: ['Saturday', 'Sunday'], // or [6, 0]
   format: 'utc'
+});
+
+// Include only Tuesdays (2) and Thursdays (4) over the next 10 days
+new Chronos().getDatesInRange({
+  span: 10,
+  unit: 'day',
+  onlyDays: [2, 4],
 });
 ```
 
@@ -343,7 +366,7 @@ new Chronos().getDatesInRange({
 <TabItem value="rounding-example" label="With Rounding">
 
 ```ts
-// Get rounded dates for current month
+// Get rounded dates for current month as local ISO string
 const now = new Chronos();
 now.getDatesInRange({
   from: now.startOf('month'),
