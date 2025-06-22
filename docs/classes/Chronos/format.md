@@ -37,6 +37,8 @@ Below is a list of all supported tokens:
 | <Copy text="m" />                            | Minutes (0-59)   | 5                 |
 | <Copy text="ss" />                           | Seconds (00-59)  | 09                |
 | <Copy text="s" />                            | Seconds (0-59)   | 9                 |
+| <Copy text="ms" />                           | Milliseconds (0-999)  | 9            |
+| <Copy text="mss" />                          | Milliseconds (000-999)| 009          |
 | <Copy text="A" />                            | AM/PM            | PM                |
 | <Copy text="a" />                            | am/pm            | pm                |
 | <Copy text="ZZ" />                           | TZ Offset ±HH:mm | +06:00 or Z (UTC) |
@@ -46,7 +48,7 @@ Below is a list of all supported tokens:
 - To output raw text (i.e., not interpreted as a date token), wrap it in square brackets.
 - For example, `[Today is] ddd` results in `Today is Sunday`, and `YYYY[ year]` results in `2025 year`.
 
-- Supported format tokens include: `YYYY`, `YY`, `MMMM`, `MMM`, `MM`, `M`, `DD`, `D`, `dd`, `ddd`, `Do`, `HH`, `H`, `hh`, `h`, `mm`, `m`, `ss`, `s`, `mss`, `a`, `A`, and `ZZ`.
+- Supported format tokens include: `YYYY`, `YY`, `MMMM`, `MMM`, `MM`, `M`, `DD`, `D`, `dd`, `ddd`, `Do`, `HH`, `H`, `hh`, `h`, `mm`, `m`, `ss`, `s`, `ms`, `mss`, `a`, `A`, and `ZZ`.
 - *Any token not wrapped in brackets will be parsed and replaced with its corresponding date component.*
 
 :::
@@ -71,7 +73,7 @@ format(format?: string, useUTC?: boolean): string
 
 ### Example
 
-```javascript
+```ts
 const date = new Chronos('2025-01-15T14:30:00');
 date.format('YYYY-MM-DD'); // "2025-01-15"
 date.format('ddd, mmmm Do YYYY'); // "Wednesday, January 15th 2025"
@@ -102,7 +104,7 @@ formatUTC(format?: string): string
 
 ### Example
 
-```javascript
+```ts
 const date = new Chronos('2025-01-15T14:30:00Z');
 date.formatUTC('YYYY-MM-DD HH:mm:ss'); // "2025-01-15 14:30:00"
 ```
@@ -133,7 +135,7 @@ formatStrict(format?: StrictFormat, useUTC?: boolean): string
 
 ### Example
 
-```javascript
+```ts
 date.formatStrict('YYYY-MM-DD'); // Type-safe format
 ```
 
@@ -161,7 +163,7 @@ calendar(baseDate?: ChronosInput): string
 
 ### Example
 
-```javascript
+```ts
 const date = new Chronos().subtract(1, 'day');
 date.calendar(); // "Yesterday at [time]"
 ```
@@ -225,6 +227,6 @@ fromNowShort(): string
 
 ### Example
 
-```javascript
+```ts
 new Chronos().subtract(150, 'minutes').fromNowShort(); // "2h ago"
 ```

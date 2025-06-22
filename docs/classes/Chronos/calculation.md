@@ -230,8 +230,8 @@ Configuration object accepting either fixed or relative range parameters:
 | `span`      | `number`                         | ❌      | 4                | Number of time units                              |
 | `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌      | 'week'           | Unit of time for relative ranges                  |
 | `format`    | `'local'\|'utc'`                 | ❌      | 'local'          | Output format for ISO strings                     |
-| `skipDays`  | `WeekDay[]`                      | ❌      | [ ]               | Weekdays to exclude (e.g. `['Saturday']`)         |
-| `onlyDays`  | `WeekDay[]`                      | ❌      | [ ]               | Only include these weekdays (overrides `skipDays`) |
+| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`         | Weekdays to exclude (e.g. `['Saturday']` or `[0, 6]`) |
+| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]` | ❌ | `[]` | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
 | `roundDate` | `boolean`                        | ❌      | `false`          | Round dates to start of day                       |
 
 <Tabs>
@@ -245,10 +245,18 @@ interface RangeWithDates {
   to?: ChronosInput;
   /** Output format. Default: 'local' */
   format?: 'local' | 'utc';
-  /** Weekdays to exclude (e.g. ['Saturday', 'Sunday']) */
-  skipDays?: WeekDay[];
-  /** Only include these weekdays (overrides skipDays) */
-  onlyDays?: WeekDay[];
+ /**
+  * An array of weekdays to exclude from the date range.
+  * - Accepts either weekday names (e.g., `'Saturday'`, `'Sunday'`) or numeric indices (0 for Sunday to 6 for Saturday).
+  * - Ignored if `onlyDays` is provided.
+  */
+ skipDays?: Array<WeekDay> | Array<Enumerate<7>>;
+ /**
+  * An array of weekdays to explicitly include in the date range.
+  * - Accepts either weekday names (e.g., `'Monday'`, `'Wednesday'`) or numeric indices (0 for Sunday to 6 for Saturday).
+  * - When provided, this overrides `skipDays` and includes only the specified days.
+  */
+ onlyDays?: Array<WeekDay> | Array<Enumerate<7>>;
   /** Round dates to start of day. Default: false */
   roundDate?: boolean;
 }
@@ -265,10 +273,18 @@ interface RelativeDateRange {
   unit?: 'year' | 'month' | 'week' | 'day';
   /** Output format. Default: 'local' */
   format?: 'local' | 'utc';
-  /** Weekdays to exclude */
-  skipDays?: WeekDay[];
-  /** Only include these weekdays */
-  onlyDays?: WeekDay[];
+ /**
+  * An array of weekdays to exclude from the date range.
+  * - Accepts either weekday names (e.g., `'Saturday'`, `'Sunday'`) or numeric indices (0 for Sunday to 6 for Saturday).
+  * - Ignored if `onlyDays` is provided.
+  */
+ skipDays?: Array<WeekDay> | Array<Enumerate<7>>;
+ /**
+  * An array of weekdays to explicitly include in the date range.
+  * - Accepts either weekday names (e.g., `'Monday'`, `'Wednesday'`) or numeric indices (0 for Sunday to 6 for Saturday).
+  * - When provided, this overrides `skipDays` and includes only the specified days.
+  */
+ onlyDays?: Array<WeekDay> | Array<Enumerate<7>>;
   /** Round dates to start of day. Default: false */
   roundDate?: boolean;
 }
