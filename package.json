@@ -1,6 +1,6 @@
 {
   "name": "nhb-toolbox-docs",
-  "version": "4.12.43",
+  "version": "4.12.44",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -21,13 +21,14 @@
     "@docusaurus/core": "3.7.0",
     "@docusaurus/plugin-content-blog": "3.7.0",
     "@docusaurus/plugin-content-docs": "3.7.0",
+    "@docusaurus/plugin-vercel-analytics": "^3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/theme-common": "^3.7.0",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "nhb-hooks": "^1.11.2",
-    "nhb-toolbox": "^4.12.42",
+    "nhb-toolbox": "^4.12.44",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
