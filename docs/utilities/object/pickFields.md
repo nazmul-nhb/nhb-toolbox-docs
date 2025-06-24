@@ -132,3 +132,4 @@ This function is also exported as:
 
 - [pickFieldsByCondition](pickFieldsByCondition) - Pick object fields conditionally
 - [remapFields](remapFields) - Remap object fields
+- [deleteFields](deleteFields) - Delete object fields

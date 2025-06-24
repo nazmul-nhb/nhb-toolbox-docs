@@ -196,41 +196,4 @@ type Numberified<T> = {
     : T[K] extends number ? T[K]
     : number
 };
-
-/** - Dot-notation keys for nested objects with `any` value (including optional properties, excluding advanced non-primitive types) */
-export type DotNotationKey<T> =
- T extends AdvancedTypes ? never
- : T extends GenericObject ?
-  {
-   [K in keyof T & string]: NonNullable<T[K]> extends GenericObject ?
-    `${K}` | `${K}.${DotNotationKey<NonNullable<T[K]>>}`
-   : `${K}`;
-  }[keyof T & string]
- : never;
-
- /** Advanced non-primitive types */
-export type AdvancedTypes =
- | Array<unknown>
- | File
- | FileList
- | Blob
- | Date
- | RegExp
- | WeakMap<WeakKey, unknown>
- | WeakSet<WeakKey>
- | Map<unknown, unknown>
- | Set<unknown>
- | GenericFn
- | VoidFunction
- | AsyncFunction<unknown>
- | Promise<unknown>
- | Error
- | EvalError
- | RangeError
- | ReferenceError
- | SyntaxError
- | TypeError
- | URIError
- | bigint
- | symbol;
 ```
