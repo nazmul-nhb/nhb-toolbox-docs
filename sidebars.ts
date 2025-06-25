@@ -68,6 +68,18 @@ const sidebars: SidebarsConfig = {
 					},
 					items: ['predicates/predicates', 'guards/guards'],
 				},
+				{
+					type: 'category',
+					label: 'Types',
+					link: {
+						id: 'types/types',
+						type: 'doc',
+					},
+					items: [
+						{ type: 'doc', label: 'Utility Types', id: 'types/utility-types' },
+						{ type: 'doc', label: 'Other Types', id: 'types/other-types' },
+					],
+				},
 			],
 		},
 	],
@@ -444,6 +456,21 @@ const sidebars: SidebarsConfig = {
 						'guards/mixed-guards',
 					],
 				},
+			],
+		},
+	],
+
+	typesSidebar: [
+		{
+			type: 'category',
+			label: 'Types',
+			link: {
+				type: 'doc',
+				id: 'types/types',
+			},
+			items: [
+				{ type: 'doc', label: 'Utility Types', id: 'types/utility-types' },
+				{ type: 'doc', label: 'Other Types', id: 'types/other-types' },
 			],
 		},
 	],

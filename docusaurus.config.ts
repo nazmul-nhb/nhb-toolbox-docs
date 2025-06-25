@@ -195,6 +195,12 @@ export default async function config(): Promise<Config> {
 						label: 'Predicates & Guards',
 					},
 					{
+						type: 'docSidebar',
+						sidebarId: 'typesSidebar',
+						position: 'left',
+						label: 'Types',
+					},
+					{
 						href: 'https://github.com/nazmul-nhb/nhb-toolbox',
 						label: 'GitHub',
 						position: 'right',
