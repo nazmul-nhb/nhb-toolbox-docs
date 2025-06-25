@@ -10,10 +10,10 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: <Link to="/docs/classes">Core Classes</Link>,
+		title: <Link to="/docs/classes">Class-Based Utilities</Link>,
 		description: (
 			<>
-				<strong>Specialized classes</strong> that solve complex problems:
+				<strong>Classes</strong> that solve complex problems, e.g.:
 				<ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
 					<li>
 						<Link to="/docs/classes/Chronos">
@@ -39,7 +39,7 @@ const FeatureList: FeatureItem[] = [
 						</Link>{' '}
 						- Elegant pagination handling
 					</li>
-					<li>
+					{/* <li>
 						<Link to="/docs/classes/Unit">
 							<code>Unit</code>
 						</Link>{' '}
@@ -48,7 +48,7 @@ const FeatureList: FeatureItem[] = [
 							<code>Currency</code>
 						</Link>{' '}
 						for unit and currency handling.
-					</li>
+					</li> */}
 				</ul>
 			</>
 		),
@@ -150,7 +150,17 @@ const FeatureList: FeatureItem[] = [
 			<>
 				Comprehensive runtime type checking for primitives, non-primitives, and
 				special types (Base64, Email, UUID, URLs) with perfect TypeScript type
-				inference. Also has a collection of predicte functions.
+				inference. Also has a collection of predicate functions.
+			</>
+		),
+	},
+	{
+		title: <Link to="/docs/types">TypeScript Types</Link>,
+		description: (
+			<>
+				This package includes not only functional utilities but also a growing
+				collection of type-level utilities designed to enhance type safety and
+				developer ergonomics.
 			</>
 		),
 	},
@@ -161,7 +171,7 @@ function Feature({ title, description }: FeatureItem) {
 		<div className={clsx('col col--4')}>
 			<div className="text--center padding-horiz--md">
 				<h3>{title}</h3>
-				<p>{description}</p>
+				<div>{description}</div>
 			</div>
 		</div>
 	);

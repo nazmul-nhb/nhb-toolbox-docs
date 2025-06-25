@@ -10,9 +10,7 @@ import TabItem from '@theme/TabItem';
 <!-- markdownlint-disable MD025 -->
 # Welcome to NHB Toolbox 📦
 
-:::tip[Benefits!]
-**Replace Boilerplate(s) with One-Liner(s)**
-:::
+>**Replace Boilerplate(s) with One-Liner(s)**
 
 `nhb-toolbox` provides battle-tested utilities for professional TypeScript/JavaScript development. Carefully crafted to solve common challenges with elegant, production-ready solutions:
 
@@ -20,6 +18,7 @@ import TabItem from '@theme/TabItem';
 - **Type Guards & Predicates**: Runtime safety with perfect type inference
 - **Validation Utilities**: Robust data validation patterns
 - **Zero Dependencies**: Framework-agnostic implementation using only native TS/JS with 0 external package
+- **Types**: Includes [types](/docs/types) designed to enhance type safety and developer ergonomics
 
 ## 🧰 Installation
 
@@ -113,6 +112,7 @@ pnpm add -g nhb-toolbox
 ## 🚀 Features
 
 - **Type-Safe Utilities**: Fully typed for perfect TypeScript integration with strict type checking
+- **Types**: Ready-to-use [types](/docs/types) designed to enhance type safety and developer efficiency
 - **Modular Design**: Tree-shaking friendly – import only what you need with zero bloat
 - **Zero Dependencies**: No external dependencies - works with any JS/TS framework
 - **IDE Support**: Full type hints with JSDoc-powered API references in your editor
