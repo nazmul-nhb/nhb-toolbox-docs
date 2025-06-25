@@ -54,8 +54,8 @@ function splitArrayByProperty<T extends GenericObject, P extends NormalPrimitive
 
 ### Parameters
 
-- `source` (`T[] | undefined`): The array of objects to group (handles undefined input gracefully)
-- `property` (`P`): The object property to group by (can be string, number, boolean, null, or undefined)
+- `source` (`T[] | undefined`): The array of objects to group (handles `undefined` input gracefully)
+- `property` (`P`): The object property to group by (value can be `string`, `number`, `boolean`, `null`, or `undefined`)
 
 ### Returns
 

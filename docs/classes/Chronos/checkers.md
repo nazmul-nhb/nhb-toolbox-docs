@@ -14,18 +14,22 @@ isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boo
 
 ### Parameters
 
-- `other`: Date to compare
-- `unit`: Comparison unit
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Whether date is before
+`boolean` - Returns `true` if the current Chronos date is before the comparison date
 
 ### Example
 
-```javascript
+```ts
+// Compare entire dates
 new Chronos('2025-01-01').isBefore('2025-02-01'); // true
+
+// Compare just the months
+new Chronos('2025-01-15').isBefore('2025-02-01', 'month'); // true
 ```
 
 ---
@@ -40,18 +44,22 @@ isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): bool
 
 ### Parameters
 
-- `other`: Date to compare
-- `unit`: Comparison unit
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Whether date is after
+`boolean` - Returns `true` if the current date occurs after the comparison date
 
 ### Example
 
-```javascript
+```ts
+// Basic date comparison
 new Chronos('2025-02-01').isAfter('2025-01-01'); // true
+
+// Compare specific units
+new Chronos('2025-01-15T12:00:00').isAfter('2025-01-15T10:00:00', 'hour'); // true
 ```
 
 ---
@@ -66,18 +74,23 @@ isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boole
 
 ### Parameters
 
-- `other`: Date to compare
-- `unit`: Comparison unit
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Whether dates match
+`boolean` - Returns `true` if dates match at the specified precision level
 
 ### Example
 
-```javascript
-new Chronos('2025-01-15').isSame('2025-01-15', 'day'); // true
+```ts
+// Exact match
+new Chronos('2025-01-15').isSame('2025-01-15'); // true
+
+// Same month but different days
+new Chronos('2025-01-15').isSame('2025-01-20', 'month'); // true
+new Chronos('2025-01-15').isSame('2025-01-20', 'day'); // false
 ```
 
 ---
@@ -96,18 +109,31 @@ isBetween(
 
 ### Parameters
 
-- `start`: Range start
-- `end`: Range end
-- `inclusive`: Range inclusivity (default: '()')
+- `start`: Start of date range
+- `end`: End of date range
+- `inclusive`: (Optional) Range boundary inclusion:
+  - `[]`: Include both start and end
+  - `[)` Include start, exclude end
+  - `(]`: Exclude start, include end
+  - `()`: Exclude both boundaries (default)
 
 ### Return Type
 
-`boolean` - Whether date is in range
+`boolean` - Returns `true` if the date falls within the specified range
 
 ### Example
 
-```javascript
-new Chronos('2025-01-15').isBetween('2025-01-01', '2025-01-31'); // true
+```ts
+const date = new Chronos('2025-01-15');
+
+// Default exclusive end
+date.isBetween('2025-01-01', '2025-01-31'); // true
+
+// Inclusive range
+date.isBetween('2025-01-15', '2025-01-20', '[]'); // true
+
+// Exclusive range
+date.isBetween('2025-01-01', '2025-01-15', '()'); // false
 ```
 
 ---
@@ -357,16 +383,22 @@ isDST(): boolean
 
 ### Return Type
 
-`boolean` - Whether daylight saving time
+`boolean` - Returns `true` if the date is in Daylight Saving Time for the current timezone
 
-### Notes
+:::info Note
 
-- Uses system timezone
+- Detection is based on the system's timezone settings
+- Only accurate for timezones that observe DST
+:::
 
 ### Example
 
-```javascript
-new Chronos('2025-07-01').isDST(); // true (in northern hemisphere)
+```ts
+// Northern hemisphere summer
+new Chronos('2025-07-01').isDST(); // true
+
+// Northern hemisphere winter
+new Chronos('2025-01-01').isDST(); // false
 ```
 
 ---
@@ -385,7 +417,7 @@ isFirstDayOfMonth(): boolean
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-01').isFirstDayOfMonth(); // true
 ```
 
@@ -405,7 +437,7 @@ isLastDayOfMonth(): boolean
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-31').isLastDayOfMonth(); // true
 ```
 
