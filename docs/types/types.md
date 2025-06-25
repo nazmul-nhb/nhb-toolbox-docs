@@ -15,7 +15,7 @@ Type helpers for advanced type manipulation and new type creation:
 - Conditional types
 - Create new types
 
-### 2. [Other Types](./other-types)
+### 2. [Common Types](./common-types)
 
 Ready-to-use types for common patterns:
 

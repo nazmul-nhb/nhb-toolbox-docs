@@ -77,7 +77,7 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						{ type: 'doc', label: 'Utility Types', id: 'types/utility-types' },
-						{ type: 'doc', label: 'Other Types', id: 'types/other-types' },
+						{ type: 'doc', label: 'Common Types', id: 'types/common-types' },
 					],
 				},
 			],
@@ -470,7 +470,7 @@ const sidebars: SidebarsConfig = {
 			},
 			items: [
 				{ type: 'doc', label: 'Utility Types', id: 'types/utility-types' },
-				{ type: 'doc', label: 'Other Types', id: 'types/other-types' },
+				{ type: 'doc', label: 'Common Types', id: 'types/common-types' },
 			],
 		},
 	],
