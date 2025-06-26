@@ -53,7 +53,8 @@ const result = mergeAndFlattenObjects(obj1, obj2);
 1. **Deep Merging**: Combines multiple objects recursively
 2. **Dot Notation**: Flattens structure with nested keys
 3. **Last-in Wins**: Duplicate keys use last provided value
-4. **Non-Destructive**: Doesn't modify input objects
+4. **Type Safety**: Maintains proper TypeScript typing
+5. **Non-Destructive**: Doesn't modify input objects
 
 ## Examples
 
@@ -84,8 +85,7 @@ mergeAndFlattenObjects(a, b);
 
 1. **Arrays**: Treated as terminal values (not merged)
 2. **Circular References**: May cause stack overflow for deeply nested objects and arrays
-3. **Type Information**: Return type doesn't reflect flattened structure
-4. **Special Objects**: Date, Map, Set etc. treated as terminal values
+3. **Special Objects**: Date, Map, Set etc. treated as terminal values
 
 ## Type Definition
 

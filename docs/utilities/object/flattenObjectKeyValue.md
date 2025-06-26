@@ -53,7 +53,8 @@ const flat = flattenObjectKeyValue(nested);
 1. **Deep Flattening**: Recursively processes nested objects
 2. **Value Preservation**: Maintains all terminal values
 3. **Non-Destructive**: Doesn't modify original object
-4. **Simple Output**: Single-level key-value structure
+4. **Type Safety**: Maintains proper TypeScript typing
+5. **Simple Output**: Single-level key-value structure
 
 ## Examples
 
@@ -85,8 +86,7 @@ flattenObjectKeyValue(data);
 
 1. **Key Collisions**: Nested objects may have duplicate keys that get overwritten
 2. **Arrays**: Treated as terminal values (not flattened)
-3. **Type Information**: Return type doesn't reflect flattened structure
-4. **Circular References**: May cause stack overflow for deeply nested objects and arrays
+3. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 
 ## Type Definition
 

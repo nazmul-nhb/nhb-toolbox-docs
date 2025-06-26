@@ -86,7 +86,7 @@ mergeObjects(defaultConfig, customConfig);
 1. **Arrays**: Overwrites entire arrays (does not merge)
 2. **Special Objects**: Date, Map, Set etc. are treated as primitives
 3. **Circular References**: May cause stack overflow for deeply nested objects and arrays
-4. **Prototypes**: Does not preserve prototype chains
+4. **Prototypes**: May not preserve prototype chains in certain scenarios
 
 ## Type Definition
 
