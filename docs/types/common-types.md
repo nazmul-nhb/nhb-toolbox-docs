@@ -57,12 +57,7 @@ const falsyValues: FalsyPrimitive[] = [false, 0, "", null, undefined];
 
 ## Function Types  
 
-### `Constructor`  
-
-```ts
-class User {}  
-type UserConstructor = Constructor<User>;  
-```  
+### `Constructor`
 
 - Represents class constructor signature  
 
@@ -85,7 +80,7 @@ const onClick: VoidFunction = () => console.log("Clicked");
 ### `AsyncFunction<T>`  
 
 ```ts
-const fetchData: AsyncFunction<User[]> = async () => [];  
+const fetchData: AsyncFunction<User[]> = async () => [{...}];  
 ```  
 
 - Async function returning Promise
