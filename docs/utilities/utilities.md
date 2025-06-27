@@ -5,7 +5,7 @@ title: Utility Functions
 
 ## Battle-Tested TypeScript Utilities
 
-NHB Toolbox provides **190+ carefully crafted utility functions** for professional TypeScript/JavaScript development. These modular, atomic functions solve common programming challenges with elegant, production-ready solutions.
+NHB Toolbox provides **200+ carefully crafted utility functions** for professional TypeScript/JavaScript development. These modular, atomic functions solve common programming challenges with elegant, production-ready solutions.
 
 ### Why These Utilities?
 

@@ -151,7 +151,7 @@ export default async function config(): Promise<Config> {
 
 			announcementBar: {
 				id: 'announcement',
-				content: '🚀 Includes 190+ functions & 6 well-crafted classes.',
+				content: '🚀 Includes 200+ functions & 6 well-crafted classes.',
 				backgroundColor: '#0d1117',
 				textColor: '#ffffff',
 				isCloseable: true,

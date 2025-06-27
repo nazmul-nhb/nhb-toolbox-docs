@@ -198,6 +198,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/array/flattenArray',
 						'utilities/array/filterArrayOfObjects',
 						'utilities/array/getLastArrayElement',
+						'utilities/array/array-metrics',
 						'utilities/array/split-array',
 						'utilities/array/shuffleArray',
 						'utilities/array/naturalSort',

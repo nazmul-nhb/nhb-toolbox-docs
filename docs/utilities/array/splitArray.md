@@ -41,12 +41,12 @@ This function is ideal for handling pagination, batching API calls, or distribut
 
 ## splitArrayByProperty
 
-The `splitArrayByProperty` function groups an array of objects by a specified property value, returning an array of grouped sub-arrays. This is particularly useful for organizing and categorizing object collections.
+The `splitArrayByProperty` function groups an array of objects by a specified property value, returning an array of grouped sub-arrays. It supports **dot notation** for nested properties, making it useful for deeply structured object collections.
 
 ### Function Signature
 
-```typescript
-function splitArrayByProperty<T extends GenericObject, P extends NormalPrimitiveKey<T>>(
+```ts
+function splitArrayByProperty<T extends GenericObject, P extends NestedPrimitiveKey<T>>(
   source: T[] | undefined,
   property: P
 ): T[][]
@@ -55,17 +55,17 @@ function splitArrayByProperty<T extends GenericObject, P extends NormalPrimitive
 ### Parameters
 
 - `source` (`T[] | undefined`): The array of objects to group (handles `undefined` input gracefully)
-- `property` (`P`): The object property to group by (value can be `string`, `number`, `boolean`, `null`, or `undefined`)
+- `property` (`P`): The property to group by — supports nested paths in dot notation (e.g., `'user.city'`)
 
 ### Returns
 
-- `T[][]`: An array of grouped sub-arrays where objects share the same property value
+- `T[][]`: An array of grouped sub-arrays where objects share the same resolved property value
 
 ### Examples
 
 #### Basic Grouping
 
-```typescript
+```ts
 const inventory = [
   { type: 'fruit', name: 'apple' },
   { type: 'vegetable', name: 'carrot' },
@@ -79,9 +79,25 @@ splitArrayByProperty(inventory, 'type');
 //   ]
 ```
 
+#### Grouping by Nested Property
+
+```ts
+const users = [
+  { profile: { city: 'Dhaka' }, name: 'Alice' },
+  { profile: { city: 'Dhaka' }, name: 'Bob' },
+  { profile: { city: 'Chittagong' }, name: 'Carol' }
+];
+
+splitArrayByProperty(users, 'profile.city');
+// → [
+//     [{ profile: { city: 'Dhaka' }, name: 'Alice' }, { profile: { city: 'Dhaka' }, name: 'Bob' }],
+//     [{ profile: { city: 'Chittagong' }, name: 'Carol' }]
+//   ]
+```
+
 #### Handling Special Values
 
-```typescript
+```ts
 const data = [
   { category: 'A', value: 1 },
   { category: null, value: 2 },
@@ -98,32 +114,38 @@ splitArrayByProperty(data, 'category');
 
 ### Key Features
 
-1. **Null/Undefined Handling**: Groups null and undefined values together
-2. **Type Safe**: Maintains TypeScript type information
-3. **Empty Input Handling**: Returns empty array for invalid/empty input
-4. **String Conversion**: Converts all non-null/undefined values to strings for grouping
+1. **Dot Notation Support**: Supports nested object paths like `'user.profile.city'`
+2. **Null/Undefined Handling**: Groups null and undefined values under a reserved key
+3. **Type Safe**: Maintains TypeScript type information for grouped items
+4. **Empty Input Handling**: Returns empty array for invalid/empty input
+5. **String Conversion**: Converts grouping keys to strings to ensure consistent object indexing
 
-### Comparison with splitArray
+### Comparison with [splitArray](#splitarray)
 
-| Feature               | splitArray          | splitArrayByProperty         |
-|-----------------------|---------------------|------------------------------|
-| Input Type            | Any array           | Array of objects             |
-| Grouping Logic        | Fixed chunk size    | By property value            |
-| Null/undefined        | Preserved in chunks | Grouped together             |
-| Return Order          | Original order      | Grouped by property value    |
+| Feature        | splitArray          | splitArrayByProperty       |
+| -------------- | ------------------- | -------------------------- |
+| Input Type     | Any array           | Array of objects           |
+| Grouping Logic | Fixed chunk size    | By (nested) property value |
+| Null/undefined | Preserved in chunks | Grouped under special key  |
+| Return Order   | Original order      | Grouped by resolved key    |
 
 ### Use Cases
 
-- Organizing API response data by categories
-- Preparing data for grouped UI components
-- Analyzing datasets by common attributes
-- Transforming data for visualization libraries
-- Batch processing objects with common traits
+- Organizing API response data by categories or nested metadata
+- Preparing deeply nested data for grouped UI components
+- Aggregating data for reporting and analytics
+- Transforming structures for grouped charts or tables
+- Grouping objects by region, status, or user-defined tags
 
-:::info Note
+\:::info Note
 
 - For optimal TypeScript usage, ensure your objects properly type the property you're grouping by
-- The function performs a deep equality check for grouping, making it suitable for primitive values but not for complex objects as keys
-- The original object order within each group is preserved
+- Dot-notation support allows grouping by deeply nested properties like `'meta.stats.region'`
+- This function works best when grouping by primitive fields (string, number, boolean, null, undefined)
+- Object order within each group is preserved; order of group entries may vary
 
-:::
+\:::
+
+### Aliases
+
+- `groupArrayByProperty`
