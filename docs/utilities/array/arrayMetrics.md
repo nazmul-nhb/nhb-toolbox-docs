@@ -192,7 +192,7 @@ groupAndAverageByField([
 
 ---
 
-### Key Features
+## Key Features
 
 * **Dot Notation Support**: All utilities support nested fields using dot-notation paths like `meta.sales.total`
 * **Fallback-Safe**: Handles undefined arrays and missing fields gracefully
