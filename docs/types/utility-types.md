@@ -312,3 +312,8 @@ type PrimPaths = NestedPrimitiveKey<Product>;
 
 - Gets paths to primitive properties
 - `T`: Object type
+
+:::info
+Looking for a specific utility type that’s not listed here?  
+Many internal or advanced-use types are available — even if they aren’t documented yet. Try importing them directly by the name you see used in functions or class signatures: start typing the type name and pressing `ctrl+space` (VS Code).
+:::

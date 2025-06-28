@@ -204,3 +204,9 @@ const query: QueryObject = {
 ```  
 
 - Nested query parameter structure
+
+:::info
+Only the most common and reusable types are documented here.  
+Many advanced or internal-use types may not appear on this list, but they are still available — especially those used within function or class signatures.  
+If you see a type name used in the code and you need to use it elsewhere, try importing it by typing the name and pressing `ctrl+space` (VS Code) directly from the package.
+:::
