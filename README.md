@@ -6,12 +6,12 @@ Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package
 
 ## 🌐 Live Site
 
-[nhb-toolbox.vercel.app](https://nhb-toolbox.vercel.app)
+[nhb-toolbox.vercel.app](https://nhb-toolbox.vercel.app/)
 
 ## 🚀 Features
 
-- Built with [Docusaurus 3](https://docusaurus.io/)
-- Search powered by Algolia DocSearch
+- Built with [Docusaurus 3.8](https://docusaurus.io/)
+- Search powered by `Algolia DocSearch`
 
 ## 📁 Folder Structure
 
