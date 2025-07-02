@@ -5,19 +5,43 @@ title: Convert Array to String
 
 ## convertArrayToString
 
-Joins elements of an array into a single string, using a custom separator.
+Joins elements of an array of primitive values or array of objects into a single string using a custom separator.
 
 ## Import
 
-```typescript
+```ts
 import { convertArrayToString } from 'nhb-toolbox';
 ```
 
-## Function Signature
+## Function Signatures
 
-```typescript
-function convertArrayToString<T>(array: T[],  separator?: string): string
+<Tabs groupId="overload">
+<TabItem value="primitive" label="Array of Primitives">
+
+```ts
+function convertArrayToString<T extends NormalPrimitive>(
+  array: T[] | undefined,
+  options?: {
+    separator?: string;
+  }
+): string;
 ```
+
+</TabItem>
+<TabItem value="object" label="Array of Objects">
+
+```ts
+function convertArrayToString<T extends GenericObject>(
+  array: T[] | undefined,
+  options: {
+    target: NestedPrimitiveKey<T>;
+    separator?: string;
+  }
+): string;
+```
+
+</TabItem>
+</Tabs>
 
 ## Usage Examples
 
@@ -25,35 +49,46 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="Default Separator" label="Default Separator">
+<TabItem value="primitive-default" label="Primitive Default">
 
-```typescript
+```ts
 convertArrayToString(['a', 'b', 'c']);
-// Returns: "a,b,c"
+// "a, b, c"
 ```
 
 </TabItem>
-<TabItem value="Custom Separator" label="Custom Separator">
+<TabItem value="primitive-custom" label="Primitive Custom">
 
-```typescript
-convertArrayToString([1, 2, 3], ' - ');
-// Returns: "1 - 2 - 3"
+```ts
+convertArrayToString([1, 2, 3], { separator: ' - ' });
+// "1 - 2 - 3"
 ```
 
 </TabItem>
-<TabItem value="Pipe Separator" label="Pipe Separator">
+<TabItem value="object-nested" label="Object Nested Key">
 
-```typescript
-convertArrayToString(['JS', 'TS', 'React'], '|');
-// Returns: "JS|TS|React"
+```ts
+convertArrayToString(
+  [{ user: { name: 'Alice' } }, { user: { name: 'Bob' } }],
+  { target: 'user.name' }
+);
+// "Alice, Bob"
 ```
 
 </TabItem>
-<TabItem value="Empty Array" label="Empty Array">
+<TabItem value="custom-separator" label="Custom Separator">
 
-```typescript
-convertArrayToString([], ';');
-// Returns: ""
+```ts
+convertArrayToString(['JS', 'TS', 'React'], { separator: ' | ' });
+// "JS | TS | React"
+```
+
+</TabItem>
+<TabItem value="empty" label="Empty Array">
+
+```ts
+convertArrayToString([], { separator: ';' });
+// ""
 ```
 
 </TabItem>
@@ -63,40 +98,63 @@ convertArrayToString([], ';');
 
 ### Parameters
 
-| Name      | Type     | Description                                                    |
-|-----------|----------|----------------------------------------------------------------|
-| array     | T[]      | Array to convert to a string                                   |
-| separator | string   | Optional. Separator for elements (default: `","`)              |
+| Name                | Type     | Description                                                                             |
+| ------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `array`             | `T[]`    | Array of primitives or objects to convert to string                                     |
+| `options`           | `object` | Options for separator and target key (if object array)                                  |
+| `options.separator` | `string` | Optional separator for joining values (default: `", "`)                                 |
+| `options.target`    | `string` | Required if array contains objects. Dot-accessible key to extract primitive values only |
 
 ### Returns
 
-A string of array elements joined by the specified separator.
+A string formed by joining the values (primitive or extracted) with the given separator.
 
 ## Key Features
 
-1. **Custom Separator:** Use any string as a separator (comma, dash, pipe, etc.).
-2. **Type Support:** Works with any array element type (stringified as needed).
-3. **Simple API:** One line for most use cases.
-4. **Handles Empty Array:** Returns an empty string for empty input arrays.
-
-## Limitations
-
-1. **Invalid Input:** Throws an error if the input is not a valid array.
-2. **No Deep Serialization:** Elements are joined using their string representation. Objects will become `"[object Object]"` unless you stringify them manually.
-3. **No Filtering:** Does not remove falsy or empty values automatically.
-
-## Notes
-
-- Always ensure the input is a valid array.
-- If array elements are objects, consider `array.map(obj => JSON.stringify(obj))` before passing to this function.
+1. ✅ **Supports Primitives and Objects:** Handles both types cleanly with overloads.
+2. 🧩 **Nested Key Extraction:** Extracts deep object properties using dot notation like `"user.name"`.
+3. 🧼 **Handles Empty Inputs:** Returns empty string if array is `undefined` or empty.
+4. 🛠️ **Customizable Separator:** Use any string to separate values (e.g., `" - "`, `"|"`, etc.).
 
 ## Recommended Use Cases
 
-- Building display strings from lists (tags, categories, items, etc.).
-- Exporting arrays to CSV-like formats or quick string storage.
-- Creating readable strings for logging, tooltips, or input fields.
+* Formatting tag or category lists for display.
+* Preparing data for tooltips, labels, logs, or CSV-like formats.
+* Joining object property values for human-readable summaries.
+
+## Notes
+
+* This function **always checks for array validity** before processing.
+* For **object arrays**, use the `target` option to specify the key to extract (e.g., `"user.name"`).
+* TypeScript enforces that the `target` path must resolve to a **primitive value** (like `string`, `number`, `boolean`, `null`, or `undefined`). In **JavaScript**, you may pass any path, but non-primitive values (e.g., objects, arrays) will result in `[object Object]` during stringification.
+* If you need to **format, localize, or transform values** before joining, consider mapping the array beforehand:
+
+```ts
+convertArrayToString(users.map(u => u.name.trim()), { separator: ' • ' });
+```
+
+## Limitations
+
+Requires a valid array. If not, it returns an empty string.
+
+:::danger Warning
+
+* Does **not auto-serialize objects**. You **must provide** a `target` key when working with object arrays.
+* Only **primitive values** are supported correctly for both primitive arrays and object-based arrays.
+  *Primitive here refers to:* `string`, `number`, `boolean`, `undefined`, and `null`.
+  `Symbol` and other non-serializable types are **not supported**.
+* Nested `target` keys must resolve to **primitive values** inside objects.
+  TypeScript will **error** if you reference a non-primitive type.
+* There is **no built-in formatting or filtering** — the function joins raw values directly.
+
+:::
+
+## Aliases
+
+* `joinArrayElements` – named export alias for `convertArrayToString`
 
 ---
 
-**Conclusion:**  
-`convertArrayToString` makes joining arrays readable, flexible, and easy—perfect for tags, logs, labels, and more. Just supply your array and desired separator!
+## Conclusion
+
+`convertArrayToString` makes joining arrays clean, type-safe, and flexible—perfect for tags, logs, tooltips, and more. Just supply your array and desired separator!
