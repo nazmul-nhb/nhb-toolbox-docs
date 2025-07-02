@@ -120,6 +120,7 @@ export default async function config(): Promise<Config> {
 					name: 'copyright',
 					content: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
 				},
+				{ name: 'canonical', content: 'https://nhb-toolbox.vercel.app' },
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
 				{ name: 'og:title', content: 'NHB Toolbox' },
@@ -154,6 +155,8 @@ export default async function config(): Promise<Config> {
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			],
 
+			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 6 },
+
 			announcementBar: {
 				id: 'announcement',
 				content: '🚀 Includes 200+ functions & 6 well-crafted classes.',
@@ -169,6 +172,7 @@ export default async function config(): Promise<Config> {
 			},
 			image: 'img/logo.png',
 			navbar: {
+				// hideOnScroll: true,
 				title: 'NHB Toolbox',
 				logo: {
 					alt: 'NHB Toolbox Logo',
@@ -218,6 +222,10 @@ export default async function config(): Promise<Config> {
 				],
 			},
 			footer: {
+				logo: {
+					alt: 'NHB Toolbox Logo',
+					src: 'img/logo.png',
+				},
 				style: 'dark',
 				links: [
 					{
