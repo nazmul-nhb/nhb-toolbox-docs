@@ -50,6 +50,11 @@ export default async function config(): Promise<Config> {
 			locales: ['en'],
 		},
 
+		future: {
+			v4: { removeLegacyPostBuildHeadAttribute: true },
+			experimental_faster: true,
+		},
+
 		plugins: [
 			[
 				'vercel-analytics',
