@@ -210,8 +210,8 @@ Uses the mathematical property that a number `n` is Fibonacci if and only if one
 
 ### Aliases
 
-- `isParOfFibonacci`: Alias for `isFibonacci`.
-- `isParOfFibonacciSeries`: Alias for `isFibonacci`.
+- `isPartOfFibonacci`: Alias for `isFibonacci`.
+- `isPartOfFibonacciSeries`: Alias for `isFibonacci`.
 
 ---
 
