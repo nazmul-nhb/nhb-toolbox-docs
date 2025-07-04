@@ -76,8 +76,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.7(@types/react@18.3.21)
       nhb-scripts:
-        specifier: ^0.5.10
-        version: 0.5.10
+        specifier: ^1.1.1
+        version: 1.1.1
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
@@ -1724,9 +1724,6 @@ packages:
 
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
-
-  '@types/node@22.15.17':
-    resolution: {integrity: sha512-wIX2aSZL5FE+MR0JlvF87BNVrtFWf6AE6rxSE9X7OwnVvoyCQjpzSRJ+M87se/4QCkCiebQAqrJ0y6fwIyi7nw==}
 
   '@types/node@24.0.10':
     resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
@@ -3868,8 +3865,8 @@ packages:
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  nhb-scripts@0.5.10:
-    resolution: {integrity: sha512-lmghx0SVDS01/KvHwlF31dG6/T9qi0ygt2pYklIDZCFDQ3v6x6gRQyU3oHNhc/QJQyMvAYtPSjq8u4Q4/urkIQ==}
+  nhb-scripts@1.1.1:
+    resolution: {integrity: sha512-5LOfCNsT/pMDppz/Df7UQGCEFQNuUqbzJZlOYtrVLAhozux5Yy55QJN93WGmrBJMpRQWJSBqERK8uQq9dTAzUg==}
     hasBin: true
 
   nhb-toolbox@4.12.67:
@@ -4484,11 +4481,6 @@ packages:
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
-
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
-    engines: {node: '>=14'}
-    hasBin: true
 
   pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
@@ -5164,9 +5156,6 @@ packages:
     resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
-
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   undici-types@7.8.0:
     resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
@@ -7963,10 +7952,6 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.15.17':
-    dependencies:
-      undici-types: 6.21.0
-
   '@types/node@24.0.10':
     dependencies:
       undici-types: 7.8.0
@@ -10478,16 +10463,19 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@0.5.10:
+  nhb-scripts@1.1.1:
     dependencies:
-      '@types/node': 22.15.17
       chalk: 4.1.2
       execa: 9.5.3
       globby: 14.1.0
-      prettier: 3.5.3
+      minimist: 1.2.8
+      nhb-toolbox: 4.12.67
       progress-estimator: 0.3.1
+      prompts: 2.4.2
       rimraf: 6.0.1
+      semver: 7.7.2
       type-fest: 4.41.0
+      typescript: 5.8.3
 
   nhb-toolbox@4.12.67: {}
 
@@ -11132,8 +11120,6 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
-
-  prettier@3.5.3: {}
 
   pretty-error@4.0.0:
     dependencies:
@@ -11912,8 +11898,6 @@ snapshots:
       is-typedarray: 1.0.0
 
   typescript@5.8.3: {}
-
-  undici-types@6.21.0: {}
 
   undici-types@7.8.0: {}
 

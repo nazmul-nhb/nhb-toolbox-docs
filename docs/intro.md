@@ -137,7 +137,7 @@ pnpm add -g nhb-toolbox
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
   <a target="_blank" href="https://www.npmjs.com/package/nhb-scripts">
-    <img src="https://img.shields.io/badge/Development_Scripts_[beta]-nhb--scripts-red" alt="nhb-scripts" />
+    <img src="https://img.shields.io/badge/Development_Scripts-nhb--scripts-red" alt="nhb-scripts" />
   </a>
   <!-- <span style={{ marginTop: -8 }}>- Development scripts for package.json (Experimental)</span> -->
 </div>

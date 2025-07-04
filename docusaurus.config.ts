@@ -247,26 +247,34 @@ export default async function config(): Promise<Config> {
 								label: 'Predicates',
 								to: '/docs/predicates-guards',
 							},
+							{
+								label: 'Types',
+								to: '/docs/types',
+							},
 						],
 					},
 					{
-						title: 'Community',
+						title: 'Get in Touch',
 						items: [
 							{
 								label: 'LinkedIn',
 								href: 'https://linkedin.com/in/nazmul-nhb',
 							},
 							{
+								label: 'WhatsApp',
+								href: 'https://wa.me/8801623732187?text=Hi%20Nazmul%2C%20I%20saw%20your%20site!',
+							},
+							{
 								label: 'Facebook',
 								href: 'https://fb.com/nazmul.batchu',
 							},
 							{
-								label: 'LeetCode',
-								href: 'https://leetcode.com/u/nazmul-nhb',
-							},
-							{
 								label: 'Discord',
 								href: 'https://discord.com/users/831030314528538664',
+							},
+							{
+								label: 'LeetCode',
+								href: 'https://leetcode.com/u/nazmul-nhb',
 							},
 						],
 					},
@@ -278,12 +286,16 @@ export default async function config(): Promise<Config> {
 								href: 'https://github.com/nazmul-nhb',
 							},
 							{
-								label: 'NPM Registry',
-								href: 'https://www.npmjs.com/package/nhb-toolbox',
+								label: 'NPM Profile',
+								href: 'https://www.npmjs.com/~nazmul-nhb',
 							},
 							{
 								label: 'NHB Hooks',
 								href: 'https://www.npmjs.com/package/nhb-hooks',
+							},
+							{
+								label: 'NHB Scripts',
+								href: 'https://www.npmjs.com/package/nhb-scripts',
 							},
 							{
 								label: 'Personal Website',
