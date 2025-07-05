@@ -125,19 +125,16 @@ pnpm add -g nhb-toolbox
   <a target="_blank" href="https://www.npmjs.com/package/nhb-hooks">
     <img src="https://img.shields.io/badge/React_Hooks-nhb--hooks-blue" alt="nhb-hooks" />
   </a>
-  <!-- <span style={{ marginTop: -8 }}>- React hooks collection for React applications</span> -->
-</div>
-
-<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-  <a target="_blank" href="https://www.npmjs.com/package/nhb-anagram-generator">
-    <img src="https://img.shields.io/badge/Anagram_Generator-nhb--anagram--generator-teal" alt="nhb-anagram-generator" />
-  </a>
-  <!-- <span style={{ marginTop: -8 }}>- Generate meaningful anagrams</span> -->
 </div>
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
   <a target="_blank" href="https://www.npmjs.com/package/nhb-scripts">
     <img src="https://img.shields.io/badge/Development_Scripts-nhb--scripts-red" alt="nhb-scripts" />
   </a>
-  <!-- <span style={{ marginTop: -8 }}>- Development scripts for package.json (Experimental)</span> -->
+</div>
+
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <a target="_blank" href="https://www.npmjs.com/package/nhb-anagram-generator">
+    <img src="https://img.shields.io/badge/Anagram_Generator-nhb--anagram--generator-teal" alt="nhb-anagram-generator" />
+  </a>
 </div>
