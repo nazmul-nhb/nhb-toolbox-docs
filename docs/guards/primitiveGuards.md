@@ -72,7 +72,7 @@ if (isNumber(input)) {
 }
 ```
 
-Please, refer to numeric string guard: [isNumericString](mixedGuards#isnumericstring) for stringified number checking.
+Please, refer to numeric string guard: [isNumericString](mixed-guards#isnumericstring) for stringified number checking.
 
 ### `isString`
 

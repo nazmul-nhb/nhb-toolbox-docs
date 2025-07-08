@@ -336,7 +336,8 @@ function toNumber(value: unknown) {
 }
 ```
 
-Please, refer to number guard: [isNumber](primitiveGuards#isnumber) for stringified number checking.
+---
+Please, refer to number guard: [isNumber](primitive-guards#isnumber) for strict number type checking.
 
 ---
 
