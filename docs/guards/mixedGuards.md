@@ -292,34 +292,53 @@ function isNumericString(value: unknown): value is `${number}`
 
 #### Description
 
-Validates if a string represents a numeric value. Checks:
+Validates whether a value is a **string that fully represents a finite number**.
 
-- Whole numbers (42)
-- Decimal numbers (3.14)
-- Does NOT accept:
-  - Scientific notation
-  - Hexadecimal
-  - Leading/trailing spaces
-  - Thousand separators
+This function checks:
+
+- ✅ Integers: `'42'`, `'-15'`
+- ✅ Decimals: `'3.14'`, `'0.5'`, `'-.99'`
+- ✅ Scientific notation: `'1e5'`, `'-2.5e-3'`
+- ✅ Strings with leading/trailing whitespace (they are trimmed)
+
+It **excludes** any string that would result in:
+
+- ❌ `NaN` (e.g. `'abc'`, `''`, `'42px'`)
+- ❌ `Infinity`, `-Infinity`
+- ❌ Hexadecimal numbers (e.g. `'0xFF'`)
+- ❌ Strings that only partially parse into a number
+
+Internally uses `Number.isFinite(Number(value))` for validation.
+
+---
 
 #### Examples
 
 ```typescript
-// Valid cases
+// ✅ Valid cases
 isNumericString('42');            // true
 isNumericString('3.14159');       // true
-isNumericString('0.5');           // true
+isNumericString('-0.5');          // true
+isNumericString('1e6');           // true
+isNumericString('   15.2   ');    // true
 
-// Invalid cases
-isNumericString('3e10');          // false
+// ❌ Invalid cases
+isNumericString('');              // false
+isNumericString('NaN');           // false
+isNumericString('Infinity');      // false
 isNumericString('0xFF');          // false
-isNumericString('42px');          // false
+isNumericString('3.14px');        // false
+isNumericString('  ');            // false
 
-// Type-safe conversion
+// ✅ Type-safe conversion
 function toNumber(value: unknown) {
   return isNumericString(value) ? Number(value) : NaN;
 }
 ```
+
+Please, refer to number guard: [isNumber](primitiveGuards#isnumber) for stringified number checking.
+
+---
 
 ## Environment Guards
 

@@ -24,30 +24,55 @@ export type FalsyPrimitive = false | 0 | '' | null | undefined;
 
 ## Core Type Guards
 
+Perfect — here’s your `isNumber` Docusaurus doc rewritten in **your original structure**, but now with **accurate, detailed behavior explanation**, matching your current logic:
+
+```ts
+return typeof value === 'number' && Number.isFinite(value);
+```
+
 ### `isNumber`
 
-Validates if a value is a number (excluding NaN).
+Validates whether a value is a **finite number**.
 
-**Signature:**
+This function returns `true` only if:
+
+- the value is of type `number` (not a string, object, etc.), and
+- the value is **not** `NaN`, `Infinity`, or `-Infinity`.
+
+This ensures strict numeric validation suitable for mathematical operations, user input sanitization, or database-safe values.
+
+#### Signature
 
 ```typescript
 function isNumber(value: unknown): value is number
 ```
 
-**Examples:**
+#### Examples
 
 ```typescript
 isNumber(42);           // true
-isNumber('42');         // false
-isNumber(NaN);          // false
-isNumber(Infinity);     // true
+isNumber(-5.5);         // true
+isNumber('42');         // false - string, not number
+isNumber(NaN);          // false - explicitly excluded
+isNumber(Infinity);     // false - not finite
+isNumber(-Infinity);    // false - not finite
+isNumber(null);         // false - not a number
+isNumber(undefined);    // false - not a number
+```
 
-// Type narrowing example
+**Type Narrowing Example:**
+
+```typescript
 const input: unknown = 10;
+
 if (isNumber(input)) {
-  input.toFixed(2);     // OK - input is number
+  input.toFixed(2);     // ✅ OK - input is treated as number
+} else {
+  // input is still unknown here
 }
 ```
+
+Please, refer to numeric string guard: [isNumericString](mixedGuards#isnumericstring) for stringified number checking.
 
 ### `isString`
 
