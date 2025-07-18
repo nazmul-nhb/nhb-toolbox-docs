@@ -19,7 +19,7 @@ import { convertArrayToString } from 'nhb-toolbox';
 <TabItem value="primitive" label="Array of Primitives">
 
 ```ts
-function convertArrayToString<T extends NormalPrimitive>(
+function convertArrayToString<T extends Primitive>(
   array: T[] | undefined,
   options?: {
     separator?: string;
@@ -141,8 +141,8 @@ Requires a valid array. If not, it returns an empty string.
 
 * Does **not auto-serialize objects**. You **must provide** a `target` key when working with object arrays.
 * Only **primitive values** are supported correctly for both primitive arrays and object-based arrays.
-  *Primitive here refers to:* `string`, `number`, `boolean`, `undefined`, and `null`.
-  `Symbol` and other non-serializable types are **not supported**.
+  <!-- *Primitive here refers to:* `string`, `number`, `boolean`, `undefined`, and `null`.
+  `Symbol` and other non-serializable types are **not supported**. -->
 * Nested `target` keys must resolve to **primitive values** inside objects.
   TypeScript will **error** if you reference a non-primitive type.
 * There is **no built-in formatting or filtering** — the function joins raw values directly.
