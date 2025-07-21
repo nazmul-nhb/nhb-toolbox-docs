@@ -53,6 +53,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						{ type: 'doc', label: 'Chronos', id: 'classes/Chronos' },
 						{ type: 'doc', label: 'Color', id: 'classes/Color' },
+						{ type: 'doc', label: 'Pluralizer', id: 'classes/Pluralizer' },
 						{ type: 'doc', label: 'Paginator', id: 'classes/Paginator' },
 						{ type: 'doc', label: 'Finder', id: 'classes/Finder' },
 						{ type: 'doc', label: 'Unit', id: 'classes/Unit' },
@@ -102,6 +103,7 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						'utilities/string/generateRandomID',
+						'utilities/string/pluralizer',
 						'utilities/string/generateAnagrams',
 						'utilities/string/capitalizeString',
 						'utilities/string/convertStringCase',
@@ -342,6 +344,7 @@ const sidebars: SidebarsConfig = {
 						'classes/Color/static-validation',
 					],
 				},
+				{ type: 'doc', label: 'Pluralizer', id: 'classes/Pluralizer' },
 				{
 					type: 'category',
 					label: 'Paginator',
