@@ -144,6 +144,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/getNumbersInRange',
 						'utilities/number/getRandomNumber',
 						'utilities/number/getRandomFloat',
+						'utilities/number/normalizeNumber',
 						'utilities/number/fibonacci',
 						'utilities/number/findPrimeNumbers',
 						'utilities/number/getAverage',

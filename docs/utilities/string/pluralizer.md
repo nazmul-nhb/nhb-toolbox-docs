@@ -11,7 +11,12 @@ import TabItem from '@theme/TabItem';
 The **`pluralizer`** is a **default shared instance** of the [`Pluralizer`](/docs/classes/Pluralizer) class.  
 It comes **preloaded with standard English rules**, irregular forms, and uncountable nouns.
 
-:::tip
+:::info[Acknowledgement]
+This utility is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.  
+Many thanks to the author for the original work and inspiration.
+:::
+
+:::tip[**When to Use**]
 
 - **Use this instance when you don’t need multiple configurations.**  
 - If you need isolated or custom rules, you can create your own [`Pluralizer`](#-need-your-own-configuration) instance.
@@ -50,6 +55,8 @@ pluralizer.pluralize('child'); // "children"
 pluralizer.pluralize('category', { count: 3 }); // "categories"
 pluralizer.pluralize('child', { count: 1, inclusive: true }); // "1 child"
 ```
+
+- For `options` details [see here](/docs/classes/Pluralizer#pluralizeword-options)
 
 </TabItem>
 <TabItem value="singular" label="Singularize">
@@ -93,42 +100,6 @@ pluralizer.addIrregular('cactus', 'cacti');
 ```
 
 These modifications affect all consumers of the shared instance.
-
----
-
-### 🔧 `PluralizeOptions`
-
-Options you can pass to `pluralize(word, options?)` to control how the result is formatted.
-
-| Property        | Type | Description | Example |
-| --------------- | ----- | --------- | -------------- |
-| **`count`**     | `number \| string` (numeric) | Determines whether to use singular or plural form. <br/>If omitted, the method always returns the plural form. | `{ count: 1 }` → returns singular <br/>`{ count: 5 }` → returns plural                                    |
-| **`inclusive`** | `boolean`                    | Whether to include the count in the returned string. <br/>Works only if `count` is provided.                   | `{ count: 3, inclusive: true }` → `"3 categories"` <br/>`{ count: 3, inclusive: false }` → `"categories"` |
-
----
-
-#### Example Usage
-
-```ts
-// Count-based pluralization
-myPluralizer.pluralize('category', { count: 3 });
-// → "categories"
-
-// Inclusive formatting
-myPluralizer.pluralize('child', { count: 1, inclusive: true });
-// → "1 child"
-
-// No count provided: always plural
-myPluralizer.pluralize('analysis');
-// → "analyses"
-```
-
-:::tip[Tips]
-
-- `count` can be a number (`3`) or a numeric string (`"3"`).
-- If `count` is not supplied, `pluralize()` will **always** return the plural form without a count prefix.
-
-:::
 
 ---
 

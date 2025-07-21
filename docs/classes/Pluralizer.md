@@ -1,12 +1,17 @@
 ---
 id: Pluralizer
-title: Pluralizer - Manipulate Plural/Singular
+title: Pluralizer - Manage Word Forms
 ---
 
 <!-- markdownlint-disable-file MD024 -->
 
 The **`Pluralizer`** class provides a low‑level API to handle English word pluralization and singularization.  
 It supports **irregular forms**, **uncountable nouns**, and allows you to **extend or customize** the behavior by adding new rules.
+
+:::info[Acknowledgement]
+This class is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.  
+Many thanks to the author for the original work and inspiration.
+:::
 
 :::tip[**When to Use**]
 
@@ -94,7 +99,7 @@ Options you can pass to `pluralize(word, options?)` to control how the result is
 
 | Property        | Type | Description | Example |
 | --------------- | ----- | --------- | -------------- |
-| **`count`**     | `number \| string` (numeric) | Determines whether to use singular or plural form. <br/>If omitted, the method always returns the plural form. | `{ count: 1 }` → returns singular <br/>`{ count: 5 }` → returns plural                                    |
+| **`count`**     | `Numeric` | Determines whether to use singular or plural form. <br/>If omitted, the method always returns the plural form. | `{ count: 1 or '1' }` → returns singular <br/>`{ count: 5 or '5' }` → returns plural                                    |
 | **`inclusive`** | `boolean`                    | Whether to include the count in the returned string. <br/>Works only if `count` is provided.                   | `{ count: 3, inclusive: true }` → `"3 categories"` <br/>`{ count: 3, inclusive: false }` → `"categories"` |
 
 ---
