@@ -28,17 +28,23 @@ const FeatureList: FeatureItem[] = [
 						- Comprehensive color management
 					</li>
 					<li>
-						<Link to="/docs/classes/Finder">
-							<code>Finder</code>
-						</Link>{' '}
-						- Sophisticated array searching
-					</li>
-					<li>
 						<Link to="/docs/classes/Paginator">
 							<code>Paginator</code>
 						</Link>{' '}
 						- Elegant pagination handling
 					</li>
+					<li>
+						<Link to="/docs/classes/Pluralizer">
+							<code>Pluralizer</code>
+						</Link>{' '}
+						- Manage word forms
+					</li>
+					{/* <li>
+						<Link to="/docs/classes/Finder">
+							<code>Finder</code>
+						</Link>{' '}
+						- Sophisticated array searching
+					</li> */}
 					{/* <li>
 						<Link to="/docs/classes/Unit">
 							<code>Unit</code>
