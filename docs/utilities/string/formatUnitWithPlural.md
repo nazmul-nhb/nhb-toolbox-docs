@@ -5,7 +5,11 @@ title: Format Unit With Plural
 
 ## formatUnitWithPlural
 
-The `formatUnitWithPlural` function returns a grammatically correct unit string based on the numeric value provided. It optionally prefixes the unit with the number.
+The `formatUnitWithPlural` function returns a grammatically correct unit string based on the numeric value provided simply by adding s at the end of the unit name. It optionally prefixes the unit with the number.
+
+:::tip[Pro Tips]
+For complex and versatile pluralization, please refer to [**pluralizer**](/docs/utilities/string/pluralizer) or [**Pluralizer Class**](/docs/classes/Pluralizer) instead.
+:::
 
 ### Function Signature
 
@@ -50,7 +54,7 @@ console.log(formatUnitWithPlural(5, 'month', false));  // "months"
 
 - Automatically pluralizes the unit if the absolute count is not `1`.
 - Accepts both positive and negative numbers (e.g., `-1` is treated like `1` for pluralization).
-- Does not handle irregular plurals like `child` -> `children` instead it does return unit with `s`. Future update will ensure custom plural form of the unit to pass.
+- Does not handle irregular plurals like `child` -> `children` instead it does return unit with `s`. For complex and versatile pluralization, please refer to [**pluralizer**](/docs/utilities/string/pluralizer) or [**Pluralizer Class**](/docs/classes/Pluralizer) instead.
 
 ### Aliases
 

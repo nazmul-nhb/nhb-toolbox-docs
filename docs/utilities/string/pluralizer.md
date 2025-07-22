@@ -12,7 +12,11 @@ The **`pluralizer`** is a **default shared instance** of the [`Pluralizer`](/doc
 It comes **preloaded with standard English rules**, irregular forms, and uncountable nouns.
 
 :::info[Acknowledgement]
-This utility is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.  
+This utility is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.
+
+- Many of the **core regular expressions**, **irregular word mappings**, and **uncountable word lists** were studied and adapted from the original implementation.  
+- Additional improvements, extensions, and refactoring were made to fit the needs of this project, but full credit goes to the author for the foundational work and inspiration.
+
 Many thanks to the author for the original work and inspiration.
 :::
 
@@ -122,6 +126,7 @@ See the [`Pluralizer` class docs](/docs/classes/Pluralizer) for full details.
 ### See also
 
 - [**Pluralizer class**](/docs/classes/Pluralizer) — low‑level API for custom instances.
+- [**formatUnitWithPlural**](/docs/utilities/string/formatUnitWithPlural) — Simple utility for formatting units with pluralization with just `"s"`.
 
 ---
 

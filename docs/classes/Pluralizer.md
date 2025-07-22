@@ -9,7 +9,11 @@ The **`Pluralizer`** class provides a low‑level API to handle English word plu
 It supports **irregular forms**, **uncountable nouns**, and allows you to **extend or customize** the behavior by adding new rules.
 
 :::info[Acknowledgement]
-This class is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.  
+This class is **heavily inspired** by [Blake Embrey](https://github.com/blakeembrey)’s excellent [pluralize](https://www.npmjs.com/package/pluralize) package.
+
+- Many of the **core regular expressions**, **irregular word mappings**, and **uncountable word lists** were studied and adapted from the original implementation.  
+- Additional improvements, extensions, and refactoring were made to fit the needs of this project, but full credit goes to the author for the foundational work and inspiration.
+
 Many thanks to the author for the original work and inspiration.
 :::
 
@@ -212,7 +216,8 @@ myPluralizer.addUncountable(/pok[eé]mon$/i);
 
 ### See also
 
-- [**pluralizer (default instance)**](/docs/utilities/string/pluralizer) — shared instance.
+- [**pluralizer (default instance)**](/docs/utilities/string/pluralizer) — shared instance of `Pluralizer`.
+- [**formatUnitWithPlural**](/docs/utilities/string/formatUnitWithPlural) — Simple utility for formatting units with pluralization with just `"s"`.
 
 ---
 
