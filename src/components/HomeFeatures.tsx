@@ -13,7 +13,7 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/classes">Class-Based Utilities</Link>,
 		description: (
 			<>
-				<strong>Classes</strong> that solve complex problems, e.g.:
+				<strong>Classes</strong> designed to simplify complex tasks, including:
 				<ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
 					<li>
 						<Link to="/docs/classes/Chronos">
