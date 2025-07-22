@@ -57,9 +57,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/string">String Utilities</Link>,
 		description: (
 			<>
-				Comprehensive string manipulation including case conversion, anagram
-				generation, string masking, URL/email extraction, and advanced text
-				processing with Levenshtein distance and many more.
+				Comprehensive string manipulation including case conversion, pluralization,
+				singularization, anagram generation, string masking, URL/email extraction,
+				and advanced text processing with Levenshtein distance and many more.
 			</>
 		),
 	},
