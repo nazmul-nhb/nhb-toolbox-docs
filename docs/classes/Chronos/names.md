@@ -80,6 +80,76 @@ new Chronos().monthName(11);           // "December"
 
 ---
 
+## getTimeZoneName()
+
+Get time zone name
+
+### Signature
+
+```ts
+getTimeZoneName(): string
+```
+
+### Return Value
+
+- `string` — The current time zone name as a full descriptive string (e.g. `"Bangladesh Standard Time"`).
+
+### Example Usage
+
+```ts
+new Chronos().getTimeZoneName(); // "Bangladesh Standard Time"
+
+// If it's a custom time zone or does not math with predefined time zones:
+new Chronos().getTimeZoneName(); // "UTC+06:15"
+```
+
+:::info
+
+- This method uses a predefined mapping of UTC offsets to time zone names.
+- If multiple time zones share the same UTC offset, it returns the first match from the predefined list.
+- If no match is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:00"`).
+
+:::
+
+---
+
+## getTimeZoneNameShort()
+
+Get abbreviated time zone name
+
+:::danger[Note]
+This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.getTimeZoneNameShort()`. Once registered, all Chronos instances will have access to the `.getTimeZoneNameShort()` method.
+:::
+
+### Signature
+
+```ts
+getTimeZoneNameShort(): string
+```
+
+### Return Value
+
+- `string` — The current time zone abbreviation (e.g. `"BST"` for `Bangladesh Standard Time`).
+
+### Example Usage
+
+```ts
+new Chronos().getTimeZoneNameShort(); // "BST"
+
+// If it's a custom time zone or does not math with predefined time zones:
+new Chronos().getTimeZoneNameShort(); // "UTC+06:15"
+```
+
+:::info
+
+- This method uses a predefined mapping of UTC offsets to time zone names.
+- If multiple time zones share the same UTC offset, it returns the first match from the predefined list.
+- If no match is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:00"`).
+
+:::
+
+---
+
 ## season()
 
 ### Signature
