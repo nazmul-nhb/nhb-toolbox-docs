@@ -124,12 +124,12 @@ This method is provided by `timeZonePlugin`. You must register it using `Chronos
 ### Signature
 
 ```ts
-getTimeZoneNameShort(): string
+getTimeZoneNameShort(): TimeZone | UTCOffset
 ```
 
 ### Return Value
 
-- `string` — The current time zone abbreviation (e.g. `"BST"` for `Bangladesh Standard Time`).
+- `TimeZone | UTCOffset` — The current time zone abbreviation (e.g. `"BST"` for `Bangladesh Standard Time`).
 
 ### Example Usage
 
@@ -151,6 +151,8 @@ new Chronos().getTimeZoneNameShort(); // "UTC+06:15"
 ---
 
 ## season()
+
+Get season name
 
 ### Signature
 
