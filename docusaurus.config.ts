@@ -113,7 +113,7 @@ export default async function config(): Promise<Config> {
 				{
 					name: 'keywords',
 					content:
-						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development',
+						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development, Pluralizer, Pluralize, Singularize, Validation, Type Guards, Utility Types',
 				},
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
@@ -148,7 +148,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'twitter:label2', content: 'Created in' },
 				{ name: 'twitter:data2', content: '2025' },
 				{ name: 'twitter:label3', content: 'License' },
-				{ name: 'twitter:data3', content: 'MIT' },
+				{ name: 'twitter:data3', content: 'Apache 2.0' },
 				{ name: 'theme-color', content: '#0d1117' },
 
 				{ name: 'description', content: 'The Ultimate Utility Library' },
