@@ -76,7 +76,7 @@ pluralizer.toSingular('children'); // "child"
 ```ts
 pluralizer.isPlural('children'); // true
 pluralizer.isSingular('child'); // true
-pluralizer.isPlural('fish'); // false (uncountable)
+pluralizer.isPlural('fish'); // true (uncountable)
 ```
 
 :::info[Note]
