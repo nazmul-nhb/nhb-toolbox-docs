@@ -87,12 +87,17 @@ Get time zone name
 ### Signature
 
 ```ts
-getTimeZoneName(): string
+getTimeZoneName(utc?: UTCOffset): LooseLiteral<UTCOffset>
 ```
+
+### Parameters
+
+- `utc?` — *(Optional)* A UTC offset string in the format `"UTC+06:00"`, `"UTC-04:30"`, etc.
+  - If provided, it **bypasses the instance's current offset** and returns the name mapped to this offset instead.
 
 ### Return Value
 
-- `string` — The current time zone name as a full descriptive string (e.g. `"Bangladesh Standard Time"`).
+- `LooseLiteral<UTCOffset>` — The current time zone name as a full descriptive `string` (e.g. `"Bangladesh Standard Time"`) or  the fallback UTC offset (`UTCOffset`).
 
 ### Example Usage
 
@@ -100,14 +105,21 @@ getTimeZoneName(): string
 new Chronos().getTimeZoneName(); // "Bangladesh Standard Time"
 
 // If it's a custom time zone or does not math with predefined time zones:
-new Chronos().getTimeZoneName(); // "UTC+06:15"
+new Chronos().getTimeZoneName(); // "UTC+06:45"
+
+new Chronos().getTimeZoneName('UTC+03:00'); 
+// → "Arab Standard Time" (uses provided offset)
+
+new Chronos().getTimeZoneName('UTC+06:15'); 
+// → "UTC+06:15" (no matching time zone found)
 ```
 
 :::info
 
-- This method uses a predefined mapping of UTC offsets to time zone names.
-- If multiple time zones share the same UTC offset, it returns the first match from the predefined list.
-- If no match is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:00"`).
+- This method uses a **predefined mapping of UTC offsets** to time zone names.
+- If multiple time zones share the same UTC offset, it returns the **first match** from the predefined list.
+- If **no match** is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:15"`).
+- Passing a custom `utc` offset overrides system/instance's offset detection.
 
 :::
 
@@ -124,8 +136,13 @@ This method is provided by `timeZonePlugin`. You must register it using `Chronos
 ### Signature
 
 ```ts
-getTimeZoneNameShort(): TimeZone | UTCOffset
+getTimeZoneNameShort(utc?: UTCOffset): TimeZone | UTCOffset
 ```
+
+### Parameters
+
+- `utc?` — *(Optional)* A UTC offset string in the format `"UTC+06:00"`, `"UTC-04:30"`, etc.
+  - If provided, it **bypasses the instance's current offset** and returns the name mapped to this offset instead.
 
 ### Return Value
 
@@ -137,14 +154,21 @@ getTimeZoneNameShort(): TimeZone | UTCOffset
 new Chronos().getTimeZoneNameShort(); // "BST"
 
 // If it's a custom time zone or does not math with predefined time zones:
-new Chronos().getTimeZoneNameShort(); // "UTC+06:15"
+new Chronos().getTimeZoneNameShort(); // "UTC+06:45"
+
+new Chronos().getTimeZoneNameShort('UTC+03:00'); 
+// → "Arab Standard Time" (uses provided offset)
+
+new Chronos().getTimeZoneNameShort('UTC+06:15'); 
+// → "UTC+06:15" (no matching time zone found)
 ```
 
 :::info
 
-- This method uses a predefined mapping of UTC offsets to time zone names.
-- If multiple time zones share the same UTC offset, it returns the first match from the predefined list.
-- If no match is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:00"`).
+- This method uses a **predefined mapping of UTC offsets** to time zone names.
+- If multiple time zones share the same UTC offset, it returns the **first match** from the predefined list.
+- If **no match** is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:15"`).
+- Passing a custom `utc` offset overrides system/instance's offset detection.
 
 :::
 

@@ -55,7 +55,7 @@ const myPluralizer = new Pluralizer();
 
 myPluralizer.pluralize('child'); // "children"
 myPluralizer.toSingular('geese'); // "goose"
-myPluralizer.isPlural('fish'); // false (uncountable)
+myPluralizer.isPlural('fish'); // true (uncountable)
 ```
 
 ---
@@ -157,6 +157,10 @@ myPluralizer.toSingular('geese'); // "goose"
 
 Check if a word is plural.
 
+:::info[Note]
+Always returns `true` for uncountable nouns.
+:::
+
 ```ts
 myPluralizer.isPlural('children'); // true
 ```
@@ -166,6 +170,10 @@ myPluralizer.isPlural('children'); // true
 #### `isSingular(word)`
 
 Check if a word is singular.
+
+:::info[Note]
+Always returns `true` for uncountable nouns.
+:::
 
 ```ts
 myPluralizer.isSingular('child'); // true

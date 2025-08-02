@@ -79,6 +79,10 @@ pluralizer.isSingular('child'); // true
 pluralizer.isPlural('fish'); // false (uncountable)
 ```
 
+:::info[Note]
+Always returns `true` for uncountable nouns.
+:::
+
 </TabItem>
 </Tabs>
 
