@@ -5,6 +5,8 @@ title: Pluralizer - Manage Word Forms
 
 <!-- markdownlint-disable-file MD024 -->
 
+## `Pluralizer`
+
 The **`Pluralizer`** class provides a low‑level API to handle English word pluralization and singularization.  
 It supports **irregular forms**, **uncountable nouns**, and allows you to **extend or customize** the behavior by adding new rules.
 

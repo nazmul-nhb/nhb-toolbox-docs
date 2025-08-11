@@ -3,6 +3,8 @@ id: Chronos
 title: Chronos - Play with Time and Date, Be a Time Master like Chronos
 ---
 
+## `Chronos`
+
 :::tip[About Chronos]
 In ancient Greek mythology, **Chronos** is the primordial embodiment of time — not merely tracking moments, but **defining their very existence**. Like its mythological namesake, the `Chronos` class offers **precise, immutable, and expressive control** over time within your application.
 

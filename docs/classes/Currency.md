@@ -4,37 +4,37 @@ title: Currency - Format and convert currencies
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-## Overview
+## `Currency`
 
 The `Currency` class provides utilities for handling currency operations including formatting and conversion. It supports locale-specific formatting and uses the Frankfurter API for currency conversion with automatic rate caching.
 
-## Constructor
+### Constructor
 
 Creates a new Currency instance with specified amount and currency code.
 
-### Signature
+#### Signature
 
 ```typescript
 constructor(amount: Numeric, code: CurrencyCode)
 ```
 
-### Parameters
+#### Parameters
 
 - `amount`: Numeric value (number or string) representing the currency amount
 - `code`: ISO 4217 currency code (e.g., 'USD', 'EUR')
 
-### Behavior
+#### Behavior
 
 - Converts amount to number
 - Stores formatted currency string using 'en-US' locale
 
-### Example
+#### Example
 
 ```javascript
 new Currency(100, 'USD'); // $100.00
 ```
 
-## Available Methods
+### Available Methods
 
 - Static Methods
   - [clearRateCache](Currency/clearRateCache)
@@ -44,9 +44,9 @@ new Currency(100, 'USD'); // $100.00
   - [convert](Currency/convert#convert)
   - [convertSync](Currency/convert#convertsync)
 
-## Properties
+### Properties
 
-### currency
+#### currency
 
 ```typescript
 readonly currency: string
@@ -54,9 +54,9 @@ readonly currency: string
 
 Pre-formatted currency string using `'en-US'` locale.
 
-## Examples
+### Examples
 
-### Basic Usage
+#### Basic Usage
 
 ```javascript
 const usd = new Currency(100, 'USD');
@@ -64,7 +64,7 @@ console.log(usd.currency); // "$100.00"
 console.log(usd.format('ja-JP', 'JPY')); // "￥ 100"
 ```
 
-### Currency Conversion
+#### Currency Conversion
 
 ```javascript
 const converted = await new Currency(100, 'USD').convert('EUR', {
@@ -73,7 +73,7 @@ const converted = await new Currency(100, 'USD').convert('EUR', {
 console.log(converted.currency); // Current EUR equivalent
 ```
 
-### Error Handling
+#### Error Handling
 
 ```javascript
 try {

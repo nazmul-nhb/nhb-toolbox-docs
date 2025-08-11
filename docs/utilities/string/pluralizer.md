@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 
 <!-- markdownlint-disable-file MD024 -->
 
+## `pluralizer`
+
 The **`pluralizer`** is a **default shared instance** of the [`Pluralizer`](/docs/classes/Pluralizer) class.  
 It comes **preloaded with standard English rules**, irregular forms, and uncountable nouns.
 

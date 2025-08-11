@@ -4,11 +4,11 @@ title: Paginator - Paginate with minimal efforts
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-## API Reference for Paginator
+## `Paginator`
 
 This documentation provides complete coverage of all methods in the `Paginator` class, organized into logical categories with detailed sections for each method.
 
-## Table of Contents
+### Table of Contents
 
 - [Constructor](#constructor)
 - [Instance Creation Methods](Paginator/instance-creation)
@@ -19,9 +19,7 @@ This documentation provides complete coverage of all methods in the `Paginator` 
 
 ---
 
-## Constructor
-
-### constructor()
+### Constructor
 
 #### Signature
 
@@ -61,9 +59,9 @@ new Paginator({
 
 ---
 
-## Type Definitions
+### Type Definitions
 
-### Numeric
+#### Numeric
 
 ```typescript
 type Numeric = number | `${number}`;
@@ -71,7 +69,7 @@ type Numeric = number | `${number}`;
 
 Union type accepting numbers or numeric strings
 
-### PaginatorOptions
+#### PaginatorOptions
 
 ```typescript
 interface PaginatorOptions {
@@ -83,7 +81,7 @@ interface PaginatorOptions {
 
 Initialization options with defaults
 
-### PaginatorMeta
+#### PaginatorMeta
 
 ```typescript
 interface PaginatorMeta {
@@ -101,7 +99,7 @@ interface PaginatorMeta {
 
 Complete pagination metadata
 
-### PageListOptions
+#### PageListOptions
 
 ```typescript
 interface PageListOptions {
@@ -112,7 +110,7 @@ interface PageListOptions {
 
 Page list generation options
 
-### FromMetaOptions
+#### FromMetaOptions
 
 ```typescript
 type FromMetaOptions = Pick<PaginatorMeta, 'totalItems' | 'itemsPerPage' | 'currentPage'>;

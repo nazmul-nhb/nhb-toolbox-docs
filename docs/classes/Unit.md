@@ -4,11 +4,11 @@ title: Unit - Convert between units
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-## API Reference for Unit
+## `Unit`
 
 This documentation provides complete coverage of the Unit class, a comprehensive unit conversion utility that supports conversions between various measurement systems.
 
-## Table of Contents
+### Table of Contents
 
 - [Constructor](#constructor)
 - [Instance Methods](Unit/instance-methods)
@@ -29,25 +29,25 @@ This documentation provides complete coverage of the Unit class, a comprehensive
 
 ---
 
-## Constructor
+### Constructor
 
-### Signature
+#### Signature
 
 ```typescript
 constructor(value: number, unit?: UnitKey)
 ```
 
-### Parameters
+#### Parameters
 
 - `value`: Numeric value to convert
 - `unit`: Optional unit type (e.g., 'kg', 'm', 'kb')
 
-### Behavior
+#### Behavior
 
 - Stores value and unit for instance methods
 - Unit parameter is optional for generic conversions
 
-### Example
+#### Example
 
 ```javascript
 new Unit(100, 'kg'); // 100 kilograms
@@ -56,9 +56,9 @@ new Unit(32, 'F');   // 32 degrees Fahrenheit
 
 ---
 
-## Type Definitions
+### Type Definitions
 
-### UnitKey
+#### UnitKey
 
 ```typescript
 type UnitKey = keyof typeof UNITS;
@@ -66,7 +66,7 @@ type UnitKey = keyof typeof UNITS;
 
 Supported unit abbreviations (e.g., 'kg', 'm', 'F')
 
-### UnitLabel
+#### UnitLabel
 
 ```typescript
 type UnitLabel = (typeof UNITS)[UnitKey];
@@ -74,7 +74,7 @@ type UnitLabel = (typeof UNITS)[UnitKey];
 
 Full names of units (e.g., 'Kilogram', 'Meter')
 
-### SIPrefix
+#### SIPrefix
 
 ```typescript
 type SIPrefix = keyof typeof PREFIX_MULTIPLIERS;
@@ -82,7 +82,7 @@ type SIPrefix = keyof typeof PREFIX_MULTIPLIERS;
 
 Scientific prefixes (e.g., 'k', 'm', 'M')
 
-### UnitNumberMethods
+#### UnitNumberMethods
 
 ```typescript
 type UnitNumberMethods = {
@@ -94,7 +94,7 @@ type UnitNumberMethods = {
 
 Type-safe names of static conversion methods
 
-### UNITS
+#### UNITS
 
 ```typescript
 const UNITS = {
@@ -107,7 +107,7 @@ const UNITS = {
 
 Mapping of unit abbreviations to full names
 
-### PREFIX_MULTIPLIERS
+#### PREFIX_MULTIPLIERS
 
 ```typescript
 const PREFIX_MULTIPLIERS = {

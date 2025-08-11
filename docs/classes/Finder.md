@@ -3,15 +3,17 @@ id: Finder
 title: Finder - Search in array with efficiency
 ---
 
+## `Finder`
+
 Optimized searching utility with support for binary search, fuzzy matching, and smart caching.
 
-## Import
+### Import
 
 ```typescript
 import { Finder } from 'nhb-toolbox';
 ```
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 interface FindOptions<T = unknown> {
@@ -28,20 +30,20 @@ type KeySelector<T> = Extract<OwnKeys<T>, string | number> | ((item: T) => strin
 type OwnKeys<T> = { [K in keyof T]: {} extends Pick<T, K> ? never : K;}[keyof T];
 ```
 
-## Constructor
+### Constructor
 
 ```typescript
 constructor(data: T[] | (() => T[]), ttl?: number)
 ```
 
-## Parameters
+### Parameters
 
 | Name | Type | Description | Default |
 |------|------|-------------|---------|
 | `data` | `T[] \| (() => T[])` | Dataset or provider function | - |
 | `ttl` | `number` | Cache duration in milliseconds | `300000` (5 min) |
 
-## Available Methods
+### Available Methods
 
 1. [findAll](Finder/findAll)  - Returns all items matching criteria  
 2. [findOne](Finder/findOne) - Returns first item matching criteria  
@@ -51,13 +53,13 @@ constructor(data: T[] | (() => T[]), ttl?: number)
 6. [fuzzySearch](Finder/fuzzySearch) - Performs fuzzy string search  
 7. [clearCache](Finder/clearCache) - Clears cached search results  
 
-## Notes
+### Notes
 
 - All methods support caching with configurable TTL
 - Search operations are optimized for performance
 - Supports both exact and fuzzy matching
 - Thread-safe implementation
 
-## See Also
+### See Also
 
 - [Array.search](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/find) - Native array search
