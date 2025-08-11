@@ -72,7 +72,7 @@ const sidebars: SidebarsConfig = {
 				},
 				{
 					type: 'category',
-					label: 'Types',
+					label: 'Types & Constants',
 					link: {
 						id: 'types/types',
 						type: 'doc',
@@ -472,7 +472,7 @@ const sidebars: SidebarsConfig = {
 	typesSidebar: [
 		{
 			type: 'category',
-			label: 'Types',
+			label: 'Types & Constants',
 			link: {
 				type: 'doc',
 				id: 'types/types',
