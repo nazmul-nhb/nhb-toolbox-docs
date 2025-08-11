@@ -138,6 +138,104 @@ date.isBetween('2025-01-01', '2025-01-15', '()'); // false
 
 ---
 
+## isEqual()
+
+### Signature
+
+```typescript
+isEqual(other: ChronosInput): boolean
+```
+
+### Parameters
+
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+
+### Return Type
+
+`boolean` - Returns `true` if the current Chronos date is exactly equal to the comparison date (including time components)
+
+### Example
+
+```ts
+// Exact timestamp match
+const date1 = new Chronos('2025-01-01T12:00:00');
+const date2 = new Chronos('2025-01-01T12:00:00');
+date1.isEqual(date2); // true
+
+// Different time components
+new Chronos('2025-01-01T12:00:00').isEqual('2025-01-01T12:00:01'); // false
+```
+
+---
+
+## isEqualOrBefore()
+
+### Signature
+
+```typescript
+isEqualOrBefore(other: ChronosInput): boolean
+```
+
+### Parameters
+
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+
+### Return Type
+
+`boolean` - Returns `true` if the current Chronos date is either:
+
+- Exactly equal to the comparison date, OR
+- Occurs before the comparison date
+
+### Example
+
+```ts
+// Equal dates
+new Chronos('2025-01-15').isEqualOrBefore('2025-01-15'); // true
+
+// Earlier date
+new Chronos('2025-01-10').isEqualOrBefore('2025-01-15'); // true
+
+// Later date
+new Chronos('2025-01-20').isEqualOrBefore('2025-01-15'); // false
+```
+
+---
+
+## isEqualOrAfter()
+
+### Signature
+
+```typescript
+isEqualOrAfter(other: ChronosInput): boolean
+```
+
+### Parameters
+
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+
+### Return Type
+
+`boolean` - Returns `true` if the current Chronos date is either:
+
+- Exactly equal to the comparison date, OR
+- Occurs after the comparison date
+
+### Example
+
+```ts
+// Equal dates
+new Chronos('2025-01-15').isEqualOrAfter('2025-01-15'); // true
+
+// Later date
+new Chronos('2025-01-20').isEqualOrAfter('2025-01-15'); // true
+
+// Earlier date
+new Chronos('2025-01-10').isEqualOrAfter('2025-01-15'); // false
+```
+
+---
+
 ## isToday()
 
 :::danger[Note]

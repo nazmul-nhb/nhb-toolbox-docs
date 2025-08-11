@@ -36,6 +36,17 @@ add(amount: number, unit: TimeUnit): Chronos
 new Chronos('2025-01-31').add(1, 'month'); // 2025-02-28
 ```
 
+### See Also
+
+- You can also use these undocumented methods:
+  - `addDays`
+  - `addHours`
+  - `addMinutes`
+  - `addMonths`
+  - `addSeconds`
+  - `addWeeks`
+  - `addYears`
+
 ---
 
 ## subtract()
