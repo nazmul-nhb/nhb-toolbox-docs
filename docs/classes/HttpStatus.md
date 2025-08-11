@@ -165,6 +165,44 @@ customStatus.list('clientError');
 
 ---
 
+#### `Groups` (Static Property)
+
+Pre-grouped HTTP status codes by category for quick reference:
+
+```ts
+HttpStatus.Groups: {
+  informational: StatusCode[],
+  success: StatusCode[],
+  redirection: StatusCode[],
+  clientError: StatusCode[],
+  serverError: StatusCode[]
+}
+```
+
+##### Categories
+
+| Category        | Description      | Example Codes      |
+| --------------- | ---------------- | ------------------ |
+| `informational` | 1xx status codes | 100, 101, 102, 103 |
+| `success`       | 2xx status codes | 200, 201, 202, 204 |
+| `redirection`   | 3xx status codes | 301, 302, 303, 304 |
+| `clientError`   | 4xx status codes | 400, 401, 403, 404 |
+| `serverError`   | 5xx status codes | 500, 501, 502, 503 |
+
+##### Example Usage
+
+```ts
+// Get all success status codes
+const successCodes = HttpStatus.Groups.success; // [200, 201, 202, ...]
+
+// Check if a code is a server error
+if (HttpStatus.Groups.serverError.includes(502)) {
+  console.log('This is a server error');
+}
+```
+
+---
+
 ### See also
 
 - For status codes use [constant](/docs/types/constants#available-constants) `HTTP_STATUS_CODES` instead.
