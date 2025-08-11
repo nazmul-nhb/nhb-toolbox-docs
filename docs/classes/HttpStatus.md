@@ -19,7 +19,7 @@ This utility includes all standard HTTP status codes with metadata adapted from 
 :::tip[**When to Use**]
 
 - You need **multiple independent configurations** of status codes
-- You want to **add custom status codes** without affecting the shared [`httpStatus`](/docs/utilities/http/httpStatus) instance
+- You want to **add custom status codes** without affecting the shared [`httpStatus`](/docs/utilities/misc/httpStatus) instance
 - You need to **override messages** for specific status codes in your application
 
 :::
@@ -167,6 +167,7 @@ customStatus.list('clientError');
 
 ### See also
 
+- For status codes use [constant](/docs/types/constants#available-constants) `HTTP_STATUS_CODES` instead.
 - [**httpStatus (default instance)**](/docs/utilities/misc/httpStatus) — shared instance of `HttpStatus`
 - [**HTTP Status Codes Reference**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) - MDN documentation
 

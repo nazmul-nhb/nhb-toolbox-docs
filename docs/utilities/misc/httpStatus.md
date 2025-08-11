@@ -23,6 +23,7 @@ This utility includes all standard HTTP status codes with metadata adapted from 
 
 - **Use this instance when you don't need multiple configurations**  
 - If you need isolated or custom status codes, create your own [`HttpStatus`](#-need-your-own-configuration) instance
+- For status codes use [constant](/docs/types/constants#available-constants) `HTTP_STATUS_CODES` instead.
 
 :::
 
@@ -146,6 +147,7 @@ See the [`HttpStatus` class docs](/docs/classes/HttpStatus) for full details.
 
 ### See also
 
+- For status codes use [constant](/docs/types/constants#available-constants) `HTTP_STATUS_CODES` instead.
 - [**HttpStatus class**](/docs/classes/HttpStatus) — low-level API for custom instances
 - [**HTTP Status Codes Reference**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) - MDN documentation
 

@@ -1,8 +1,8 @@
 {
-    "label": "Types",
+    "label": "Types & Constants",
     "position": 1,
     "link": {
         "type": "generated-index",
-        "description": "Comprehensive guide to types."
+        "description": "Comprehensive guide to types and constants."
     }
 }

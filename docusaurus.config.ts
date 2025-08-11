@@ -207,7 +207,7 @@ export default async function config(): Promise<Config> {
 						type: 'docSidebar',
 						sidebarId: 'typesSidebar',
 						position: 'left',
-						label: 'Types',
+						label: 'Types & Constants',
 					},
 					{
 						href: 'https://github.com/nazmul-nhb/nhb-toolbox',
