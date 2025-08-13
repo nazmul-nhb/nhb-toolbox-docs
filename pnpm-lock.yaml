@@ -40,10 +40,10 @@ importers:
         version: 16.5.0
       nhb-hooks:
         specifier: ^1.14.0
-        version: 1.14.0(nhb-toolbox@4.14.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.0(nhb-toolbox@4.14.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.14.6
-        version: 4.14.6
+        specifier: ^4.14.7
+        version: 4.14.7
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -3881,8 +3881,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  nhb-toolbox@4.14.6:
-    resolution: {integrity: sha512-44Hs6p8/YHBX8mVrOfVhQYMCjibyEtXBLXLXT+1T+T18dUrC7T3HIJbCaywlJcOI1+5SqZv7JSRrxZtKGq/bUQ==}
+  nhb-toolbox@4.14.7:
+    resolution: {integrity: sha512-pd7Fv1QW8XcjtH6CdJyF9XrHwRCutyyVNDjePipVKUfMzV7shoDZFfwosMvweU5i0tej/dgGMvwzQiMMVxT5tg==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -10482,9 +10482,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.14.0(nhb-toolbox@4.14.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.14.0(nhb-toolbox@4.14.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.14.6
+      nhb-toolbox: 4.14.7
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -10495,14 +10495,14 @@ snapshots:
       execa: 9.6.0
       globby: 14.1.0
       minimist: 1.2.8
-      nhb-toolbox: 4.14.6
+      nhb-toolbox: 4.14.7
       progress-estimator: 0.3.1
       rimraf: 6.0.1
       semver: 7.7.2
       type-fest: 4.41.0
       typescript: 5.9.2
 
-  nhb-toolbox@4.14.6: {}
+  nhb-toolbox@4.14.7: {}
 
   no-case@3.0.4:
     dependencies:
