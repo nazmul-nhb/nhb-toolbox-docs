@@ -7,13 +7,11 @@ title: Convert String Case to Various Formats
 
 The `convertStringCase` function converts a string into common case styles and includes advanced handling for:
 
-- Unicode-aware tokenization (letters from any script are treated as letters).
-- Preservation of leading and trailing punctuation (non-letter/non-number characters, excluding spaces).
-- Optional preservation of acronyms (e.g., `API`, `HTTP` etc.) when requested.
-- Title Case with small-word rules (articles, prepositions, conjunctions, auxiliary verbs are lowercased unless they appear at the start or end).
+- *Unicode-aware* tokenization (letters from any script are treated as letters).
+- Preservation of leading and trailing *punctuation* (non-letter/non-number characters, excluding spaces).
+- Optional *preservation of acronyms* (e.g., `API`, `HTTP` etc.) when requested.
+- *Title Case with small-word rules* (articles, prepositions, conjunctions, auxiliary verbs are lowercased unless they appear at the start or end).
 - For **Title Case only**, internal dashes (`-`) are treated as part of words (so `xml-http_request` → `Xml-http Request`), while underscores and other separators remain word boundaries.
-
-This utility is designed for production-grade use (e.g., CLI tooling, code generation, UI/UX normalization) and is part of `nhb-toolbox`.
 
 ### Function Signature & Types
 
@@ -51,6 +49,13 @@ export interface StringCaseOptions {
 | --------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `value`   | `string`                       | The input string to convert. May include letters (any script), digits, spaces, underscores, dashes, punctuation, and leading/trailing punctuation. If empty or not a string, the function returns an empty string. |
 | `format`  | `CaseFormat`                   | The target case format. See the `CaseFormat` type above for allowed values.                                                                                                                                        |
+|           |                    | `'camelCase'`: Converts to camelCase (e.g., `myVariableName`). |
+|           |                    | `'snake_case'`: Converts to snake_case (e.g., `my_variable_name`). |
+|           |                    | `'kebab-case'`: Converts to kebab-case (e.g., `my-variable-name`). |
+|           |                    | `'PascalCase'`: Converts to PascalCase (e.g., `MyVariableName`). |
+|           |                    | `'Title Case'`: Converts to Title Case (e.g., `My Variable Name`). |
+|           |                    | `'lowercase'`: Converts to all lowercase characters. |
+|           |                    | `'UPPERCASE'`: Converts to all uppercase characters. |
 | `options` | `StringCaseOptions` (optional) | Optional settings. Currently supports `preserveAcronyms?: boolean`. When `true`, the function preserves acronym-like tokens (e.g., `API`) in appropriate outputs.                                                  |
 
 :::info[Notes on Tokenization]
