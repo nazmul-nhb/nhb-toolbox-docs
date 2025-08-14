@@ -87,7 +87,7 @@ export default function Home() {
 				<title>{`${siteConfig.title} | TypeScript Utility Library`}</title>
 				<meta
 					name="description"
-					content="NHB Toolbox: A comprehensive collection of 200+ type-safe utilities and 6 powerful classes for professional TypeScript/JavaScript development. Featuring string/number/color utilities, FormData and date handling, type guards, utility types and minimal DOM operations."
+					content="NHB Toolbox: A comprehensive collection of 200+ type-safe utilities and 6+ powerful classes for professional TypeScript/JavaScript development. Featuring tree-shakable string/number/color utilities, FormData and date handling, type guards, utility types and minimal DOM operations."
 				/>
 				<meta
 					name="google-site-verification"
