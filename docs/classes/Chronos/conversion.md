@@ -71,7 +71,7 @@ Use `clone()` when you need:
 
 :::
 
-:::note
+:::info[NOTE]
 While `Chronos's` immutability makes cloning less critical for safety, it remains valuable for:
 
 - Tracking different origin points in complex date pipelines
@@ -100,7 +100,7 @@ toDate(): Date
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-15').toDate(); // Date object
 ```
 
@@ -120,7 +120,7 @@ toUTC(): Chronos
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-15').toUTC(); // UTC-converted instance
 ```
 
@@ -140,7 +140,7 @@ toLocal(): Chronos
 
 ### Example
 
-```javascript
+```ts
 Chronos.utc('2025-01-15').toLocal(); // Local time instance
 ```
 
@@ -211,7 +211,7 @@ interface ChronosObject {
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-15').toObject();
 // {year: 2025, month: 0, isoMonth: 1, ...}
 ```
@@ -232,7 +232,7 @@ toArray(): TupleOf<number, 12>
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-15').toArray();
 // [ 2025, 0, 1, 15, 3, 3, 6, 0, 0, 0, 1736899200000, 1736899200 ]
 ```
