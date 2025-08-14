@@ -95,6 +95,78 @@ new Chronos('2025-01-15').isSame('2025-01-20', 'day'); // false
 
 ---
 
+## isSameOrBefore()
+
+### Signature
+
+```typescript
+isSameOrBefore(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
+```
+
+### Parameters
+
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
+
+### Return Type
+
+`boolean` - Returns `true` if the current Chronos date is either:
+
+- Exactly equal to the comparison date at the specified unit level, OR
+- Occurs before the comparison date at the specified unit level
+
+### Example
+
+```ts
+// Same month
+new Chronos('2025-01-15').isSameOrBefore('2025-01-20', 'month'); // true
+
+// Earlier month
+new Chronos('2025-01-15').isSameOrBefore('2025-02-01', 'month'); // true
+
+// Later month
+new Chronos('2025-02-15').isSameOrBefore('2025-01-20', 'month'); // false
+```
+
+---
+
+## isSameOrAfter()
+
+### Signature
+
+```typescript
+isSameOrAfter(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
+```
+
+### Parameters
+
+- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
+
+### Return Type
+
+`boolean` - Returns `true` if the current Chronos date is either:
+
+- Exactly equal to the comparison date at the specified unit level, OR
+- Occurs after the comparison date at the specified unit level
+
+### Example
+
+```ts
+// Same month
+new Chronos('2025-01-20').isSameOrAfter('2025-01-15', 'month'); // true
+
+// Later month
+new Chronos('2025-02-01').isSameOrAfter('2025-01-15', 'month'); // true
+
+// Earlier month
+new Chronos('2025-01-01').isSameOrAfter('2025-02-15', 'month'); // false
+```
+
+---
+
 ## isBetween()
 
 ### Signature

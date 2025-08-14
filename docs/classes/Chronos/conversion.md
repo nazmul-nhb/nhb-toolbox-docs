@@ -4,6 +4,84 @@ title: Conversion Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+
+## clone()
+
+### Signature
+
+```ts
+clone(): Chronos
+```
+
+### Return Type
+
+`Chronos` - New independent instance with identical date value
+
+### Behavior & Notes
+
+- Creates a new instance with the same timestamp as the original
+- Preserves the original's internal metadata (origin tracking)
+- While Chronos is immutable, cloning is still useful for:
+  - Maintaining separate metadata histories
+  - Explicitly creating new instances for semantic clarity
+  - Working with libraries/frameworks that check object identity
+
+### Example
+
+```typescript
+const original = new Chronos('2025-01-15T12:00:00');
+const copy = original.clone();
+
+console.log(original.isSame(copy)); // true (same timestamp)
+console.log(original === copy);     // false (different instances)
+
+// With immutable operations:
+const modified = original.add(1, 'day');
+console.log(original.format());  // "Wed, Jan 15, 2025 12:00:00"
+console.log(modified.format());  // "Thu, Jan 16, 2025 12:00:00"
+```
+
+### Key Use Cases
+
+- **Metadata Preservation**
+
+```ts
+const base = new Chronos('2025-01-01');
+const modified = base.clone().subtract(3, 'days');
+
+// Track different origins while maintaining immutability
+console.log(base.origin);     // "constructor" 
+console.log(modified.origin); // "clone"
+```
+
+### Comparison with Alternatives
+
+| Approach         | Instance Identity | Preserves Metadata | Performance          |
+| ---------------- | ----------------- | ------------------ | -------------------- |
+| `clone()`        | New instance      | ✅ Yes             | ⚠️ Slight overhead  |
+| `new Chronos()`  | New instance      | ❌ No              | ⚠️ Slight overhead  |
+| Direct reference | Same instance     | ✅ Yes             | ✅ Best             |
+
+:::tip
+Use `clone()` when you need:
+
+- Explicit control over instance creation
+- To preserve metadata history
+- Clear code semantics around date derivation
+
+:::
+
+:::note
+While `Chronos's` immutability makes cloning less critical for safety, it remains valuable for:
+
+- Tracking different origin points in complex date pipelines
+- Integration with systems that care about object identity
+- Making derivation operations more explicit in code
+
+:::
+
+---
+
 ## toDate()
 
 ### Signature

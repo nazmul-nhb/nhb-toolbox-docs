@@ -8,6 +8,50 @@ title: Calculation Methods
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## valueOf()
+
+### Signature
+
+```typescript
+valueOf(): number
+```
+
+### Return Type
+
+`number` - Returns the timestamp (milliseconds since Unix epoch) of the Chronos instance
+
+### Behavior & Notes
+
+- Enables arithmetic and comparison operations when used with primitive conversion
+- Automatically called when Chronos instance is used in numeric context
+- Equivalent to `getTimeStamp()` method
+- Returns same value as JavaScript Date's `valueOf()`
+
+### Examples
+
+```typescript
+// Numeric comparison
+const date1 = new Chronos('2025-01-01');
+const date2 = new Chronos('2025-01-02');
+date2 > date1; // true (automatically calls valueOf())
+
+// Arithmetic operations
+const diff = +new Chronos('2025-01-02') - +new Chronos('2025-01-01');
+// diff = 86400000 (1 day in milliseconds)
+
+// Explicit conversion
+const timestamp = new Chronos().valueOf();
+// timestamp = current time in milliseconds
+```
+
+### Use Cases
+
+- Sorting arrays of Chronos instances
+- Calculating time differences
+- Interoperability with libraries expecting numeric timestamps
+
+---
+
 ## add()
 
 ### Signature
@@ -36,16 +80,16 @@ add(amount: number, unit: TimeUnit): Chronos
 new Chronos('2025-01-31').add(1, 'month'); // 2025-02-28
 ```
 
-### See Also
+### Alternatives
 
-- You can also use these undocumented methods:
-  - `addDays`
-  - `addHours`
-  - `addMinutes`
-  - `addMonths`
-  - `addSeconds`
-  - `addWeeks`
-  - `addYears`
+- You can also use one/all of these methods as per your need, they're self-explanatory:
+  - `addDays()`
+  - `addHours()`
+  - `addMinutes()`
+  - `addMonths()`
+  - `addSeconds()`
+  - `addWeeks()`
+  - `addYears()`
 
 ---
 
@@ -101,6 +145,75 @@ diff(other: ChronosInput, unit: TimeUnit): number
 const date1 = new Chronos('2025-01-01');
 const date2 = new Chronos('2025-01-15');
 date2.diff(date1, 'days'); // 14
+```
+
+---
+
+## round()
+
+### Signature
+
+```typescript
+round(unit: TimeUnit, nearest?: number): Chronos
+```
+
+### Parameters
+
+- `unit`: The time unit to round to. Valid units: `'year'`, `'month'`, `'week'`, `'day'`, `'hour'`, `'minute'`, `'second'`, `'millisecond'`
+- `nearest`: (Optional) The nearest multiple to round to (default: `1`)
+
+### Return Type
+
+`Chronos` - Returns a new `Chronos` instance rounded to the nearest point based on the specified unit and granularity
+
+### Behavior & Notes
+
+- Rounding is based on the **proximity to the start or end** of the specified time unit
+- `nearest` defines the multiple to round to (e.g., 15-minute intervals)
+- If an invalid unit is passed, returns the original instance unchanged
+- Returns a new immutable instance (does not modify the original)
+
+#### Unit-specific Behavior
+
+- **Milliseconds/Seconds/Minutes/Hours**:
+  - Rounds based on fractional components
+  - Example: `14:35:30` rounded to nearest 15 minutes becomes `14:30:00`
+
+- **Days**:
+  - Rounds to nearest day based on time of day
+  - Example: `2025-05-23T18:00:00` rounds to `2025-05-24T00:00:00`
+
+- **Weeks**:
+  - Uses ISO 8601 convention (weeks start on Monday)
+  - Rounds to nearest Monday based on proximity
+  - Example: A Wednesday closer to next Monday rounds forward
+
+- **Months**:
+  - Rounds based on progress through the month (midpoint is day 15)
+  - Example: `2025-01-20` rounds to `2025-02-01`
+
+- **Years**:
+  - Considers day-of-year progress relative to leap years
+  - Example: `2025-07-01` (midyear) rounds to `2026-01-01`
+
+### Examples
+
+```typescript
+// Round to nearest hour
+new Chronos('2025-01-15T14:35:30').round('hour'); 
+// Returns: 2025-01-15T15:00:00
+
+// Round to nearest 15 minutes
+new Chronos('2025-01-15T14:35:30').round('minute', 15);  
+// Returns: 2025-01-15T14:30:00
+
+// Round to nearest month (past midpoint)
+new Chronos('2025-01-20').round('month');
+// Returns: 2025-02-01T00:00:00
+
+// Round to nearest week (closer to next Monday)
+new Chronos('2025-01-16T18:00:00').round('week');
+// Returns: 2025-01-20T00:00:00 (next Monday)
 ```
 
 ---

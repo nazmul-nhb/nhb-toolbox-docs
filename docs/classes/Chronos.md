@@ -8,7 +8,7 @@ title: Chronos - Play with Time and Date, Be a Time Master like Chronos
 :::tip[About Chronos]
 In ancient Greek mythology, **Chronos** is the primordial embodiment of time — not merely tracking moments, but **defining their very existence**. Like its mythological namesake, the `Chronos` class offers **precise, immutable, and expressive control** over time within your application.
 
-Designed to go beyond `Date`, it empowers you to manipulate, format, compare, and traverse time with **clarity, reliability, and confidence** — all while staying immutable and framework-agnostic.
+Designed to go beyond `Date`, it empowers you to manipulate, format, compare, and traverse time with **clarity, reliability, and confidence** — all while staying _immutable_ and _framework-agnostic_.
 
 Whether you're building a calendar, a countdown, or scheduling logic, `Chronos` gives you the power to shape time as you see fit.
 :::
@@ -67,7 +67,7 @@ import { Chronos } from 'nhb-toolbox';
 These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
 
 :::info
-However, in JavaScript, these properties *can technically be mutated* (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist *purely for developer convenience and sugar*.
+However, in JavaScript, these properties _can technically be mutated_ (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist _purely for developer convenience and sugar_.
 :::
 
 ### `native: Date`
