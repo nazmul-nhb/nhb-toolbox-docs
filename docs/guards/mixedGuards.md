@@ -158,7 +158,7 @@ function isURL(value: unknown): value is string
 
 #### Description
 
-Validates if a string is a properly formatted URL using the browser's URL constructor. Checks:
+Validates if a string is a properly formatted URL using the browser's `URL` constructor. Checks:
 
 - Valid protocol (http/https/ftp etc.)
 - Proper domain structure
@@ -170,11 +170,11 @@ Validates if a string is a properly formatted URL using the browser's URL constr
 // Valid URLs
 isURL('https://example.com');     // true
 isURL('ftp://files.test/path?q=1'); // true
-isURL('//cdn.domain/image.png');  // true (protocol-relative)
 
 // Invalid URLs
 isURL('example.com');             // false (missing protocol)
 isURL('http://');                 // false (empty domain)
+isURL('//cdn.domain/image.png');  // false (`URL` constructor cannot parse it)
 isURL(123456);                    // false
 
 // Safe URL creation
