@@ -1,7 +1,7 @@
 ---
 id: intro
-title: Introduction
-slug: /intro
+title: Overview
+slug: /
 ---
 
 import Tabs from '@theme/Tabs';

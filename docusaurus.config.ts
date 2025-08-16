@@ -233,7 +233,7 @@ export default async function config(): Promise<Config> {
 						items: [
 							{
 								label: 'Overview',
-								to: '/docs/intro',
+								to: '/docs',
 							},
 							{
 								label: 'Utilities',

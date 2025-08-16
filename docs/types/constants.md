@@ -9,7 +9,7 @@ Along with utilities, classes and types, `nhb-toolbox` exports a collection of r
 
 ### 📦 Import
 
-All constants can be imported using this pattern:
+All (20+) constants can be imported using this pattern:
 
 ```ts
 import { CONSTANT_NAME } from 'nhb-toolbox/constants';

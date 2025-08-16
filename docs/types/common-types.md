@@ -4,6 +4,18 @@ title: Common Type Definitions
 sidebar_label: Common Types  
 ---
 
+## Import
+
+All types can be imported using this pattern:
+
+```ts
+import type { SomeType } from 'nhb-toolbox/types';
+// Or
+import type { SomeType } from 'nhb-toolbox/some-path/types';
+```
+
+---
+
 ## Primitive Types
 
 ### `Any`  

@@ -4,6 +4,18 @@ title: TypeScript Utility Types
 sidebar_label: Utility Types
 ---
 
+## Import
+
+All types can be imported using this pattern:
+
+```ts
+import type { SomeType } from 'nhb-toolbox/types';
+// Or
+import type { SomeType } from 'nhb-toolbox/some-path/types';
+```
+
+---
+
 ## Branding & Special Types
 
 ### `Branded<T, B>`
