@@ -50,6 +50,8 @@ export default async function config(): Promise<Config> {
 			locales: ['en'],
 		},
 
+		themes: ['@docusaurus/theme-live-codeblock'],
+
 		future: {
 			v4: { removeLegacyPostBuildHeadAttribute: true },
 			experimental_faster: true,
@@ -179,6 +181,7 @@ export default async function config(): Promise<Config> {
 					src: 'img/logo.png',
 				},
 				items: [
+					{ to: '/playground', label: 'Playground', position: 'left' },
 					{
 						type: 'docSidebar',
 						sidebarId: 'overviewSidebar',

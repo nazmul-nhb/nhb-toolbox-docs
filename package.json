@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "dev": "docusaurus start",
     "start": "docusaurus start",
+    "prebuild": "pnpm -s install && node scripts/extract-symbols.mjs",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -35,13 +36,16 @@
     "react-hot-toast": "^2.5.2"
   },
   "devDependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@docusaurus/faster": "^3.8.1",
     "@docusaurus/module-type-aliases": "3.8.1",
+    "@docusaurus/theme-live-codeblock": "^3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "nhb-scripts": "^1.8.56",
+    "ts-morph": "^26.0.0",
     "typescript": "~5.9.2"
   },
   "browserslist": {
