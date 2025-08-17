@@ -40,10 +40,10 @@ importers:
         version: 16.5.0
       nhb-hooks:
         specifier: ^1.14.0
-        version: 1.14.0(nhb-toolbox@4.14.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.0(nhb-toolbox@4.14.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.14.8
-        version: 4.14.8
+        specifier: ^4.14.10
+        version: 4.14.10
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -76,8 +76,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.7(@types/react@18.3.21)
       nhb-scripts:
-        specifier: ^1.8.56
-        version: 1.8.56
+        specifier: ^1.8.57
+        version: 1.8.57
       typescript:
         specifier: ~5.9.2
         version: 5.9.2
@@ -717,8 +717,8 @@ packages:
     resolution: {integrity: sha512-nlIXnSqLcBij8K8TtkxbBJgfzfvi75V1pAKSM7dUXejGw12vJAqez74jZrHTsJ3Z+Aczc5Q/6JgNjKRMsVU44g==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/runtime@7.28.2':
-    resolution: {integrity: sha512-KHp2IflsnGywDjBWDkR9iEqiWSpc8GIi0lgTT3mOElT0PP1tG26P4tmFI2YvAdzgq9RGyoHZQEIEdZy6Ec5xCA==}
+  '@babel/runtime@7.28.3':
+    resolution: {integrity: sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -3876,13 +3876,13 @@ packages:
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  nhb-scripts@1.8.56:
-    resolution: {integrity: sha512-ePwatNH8/vg8R6o70Mol70yw1/7kKZ1WFL5l2OyvlCClKv82C/AefzVmuIBVfKvNRiPex/3aiBT6BktvDz9TwA==}
+  nhb-scripts@1.8.57:
+    resolution: {integrity: sha512-iw7QvaVbfDUz+QdHSg9B814R/lIcyPL7frKSGYrQxS3vmvKUFBT2cWYDdQs4EAKynE4pX0fuO5DdH+GsDfgDDA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  nhb-toolbox@4.14.8:
-    resolution: {integrity: sha512-Lz05RHTyuyZ1P/Lr3WNkCPtiNEFtxgfJB1ngQX8oWGKvBN+ZcYhyUMJagj16GJR6wZXenV65llJsyZ38EMk4KQ==}
+  nhb-toolbox@4.14.10:
+    resolution: {integrity: sha512-GrQdpp3AJNqgOC0CKSK4ysKJppuPfdrH9Hv1Fhgc4wdCMY/JIk3j7YGXqxHEdluk0swd5MnnRntMTi4qEM9VxA==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -6274,7 +6274,7 @@ snapshots:
     dependencies:
       core-js-pure: 3.43.0
 
-  '@babel/runtime@7.28.2': {}
+  '@babel/runtime@7.28.3': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -6601,7 +6601,7 @@ snapshots:
       '@babel/preset-env': 7.28.0(@babel/core@7.28.0)
       '@babel/preset-react': 7.27.1(@babel/core@7.28.0)
       '@babel/preset-typescript': 7.27.1(@babel/core@7.28.0)
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       '@babel/runtime-corejs3': 7.28.0
       '@babel/traverse': 7.28.0
       '@docusaurus/logger': 3.8.1
@@ -7661,7 +7661,7 @@ snapshots:
 
   '@slorber/react-helmet-async@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.3.1
@@ -9465,7 +9465,7 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.3
@@ -10482,27 +10482,27 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.14.0(nhb-toolbox@4.14.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.14.0(nhb-toolbox@4.14.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.14.8
+      nhb-toolbox: 4.14.10
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@1.8.56:
+  nhb-scripts@1.8.57:
     dependencies:
       '@clack/prompts': 0.11.0
       chalk: 5.4.1
       execa: 9.6.0
       globby: 14.1.0
       minimist: 1.2.8
-      nhb-toolbox: 4.14.8
+      nhb-toolbox: 4.14.10
       progress-estimator: 0.3.1
       rimraf: 6.0.1
       semver: 7.7.2
       type-fest: 4.41.0
       typescript: 5.9.2
 
-  nhb-toolbox@4.14.8: {}
+  nhb-toolbox@4.14.10: {}
 
   no-case@3.0.4:
     dependencies:
@@ -11255,19 +11255,19 @@ snapshots:
 
   react-loadable-ssr-addon-v5-slorber@1.0.1(@docusaurus/react-loadable@6.0.0(react@18.3.1))(webpack@5.99.9(@swc/core@1.12.9)):
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       react-loadable: '@docusaurus/react-loadable@6.0.0(react@18.3.1)'
       webpack: 5.99.9(@swc/core@1.12.9)
 
   react-router-config@5.1.1(react-router@5.3.4(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       react: 18.3.1
       react-router: 5.3.4(react@18.3.1)
 
   react-router-dom@5.3.4(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       history: 4.10.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
@@ -11278,7 +11278,7 @@ snapshots:
 
   react-router@5.3.4(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.28.2
+      '@babel/runtime': 7.28.3
       history: 4.10.1
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0

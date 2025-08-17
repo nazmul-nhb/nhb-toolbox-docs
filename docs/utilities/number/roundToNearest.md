@@ -1,6 +1,6 @@
 ---
 id: roundToNearest  
-title: Round To Nearest  
+title: Round to Nearest  
 ---
 
 ## roundToNearest  
@@ -80,7 +80,7 @@ console.log(roundToNearest("100", 30));    // 90
 
 - **[convertToDecimal](convertToDecimal)**: Use when you need fixed decimal places with optional string output.
 - **[roundNumber](roundNumber)**: Use when you need simple decimal place rounding (including negative places) without interval-based rounding.
-- For comparison see [here](roundNumber#comparison-with-similar-functions)
+- For comparison [see here](roundNumber#comparison-with-similar-functions)
 
 ### Conclusion  
 

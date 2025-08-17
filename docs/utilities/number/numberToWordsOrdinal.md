@@ -59,6 +59,7 @@ numberToWordsOrdinal("twenty-three"); // "twenty-third"
 - Case-insensitive input handling (`"Twenty-Three"` also works).
 - The result is always returned in lowercase.
 - Internally uses [numberToWords](numberToWords) to convert a numeric value to (cardinal) words.
+- For reverse process please refer to [wordsToNumber](wordsToNumber).
 
 ---
 
