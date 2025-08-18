@@ -3,11 +3,11 @@ id: convertToRoman
 title: Convert to Roman Numerals  
 ---
 
-**Converts an integer into its equivalent Roman numeral representation.**
-
----
-
 ## convertToRomanNumerals
+
+:::info
+**Converts an integer into its equivalent Roman numeral representation.**
+:::
 
 Converts any valid number from `1` to `3999` into a Roman numeral.
 
@@ -19,7 +19,7 @@ function convertToRomanNumerals(num: Numeric): string;
 
 ### Parameters
 
-- `num` — The numeric input (either number or numeric string) to be converted.
+- `num` — The numeric input (either `number` or numeric string) to be converted.
 
 ### Returns
 

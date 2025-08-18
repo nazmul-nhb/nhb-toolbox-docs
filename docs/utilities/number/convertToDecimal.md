@@ -67,11 +67,13 @@ type Numeric = number | `${number}`;
 
 - **[roundNumber](roundNumber)**: Use when you need rounding to specific decimal places (including negative places for whole number rounding) without string output options.
 - **[roundToNearest](roundToNearest)**: Use when you need to round to arbitrary intervals (like multiples of 5, 10, etc.) rather than decimal places.
-- For comparison see [here](roundNumber#comparison-with-similar-functions)
+- For comparison [see here](roundNumber#comparison-with-similar-functions)
 
 ### Aliases
 
-- `convertToFixed`: Alias for `convertToDecimal`.
+`convertToDecimal` can also be imported using the alias:
+
+- `convertToFixed`
 
 ### Conclusion
 

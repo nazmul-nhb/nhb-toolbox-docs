@@ -39,7 +39,7 @@ const flat = flattenObjectDotNotation(nested);
 
 ### Returns
 
-`GenericObject`: Flat object with dot-notation keys
+`T`: Flat object (properly typed) with dot-notation keys
 
 ## Key Features
 

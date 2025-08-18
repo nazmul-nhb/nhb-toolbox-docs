@@ -105,4 +105,4 @@ console.log(anagrams);
 ### Limitations  
 
 - This function generates all possible permutations of the given word but does not filter for valid dictionary words.  
-- For dictionary-based anagrams, use the dedicated package [nhb-anagram-generator](https://www.npmjs.com/package/nhb-anagram-generator), which specifically returns valid words (optional all words).
+- For dictionary-based anagrams, use the dedicated package [`nhb-anagram-generator`](https://www.npmjs.com/package/nhb-anagram-generator), which specifically returns valid words (optional all words) using dictionary.

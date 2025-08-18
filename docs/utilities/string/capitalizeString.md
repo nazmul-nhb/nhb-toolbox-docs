@@ -84,6 +84,10 @@ interface CapitalizeOptions {
 }
 ```
 
+### See also
+
+- [convertStringCase](convertStringCase) for more string case conversion options.
+
 ### Conclusion
 
 The `capitalizeString` function provides a versatile way to format text with precise capitalization rules, handling various cases such as entire-string uppercase, word-based capitalization, and preservation of casing when needed.

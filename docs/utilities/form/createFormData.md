@@ -181,7 +181,7 @@ export interface FormDataConfigs<T> {
 
 - Empty objects/arrays are included if marked as required
 - Null/undefined values are included if marked as required
-- Date-like objects such as native `Date`, [Chronos](../../classes/Chronos.md), `Dayjs` or `Moment.js` are serialized in ISO string format (either in UTC or in local time-zone)
+- Date-like objects such as native `Date`, [`Chronos`](/docs/classes/Chronos), `Dayjs` or `Moment.js` are serialized in ISO string format (either in UTC or in local time-zone)
 - File upload components are deeply inspected
 - **Do not assign non-serialized objects (`File`, `FileList`, special classes etc.) [except the ones mentioned in the previous point ] as the values of nested object keys as they will either be removed or if you mark as required key they will be treated as top-level key-value pairs, and if you pass `true` for `dotNotateNested`, they will be converted as value of a key that represents dot-notation.**
 - Circular references may cause issues (not handled)

@@ -137,14 +137,14 @@ splitArrayByProperty(data, 'category');
 - Transforming structures for grouped charts or tables
 - Grouping objects by region, status, or user-defined tags
 
-\:::info Note
+:::info[Note]
 
 - For optimal TypeScript usage, ensure your objects properly type the property you're grouping by
 - Dot-notation support allows grouping by deeply nested properties like `'meta.stats.region'`
 - This function works best when grouping by primitive fields (string, number, boolean, null, undefined)
 - Object order within each group is preserved; order of group entries may vary
 
-\:::
+:::
 
 ### Aliases
 

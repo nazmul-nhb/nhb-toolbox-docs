@@ -123,15 +123,15 @@ Also exported as:
 
 ## Notes
 
-- Most useful after JSON parsing (see [`parseJSON`](./parseJSON.md)) or any time you process loosely typed data (e.g., from APIs, user input, or query strings).
-- For strict root-object-only parsing, see [`parseJsonToObject`](../object/parseJsonToObject.md).
+- Most useful after JSON parsing (see [`parseJSON`](./parseJSON)) or any time you process loosely typed data (e.g., from APIs, user input, or query strings).
+- For strict root-object-only parsing, see [`parseJsonToObject`](../object/parseJsonToObject).
 
 ---
 
 ## See Also
 
-- [`parseJSON`](./parseJSON.md): Complete JSON parsing with deep primitive conversion.
-- [`parseJsonToObject`](../object/parseJsonToObject.md): Like `parseJSON`, but requires an object at the root.
+- [`parseJSON`](./parseJSON): Complete JSON parsing with deep primitive conversion.
+- [`parseJsonToObject`](../object/parseJsonToObject): Like `parseJSON`, but requires an object at the root.
 
 ---
 

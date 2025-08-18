@@ -3,7 +3,7 @@ id: fibonacci
 title: Fibonacci Number(s)  
 ---
 
-The Toolbox offers multiple utilities for working with the Fibonacci sequence:
+`nhb-toolbox` offers multiple utilities for working with the Fibonacci sequence:
 
 - Generate full sequences
 - Fetch a specific Fibonacci number

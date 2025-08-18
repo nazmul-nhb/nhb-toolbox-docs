@@ -139,6 +139,12 @@ convertStringCase('', 'camelCase');
 
 ---
 
+### See also
+
+- [capitalizeString](capitalizeString) only for capitalization purpose.
+
+---
+
 ### Implementation Notes
 
 - This function relies on modern JavaScript `RegExp` features (`\p{...}` Unicode property escapes). Ensure your Node or target runtime supports `ES2018+` (`Node 12+` for `u` with `\p{}`), or transpile accordingly.

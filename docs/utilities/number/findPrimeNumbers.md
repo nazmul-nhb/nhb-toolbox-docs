@@ -3,11 +3,11 @@ id: findPrimeNumbers
 title: Find Prime Numbers in a Range  
 ---
 
-Returns all prime numbers within a specified numeric range.
-
----
-
 ## findPrimeNumbers
+
+:::info
+Returns all prime numbers within a specified numeric range.
+:::
 
 Finds all primes between the `start` and `end` values (inclusive). If `start > end`, the range is automatically normalized.
 

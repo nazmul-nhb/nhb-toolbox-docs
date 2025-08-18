@@ -4,12 +4,11 @@ title: Normalize Numeric Value
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+## normalizeNumber
 
 :::caution[Note]
-Normalize a value to a `number` if possible.
+Normalize a numeric value to a `number` if possible.
 :::
-
-### ✨ Description
 
 `normalizeNumber` accepts either a number or a numeric string and safely converts it to a `number`.  
 If the input is not a valid number or a numeric string, it returns `undefined`.

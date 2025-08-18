@@ -98,7 +98,7 @@ parseJSON("{ key: 'value' }");
 ## Key Features
 
 1. **Flexible Root:** Accepts any valid JSON root (object, array, primitive).
-2. **Recursive Primitive Conversion:** Converts stringified numbers, booleans, `null`—deeply (see [deepParsePrimitives](deepParsePrimitives.md)).
+2. **Recursive Primitive Conversion:** Converts stringified numbers, booleans, `null`—deeply (see [deepParsePrimitives](deepParsePrimitives)).
 3. **Safe Fallback:** Malformed or invalid JSON always returns an empty object.
 4. **Type-safe Generic:** Infer and enforce types with `<T>`.
 
@@ -123,8 +123,8 @@ Also exported as:
 
 ## Notes
 
-- For strict object parsing (root must be an object), use [`parseJsonToObject`](../object/parseJsonToObject.md).
-- For deep primitive conversion logic, see [`deepParsePrimitives`](deepParsePrimitives.md).
+- For strict object parsing (root must be an object), use [`parseJsonToObject`](../object/parseJsonToObject).
+- For deep primitive conversion logic, see [`deepParsePrimitives`](deepParsePrimitives).
 - Malformed JSON, such as single-quoted or badly formatted strings, will **not** throw but will result in `{}`.
 
 ---
@@ -139,8 +139,8 @@ Also exported as:
 
 ## See Also
 
-- [`deepParsePrimitives`](deepParsePrimitives.md): Recursively converts stringified primitives inside objects/arrays.
-- [`parseJsonToObject`](../object/parseJsonToObject.md): Like `parseJSON`, but root must be an object.
+- [`deepParsePrimitives`](deepParsePrimitives): Recursively converts stringified primitives inside objects/arrays.
+- [`parseJsonToObject`](../object/parseJsonToObject): Like `parseJSON`, but root must be an object.
 - [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) (MDN): Built-in JSON parsing in JS.
 
 ---

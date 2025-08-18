@@ -55,13 +55,13 @@ console.log(roundNumber(123.456, -4));   // 0
 
 ### Comparison with Similar Functions  
 
-| Feature | [roundNumber](#common-use-cases)  | [convertToDecimal](convertToDecimal) | [roundToNearest](roundToNearest) |
-|-----------------------|----------------|--------------------|------------------|
-| Decimal places        | ✓              | ✓                  | ✗                |
-| Negative places       | ✓              | ✗                  | ✗                |
-| String output option  | ✗              | ✓                  | ✗                |
-| Arbitrary intervals   | ✗              | ✗                 | ✓                 |
-| Rounding direction    | Standard       | Standard           | Standard          |
+| Feature              | [roundNumber](#common-use-cases) | [convertToDecimal](convertToDecimal) | [roundToNearest](roundToNearest) |
+| -------------------- | -------------------------------- | ------------------------------------ | -------------------------------- |
+| Decimal places       | ✓                               | ✓                                   | ✗                               |
+| Negative places      | ✓                               | ✗                                   | ✗                               |
+| String output option | ✗                               | ✓                                   | ✗                               |
+| Arbitrary intervals  | ✗                               | ✗                                   | ✓                               |
+| Rounding direction   | Standard                         | Standard                             | Standard                         |
 
 ### When to Use Which?
 
@@ -108,4 +108,4 @@ type Numeric = number | `${number}`;
 
 ### Conclusion  
 
-`roundNumber` (and its alias `roundToDecimal`) provides the most flexible decimal place rounding in the toolbox, supporting both fractional and whole number rounding. For more specialized rounding needs, consider `convertToDecimal` (for string output) or `roundToNearest` (for interval-based rounding).
+`roundNumber` (and its alias `roundToDecimal`) provides the most flexible decimal place rounding in the toolbox, supporting both fractional and whole number rounding. For more specialized rounding needs, consider [`convertToDecimal`](convertToDecimal) (for string output) or [`roundToNearest`](roundToNearest) (for interval-based rounding).

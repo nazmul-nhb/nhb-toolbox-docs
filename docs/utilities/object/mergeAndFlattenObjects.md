@@ -16,7 +16,7 @@ import { mergeAndFlattenObjects } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function mergeAndFlattenObjects<T extends GenericObject>(...objects: T[]): GenericObject
+function mergeAndFlattenObjects<T extends GenericObject>(...objects: T[]): T
 ```
 
 ## Usage
@@ -34,19 +34,19 @@ const result = mergeAndFlattenObjects(obj1, obj2);
 
 ### Type Parameters
 
-| Name | Description |
-|------|-------------|
+| Name | Description           |
+| ---- | --------------------- |
 | `T`  | Type of input objects |
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name         | Type  | Description                 |
+| ------------ | ----- | --------------------------- |
 | `...objects` | `T[]` | Objects to merge (variadic) |
 
 ### Returns
 
-`GenericObject`: Single merged object with dot-notation keys
+`T`: Single merged object (properly typed) with dot-notation keys
 
 ## Key Features
 
@@ -104,8 +104,8 @@ type GenericObject = Record<string, any>;
 ## Comparison with Similar Functions
 
 | Feature          | mergeAndFlattenObjects | [mergeObjects](mergeObjects) |
-|------------------|------------------------|--------------|
-| Output Structure | Flat (dot notation)    | Nested       |
-| Array Handling   | Overwrites             | Overwrites   |
-| Performance      | Slower (flattening)    | Faster       |
-| Use Case         | Configuration strings  | Deep merge   |
+| ---------------- | ---------------------- | ---------------------------- |
+| Output Structure | Flat (dot notation)    | Nested                       |
+| Array Handling   | Overwrites             | Overwrites                   |
+| Performance      | Slower (flattening)    | Faster                       |
+| Use Case         | Configuration strings  | Deep merge                   |

@@ -40,8 +40,10 @@ console.log(getAverage());           // NaN
 
 ### Aliases
 
-- `calculateAverage`: Alias for `getAverage`.
-- `getAverageOfNumbers`: Alias for `getAverage`.
+`getAverage` can also be imported using the alias:
+
+- `calculateAverage`
+- `getAverageOfNumbers`
 
 ### Conclusion
 

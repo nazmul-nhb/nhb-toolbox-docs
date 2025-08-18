@@ -3,7 +3,10 @@ id: filterArrayOfObjects
 status: deprecated
 title: Filter Array of Objects
 ---
-#### Please, use `findAll` instance method from `Finder` class for more advanced filtering and searching
+
+:::danger[Deprecated]
+Please, use [`findAll`](/docs/classes/Finder/findAll) instance method from [`Finder`](/docs/classes/Finder) class for more advanced filtering and searching
+:::
 
 ## filterArrayOfObjects
 

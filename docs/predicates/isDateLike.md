@@ -6,24 +6,22 @@ description: Detect date-like objects from various date/time libraries
 
 ## isDateLike
 
-Detects date-like objects from multiple popular date/time libraries.
+Detects _date-like objects_ from popular date/time libraries.
 
 ## Features
 
-- Detects native JavaScript `Date` objects
-- Supports popular date libraries:
-  - Moment.js
-  - Dayjs
-  - Luxon
-  - JS-Joda
-  - Temporal
-  - [Chronos](../classes/Chronos.md)
+- Detects native **JavaScript** `Date` objects
+- Supports multiple popular date libraries:
+  - `Moment.js`
+  - `Dayjs`
+  - `Luxon`
+  - `JS-Joda`
+  - `Temporal`
+  - [`Chronos`](/docs/classes/Chronos)
 - Type-safe TypeScript implementation
 - Zero dependencies
 
-## Usage
-
-### Basic Usage
+## Basic Usage
 
 ```ts
 import { isDateLike } from 'nhb-toolbox';
@@ -42,19 +40,19 @@ console.log(isDateLike(chronosDate));  // true
 console.log(isDateLike('2023-01-01')); // false`}
 ```
 
-### Supported Libraries
+## Supported Libraries and Objects
 
 The function recognizes these date-like objects:
 
-| Library      | Detection Criteria |
-|--------------|--------------------|
-| Native Date  | `instanceof Date` |
-| Chronos      | Has `format()`, `toJSON()`, and `toISOString()` methods |
-| Dayjs       | Same as Chronos |
-| Moment.js    | Same as Chronos |
-| Luxon        | Has `toISO()`, `toFormat()` methods and `isValid` property |
-| JS-Joda      | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
-| Temporal     | Has `toJSON()`, `toString()` and specific constructor names |
+| Library     | Detection Criteria                                            |
+| ----------- | ------------------------------------------------------------- |
+| Native Date | `instanceof Date`                                             |
+| Chronos     | Has `format()`, `toJSON()`, and `toISOString()` methods       |
+| Dayjs       | Same as Chronos                                               |
+| Moment.js   | Same as Chronos                                               |
+| Luxon       | Has `toISO()`, `toFormat()` methods and `isValid` property    |
+| JS-Joda     | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
+| Temporal    | Has `toJSON()`, `toString()` and specific constructor names   |
 
 ## API Reference
 
@@ -66,9 +64,9 @@ function isDateLike(value: unknown): boolean;
 
 ### Parameters
 
-| Parameter | Type      | Description                |
-|-----------|----------|----------------------------|
-| value     | `unknown` | The value to be checked    |
+| Parameter | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| value     | `unknown` | The value to be checked |
 
 ### Returns
 

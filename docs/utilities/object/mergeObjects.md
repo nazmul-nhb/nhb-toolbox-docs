@@ -34,19 +34,19 @@ const merged = mergeObjects(obj1, obj2);
 
 ### Type Parameters
 
-| Name | Description |
-|------|-------------|
+| Name | Description           |
+| ---- | --------------------- |
 | `T`  | Type of input objects |
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name         | Type  | Description                 |
+| ------------ | ----- | --------------------------- |
 | `...objects` | `T[]` | Objects to merge (variadic) |
 
 ### Returns
 
-`T`: A new object containing the merged result
+`T`: A new object (properly typed) containing the merged result
 
 ## Key Features
 
@@ -105,8 +105,8 @@ type GenericObject = Record<string, any>;
 ## Comparison with Similar Functions
 
 | Feature          | mergeObjects | [mergeAndFlattenObjects](mergeAndFlattenObjects) |
-|------------------|--------------|------------------------|
-| Output Structure | Nested       | Flat (dot notation)    |
-| Array Handling   | Overwrites   | Overwrites             |
-| Performance      | Faster       | Slower (flattening)    |
-| Use Case         | Deep merge   | Configuration strings  |
+| ---------------- | ------------ | ------------------------------------------------ |
+| Output Structure | Nested       | Flat (dot notation)                              |
+| Array Handling   | Overwrites   | Overwrites                                       |
+| Performance      | Faster       | Slower (flattening)                              |
+| Use Case         | Deep merge   | Configuration strings                            |
