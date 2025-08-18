@@ -23,7 +23,7 @@ function wordsToNumber(word: string): number;
 ### Returns
 
 - A `number` containing the numeric value of the input.
-- Returns `NaN` if the input cannot be parsed.
+- Returns _`NaN`_ if the input cannot be parsed.
 
 :::caution[Warning]
 
@@ -31,6 +31,8 @@ function wordsToNumber(word: string): number;
 - **Mixed words with non-numeric tokens (e.g., "seventy-seven cats") will return NaN.**
 
 :::
+
+---
 
 ### Examples
 
@@ -59,6 +61,8 @@ wordsToNumber('one zillion');
 // NaN
 ```
 
+---
+
 ### Supported Features
 
 - **Cardinal numbers:** "one", "two", ..., "one hundred", etc.
@@ -68,6 +72,16 @@ wordsToNumber('one zillion');
 - **Hyphenated or spaced numbers:** "forty-two" or "forty two".
 - **"And" in numbers:** "one hundred and one".
 - **Numeric strings:** "1,234", "042", "3.14".
+
+---
+
+### Aliases
+
+`wordsToNumber` can also be imported as following alias:
+
+- `convertWordsToNumber`
+- `wordToNumber`
+- `convertWordToNumber`
 
 ---
 
@@ -83,9 +97,9 @@ wordsToNumber('one zillion');
 
 ### Edge Cases
 
-- Empty strings or strings with only whitespace return `NaN`.
-- Mixed words with non-numeric tokens (e.g., "seventy-seven cats") return `NaN`.
-- Unsupported scales (e.g., "sextillion") return `NaN`.
+- Empty strings or strings with only whitespace return _`NaN`_.
+- Mixed words with non-numeric tokens (e.g., "seventy-seven cats") return _`NaN`_.
+- Unsupported scales (e.g., "sextillion") return _`NaN`_.
 - Commas are only allowed in numeric strings (e.g., "1,234"), not in word forms.
 
 ---

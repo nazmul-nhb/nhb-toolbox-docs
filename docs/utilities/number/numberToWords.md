@@ -31,6 +31,8 @@ function numberToWords(number: Numeric): string;
 
 :::
 
+---
+
 ### Examples
 
 ```ts
@@ -51,6 +53,8 @@ numberToWords(0.987);
 numberToWords(1e21);
 // "Number exceeds supported range (max is 10e19 aka 10^20)"
 ```
+
+---
 
 ### Aliases
 
