@@ -165,7 +165,7 @@ const FeatureList: FeatureItem[] = [
 		),
 	},
 	{
-		title: <Link to="/docs/types">Types and Constants</Link>,
+		title: <Link to="/docs/types">Types & Constants</Link>,
 		description: (
 			<>
 				This package includes not only functional utilities but also a growing
