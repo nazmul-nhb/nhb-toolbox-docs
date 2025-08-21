@@ -118,8 +118,12 @@ const FeatureList: FeatureItem[] = [
 				<code>
 					<Link to="/docs/classes/Chronos">Chronos</Link>
 				</code>{' '}
-				class or its wrapper <code>chronos</code> date and time can be manipulated
-				so easily.
+				class or its wrapper{' '}
+				<code>
+					<Link to="/docs/utilities/date/chronos">chronos</Link>
+				</code>
+				{', '}
+				date and time can be manipulated with ease.
 			</>
 		),
 	},
