@@ -299,7 +299,7 @@ export default async function config(): Promise<Config> {
 							},
 							{
 								label: 'Personal Website',
-								href: 'https://nazmul-nhb.vercel.app',
+								href: 'https://nazmul-nhb.dev',
 							},
 						],
 					},
