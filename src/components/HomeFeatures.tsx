@@ -161,12 +161,12 @@ const FeatureList: FeatureItem[] = [
 		),
 	},
 	{
-		title: <Link to="/docs/types">TypeScript Types</Link>,
+		title: <Link to="/docs/types">Types and Constants</Link>,
 		description: (
 			<>
 				This package includes not only functional utilities but also a growing
-				collection of type-level utilities designed to enhance type safety and
-				developer ergonomics.
+				collection of type-level utilities, including ready-to-use constants,
+				designed to enhance type safety and developer ergonomics.
 			</>
 		),
 	},
