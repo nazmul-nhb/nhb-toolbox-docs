@@ -14,7 +14,12 @@ const FeatureList: FeatureItem[] = [
 		description: (
 			<>
 				Designed to simplify complex tasks, e.g:
-				<ul style={{ textAlign: 'left', marginTop: '0.5rem' }}>
+				<ul
+					style={{
+						textAlign: 'left',
+						marginTop: '0.5rem',
+					}}
+				>
 					<li>
 						<Link to="/docs/classes/Chronos">
 							<code>Chronos</code>
@@ -39,22 +44,6 @@ const FeatureList: FeatureItem[] = [
 						</Link>{' '}
 						- Manage word forms
 					</li>
-					{/* <li>
-						<Link to="/docs/classes/Finder">
-							<code>Finder</code>
-						</Link>{' '}
-						- Sophisticated array searching
-					</li> */}
-					{/* <li>
-						<Link to="/docs/classes/Unit">
-							<code>Unit</code>
-						</Link>{' '}
-						and{' '}
-						<Link to="/docs/classes/Currency">
-							<code>Currency</code>
-						</Link>{' '}
-						for unit and currency handling.
-					</li> */}
 				</ul>
 			</>
 		),
@@ -155,7 +144,7 @@ const FeatureList: FeatureItem[] = [
 		),
 	},
 	{
-		title: <Link to="/docs/predicates-guards">Predicate Functions & Type Guards</Link>,
+		title: <Link to="/docs/predicates-guards">Predicates & Type Guards</Link>,
 		description: (
 			<>
 				Comprehensive runtime type checking for primitives, non-primitives, and
@@ -178,7 +167,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, description }: FeatureItem) {
 	return (
-		<div className={clsx('col col--4')}>
+		<div style={{ marginBottom: '24px' }} className={clsx('col col--4')}>
 			<div className="text--center padding-horiz--md">
 				<h3>{title}</h3>
 				<div>{description}</div>
