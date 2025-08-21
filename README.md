@@ -6,7 +6,7 @@ Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package
 
 ## 🌐 Live Site
 
-[nhb-toolbox.vercel.app](https://nhb-toolbox.vercel.app/)
+[toolbox.nazmul-nhb.dev](https://toolbox.nazmul-nhb.dev/)
 
 ## 🚀 Features
 

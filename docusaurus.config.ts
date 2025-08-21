@@ -29,7 +29,7 @@ export default async function config(): Promise<Config> {
 		favicon: 'img/logo.png',
 
 		// Set the production url of your site here
-		url: 'https://nhb-toolbox.vercel.app',
+		url: 'https://toolbox.nazmul-nhb.dev',
 		// Set the /<baseUrl>/ pathname under which your site is served
 		// For GitHub pages deployment, it is often '/<projectName>/'
 		baseUrl: '/',
@@ -120,15 +120,15 @@ export default async function config(): Promise<Config> {
 					name: 'copyright',
 					content: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
 				},
-				{ name: 'canonical', content: 'https://nhb-toolbox.vercel.app' },
+				{ name: 'canonical', content: 'https://toolbox.nazmul-nhb.dev' },
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
 				{ name: 'og:title', content: 'NHB Toolbox' },
 				{ name: 'og:type', content: 'website' },
-				{ name: 'og:url', content: 'https://nhb-toolbox.vercel.app/' },
+				{ name: 'og:url', content: 'https://toolbox.nazmul-nhb.dev/' },
 				{
 					name: 'og:image',
-					content: 'https://nhb-toolbox.vercel.app/img/logo.png',
+					content: 'https://toolbox.nazmul-nhb.dev/img/logo.png',
 				},
 				{ name: 'og:description', content: 'The Ultimate Utility Library' },
 				{ name: 'og:site_name', content: 'NHB Toolbox' },
@@ -137,11 +137,11 @@ export default async function config(): Promise<Config> {
 				{ name: 'twitter:description', content: 'The Ultimate Utility Library' },
 				{
 					name: 'twitter:image',
-					content: 'https://nhb-toolbox.vercel.app/img/logo.png',
+					content: 'https://toolbox.nazmul-nhb.dev/img/logo.png',
 				},
 				{ name: 'twitter:site', content: '@nazmul_nhb' },
 				{ name: 'twitter:creator', content: '@nazmul_nhb' },
-				{ name: 'twitter:domain', content: 'nhb-toolbox.vercel.app' },
+				{ name: 'twitter:domain', content: 'toolbox.nazmul-nhb.dev' },
 				{ name: 'twitter:image:alt', content: 'NHB Toolbox Logo' },
 				{ name: 'twitter:label1', content: 'Written by' },
 				{ name: 'twitter:data1', content: 'Nazmul Hassan' },
