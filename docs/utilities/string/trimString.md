@@ -7,10 +7,12 @@ title: Trim String or Array of Strings
 
 The `trimString` function removes unnecessary spaces from a string or an array of strings.
 
-### Function Signature
+### Function Signatures
 
 ```typescript
-function trimString(input: string | string[]): string | string[];
+function trimString(input: string): string;
+
+function trimString(input: string[]): string[];
 ```
 
 ### Parameters

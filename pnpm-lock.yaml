@@ -40,10 +40,10 @@ importers:
         version: 16.5.0
       nhb-hooks:
         specifier: ^1.14.0
-        version: 1.14.0(nhb-toolbox@4.14.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.0(nhb-toolbox@4.14.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.14.10
-        version: 4.14.10
+        specifier: ^4.14.12
+        version: 4.14.12
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -1967,8 +1967,8 @@ packages:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  ansi-regex@6.1.0:
-    resolution: {integrity: sha512-7HSX4QQb4CspciLpVFwyRe79O3xsIZDDLER21kERQ71oaPodF8jL725AgJMFAYbooIqolJoRLuM81SpeUkpkvA==}
+  ansi-regex@6.2.0:
+    resolution: {integrity: sha512-TKY5pyBkHyADOPYlRT9Lx6F544mPl0vS5Ew7BJ45hA08Q+t3GjbueLliBWN3sMICk6+y7HdyxSzC4bWS8baBdg==}
     engines: {node: '>=12'}
 
   ansi-styles@3.2.1:
@@ -3881,8 +3881,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  nhb-toolbox@4.14.10:
-    resolution: {integrity: sha512-GrQdpp3AJNqgOC0CKSK4ysKJppuPfdrH9Hv1Fhgc4wdCMY/JIk3j7YGXqxHEdluk0swd5MnnRntMTi4qEM9VxA==}
+  nhb-toolbox@4.14.12:
+    resolution: {integrity: sha512-YYqsU+K7NuzBXkZlR9fIOuUX1wBxHt47oED+Z/a7XZ++sIa9yJOgRyYVH7WgTTEEAG52rivpLw6wcI+bvTqoxA==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -5425,8 +5425,8 @@ packages:
     resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
     engines: {node: '>=12.20'}
 
-  yoctocolors@2.1.1:
-    resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
+  yoctocolors@2.1.2:
+    resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
   zwitch@2.0.4:
@@ -8230,7 +8230,7 @@ snapshots:
 
   ansi-regex@5.0.1: {}
 
-  ansi-regex@6.1.0: {}
+  ansi-regex@6.2.0: {}
 
   ansi-styles@3.2.1:
     dependencies:
@@ -9077,7 +9077,7 @@ snapshots:
       pretty-ms: 9.2.0
       signal-exit: 4.1.0
       strip-final-newline: 4.0.0
-      yoctocolors: 2.1.1
+      yoctocolors: 2.1.2
 
   express@4.21.2:
     dependencies:
@@ -10482,9 +10482,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.14.0(nhb-toolbox@4.14.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.14.0(nhb-toolbox@4.14.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.14.10
+      nhb-toolbox: 4.14.12
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -10495,14 +10495,14 @@ snapshots:
       execa: 9.6.0
       globby: 14.1.0
       minimist: 1.2.8
-      nhb-toolbox: 4.14.10
+      nhb-toolbox: 4.14.12
       progress-estimator: 0.3.1
       rimraf: 6.0.1
       semver: 7.7.2
       type-fest: 4.41.0
       typescript: 5.9.2
 
-  nhb-toolbox@4.14.10: {}
+  nhb-toolbox@4.14.12: {}
 
   no-case@3.0.4:
     dependencies:
@@ -11805,7 +11805,7 @@ snapshots:
 
   strip-ansi@7.1.0:
     dependencies:
-      ansi-regex: 6.1.0
+      ansi-regex: 6.2.0
 
   strip-bom-string@1.0.0: {}
 
@@ -12244,6 +12244,6 @@ snapshots:
 
   yocto-queue@1.2.1: {}
 
-  yoctocolors@2.1.1: {}
+  yoctocolors@2.1.2: {}
 
   zwitch@2.0.4: {}
