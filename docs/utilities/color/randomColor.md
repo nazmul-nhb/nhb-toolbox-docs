@@ -130,3 +130,5 @@ Ideal for applications requiring:
 - Dynamic color schemes
 - Non-repeating color sequences
 - Design system utilities
+
+> For more powerful color manipulation, consider using the [`Color`](/docs/classes/Color) class.

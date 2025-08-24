@@ -11,20 +11,20 @@ Generates consistent hex colors based on the first character of strings/numbers.
 
 ```typescript
 // Single input version
-function getColorForInitial(input: ColorInput, opacity?: Percent): string;
+function getColorForInitial(input: ColorInput, opacity?: Percent): Hex8;
 
 // Array input version
-function getColorForInitial(input: ColorInputArray, opacity?: Percent): string[];
+function getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
 
 // Combined signature
-function getColorForInitial(input: ColorInput | ColorInputArray, opacity?: Percent): string | string[];
+function getColorForInitial(input: ColorInput | ColorInputArray, opacity?: Percent): Hex8 | Hex8[];
 ```
 
 ### Parameters
 
 - **`input`**:
-  - `string | number`: Single value to generate color for
-  - `Array<string | number | Array>`: Array (potentially nested) of values
+  - `ColorInput`: Single `string/number` value to generate color for
+  - `ColorInputArray`: Array (potentially nested) of values
 - **`opacity`** (optional): Number between 0-100 representing opacity percentage (default: 100)
 
 ### Return Value
@@ -32,6 +32,10 @@ function getColorForInitial(input: ColorInput | ColorInputArray, opacity?: Perce
 - Single hex color string (for single input)
 - Array of hex color strings (for array input)
 - All 36 colors (alphabet + numbers) for empty array input
+
+:::info[Note]
+All hex colors are returned in 8-digit `Hex8` format (e.g. `#RRGGBBAA`), where the last two digits represent the alpha channel based on the provided opacity. `FF` indicates full opacity, and `00` indicates full transparency.
+:::
 
 ### Types
 
@@ -57,10 +61,10 @@ type Percent = 0 | 1 | 2 | ... | 100;  // 0-100 integer values
 
 #### Alphabet Colors (A-Z)
 
-26 predefined colors mapped to A through Z:
+26 predefined colors for A to Z:
 
 ```typescript
-const alphabetColorPalette = [
+const ALPHABET_COLOR_PALETTE = [
  '#00094C',
  '#00376E',
  '#005600',
@@ -92,10 +96,10 @@ const alphabetColorPalette = [
 
 #### Number Colors (0-9)
 
-10 predefined colors mapped to digits 0 through 9:
+10 predefined colors for digits 0 to 9:
 
 ```typescript
-const numberColorPalette = [
+const NUMBER_COLOR_PALETTE = [
  '#893213',
  '#A44C15',
  '#8B4513',
@@ -132,7 +136,7 @@ getColorForInitial(['Cat', 42, 'Dog']);
 // ['#005600', '#A44C15', '#024647']
 
 // Nested arrays
-getColorForInitial([['A'], ['B', [3]]);
+getColorForInitial([['A'], ['B', [3]]]);
 // ['#00094C', '#00376E', '#8B4513']
 
 // Empty array returns all colors
@@ -230,3 +234,5 @@ Ideal for applications needing:
 - Accessible color differentiation
 
 While limited to 36 distinct colors, it covers most alphanumeric use cases while maintaining predictable output for better user experience.
+
+> For more powerful color manipulation, consider using the [`Color`](/docs/classes/Color) class.
