@@ -46,7 +46,7 @@ const result = mergeAndFlattenObjects(obj1, obj2);
 
 ### Returns
 
-`T`: Single merged object (properly typed) with dot-notation keys
+`FlattenDotValue<MergeAll<T>>`: Single merged object (properly typed) with dot-notation keys
 
 ## Key Features
 

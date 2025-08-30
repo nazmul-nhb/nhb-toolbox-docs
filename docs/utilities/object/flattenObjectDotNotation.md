@@ -27,19 +27,19 @@ const flat = flattenObjectDotNotation(nested);
 
 ### Type Parameters
 
-| Name | Description |
-|------|-------------|
+| Name | Description          |
+| ---- | -------------------- |
 | `T`  | Type of input object |
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
-| `object` | `T` | Nested object to flatten |
+| Name     | Type | Description              |
+| -------- | ---- | ------------------------ |
+| `object` | `T`  | Nested object to flatten |
 
 ### Returns
 
-`T`: Flat object (properly typed) with dot-notation keys
+`FlattenDotValue<MergeAll<[T]>`: Flat object (properly typed) with dot-notation keys
 
 ## Key Features
 

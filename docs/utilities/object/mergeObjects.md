@@ -46,7 +46,7 @@ const merged = mergeObjects(obj1, obj2);
 
 ### Returns
 
-`T`: A new object (properly typed) containing the merged result
+`MergeAll<T>`: A new object (properly typed) containing the merged result
 
 ## Key Features
 

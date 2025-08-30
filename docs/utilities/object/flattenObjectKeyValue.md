@@ -34,19 +34,19 @@ const flat = flattenObjectKeyValue(nested);
 
 ### Type Parameters
 
-| Name | Description |
-|------|-------------|
+| Name | Description          |
+| ---- | -------------------- |
 | `T`  | Type of input object |
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
-| `object` | `T` | Nested object to flatten |
+| Name     | Type | Description              |
+| -------- | ---- | ------------------------ |
+| `object` | `T`  | Nested object to flatten |
 
 ### Returns
 
-`T`: Flat object with all leaf values (type cast to input type)
+`FlattenLeafValue<MergeAll<[T]>>`: Flat object with all leaf values (type cast to input types)
 
 ## Key Features
 
