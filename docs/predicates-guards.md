@@ -41,4 +41,4 @@ if (isString(input)) { // input is now narrowed to string type
 
 ---
 
-Browse by category or use the search to find the perfect predicate/type guard for your task.
+Browse by category or use the search (`ctrl+k`) to find the perfect predicate/type guard for your task.

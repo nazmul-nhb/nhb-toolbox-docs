@@ -25,7 +25,9 @@ Operations for parsing and converting data
 
 - Deep equality checking  
 - JSON parsing utilities  
-- Class method analysis  
+- Class and its method analysis  
+- HTTP Status codes handling
+- Style console output(s)
 - Debounce/throttle functions  
 
 Continue reading for detailed API documentation or search for functions using `ctrl+k`.

@@ -19,7 +19,7 @@ Tools for standardizing and normalizing string presentation.
 
 ### Manipulation Utilities
 
-Operations for modifying and transforming string content.
+Operations for modifying and transforming string content, e.g. transforming between singular and plural forms of words and more.
 
 ## Features
 
@@ -27,3 +27,5 @@ Operations for modifying and transforming string content.
 - Null/undefined handling
 - Consistent return types
 - Edge case handling
+
+Continue reading for detailed API documentation or search for functions using `ctrl+k`.

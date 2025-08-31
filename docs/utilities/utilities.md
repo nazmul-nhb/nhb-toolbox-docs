@@ -21,4 +21,4 @@ NHB Toolbox provides **200+ carefully crafted utility functions** for profession
 - **DOM Helpers** - Browser API utilities
 - **Specialized Tools** - Unique solutions for niche problems
 
-Browse by category or use the search to find the perfect utility for your task.
+Browse by category or use the search (`ctrl+k`) to find the perfect utility for your task.
