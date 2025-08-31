@@ -1,8 +1,8 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import { resolve } from 'path';
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes } from 'prism-react-renderer';
 
 dotenv.config({ path: resolve(__dirname, '.env') });
 
@@ -71,8 +71,6 @@ export default async function config(): Promise<Config> {
 				{
 					docs: {
 						sidebarPath: './sidebars.ts',
-						// Please change this to your repo.
-						// Remove this to remove the "edit this page" links.
 						editUrl: 'https://github.com/nazmul-nhb/nhb-toolbox-docs/blob/main',
 					},
 					blog: {
@@ -81,10 +79,6 @@ export default async function config(): Promise<Config> {
 							type: ['rss', 'atom'],
 							xslt: true,
 						},
-						// Please change this to your repo.
-						// Remove this to remove the "edit this page" links.
-						// editUrl: 'https://github.com/nazmul-nhb/nhb-toolbox-docs',
-						// Useful options to enforce blogging best practices
 						onInlineTags: 'warn',
 						onInlineAuthors: 'warn',
 						onUntruncatedBlogPosts: 'warn',
@@ -113,7 +107,7 @@ export default async function config(): Promise<Config> {
 				{
 					name: 'keywords',
 					content:
-						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development, Pluralizer, Pluralize, Singularize, Validation, Type Guards, Utility Types',
+						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development, Pluralizer, Pluralize, Singularize, Validation, Type Guards, Utility Types Chalk, Style Console, Stylog, LogStyler, HTTP Status Codes',
 				},
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
@@ -132,6 +126,13 @@ export default async function config(): Promise<Config> {
 				},
 				{ name: 'og:description', content: 'The Ultimate Utility Library' },
 				{ name: 'og:site_name', content: 'NHB Toolbox' },
+				{ name: 'og:image:width', content: '1200' },
+				{ name: 'og:image:height', content: '630' },
+				{ name: 'og:image:type', content: 'image/png' },
+				{ name: 'og:locale', content: 'en_US' },
+				{ name: 'og:updated_time', content: new Date().toISOString() },
+				{ name: 'twitter:image:width', content: '1200' },
+				{ name: 'twitter:image:height', content: '630' },
 				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:title', content: 'NHB Toolbox' },
 				{ name: 'twitter:description', content: 'The Ultimate Utility Library' },
@@ -139,8 +140,8 @@ export default async function config(): Promise<Config> {
 					name: 'twitter:image',
 					content: 'https://toolbox.nazmul-nhb.dev/img/logo.png',
 				},
-				{ name: 'twitter:site', content: '@nazmul_nhb' },
-				{ name: 'twitter:creator', content: '@nazmul_nhb' },
+				{ name: 'twitter:site', content: '@nhb42' },
+				{ name: 'twitter:creator', content: '@nhb42' },
 				{ name: 'twitter:domain', content: 'toolbox.nazmul-nhb.dev' },
 				{ name: 'twitter:image:alt', content: 'NHB Toolbox Logo' },
 				{ name: 'twitter:label1', content: 'Written by' },
@@ -257,6 +258,10 @@ export default async function config(): Promise<Config> {
 						title: 'Get in Touch',
 						items: [
 							{
+								label: 'Personal Website',
+								href: 'https://nazmul-nhb.dev',
+							},
+							{
 								label: 'LinkedIn',
 								href: 'https://linkedin.com/in/nazmul-nhb',
 							},
@@ -271,10 +276,6 @@ export default async function config(): Promise<Config> {
 							{
 								label: 'Discord',
 								href: 'https://discord.com/users/831030314528538664',
-							},
-							{
-								label: 'LeetCode',
-								href: 'https://leetcode.com/u/nazmul-nhb',
 							},
 						],
 					},
@@ -298,8 +299,8 @@ export default async function config(): Promise<Config> {
 								href: 'https://www.npmjs.com/package/nhb-scripts',
 							},
 							{
-								label: 'Personal Website',
-								href: 'https://nazmul-nhb.dev',
+								label: 'LeetCode',
+								href: 'https://leetcode.com/u/nazmul-nhb',
 							},
 						],
 					},
@@ -307,8 +308,8 @@ export default async function config(): Promise<Config> {
 				copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
 			},
 			prism: {
-				theme: prismThemes.github,
-				darkTheme: prismThemes.nightOwl,
+				theme: themes.github,
+				darkTheme: themes.nightOwl,
 			},
 			algolia: {
 				appId: process.env.ALGOLIA_APP_ID!,

@@ -120,8 +120,8 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/form">Form Utilities</Link>,
 		description: (
 			<>
-				Form data handling with type-safe FormData creation, parsing, serialization,
-				and comprehensive file upload validation with multiple guard utilities.
+				FormData handling with type-safe FormData creation (in controlled way),
+				parsing FormData and Form serialization.
 			</>
 		),
 	},
@@ -138,9 +138,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/misc">Miscellaneous Utilities</Link>,
 		description: (
 			<>
-				Style console outputs, debounce/throttle functions, deep parse objects,
-				class introspection, manage https status codes, and various helper utilities
-				for production-grade apps.
+				<Link to="/docs/utilities/misc/stylog">Style console outputs</Link>,
+				debounce/throttle functions, deep parse objects, class introspection, manage
+				https status codes, and various helper utilities for production-grade apps.
 			</>
 		),
 	},
