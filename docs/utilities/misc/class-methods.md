@@ -1,6 +1,6 @@
 ---
 id: class-methods  
-title: Class Methods Inspection Utilities  
+title: Inspect Class & Its Methods 
 ---
 
 Powerful utilities for examining and summarizing the instance/static methods and getters of JavaScript/TypeScript classes. Analyze class APIs, count methods/getters, and get comprehensive breakdowns—great for meta-programming, documentation tooling, and runtime validation.
