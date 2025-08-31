@@ -138,8 +138,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/misc">Miscellaneous Utilities</Link>,
 		description: (
 			<>
-				Log styler, debounce/throttle functions, deep parsing, class introspection,
-				Paginator class, and various helper utilities for production-grade apps.
+				Style console outputs, debounce/throttle functions, deep parse objects,
+				class introspection, manage https status codes, and various helper utilities
+				for production-grade apps.
 			</>
 		),
 	},
