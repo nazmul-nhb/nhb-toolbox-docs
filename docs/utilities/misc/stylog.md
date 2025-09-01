@@ -109,6 +109,101 @@ Prefixed with `bg`: `.bgRed`, `.bgBlue`, `.bgGreen`, `.bgYellow`, `.bgDark`, etc
 
 ### 🔧 Method
 
+#### `.style(style)`
+
+Add a style and return a new `LogStyler` instance for chaining.
+
+```ts
+const newStyler = Stylog.style('blue').style('italic');
+```
+
+---
+
+#### `.string(input, stringify?)`
+
+Returns the input as a styled string with ANSI escape codes.
+
+##### Parameters
+
+| Property        | Type      | Description                                                             |
+| --------------- | --------- | ----------------------------------------------------------------------- |
+| **`input`**     | `any`     | Value to style                                                          |
+| **`stringify`** | `boolean` | Whether to apply `JSON.stringify()` before styling. Defaults to `false` |
+
+##### Returns
+
+`string` - The styled string with ANSI escape codes
+
+##### Examples
+
+```ts
+const dataText = Stylog.green.string({ value: 42 }, true);
+const errorMessage = Stylog.red.bold.string('Error occurred, using Stylog');
+// Returns: "\x1b[31m\x1b[1mError occurred, using Stylog\xx1b[22m\x1b[39m"
+
+// Use in console (terminal or modern browser consoles)
+console.error(errorMessage);
+console.info(Stylog.red.bold.string('I support ANSI!'));
+```
+
+:::info[Note]
+The `.string()` method always returns ANSI-formatted strings, making it suitable for contexts where you need the styled string rather than console output.
+:::
+
+---
+
+#### `.applyStyles(input, stringify?)`
+
+Chainable method that returns styled tuple `[format, cssList]` for browser environments.
+
+```ts
+const [format, styles] = Stylog.red.bold.applyStyles('Error');
+```
+
+##### Parameters
+
+| Property        | Type      | Description                                       |
+| --------------- | --------- | ------------------------------------------------- |
+| **`input`**     | `any`     | Value to style                                    |
+| **`stringify`** | `boolean` | Whether to stringify objects. Defaults to `false` |
+
+##### Returns
+
+`[string, string[]]` - Tuple with formatted string and CSS styles
+
+:::info[When to Use]
+Use this method for browser-specific styling needs, UI framework integration, or custom output handling.
+:::
+
+##### Examples
+
+```ts
+// Basic usage in browser
+const styler = Stylog.red.bold;
+const [format, cssList] = styler.applyStyles('Error message');
+// format: "%cError message"
+// cssList: ["color: #FF0000", "font-weight: bold"]
+
+// Custom browser output handling
+const styled = Stylog.blue.bgYellow.italic;
+const [format, styles] = styled.applyStyles('Warning', true);
+
+// Use with custom logging function
+function customLog(formatted: string, styles: string[]) {
+  const styleString = styles.join('; ');
+  console.log(formatted, styleString);
+}
+
+customLog(format, styles);
+
+// With object stringification
+const dataOutput = Stylog.green.applyStyles({ id: 123 }, true);
+// format: "%c{\"id\":123}"
+// cssList: ["color: #008000"]
+```
+
+---
+
 #### `.log(input, stringify?)`
 
 Print the styled message to console.

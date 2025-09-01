@@ -73,6 +73,93 @@ const newStyler = styler.style('blue').style('italic');
 
 ---
 
+#### `string(input, stringify?)`
+
+Returns the input as a styled string with ANSI escape codes.
+
+##### Parameters
+
+| Property        | Type      | Description                                                             |
+| --------------- | --------- | ----------------------------------------------------------------------- |
+| **`input`**     | `any`     | Value to style                                                          |
+| **`stringify`** | `boolean` | Whether to apply `JSON.stringify()` before styling. Defaults to `false` |
+
+##### Returns
+
+`string` - The styled string with ANSI escape codes
+
+##### Examples
+
+```ts
+const styler = new LogStyler(['red', 'bold']);
+
+const styledObject = styler.string({ data: 'value' }, true);b
+
+const errorMessage = styler.string('Error occurred, using LogStyler');
+// Returns: "\x1b[31m\x1b[1mError occurred, using LogStyler\xx1b[22m\x1b[39m"
+
+// Use in console (terminal or modern browser consoles)
+console.error(errorMessage);
+```
+
+:::info[Note]
+This method always returns ANSI-formatted strings, making it suitable for contexts where you need the styled string rather than console output.
+:::
+
+---
+
+#### `applyStyles(input, stringify?)`
+
+Returns styled tuple `[format, cssList]` for browser environments.
+
+```ts
+const [format, cssList] = styler.applyStyles('Text');
+console.log(format, cssList.join('; '));
+```
+
+##### Parameters
+
+| Property        | Type      | Description                                       |
+| --------------- | --------- | ------------------------------------------------- |
+| **`input`**     | `any`     | Value to style                                    |
+| **`stringify`** | `boolean` | Whether to stringify objects. Defaults to `false` |
+
+##### Returns
+
+`[string, string[]]` - Tuple with formatted string and CSS styles
+
+:::info[When to Use]
+Use this method when you need direct access to CSS styling for custom browser output or integration with UI frameworks.
+:::
+
+##### Examples
+
+```ts
+// Basic usage in browser
+const styler = new LogStyler(['red', 'bold']);
+const [format, cssList] = styler.applyStyles('Error message');
+// format: "%cError message"
+// cssList: ["color: #FF0000", "font-weight: bold"]
+
+// Custom browser output handling
+const styled = new LogStyler(['blue', 'bgYellow', 'italic']);
+const [format, styles] = styled.applyStyles('Warning', true);
+
+// Use with custom logging function
+function customLog(formatted: string, styles: string[]) {
+  const styleString = styles.join('; ');
+  console.log(formatted, styleString);
+}
+customLog(format, styles);
+
+// With object stringification
+const dataOutput = new LogStyler(['green']).applyStyles({ id: 123 }, true);
+// format: "%c{\"id\":123}"
+// cssList: ["color: #008000"]
+```
+
+---
+
 #### `log(input, stringify?)`
 
 Print styled input to the console.
@@ -119,7 +206,8 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 ### 🌐 Cross-Platform Behavior
 
 - **Node.js**: Uses *ANSI escape codes* for `true-color` support
-- **Browsers**: Uses CSS styles via `%c` formatting
+- **Browsers**: Uses CSS styles via `%c` formatting (for `.log()` method)
+- **`.string()` method**: Always returns ANSI escape codes regardless of environment
 - **Unsupported styles**: Gracefully fall back to unstyled output
 
 ---
