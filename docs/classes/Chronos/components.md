@@ -96,6 +96,10 @@ set(unit: TimeUnit, value: number): Chronos
 new Chronos('2025-01-15').set('month', 5); // June 15
 ```
 
+:::tip[See Also]
+[`with`](/docs/classes/Chronos/statics#with) static method for more options
+:::
+
 ---
 
 ## startOf()

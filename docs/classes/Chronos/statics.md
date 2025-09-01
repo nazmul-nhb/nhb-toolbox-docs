@@ -24,9 +24,9 @@ static use(plugin: ChronosPlugin): void
 
 ### Parameters
 
-| Name    | Type             | Description                      |
-|---------|------------------|----------------------------------|
-| plugin  | `ChronosPlugin`  | A plugin function that receives the Chronos class constructor and augments it. |
+| Name   | Type            | Description                                                                    |
+| ------ | --------------- | ------------------------------------------------------------------------------ |
+| plugin | `ChronosPlugin` | A plugin function that receives the Chronos class constructor and augments it. |
 
 ### Example
 
@@ -52,6 +52,94 @@ c.timeZone('UTC+06:00');
 * Internally, Chronos maintains a `#plugins` set to prevent duplicate injections.
 * This system is ideal for modular features like `seasons`, `zodiac`, or `timeZone` etc. support.
 
+:::
+
+---
+
+## with()
+
+Creates a new `Chronos` instance with the provided time component(s), using current values for any unspecified components.
+
+### Signature
+
+```typescript
+static with(options: ChronosWithOptions): Chronos
+```
+
+### Parameters
+
+| Name      | Type                 | Required | Description                                                                      |
+| --------- | -------------------- | -------- | -------------------------------------------------------------------------------- |
+| `options` | `ChronosWithOptions` | ✅       | One or more time components to override. At least one property must be provided. |
+
+#### ChronosWithOptions Type
+
+```typescript
+interface ChronosWithOptions {
+  /** The full year (e.g., 2025). Years 0–99 are interpreted as 1900–1999. */
+  year?: number;
+  /** Month number from 1 (January) to 12 (December). */
+  month?: NumberRange<1, 12>;
+  /** Day of the month, from 1 to 31. */
+  date?: NumberRange<1, 31>;
+  /** Hour of the day, from 0 (midnight) to 23 (11 PM). */
+  hour?: Enumerate<24>;
+  /** Minutes of the hour, from 0 to 59. */
+  minute?: Enumerate<60>;
+  /** Seconds of the minute, from 0 to 59. */
+  second?: Enumerate<60>;
+  /** Milliseconds of the second, from 0 to 999. */
+  millisecond?: Milliseconds;
+}
+```
+
+### Return Type
+
+`Chronos` - A new instance with the provided time components applied
+
+### Behavior
+
+* **Partial Application**: Only the specified components are changed; unspecified components use the current time's values
+* **Month Handling**: Month values should be from `1` (January) to `12` (December)
+* **Date Preservation**: If the current day is the last day of its month and the `date` component is omitted, the resulting instance will use the last day of the target month
+* **Date Override**: If the `date` component is explicitly provided, it will be used even if it exceeds the last day of the target month and will follow the native `Date` constructor's behaviour
+
+### Examples
+
+```typescript
+// Override only the year and month
+const futureDate = Chronos.with({ year: 2025, month: 12 });
+
+// Change only the time components
+const specificTime = Chronos.with({ hour: 15, minute: 30, second: 0 });
+
+// Create a date with specific year, month, and day
+const exactDate = Chronos.with({ year: 2024, month: 2, date: 29 }); // Leap day
+
+// Mixed components
+const mixed = Chronos.with({ 
+  year: 2025, 
+  hour: 9, 
+  minute: 0 
+});
+```
+
+### Notes
+
+* This method is useful for creating modified versions of the current date/time
+* The original `Chronos` instance remains unchanged (immutable operation)
+* Returns a new instance with the `#ORIGIN` set to `'with'` for tracking purposes
+* At least one option must be provided; empty options may return the current date-time but `TypeScript` will show a compile-time error message
+
+### Use Cases
+
+* Scheduling future events based on current time
+* Creating date variations for testing
+* Building relative dates (e.g., "same time next month")
+* Time component manipulation without affecting other components
+
+:::tip[See Also]
+[`set`](/docs/classes/Chronos/components#set) instance method for flexibility
 :::
 
 ---
@@ -283,15 +371,15 @@ static getDatesForDay(day: WeekDay, options?: WeekdayOptions): string[]
 
 ### Parameters
 
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `day` | `WeekDay` | ✅ | - | Target weekday name (case-sensitive) |
-| `span` | `number` | ❌ | 4 | Number of time units for relative range |
-| `unit` | `TimeUnit` | ❌ | 'week' | Unit for relative range ('day'/'week'/'month'/'year') |
-| `from` | `ChronosInput` | ❌ | Current date | Start date for absolute range |
-| `to` | `ChronosInput` | ❌ | 4 weeks from now | End date for absolute range |
-| `format` | `'local'\|'utc'` | ❌ | 'local' | Output format for ISO strings |
-| `roundDate` | `boolean` | ❌ | false | Round dates to start of day |
+| Parameter   | Type             | Required | Default          | Description                                           |
+| ----------- | ---------------- | -------- | ---------------- | ----------------------------------------------------- |
+| `day`       | `WeekDay`        | ✅       | -                | Target weekday name (case-sensitive)                  |
+| `span`      | `number`         | ❌       | 4                | Number of time units for relative range               |
+| `unit`      | `TimeUnit`       | ❌       | 'week'           | Unit for relative range ('day'/'week'/'month'/'year') |
+| `from`      | `ChronosInput`   | ❌       | Current date     | Start date for absolute range                         |
+| `to`        | `ChronosInput`   | ❌       | 4 weeks from now | End date for absolute range                           |
+| `format`    | `'local'\|'utc'` | ❌       | 'local'          | Output format for ISO strings                         |
+| `roundDate` | `boolean`        | ❌       | false            | Round dates to start of day                           |
 
 #### Common Parameter
 
