@@ -10,6 +10,11 @@ import TabItem from '@theme/TabItem';
 
 ## `Stylog`
 
+:::tip[Acknowledgement]
+This utility is inspired by [`chalk`](https://www.npmjs.com/package/chalk).  
+It is neither a _fork_ nor _direct derivative_ but rather _a simple alternative_ with _a distinct philosophy and implementation_.
+:::
+
 The **`Stylog`** is a **chainable wrapper** around the [`LogStyler`](/docs/classes/LogStyler) class that provides a fluent API for styling console output. It supports method chaining with style properties for all available colors and text effects.
 
 :::tip[**When to Use**]

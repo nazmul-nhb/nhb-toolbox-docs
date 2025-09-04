@@ -7,12 +7,17 @@ title: LogStyler - Style Console/Shell Output
 
 ## `LogStyler`
 
+:::tip[Acknowledgement]
+This class is inspired by [`chalk`](https://www.npmjs.com/package/chalk).  
+It is neither a _fork_ nor _direct derivative_ but rather _a simple alternative_ with _a distinct philosophy and implementation_.
+:::
+
 The `LogStyler` class provides a low-level API to style console output with **ANSI escape codes** (Node.js) or **CSS styles** (browser). It supports foreground colors, background colors, text styles, and multiple color formats (HEX, RGB, HSL), allowing you to create customized console output.
 
 :::tip[**When to Use**]
 
 - Use this class if you need **custom reusable style configurations**
-- Use [`Stylog`](/docs/utilities/misc/stylog) when you want **fluent, chainable styling** with *zero* configuration
+- Use [`Stylog`](/docs/utilities/misc/stylog) when you want **fluent, chainable styling** with _zero_ configuration
 
 :::
 
@@ -20,7 +25,7 @@ The `LogStyler` class provides a low-level API to style console output with **AN
 
 ### ✨ Features
 
-- ✅ *Style console outputs* with **colors**, **backgrounds**, and **text effects**
+- ✅ _Style console outputs_ with **colors**, **backgrounds**, and **text effects**
 - ✅ **Multiple color formats**: `ANSI-16`, `HEX`, `RGB`, `HSL`
 - ✅ **Cross-platform** support: `ANSI` for `Node.js`, `CSS` for browsers
 - ✅ **Chainable API** for building complex styles (returns `StylogChain`)
@@ -454,7 +459,7 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 
 ### 🌐 Cross-Platform Behavior
 
-- **Node.js**: Uses *ANSI escape codes* for `true-color` support
+- **Node.js**: Uses _ANSI escape codes_ for `true-color` support
 - **Browsers**: Uses CSS styles via `%c` formatting (for `.log()` method)
 - **`.toANSI()` method**: Always returns ANSI escape codes regardless of environment
 - **`.toCSS()` method**: Returns CSS styling tuples for browser environments
