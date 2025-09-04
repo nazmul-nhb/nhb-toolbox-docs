@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { resolve } from 'path';
 import { themes } from 'prism-react-renderer';
 
-dotenv.config({ path: resolve(__dirname, '.env') });
+dotenv.config({ path: resolve(__dirname, '.env'), quiet: true });
 
 async function getNpmVersion(pkg: string): Promise<string> {
 	const url = `https://registry.npmjs.org/${pkg}/latest`;
