@@ -255,7 +255,6 @@ function createCustomStyledMessage(message: string, color: string) {
 - [**LogStyler class**](/docs/classes/LogStyler) - Console styling class
 - [**Stylog**](/docs/utilities/misc/stylog) - Chainable `LogStyler` wrapper
 - [**Color Conversion**](/docs/utilities/color/convertColorCode) - Additional color utilities
-- [**Color Types**](/docs/types/colors) - Color-related type definitions
 
 ---
 
