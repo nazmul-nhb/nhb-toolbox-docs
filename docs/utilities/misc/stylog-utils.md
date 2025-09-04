@@ -80,6 +80,10 @@ const [bgOpen, bgClose] = rgbToAnsi(0, 0, 255, true); // blue background
 
 Detects color support level of the current terminal/shell.
 
+:::caution
+This is a basic level shell color detector, for more advanced cases, use [`supports-color`](https://www.npmjs.com/package/supports-color) package!
+:::
+
 ```ts
 const supportLevel = detectColorSupport();
 // 0 = none, 1 = basic (16 colors), 2 = 256 colors, 3 = truecolor
