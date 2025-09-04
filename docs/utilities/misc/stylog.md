@@ -119,7 +119,7 @@ const newStyler = Stylog.style('blue').style('italic');
 
 ---
 
-#### `.string(input, stringify?)`
+#### `.toANSI(input, stringify?)`
 
 Returns the input as a styled string with ANSI escape codes.
 
@@ -127,7 +127,7 @@ Returns the input as a styled string with ANSI escape codes.
 
 | Property        | Type      | Description                                                             |
 | --------------- | --------- | ----------------------------------------------------------------------- |
-| **`input`**     | `any`     | Value to style                                                          |
+| **`input`**     | `unknown` | Value to style                                                          |
 | **`stringify`** | `boolean` | Whether to apply `JSON.stringify()` before styling. Defaults to `false` |
 
 ##### Returns
@@ -137,27 +137,27 @@ Returns the input as a styled string with ANSI escape codes.
 ##### Examples
 
 ```ts
-const dataText = Stylog.green.string({ value: 42 }, true);
-const errorMessage = Stylog.red.bold.string('Error occurred, using Stylog');
+const dataText = Stylog.green.toANSI({ value: 42 }, true);
+const errorMessage = Stylog.red.bold.toANSI('Error occurred, using Stylog');
 // Returns: "\x1b[31m\x1b[1mError occurred, using Stylog\xx1b[22m\x1b[39m"
 
 // Use in console (terminal or modern browser consoles)
 console.error(errorMessage);
-console.info(Stylog.red.bold.string('I support ANSI!'));
+console.info(Stylog.red.bold.toANSI('I support ANSI!'));
 ```
 
 :::info[Note]
-The `.string()` method always returns ANSI-formatted strings, making it suitable for contexts where you need the styled string rather than console output.
+The `.toANSI()` method always returns ANSI-formatted strings, making it suitable for contexts where you need the styled string rather than console output.
 :::
 
 ---
 
-#### `.applyStyles(input, stringify?)`
+#### `.toCSS(input, stringify?)`
 
 Chainable method that returns styled tuple `[format, cssList]` for browser environments.
 
 ```ts
-const [format, styles] = Stylog.red.bold.applyStyles('Error');
+const [format, styles] = Stylog.red.bold.toCSS('Error');
 ```
 
 ##### Parameters
@@ -180,13 +180,13 @@ Use this method for browser-specific styling needs, UI framework integration, or
 ```ts
 // Basic usage in browser
 const styler = Stylog.red.bold;
-const [format, cssList] = styler.applyStyles('Error message');
+const [format, cssList] = styler.toCSS('Error message');
 // format: "%cError message"
 // cssList: ["color: #FF0000", "font-weight: bold"]
 
 // Custom browser output handling
 const styled = Stylog.blue.bgYellow.italic;
-const [format, styles] = styled.applyStyles('Warning', true);
+const [format, styles] = styled.toCSS('Warning', true);
 
 // Use with custom logging function
 function customLog(formatted: string, styles: string[]) {
@@ -197,7 +197,7 @@ function customLog(formatted: string, styles: string[]) {
 customLog(format, styles);
 
 // With object stringification
-const dataOutput = Stylog.green.applyStyles({ id: 123 }, true);
+const dataOutput = Stylog.green.toCSS({ id: 123 }, true);
 // format: "%c{\"id\":123}"
 // cssList: ["color: #008000"]
 ```

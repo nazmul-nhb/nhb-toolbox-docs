@@ -73,7 +73,7 @@ const newStyler = styler.style('blue').style('italic');
 
 ---
 
-#### `string(input, stringify?)`
+#### `toANSI(input, stringify?)`
 
 Returns the input as a styled string with ANSI escape codes.
 
@@ -93,9 +93,9 @@ Returns the input as a styled string with ANSI escape codes.
 ```ts
 const styler = new LogStyler(['red', 'bold']);
 
-const styledObject = styler.string({ data: 'value' }, true);b
+const styledObject = styler.toANSI({ data: 'value' }, true);b
 
-const errorMessage = styler.string('Error occurred, using LogStyler');
+const errorMessage = styler.toANSI('Error occurred, using LogStyler');
 // Returns: "\x1b[31m\x1b[1mError occurred, using LogStyler\xx1b[22m\x1b[39m"
 
 // Use in console (terminal or modern browser consoles)
@@ -108,12 +108,12 @@ This method always returns ANSI-formatted strings, making it suitable for contex
 
 ---
 
-#### `applyStyles(input, stringify?)`
+#### `toCSS(input, stringify?)`
 
 Returns styled tuple `[format, cssList]` for browser environments.
 
 ```ts
-const [format, cssList] = styler.applyStyles('Text');
+const [format, cssList] = styler.toCSS('Text');
 console.log(format, cssList.join('; '));
 ```
 
@@ -137,13 +137,13 @@ Use this method when you need direct access to CSS styling for custom browser ou
 ```ts
 // Basic usage in browser
 const styler = new LogStyler(['red', 'bold']);
-const [format, cssList] = styler.applyStyles('Error message');
+const [format, cssList] = styler.toCSS('Error message');
 // format: "%cError message"
 // cssList: ["color: #FF0000", "font-weight: bold"]
 
 // Custom browser output handling
 const styled = new LogStyler(['blue', 'bgYellow', 'italic']);
-const [format, styles] = styled.applyStyles('Warning', true);
+const [format, styles] = styled.toCSS('Warning', true);
 
 // Use with custom logging function
 function customLog(formatted: string, styles: string[]) {
@@ -153,7 +153,7 @@ function customLog(formatted: string, styles: string[]) {
 customLog(format, styles);
 
 // With object stringification
-const dataOutput = new LogStyler(['green']).applyStyles({ id: 123 }, true);
+const dataOutput = new LogStyler(['green']).toCSS({ id: 123 }, true);
 // format: "%c{\"id\":123}"
 // cssList: ["color: #008000"]
 ```
@@ -207,7 +207,7 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 
 - **Node.js**: Uses *ANSI escape codes* for `true-color` support
 - **Browsers**: Uses CSS styles via `%c` formatting (for `.log()` method)
-- **`.string()` method**: Always returns ANSI escape codes regardless of environment
+- **`.toANSI()` method**: Always returns ANSI escape codes regardless of environment
 - **Unsupported styles**: Gracefully fall back to unstyled output
 
 ---
