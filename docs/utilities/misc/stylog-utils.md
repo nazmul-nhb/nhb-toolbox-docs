@@ -7,14 +7,21 @@ title: Stylog Utilities - Style Helpers
 
 ## Style Utilities
 
-The **style utilities** provide helper functions for working with styling, including color conversion, validation, and type checking. These utilities are internally used in [`LogStyler`](/docs/classes/LogStyler) and [`Stylog`](/docs/utilities/misc/stylog)
+The **style utilities** provide helper functions for working with styling, including color conversion, validation, type checking, and color support detection. These utilities are internally used in [`LogStyler`](/docs/classes/LogStyler) and [`Stylog`](/docs/utilities/misc/stylog) but can also be used directly for custom styling needs.
 
 ---
 
 ### 📦 Import
 
 ```ts
-import { hexToAnsi, isCSSColor, isBGColor, isTextStyle } from 'nhb-toolbox/stylog';
+import { 
+  hexToAnsi, 
+  rgbToAnsi, 
+  isCSSColor, 
+  isBGColor, 
+  isTextStyle, 
+  detectColorSupport
+} from 'nhb-toolbox/stylog';
 ```
 
 ---
@@ -42,6 +49,50 @@ const [bgOpen, bgClose] = hexToAnsi('#0000FF', true); // blue background
 ##### Returns
 
 `[string, string]` - Tuple with opening and closing ANSI sequences
+
+---
+
+#### `rgbToAnsi(r, g, b, isBg?)`
+
+Convert RGB color components to ANSI escape sequences.
+
+```ts
+const [open, close] = rgbToAnsi(255, 0, 0); // red foreground
+const [bgOpen, bgClose] = rgbToAnsi(0, 0, 255, true); // blue background
+```
+
+##### Parameters
+
+| Property   | Type      | Description                                             |
+| ---------- | --------- | ------------------------------------------------------- |
+| **`r`**    | `number`  | Red component (0-255)                                   |
+| **`g`**    | `number`  | Green component (0-255)                                 |
+| **`b`**    | `number`  | Blue component (0-255)                                  |
+| **`isBg`** | `boolean` | Whether to create background color. Defaults to `false` |
+
+##### Returns
+
+`[string, string]` - Tuple with opening and closing ANSI sequences
+
+---
+
+#### `detectColorSupport()`
+
+Detects color support level of the current terminal/shell.
+
+```ts
+const supportLevel = detectColorSupport();
+// 0 = none, 1 = basic (16 colors), 2 = 256 colors, 3 = truecolor
+```
+
+##### Returns
+
+`0 | 1 | 2 | 3` - Color support level:
+
+- `0`: No color support
+- `1`: Basic 16-color support
+- `2`: 256-color support  
+- `3`: Truecolor (24-bit) support
 
 ---
 
@@ -130,6 +181,22 @@ Represents text effects:
 - `'strikethrough'` - Strikethrough text
 - `'inverse'` - Inverted colors
 
+#### `Ansi16Color`
+
+Represents `ANSI 16-color` names (e.g., `'red'`, `'greenBright'`, `'bgRed'`).
+
+#### `CSS16Color`
+
+Represents CSS16 color names (against `Ansi16Color`) with `css-` prefix (e.g., `'css-red'`, `'css-bgRed'`).
+
+#### `Ansi16Value`
+
+Represents the value of `ANSI 16-color` codes as number tuples.
+
+#### `AnsiSequence`
+
+Represents ANSI escape code sequences as string tuples.
+
 #### `Styles`
 
 Union type of all available styles: `CSSColor | BGColor | TextStyle`
@@ -139,11 +206,24 @@ Union type of all available styles: `CSSColor | BGColor | TextStyle`
 ### 📋 Examples
 
 ```ts
-import { hexToAnsi, isCSSColor, isBGColor, isTextStyle } from 'nhb-toolbox/stylog';
+import { 
+  hexToAnsi, 
+  rgbToAnsi, 
+  isCSSColor, 
+  isBGColor, 
+  isTextStyle, 
+  detectColorSupport 
+} from 'nhb-toolbox/stylog';
 
 // Color conversion
 const [redOpen, redClose] = hexToAnsi('#FF0000');
+const [rgbOpen, rgbClose] = rgbToAnsi(255, 100, 50);
 console.log(redOpen + 'Red text' + redClose);
+console.log(rgbOpen + 'RGB text' + rgbClose);
+
+// Color support detection
+const support = detectColorSupport();
+console.log(`Terminal color support level: ${support}`);
 
 // Style validation
 if (isCSSColor('cornflowerblue')) {
@@ -157,6 +237,15 @@ if (isBGColor('bgRed')) {
 if (isTextStyle('bold')) {
   console.log('Valid text style');
 }
+
+// Custom styling implementation
+function createCustomStyledMessage(message: string, color: string) {
+  if (isCSSColor(color)) {
+    const [open, close] = hexToAnsi(CSS_COLORS[color]);
+    return open + message + close;
+  }
+  return message;
+}
 ```
 
 ---
@@ -165,9 +254,11 @@ if (isTextStyle('bold')) {
 
 - [**LogStyler class**](/docs/classes/LogStyler) - Console styling class
 - [**Stylog**](/docs/utilities/misc/stylog) - Chainable `LogStyler` wrapper
+- [**Color Conversion**](/docs/utilities/color/convertColorCode) - Additional color utilities
+- [**Color Types**](/docs/types/colors) - Color-related type definitions
 
 ---
 
 ### Summary
 
-Use these utilities for **color conversion** and **style validation** when working with console output styling or wherever you need.
+Use these utilities for **color conversion**, **style validation**, and **terminal support detection** when working with console output styling or building custom styling solutions.

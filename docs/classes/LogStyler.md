@@ -1,6 +1,6 @@
 ---
 id: LogStyler
-title: LogStyler - Style Console Output
+title: LogStyler - Style Console/Shell Output
 ---
 
 <!-- markdownlint-disable-file MD024 -->

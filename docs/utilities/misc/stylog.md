@@ -1,6 +1,6 @@
 ---
 id: stylog
-title: Stylog - Style Console Output
+title: Stylog - Style Console/Shell Output
 ---
 
 import Tabs from '@theme/Tabs';
