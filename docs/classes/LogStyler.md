@@ -7,7 +7,7 @@ title: LogStyler - Style Console Output
 
 ## `LogStyler`
 
-The **`LogStyler`** class provides a low-level API to style console output with **ANSI escape codes** (Node.js) or **CSS styles** (browser). It supports foreground colors, background colors, and text styles, allowing you to create customized console output.
+The `LogStyler` class provides a low-level API to style console output with **ANSI escape codes** (Node.js) or **CSS styles** (browser). It supports foreground colors, background colors, text styles, and multiple color formats (HEX, RGB, HSL), allowing you to create customized console output.
 
 :::tip[**When to Use**]
 
@@ -21,8 +21,9 @@ The **`LogStyler`** class provides a low-level API to style console output with 
 ### ✨ Features
 
 - ✅ *Style console outputs* with **colors**, **backgrounds**, and **text effects**
+- ✅ **Multiple color formats**: `ANSI-16`, `HEX`, `RGB`, `HSL`
 - ✅ **Cross-platform** support: `ANSI` for `Node.js`, `CSS` for browsers
-- ✅ **Chainable API** for building complex styles
+- ✅ **Chainable API** for building complex styles (returns `StylogChain`)
 - ✅ **Type-safe** style definitions
 
 ---
@@ -38,15 +39,19 @@ import { LogStyler } from 'nhb-toolbox/stylog';
 ### 🚀 Usage
 
 ```ts
-const styler = new LogStyler(['error', 'bold']);
+// Simple usage
+const styler = new LogStyler(['red', 'bold']);
 styler.log('Error message');
 
-// Or chain styles
-new LogStyler()
-  .style('blue')
-  .style('bgYellow')
-  .style('underline')
-  .log('Styled message');
+// Complex chaining (returns StylogChain for further chaining)
+const warningStyler = new LogStyler().style('yellow', 'bgDark', 'bold', 'italic');
+
+warningStyler.log('Warning: Proceed with caution');
+
+// Advanced color formats
+const customStyler = new LogStyler().hex('#FF5733').bgRGB(50, 100, 150).bold;
+
+customStyler.log('Custom styled message');
 ```
 
 ---
@@ -63,12 +68,232 @@ const styler = new LogStyler(['red', 'bold']);
 
 ---
 
-#### `style(style)`
+#### `style(...style)`
 
-Add a style and return a new `LogStyler` instance for chaining.
+Add one or more styles and return a new `StylogChain` instance for chaining.
 
 ```ts
 const newStyler = styler.style('blue').style('italic');
+const multiStyle = styler.style('red', 'bold', 'underline');
+```
+
+:::info[Notes]
+
+- When chaining similar styles, only the last one(s) takes effect.
+- All colors applied through `style()` method are `truecolor` in form, to apply `ANSI-16` colors, use `ansi16()` method.
+
+:::
+
+---
+
+#### `ansi16(color)`
+
+Apply `ANSI 16-color` styling to the text.
+
+##### Parameters
+
+| Property    | Type          | Description                                        |
+| ----------- | ------------- | -------------------------------------------------- |
+| **`color`** | `Ansi16Color` | `ANSI 16-color` name (e.g., `'red'`, `'cyanBright'`) |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the `ANSI 16-color` style applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.ansi16('red').log('Error message');
+styler.ansi16('bgRed').log('Red background');
+styler.ansi16('redBright').bold.italic.log('Bright red bold italic');
+```
+
+:::info[Notes]
+
+- Only one argument (color) can be passed on a single call
+- Color applied through `ansi16()` method is truecolor in form
+- For background ANSI colors, use `bg` prefix (e.g., 'bgRed')
+
+:::
+---
+
+#### `hex(code)`
+
+Apply a HEX color to the text foreground.
+
+##### Parameters
+
+| Property   | Type     | Description                                        |
+| ---------- | -------- | -------------------------------------------------- |
+| **`code`** | `string` | HEX color string (e.g., `'#4682B4'` or `'4682B4'`) |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the HEX color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.hex('#4682B4').log('Steel blue text');
+styler.hex('FF0000').bold.log('Red bold text');
+```
+
+---
+
+#### `bgHex(code)`
+
+Apply a HEX color to the text background.
+
+##### Parameters
+
+| Property   | Type     | Description                                        |
+| ---------- | -------- | -------------------------------------------------- |
+| **`code`** | `string` | HEX color string (e.g., `'#4682B4'` or `'4682B4'`) |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the HEX background color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.bgHex('#4682B4').log('Steel blue background');
+styler.white.bgHex('#000000').log('White text on black background');
+```
+
+---
+
+#### `rgb(code)` | `rgb(red, green, blue)`
+
+Apply an RGB color to the text foreground.
+
+##### Parameters (String version)
+
+| Property   | Type     | Description                                                  |
+| ---------- | -------- | ------------------------------------------------------------ |
+| **`code`** | `string` | RGB color string (e.g., `'rgb(11, 45, 1)'` or `'11, 45, 1'`) |
+
+##### Parameters (Component version)
+
+| Property    | Type     | Description               |
+| ----------- | -------- | ------------------------- |
+| **`red`**   | `number` | Red component (`0-255`)   |
+| **`green`** | `number` | Green component (`0-255`) |
+| **`blue`**  | `number` | Blue component (`0-255`)  |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the RGB color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.rgb('rgb(11, 45, 1)').log('Dark green text');
+styler.rgb('255, 0, 0').bold.log('Red bold text');
+styler.rgb(255, 0, 0).log('Red text');
+```
+
+---
+
+#### `bgRGB(code)` / `bgRGB(red, green, blue)`
+
+Apply an RGB color to the text background.
+
+##### Parameters (String version)
+
+| Property   | Type     | Description                                                          |
+| ---------- | -------- | -------------------------------------------------------------------- |
+| **`code`** | `string` | RGB color string (e.g., `'rgb(225, 169, 196)'` or `'225, 169, 196'`) |
+
+##### Parameters (Component version)
+
+| Property    | Type     | Description               |
+| ----------- | -------- | ------------------------- |
+| **`red`**   | `number` | Red component (`0-255`)   |
+| **`green`** | `number` | Green component (`0-255`) |
+| **`blue`**  | `number` | Blue component (`0-255`)  |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the RGB background color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.bgRGB('rgb(225, 169, 196)').log('Pink background');
+styler.bgRGB(0, 0, 255).log('Blue background');
+styler.black.bgRGB(255, 255, 255).log('Black text on white background');
+```
+
+---
+
+#### `hsl(code)` | `hsl(hue, saturation, lightness)`
+
+Apply an HSL color to the text foreground.
+
+##### Parameters (String version)
+
+| Property   | Type     | Description                                                          |
+| ---------- | -------- | -------------------------------------------------------------------- |
+| **`code`** | `string` | HSL color string (e.g., `'hsl(50 80.5% 40%)'` or `'50, 80.5%, 40%'`) |
+
+##### Parameters (Component version)
+
+| Property         | Type     | Description                              |
+| ---------------- | -------- | ---------------------------------------- |
+| **`hue`**        | `number` | Hue component (`0-360`)                  |
+| **`saturation`** | `number` | Saturation component (`0-100 or 0-100%`) |
+| **`lightness`**  | `number` | Lightness component (`0-100 or 0-100%`)  |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the HSL color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.hsl('hsl(50 80.5% 40%)').log('Gold text');
+styler.hsl('120, 100%, 50%').italic.log('Green italic text');
+styler.hsl(0, 100, 50).log('Red text');
+```
+
+---
+
+#### `bgHSL(code)` / `bgHSL(hue, saturation, lightness)`
+
+Apply an HSL color to the text background.
+
+##### Parameters (String version)
+
+| Property   | Type     | Description                                                          |
+| ---------- | -------- | -------------------------------------------------------------------- |
+| **`code`** | `string` | HSL color string (e.g., `'hsl(50 80.5% 40%)'` or `'50, 80.5%, 40%'`) |
+
+##### Parameters (Component version)
+
+| Property         | Type     | Description                              |
+| ---------------- | -------- | ---------------------------------------- |
+| **`hue`**        | `number` | Hue component (`0-360`)                  |
+| **`saturation`** | `number` | Saturation component (`0-100 or 0-100%`) |
+| **`lightness`**  | `number` | Lightness component (`0-100 or 0-100%`)  |
+
+##### Returns
+
+`StylogChain` - A new chainable instance with the HSL background color applied
+
+##### Examples
+
+```ts
+const styler = new LogStyler();
+styler.bgHSL('hsl(50 80.5% 40%)').log('Gold background');
+styler.bgHSL(120, 100, 50).log('Green background');
+styler.white.bgHSL(0, 100, 50).log('White text on red background');
 ```
 
 ---
@@ -81,7 +306,7 @@ Returns the input as a styled string with ANSI escape codes.
 
 | Property        | Type      | Description                                                             |
 | --------------- | --------- | ----------------------------------------------------------------------- |
-| **`input`**     | `any`     | Value to style                                                          |
+| **`input`**     | `unknown` | Input to style before printing in the shell                             |
 | **`stringify`** | `boolean` | Whether to apply `JSON.stringify()` before styling. Defaults to `false` |
 
 ##### Returns
@@ -93,13 +318,16 @@ Returns the input as a styled string with ANSI escape codes.
 ```ts
 const styler = new LogStyler(['red', 'bold']);
 
-const styledObject = styler.toANSI({ data: 'value' }, true);b
-
+const styledObject = styler.toANSI({ data: 'value' }, true);
 const errorMessage = styler.toANSI('Error occurred, using LogStyler');
 // Returns: "\x1b[31m\x1b[1mError occurred, using LogStyler\xx1b[22m\x1b[39m"
 
 // Use in console (terminal or modern browser consoles)
 console.error(errorMessage);
+
+// With custom color formats
+const hexMessage = new LogStyler().hex('#FF5733').toANSI('Custom hex color');
+const rgbMessage = new LogStyler().rgb(255, 100, 50).toANSI('Custom RGB color');
 ```
 
 :::info[Note]
@@ -121,7 +349,7 @@ console.log(format, cssList.join('; '));
 
 | Property        | Type      | Description                                       |
 | --------------- | --------- | ------------------------------------------------- |
-| **`input`**     | `any`     | Value to style                                    |
+| **`input`**     | `unknown` | Input to style before printing in the console     |
 | **`stringify`** | `boolean` | Whether to stringify objects. Defaults to `false` |
 
 ##### Returns
@@ -152,10 +380,9 @@ function customLog(formatted: string, styles: string[]) {
 }
 customLog(format, styles);
 
-// With object stringification
-const dataOutput = new LogStyler(['green']).toCSS({ id: 123 }, true);
-// format: "%c{\"id\":123}"
-// cssList: ["color: #008000"]
+// With custom color formats
+const hexOutput = new LogStyler().hex('#FF5733').toCSS('Custom hex color');
+const rgbOutput = new LogStyler().rgb(255, 100, 50).toCSS('Custom RGB color');
 ```
 
 ---
@@ -173,8 +400,23 @@ styler.log({ data: 'value' }, true); // Stringify objects
 
 | Property        | Type      | Description                                                              |
 | --------------- | --------- | ------------------------------------------------------------------------ |
-| **`input`**     | `any`     | Value to print to console                                                |
+| **`input`**     | `unknown` | Value to print to console/shell                                          |
 | **`stringify`** | `boolean` | Whether to apply `JSON.stringify()` before printing. Defaults to `false` |
+
+##### Examples
+
+```ts
+const styler = new LogStyler(['red', 'bold']);
+styler.log('Error message');
+
+// With object stringification
+styler.log({ data: 'value' }, true);
+
+// With custom color formats
+new LogStyler().hex('#FF5733').log('Custom hex color');
+new LogStyler().rgb(255, 100, 50).log('Custom RGB color');
+new LogStyler().hsl(120, 100, 50).log('Custom HSL color');
+```
 
 ---
 
@@ -201,6 +443,13 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 - `strikethrough` - Strikethrough text
 - `inverse` - Inverted colors
 
+#### Advanced Color Formats
+
+- `ansi16()` - `ANSI 16-color` codes
+- `hex()` / `bgHex()` - HEX color codes
+- `rgb()` / `bgRGB()` - RGB color values
+- `hsl()` / `bgHSL()` - HSL color values
+
 ---
 
 ### 🌐 Cross-Platform Behavior
@@ -208,6 +457,7 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 - **Node.js**: Uses *ANSI escape codes* for `true-color` support
 - **Browsers**: Uses CSS styles via `%c` formatting (for `.log()` method)
 - **`.toANSI()` method**: Always returns ANSI escape codes regardless of environment
+- **`.toCSS()` method**: Returns CSS styling tuples for browser environments
 - **Unsupported styles**: Gracefully fall back to unstyled output
 
 ---
@@ -219,14 +469,21 @@ Prefixed with `bg`: `bgRed`, `bgBlue`, `bgGreen`, `bgYellow`, etc.
 const errorStyler = new LogStyler(['red', 'bold']);
 errorStyler.log('Critical error occurred!');
 
-// Complex chaining
+// Complex chaining with custom colors
 const warningStyler = new LogStyler()
-  .style('yellow')
-  .style('bgDark')
-  .style('bold')
-  .style('italic');
+  .hex('#FFA500')
+  .bgHex('#2C2C2C')
+  .bold()
+  .italic();
 
 warningStyler.log('Warning: Proceed with caution');
+
+// RGB and HSL examples
+const successStyler = new LogStyler().rgb(0, 128, 0).bold;
+successStyler.log('Operation successful');
+
+const infoStyler = new LogStyler().hsl(240, 100, 50).italic;
+infoStyler.log('Information message');
 ```
 
 ---
@@ -235,9 +492,10 @@ warningStyler.log('Warning: Proceed with caution');
 
 - [**Stylog**](/docs/utilities/misc/stylog) - Chainable wrapper for `LogStyler`
 - [**Style Utilities**](/docs/utilities/misc/stylog-utils) - Helper functions for style validation
+- [**Color Conversion**](/docs/utilities/colors/convert) - Functions for color format conversion
 
 ---
 
 ### Summary
 
-Use the `LogStyler` class for **programmatic control** over console styling or when you need **isolated style configurations**.
+Use the `LogStyler` class for **programmatic control** over console styling or when you need **isolated style configurations** with support for multiple color formats. All style methods return `StylogChain` instances for fluent chaining.

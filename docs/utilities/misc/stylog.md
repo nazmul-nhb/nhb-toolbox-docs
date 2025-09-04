@@ -27,7 +27,7 @@ The **`Stylog`** is a **chainable wrapper** around the [`LogStyler`](/docs/class
 
 - ✅ **Fluent chainable API** - `Stylog.red.bold.bgBlue.log()`
 - ✅ **Type-safe** autocomplete for all styles
-- ✅ **Cross-platform** (Node.js ANSI + Browser CSS)
+- ✅ **Cross-platform** (Node.js `ANSI` + Browser `CSS`)
 - ✅ **Multiple color formats** - `ANSI-16`, `HEX`, `RGB`, `HSL`
 - ✅ **No configuration needed** - just import and use
 
@@ -136,17 +136,17 @@ const newStyler = Stylog.style('blue').style('italic');
 
 #### `.ansi16(color)`
 
-Apply ANSI 16-color styling to the text.
+Apply `ANSI 16-color` styling to the text.
 
 ##### Parameters
 
-| Property    | Type          | Description                                    |
-| ----------- | ------------- | ---------------------------------------------- |
-| **`color`** | `Ansi16Color` | ANSI 16-color name (e.g., 'red', 'cyanBright') |
+| Property    | Type          | Description                                        |
+| ----------- | ------------- | -------------------------------------------------- |
+| **`color`** | `Ansi16Color` | `ANSI 16-color` name (e.g., `'red'`, `'cyanBright'`) |
 
 ##### Returns
 
-`StylogChain` - A new chainable instance with the ANSI 16-color style applied
+`StylogChain` - A new chainable instance with the `ANSI 16-color` style applied
 
 :::info[Notes]
 
@@ -179,9 +179,9 @@ Apply a HEX color to the text foreground.
 
 ##### Parameters
 
-| Property   | Type     | Description                                    |
-| ---------- | -------- | ---------------------------------------------- |
-| **`code`** | `string` | HEX color string (e.g., '#4682B4' or '4682B4') |
+| Property   | Type     | Description                                        |
+| ---------- | -------- | -------------------------------------------------- |
+| **`code`** | `string` | HEX color string (e.g., `'#4682B4'` or `'4682B4'`) |
 
 ##### Returns
 
@@ -214,9 +214,9 @@ Apply a HEX color to the text background.
 
 ##### Parameters
 
-| Property   | Type     | Description                                    |
-| ---------- | -------- | ---------------------------------------------- |
-| **`code`** | `string` | HEX color string (e.g., '#4682B4' or '4682B4') |
+| Property   | Type     | Description                                        |
+| ---------- | -------- | -------------------------------------------------- |
+| **`code`** | `string` | HEX color string (e.g., `'#4682B4'` or `'4682B4'`) |
 
 ##### Returns
 
@@ -249,17 +249,17 @@ Apply an RGB color to the text foreground.
 
 ##### Parameters (String version)
 
-| Property   | Type     | Description                                              |
-| ---------- | -------- | -------------------------------------------------------- |
-| **`code`** | `string` | RGB color string (e.g., 'rgb(11, 45, 1)' or '11, 45, 1') |
+| Property   | Type     | Description                                                  |
+| ---------- | -------- | ------------------------------------------------------------ |
+| **`code`** | `string` | RGB color string (e.g., `'rgb(11, 45, 1)'` or `'11, 45, 1'`) |
 
 ##### Parameters (Component version)
 
-| Property    | Type     | Description             |
-| ----------- | -------- | ----------------------- |
-| **`red`**   | `number` | Red component (0-255)   |
-| **`green`** | `number` | Green component (0-255) |
-| **`blue`**  | `number` | Blue component (0-255)  |
+| Property    | Type     | Description               |
+| ----------- | -------- | ------------------------- |
+| **`red`**   | `number` | Red component (`0-255`)   |
+| **`green`** | `number` | Green component (`0-255`) |
+| **`blue`**  | `number` | Blue component (`0-255`)  |
 
 ##### Returns
 
@@ -296,17 +296,17 @@ Apply an RGB color to the text background.
 
 ##### Parameters (String version)
 
-| Property   | Type     | Description                                                      |
-| ---------- | -------- | ---------------------------------------------------------------- |
-| **`code`** | `string` | RGB color string (e.g., 'rgb(225, 169, 196)' or '225, 169, 196') |
+| Property   | Type     | Description                                                          |
+| ---------- | -------- | -------------------------------------------------------------------- |
+| **`code`** | `string` | RGB color string (e.g., `'rgb(225, 169, 196)'` or `'225, 169, 196'`) |
 
 ##### Parameters (Component version)
 
-| Property    | Type     | Description             |
-| ----------- | -------- | ----------------------- |
-| **`red`**   | `number` | Red component (0-255)   |
-| **`green`** | `number` | Green component (0-255) |
-| **`blue`**  | `number` | Blue component (0-255)  |
+| Property    | Type     | Description               |
+| ----------- | -------- | ------------------------- |
+| **`red`**   | `number` | Red component (`0-255`)   |
+| **`green`** | `number` | Green component (`0-255`) |
+| **`blue`**  | `number` | Blue component (`0-255`)  |
 
 ##### Returns
 
@@ -349,11 +349,11 @@ Apply an HSL color to the text foreground.
 
 ##### Parameters (Component version)
 
-| Property         | Type     | Description                            |
-| ---------------- | -------- | -------------------------------------- |
-| **`hue`**        | `number` | Hue component (0-360)                  |
-| **`saturation`** | `number` | Saturation component (0-100 or 0-100%) |
-| **`lightness`**  | `number` | Lightness component (0-100 or 0-100%)  |
+| Property         | Type     | Description                              |
+| ---------------- | -------- | ---------------------------------------- |
+| **`hue`**        | `number` | Hue component (`0-360`)                  |
+| **`saturation`** | `number` | Saturation component (`0-100 or 0-100%`) |
+| **`lightness`**  | `number` | Lightness component (`0-100 or 0-100%`)  |
 
 ##### Returns
 
@@ -397,11 +397,11 @@ Apply an HSL color to the text background.
 
 ##### Parameters (Component version)
 
-| Property         | Type     | Description                            |
-| ---------------- | -------- | -------------------------------------- |
-| **`hue`**        | `number` | Hue component (0-360)                  |
-| **`saturation`** | `number` | Saturation component (0-100 or 0-100%) |
-| **`lightness`**  | `number` | Lightness component (0-100 or 0-100%)  |
+| Property         | Type     | Description                              |
+| ---------------- | -------- | ---------------------------------------- |
+| **`hue`**        | `number` | Hue component (`0-360`)                  |
+| **`saturation`** | `number` | Saturation component (`0-100 or 0-100%`) |
+| **`lightness`**  | `number` | Lightness component (`0-100 or 0-100%`)  |
 
 ##### Returns
 
