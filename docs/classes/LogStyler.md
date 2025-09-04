@@ -265,7 +265,7 @@ styler.hsl(0, 100, 50).log('Red text');
 
 ---
 
-#### `bgHSL(code)` / `bgHSL(hue, saturation, lightness)`
+#### `bgHSL(code)` | `bgHSL(hue, saturation, lightness)`
 
 Apply an HSL color to the text background.
 
@@ -492,7 +492,7 @@ infoStyler.log('Information message');
 
 - [**Stylog**](/docs/utilities/misc/stylog) - Chainable wrapper for `LogStyler`
 - [**Style Utilities**](/docs/utilities/misc/stylog-utils) - Helper functions for style validation
-- [**Color Conversion**](/docs/utilities/colors/convert) - Functions for color format conversion
+- [**Color Conversion**](/docs/utilities/color/convertColorCode) - Functions for color format conversion
 
 ---
 

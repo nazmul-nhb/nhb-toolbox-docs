@@ -617,7 +617,7 @@ See the [`LogStyler` class docs](/docs/classes/LogStyler) for full details.
 
 - [**LogStyler class**](/docs/classes/LogStyler) - Low-level API for custom instances
 - [**Style Utilities**](/docs/utilities/misc/stylog-utils) - Helper functions for style validation
-- [**Color Conversion**](/docs/utilities/colors/convert) - Functions for color format conversion
+- [**Color Conversion**](/docs/utilities/color/convertColorCode) - Functions for color format conversion
 
 ---
 
