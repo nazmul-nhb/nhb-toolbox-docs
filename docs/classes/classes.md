@@ -9,7 +9,8 @@ title: Explore well-crafted classes for efficiency
 
 - [**`Chronos`**](/docs/classes/Chronos) - Advanced date/time manipulation  
 - [**`Color`**](/docs/classes/Color) - Comprehensive color management  
-- [**`Pluralizer`**](/docs/classes/Pluralizer) - Word form (`Singular` ↔ `Plural`) conversion  
+- [**`Pluralizer`**](/docs/classes/Pluralizer) - Noun form (`Singular` ↔ `Plural`) conversion  
+- [**`Verbalizer`**](/docs/classes/Verbalizer) - Verb form (`Base` ↔ `Past` ↔ `Past Participle`) conversion  
 - [**`LogStyler`**](/docs/classes/LogStyler) - Console output(s) style handling
 - [**`HttpStatus`**](/docs/classes/HttpStatus) - Elegant HTTP status codes management  
 - [**`Finder`**](/docs/classes/Finder) - Sophisticated array searching  

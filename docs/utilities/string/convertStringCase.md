@@ -1,6 +1,6 @@
 ---
 id: convertStringCase
-title: Convert String Case to Various Formats
+title: Convert String Cases
 ---
 
 ## convertStringCase

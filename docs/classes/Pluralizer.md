@@ -1,13 +1,13 @@
 ---
 id: Pluralizer
-title: Pluralizer - Manage Word Forms
+title: Pluralizer - Manage Noun Forms
 ---
 
 <!-- markdownlint-disable-file MD024 -->
 
 ## `Pluralizer`
 
-The **`Pluralizer`** class provides a low‑level API to handle English word pluralization and singularization.  
+The **`Pluralizer`** class provides a low‑level API to handle English word (noun) pluralization and singularization.  
 It supports **irregular forms**, **uncountable nouns**, and allows you to **extend or customize** the behavior by adding new rules.
 
 :::info[Acknowledgement]
@@ -232,6 +232,7 @@ myPluralizer.addUncountable(/pok[eé]mon$/i);
 
 - [**pluralizer (default instance)**](/docs/utilities/string/pluralizer) — shared instance of `Pluralizer`.
 - [**formatUnitWithPlural**](/docs/utilities/string/formatUnitWithPlural) — Simple utility for formatting units with pluralization with just `"s"`.
+- [**Verbalizer class**](/docs/classes/Verbalizer) - Similar class for _verb form_ manipulation.
 
 ---
 

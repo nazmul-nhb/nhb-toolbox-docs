@@ -127,7 +127,7 @@ See the [`Verbalizer` class docs](/docs/classes/Verbalizer) for full details.
 ### See also
 
 - [**Verbalizer class**](/docs/classes/Verbalizer) — low‑level API for custom instances.
-- [**Pluralizer**](/docs/utilities/string/pluralizer) — Utility for noun pluralization.
+- [**Pluralizer**](/docs/utilities/string/pluralizer) — Utility for _noun pluralization_.
 
 ---
 

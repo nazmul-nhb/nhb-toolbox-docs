@@ -195,7 +195,7 @@ myVerbalizer.addIrregular('swim', 'swam', 'swum');
 ### See also
 
 - [**verbalizer (default instance)**](/docs/utilities/string/verbalizer) — shared instance of `Verbalizer`.
-- [**Pluralizer**](/docs/classes/Pluralizer) — Similar utility for noun pluralization.
+- [**Pluralizer**](/docs/classes/Pluralizer) — Similar class for _noun pluralization_.
 
 ---
 

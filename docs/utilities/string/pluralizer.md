@@ -1,6 +1,6 @@
 ---
 id: pluralizer
-title: Pluralize Strings and More...
+title: Manage Noun Forms
 ---
 
 import Tabs from '@theme/Tabs';
@@ -137,6 +137,7 @@ See the [`Pluralizer` class docs](/docs/classes/Pluralizer) for full details.
 
 - [**Pluralizer class**](/docs/classes/Pluralizer) — low‑level API for custom instances.
 - [**formatUnitWithPlural**](/docs/utilities/string/formatUnitWithPlural) — Simple utility for formatting units with pluralization with just `"s"`.
+- [**verbalizer**](/docs/utilities/string/verbalizer) - Similar utility for _verb form_ manipulation.
 
 ---
 
