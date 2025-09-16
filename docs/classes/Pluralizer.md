@@ -40,6 +40,10 @@ Many thanks to the author for the original work and inspiration.
 - ✅ Automatically handles **irregular words** (e.g. `child → children`).
 - ✅ Detects **uncountable nouns** (e.g. `fish`).
 
+:::caution[Alert]
+All methods return the trimmed word if the input has trailing spaces.
+:::
+
 ---
 
 ### 📦 Import

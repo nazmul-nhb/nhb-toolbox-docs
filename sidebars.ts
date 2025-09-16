@@ -54,6 +54,7 @@ const sidebars: SidebarsConfig = {
 						{ type: 'doc', label: 'Chronos', id: 'classes/Chronos' },
 						{ type: 'doc', label: 'Color', id: 'classes/Color' },
 						{ type: 'doc', label: 'Pluralizer', id: 'classes/Pluralizer' },
+						{ type: 'doc', label: 'Verbalizer', id: 'classes/Verbalizer' },
 						{ type: 'doc', label: 'LogStyler', id: 'classes/LogStyler' },
 						{ type: 'doc', label: 'HttpStatus', id: 'classes/HttpStatus' },
 						{ type: 'doc', label: 'Paginator', id: 'classes/Paginator' },
@@ -107,6 +108,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						'utilities/string/generateRandomID',
 						'utilities/string/pluralizer',
+						'utilities/string/verbalizer',
 						'utilities/string/generateAnagrams',
 						'utilities/string/capitalizeString',
 						'utilities/string/convertStringCase',
@@ -353,6 +355,7 @@ const sidebars: SidebarsConfig = {
 					],
 				},
 				{ type: 'doc', label: 'Pluralizer', id: 'classes/Pluralizer' },
+				{ type: 'doc', label: 'Verbalizer', id: 'classes/Verbalizer' },
 				{ type: 'doc', label: 'LogStyler', id: 'classes/LogStyler' },
 				{ type: 'doc', label: 'HttpStatus', id: 'classes/HttpStatus' },
 				{

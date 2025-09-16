@@ -41,6 +41,10 @@ Many thanks to the author for the original work and inspiration.
   - Add irregular forms.
   - Add uncountable words or regex patterns.
 
+:::caution[Alert]
+All methods return the trimmed word if the input has trailing spaces.
+:::
+
 ---
 
 ### 📦 Import
