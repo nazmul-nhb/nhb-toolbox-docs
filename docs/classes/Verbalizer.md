@@ -130,13 +130,13 @@ myVerbalizer.isPast('run'); // false
 
 ---
 
-#### `isPastParticiple(verb)`
+#### `isParticiple(verb)`
 
 Check if a verb is in past participle form.
 
 ```ts
-myVerbalizer.isPastParticiple('gone'); // true
-myVerbalizer.isPastParticiple('go'); // false
+myVerbalizer.isParticiple('gone'); // true
+myVerbalizer.isParticiple('go'); // false
 ```
 
 ---

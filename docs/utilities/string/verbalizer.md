@@ -76,7 +76,7 @@ verbalizer.toBase('walked'); // "walk"
 
 ```ts
 verbalizer.isPast('ran'); // true
-verbalizer.isPastParticiple('gone'); // true
+verbalizer.isParticiple('gone'); // true
 verbalizer.isBase('run'); // true
 ```
 
@@ -135,4 +135,3 @@ See the [`Verbalizer` class docs](/docs/classes/Verbalizer) for full details.
 
 Use `verbalizer` for common use‑cases.  
 Create `new Verbalizer()` for isolated/custom rules.
-[file content end]
