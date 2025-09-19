@@ -350,17 +350,17 @@ type PrimPaths = NestedPrimitiveKey<Product>;
 
 ---
 
-## Few More Type Helpers
+## More Type Helpers
 
-| Types            | Description                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------- |
-| `RequireAtLeast` | Enforces that at least `N` properties of type `T` are required.                                       |
-| `RequireExactly` | Enforces that exactly `N` properties of type `T` are required. All other properties remain forbidden. |
-| `RequireBetween` | Enforces that between `Min` and `Max` properties of type `T` are required.                            |
-| `Split`          | Split a string literal into an array of string literals. Reverse of `Join`.                           |
-| `Join`           | Join an array of string literals into a single string. Reverse of `Split`.                            |
-| `Cast`           | Cast one type to another while preserving compatibility.                                              |
-| `Pop`            | Remove the last element of a list (array).                                                            |
+| Types                         | Description                                                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `RequireAtLeast<T, N>`        | Enforces that at least `N` properties of type `T` are required.                                       |
+| `RequireExactly<T, N>`        | Enforces that exactly `N` properties of type `T` are required. All other properties remain forbidden. |
+| `RequireBetween<T, Min, Max>` | Enforces that between `Min` and `Max` properties of type `T` are required.                            |
+| `Split<S, D>`                 | Split a string literal into an array of string literals. Reverse of `Join`.                           |
+| `Join<T, D>`                  | Join an array of string literals into a single string. Reverse of `Split`.                            |
+| `Cast<A1, A2>`                | Cast one type to another while preserving compatibility.                                              |
+| `Pop<L>`                      | Remove the last element of a list (array).                                                            |
 
 :::info
 Looking for a specific utility type that’s not listed here?  
