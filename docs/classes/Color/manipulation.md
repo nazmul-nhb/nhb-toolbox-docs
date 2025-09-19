@@ -28,7 +28,7 @@ applyOpacity(opacity: Percent): Color
 
 #### Example
 
-```javascript
+```ts
 const red = new Color("#ff0000");
 const semiTransparentRed = red.applyOpacity(50); // 50% opacity
 console.log(semiTransparentRed.rgba); // "rgba(255, 0, 0, 0.5)"
@@ -59,7 +59,7 @@ applyDarkness(percent: Percent): Color
 
 #### Example
 
-```javascript
+```ts
 const blue = new Color("#0000ff");
 const darkerBlue = blue.applyDarkness(20); // 20% darker
 console.log(darkerBlue.hsl); // "hsl(240, 100%, 40%)" (was 50%)
@@ -90,7 +90,7 @@ applyBrightness(percent: Percent): Color
 
 #### Example
 
-```javascript
+```ts
 const green = new Color("#008000");
 const lighterGreen = green.applyBrightness(30); // 30% lighter
 console.log(lighterGreen.hsl); // "hsl(120, 100%, 65%)" (was 25%)
@@ -121,7 +121,7 @@ applyDullness(percent: Percent): Color
 
 #### Example
 
-```javascript
+```ts
 const pink = new Color("#ff69b4");
 const dullPink = pink.applyDullness(50); // 50% less saturated
 console.log(dullPink.hsl); // "hsl(330, 50%, 70%)" (was 100%)
@@ -152,7 +152,7 @@ applyWhiteShade(percent: Percent): Color
 
 #### Example
 
-```javascript
+```ts
 const purple = new Color("#800080");
 const softPurple = purple.applyWhiteShade(40); // 40% softer
 console.log(softPurple.hsl); // "hsl(300, 60%, 84%)" (was 50%)
@@ -185,9 +185,9 @@ blendWith(other: ColorType | CSSColor, weight?: number): Color
 
 #### Example
 
-```javascript
+```ts
 const red = new Color("#ff0000");
-const blue = new Color("#0000ff");
-const purple = red.blendWith(blue); // Equal blend
-console.log(purple.hex); // "#800080" (purple)
+const blue = "#0000ff";
+const blendedColor = red.blendWith(blue); // Equal blend
+console.log(blendedColor.hex); // "#808000"
 ```  

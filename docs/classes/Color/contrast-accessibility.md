@@ -30,7 +30,7 @@ contrastRatio(other: ColorType | CSSColor): number
 
 ```javascript
 const black = new Color("#000000");
-const white = new Color("#ffffff");
+const white = "#ffffff";
 console.log(black.contrastRatio(white)); // 21.00
 ```  
 
@@ -58,7 +58,7 @@ getWCAGRating(other: ColorType | CSSColor): 'Fail' | 'AA' | 'AAA'
 
 ```javascript
 const text = new Color("#333333");
-const background = new Color("#f0f0f0");
+const background = "#f0f0f0";
 console.log(background.getWCAGRating(text)); // "AA"
 ```  
 
