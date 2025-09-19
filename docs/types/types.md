@@ -7,7 +7,7 @@ description: Comprehensive collection of TypeScript types to accelerate your dev
 <!-- markdownlint-disable-file MD024 -->
 ## Types Included
 
-`nhb-toolbox` includes not only functional utilities but also a growing collection of **type-level utilities** designed to enhance type safety and developer ergonomics. These types are available through package subpaths: `nhb-toolbox/[some-path]/types`.
+`nhb-toolbox` includes not only functional utilities but also a growing collection of **type-level utilities** designed to enhance type safety and developer ergonomics. These types are available through package subpaths: `'nhb-toolbox/types'` and/or `'nhb-toolbox/[some-path]/types'`. `stylog` module also exports some types: `'nhb-toolbox/stylog'`.
 
 ### Import
 

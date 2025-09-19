@@ -12,13 +12,20 @@ All types can be imported using this pattern:
 import type { SomeType } from 'nhb-toolbox/types';
 // Or
 import type { SomeType } from 'nhb-toolbox/some-path/types';
+
+// Most of the utility types and type helpers are exported from 'nhb-toolbox/utils/types'.
+import type { DeepPartial } from 'nhb-toolbox/utils/types';
 ```
+
+:::tip[Tips]
+Most of the utility types and type helpers are exported from `'nhb-toolbox/utils/types'`.
+:::
 
 ---
 
 ## Branding & Special Types
 
-### `Branded<T, B>`
+### Branded<T, B>>`
 
 ```ts
 type UserID = Branded<string, "UserID">;
@@ -29,7 +36,7 @@ const id: UserID = "user_123" as UserID;
 - `T`: Base type to brand
 - `B`: Brand identifier (string/symbol)
 
-### `FlattenPartial<T>`
+### FlattenPartial<T>>`
 
 ```ts
 type User = Partial<{ name: string; meta: { age: number } }>;
@@ -59,9 +66,11 @@ type Flattened = FlattenPartial<DoublePartial>;
 - When you want to avoid `Partial<Partial<T>>` patterns
 - When you need to maintain explicit partiality at just one level
 
+---
+
 ## Key Extraction
 
-### `NormalPrimitiveKey<T>`
+### NormalPrimitiveKey<T>>`
 
 ```ts
 type Config = { name: string; age: number; active: boolean | null };
@@ -92,7 +101,7 @@ type Keys = NonNullishPrimitiveKey<Data>; // "id" | "count"
 - Gets non-nullish primitive keys
 - `T`: Source object type -->
 
-### `HasMethods<T>`
+### HasMethods<T>>`
 
 ```ts
 type WithMethods = { name: string; greet(): void };
@@ -105,9 +114,11 @@ type B = HasMethods<WithoutMethods>; // false
 - Checks if type has methods
 - `T`: Type to check
 
+---
+
 ## Value & Key Utilities
 
-### `ValueOf<T>`
+### ValueOf<T>>`
 
 ```ts
 type User = { name: string; age: number };
@@ -117,7 +128,7 @@ type UserValues = ValueOf<User>; // string | number
 - Gets union of all property values
 - `T`: Object type
 
-### `KeysOfUnion<T>`
+### KeysOfUnion<T>>`
 
 ```ts
 type A = { a: string }; 
@@ -128,9 +139,11 @@ type UnionKeys = KeysOfUnion<A | B>; // "a" | "b"
 - Gets keys from union types
 - `T`: Union type
 
+---
+
 ## Object Transformation
 
-### `Mutable<T>`
+### Mutable<T>>`
 
 ```ts
 type ReadonlyUser = { readonly name: string };
@@ -140,7 +153,7 @@ type WritableUser = Mutable<ReadonlyUser>; // { name: string }
 - Removes readonly modifiers
 - `T`: Readonly type
 
-### `Immutable<T>`
+### Immutable<T>>`
 
 ```ts
 type User = { name: string };
@@ -150,7 +163,7 @@ type ReadonlyUser = Immutable<User>; // { readonly name: string }
 - Adds readonly recursively
 - `T`: Type to make immutable
 
-### `Merge<T, U>`
+### Merge<T, U>>`
 
 ```ts
 type A = { id: number; name: string };
@@ -162,7 +175,7 @@ type Combined = Merge<A, B>; // { id: number; name: boolean; active: boolean }
 - `T`: First type
 - `U`: Second type
 
-### `OmitByValue<T, ValueType>`
+### OmitByValue<T, ValueType>>`
 
 ```ts
 type Model = { id: number; name: string; hidden: boolean };
@@ -173,7 +186,7 @@ type PublicModel = OmitByValue<Model, boolean>; // { id: number; name: string }
 - `T`: Source type
 - `ValueType`: Type to match against
 
-### `RequireOnly<T, K>`
+### RequireOnly<T, K>>`
 
 ```ts
 type User = { id?: number; name?: string };
@@ -184,7 +197,7 @@ type UserWithId = RequireOnly<User, 'id'>; // { id: number; name?: string }
 - `T`: Source type
 - `K`: Keys to require
 
-### `Prettify<T>`
+### Prettify<T>>`
 
 ```ts
 type Complex = { a: string } & { b: number };
@@ -194,7 +207,7 @@ type Clean = Prettify<Complex>; // Shows as { a: string; b: number } in IDEs
 - Flattens complex types for display
 - `T`: Complex type
 
-### `ExtractOptional<T>`, `ExtractRequired<T>`
+### ExtractOptional<T>, ExtractRequired<T><T>`
 
 ```ts
 type Props = { id: string; name?: string; age?: number };
@@ -205,9 +218,11 @@ type Required = ExtractRequired<Props>; // { id: string }
 - Filters optional/required properties
 - `T`: Source type
 
+---
+
 ## Literal & Union Types
 
-### `LooseLiteral<T>`
+### LooseLiteral<T>>`
 
 ```ts
 type Color = LooseLiteral<'red' | 'blue'>;
@@ -218,7 +233,7 @@ const c2: Color = 'other'; // Other string values are also valid
 - Allows base type while preserving literal values for autocomplete
 - `T`: Literal union type
 
-### `OneOf<T, U>`
+### OneOf<T, U>>`
 
 ```ts
 type A = { login: string };
@@ -230,9 +245,11 @@ type Auth = OneOf<A, B>; // Either { login } OR { token }
 - `T`: First option
 - `U`: Second option
 
+---
+
 ## Tuple & Array Utilities
 
-### `TupleToUnion<T>`
+### TupleToUnion<T>>`
 
 ```ts
 const roles = ['admin', 'user'] as const;
@@ -242,7 +259,7 @@ type Role = TupleToUnion<typeof roles>; // "admin" | "user"
 - Converts tuple to union
 - `T`: Tuple type
 
-### `TupleOf<T, N>`
+### TupleOf<T, N>>`
 
 ```ts
 type ThreeNumbers = TupleOf<number, 3>; // [number, number, number]
@@ -252,7 +269,7 @@ type ThreeNumbers = TupleOf<number, 3>; // [number, number, number]
 - `T`: Element type
 - `N`: Length
 
-### `ValueOptional<O, K>`
+### ValueOptional<O, K>>`
 
 ```ts
 type User = { name: string; age: number };
@@ -263,9 +280,11 @@ type PartialUser = ValueOptional<User, 'name'>; // { name: string | undefined; a
 - `O`: Source type
 - `K`: Keys to make optional
 
+---
+
 ## Numeric Ranges
 
-### `Enumerate<N>`
+### Enumerate<N>>`
 
 ```ts
 type Index = Enumerate<3>; // 0 | 1 | 2
@@ -278,7 +297,7 @@ type Index = Enumerate<3>; // 0 | 1 | 2
 This utility supports ranges up to 998 due to TypeScript recursion limits.
 :::
 
-### `NumberRange<From, To>`
+### NumberRange<From, To>>`
 
 ```ts
 type Pages = NumberRange<1, 5>; // 1 | 2 | 3 | 4 | 5
@@ -292,9 +311,11 @@ type Pages = NumberRange<1, 5>; // 1 | 2 | 3 | 4 | 5
 This utility supports ranges up to 998 due to TypeScript recursion limits.
 :::
 
+---
+
 ## Dot Notation
 
-### `DotNotationKey<T>`
+### DotNotationKey<T>>`
 
 ```ts
 type User = { name: string; address: { city: string } };
@@ -304,7 +325,7 @@ type Paths = DotNotationKey<User>; // "name" | "address" | "address.city"
 - Gets nested property paths
 - `T`: Object type
 
-### `NestedKeyString<T>`
+### NestedKeyString<T>>`
 
 ```ts
 type Data = { id: string; meta: { tag: string } };
@@ -314,7 +335,7 @@ type StringPaths = NestedKeyString<Data>; // "id" | "meta.tag"
 - Gets paths to string properties
 - `T`: Object type
 
-### `NestedPrimitiveKey<T>`
+### NestedPrimitiveKey<T>>`
 
 ```ts
 type Product = { name: string; price: number; meta: { stock: boolean } };
@@ -325,7 +346,21 @@ type PrimPaths = NestedPrimitiveKey<Product>;
 - Gets paths to primitive properties
 - `T`: Object type
 
+---
+
+## Few More Type Helpers
+
+| Types            | Description                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| `RequireAtLeast` | Enforces that at least `N` properties of type `T` are required.                                       |
+| `RequireExactly` | Enforces that exactly `N` properties of type `T` are required. All other properties remain forbidden. |
+| `RequireBetween` | Enforces that between `Min` and `Max` properties of type `T` are required.                            |
+| `Split`          | Split a string literal into an array of string literals. Reverse of `Join`.                           |
+| `Join`           | Join an array of string literals into a single string. Reverse of `Split`.                            |
+| `Cast`           | Cast one type to another while preserving compatibility.                                              |
+| `Pop`            | Remove the last element of a list (array).                                                            |
+
 :::info
 Looking for a specific utility type that’s not listed here?  
-Many internal or advanced-use types are available — even if they aren’t documented yet. Try importing them directly by the name you see used in functions or class signatures: start typing the type name and pressing `ctrl+space` (VS Code).
+Many internal or advanced-use types are available — even if they aren’t documented here. Try importing them directly by the name you see used in functions or class signatures: start typing the type name and pressing `ctrl+space` (VS Code).
 :::

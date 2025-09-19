@@ -67,6 +67,8 @@ const falsyValues: FalsyPrimitive[] = [false, 0, "", null, undefined];
 
 - All falsy primitive values  
 
+---
+
 ## Function Types  
 
 ### `Constructor`
@@ -96,6 +98,8 @@ const fetchData: AsyncFunction<User[]> = async () => [{...}];
 ```  
 
 - Async function returning Promise
+
+---
 
 ## Time & Date Types  
 
@@ -132,6 +136,8 @@ const inputs: ChronosInput[] = [new Date(), "2023-01-01", 1672531200000];
 
 - Valid input types for Chronos constructor  
 
+---
+
 ## Color Types  
 
 ### `Hex`, `Hex6`, `Hex8`  
@@ -140,6 +146,10 @@ const inputs: ChronosInput[] = [new Date(), "2023-01-01", 1672531200000];
 const primary: Hex6 = "#3C6945";  
 const translucent: Hex8 = "#3C6945AA";  
 ```  
+
+:::info Note
+Both `Hex6` and `Hex8` are [`Branded`](/docs/types/utility-types#brandedt-b) and satisfy `Hex` type but `Hex` does not satisfy `Hex6` or `Hex8`.
+:::
 
 - Hexadecimal color formats  
 
@@ -177,6 +187,8 @@ CSS named color, also includes different response colors
 "black" | "silver" | "gray" | "white" | "maroon" | "red" | "purple" | "fuchsia" | "green" | "lime" | "olive" | "yellow" | "navy" | "blue" | "teal" | "aqua" | "aliceblue" | "antiquewhite" | ... | "error" // etc.
 ```
 
+---
+
 ## Internationalization  
 
 ### `CurrencyCode`  
@@ -194,6 +206,8 @@ const locales: LocaleCode[] = ["en-US", "fr-FR", "ja-JP"];
 ```  
 
 - BCP 47 locale codes  
+
+---
 
 ## Utility Object Types  
 
