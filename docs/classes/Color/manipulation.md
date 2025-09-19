@@ -62,7 +62,7 @@ applyDarkness(percent: Percent): Color
 ```ts
 const blue = new Color("#0000ff");
 const darkerBlue = blue.applyDarkness(20); // 20% darker
-console.log(darkerBlue.hsl); // "hsl(240, 100%, 40%)" (was 50%)
+console.log(darkerBlue.hsl); // "hsl(240, 100%, 30%)" (was "hsl(240, 100%, 50%)")
 ```  
 
 ---
@@ -93,7 +93,7 @@ applyBrightness(percent: Percent): Color
 ```ts
 const green = new Color("#008000");
 const lighterGreen = green.applyBrightness(30); // 30% lighter
-console.log(lighterGreen.hsl); // "hsl(120, 100%, 65%)" (was 25%)
+console.log(lighterGreen.hsl); // "hsl(120, 100%, 55.1%)" (was "hsl(120, 100%, 25.1%)")
 ```  
 
 ---
@@ -124,7 +124,7 @@ applyDullness(percent: Percent): Color
 ```ts
 const pink = new Color("#ff69b4");
 const dullPink = pink.applyDullness(50); // 50% less saturated
-console.log(dullPink.hsl); // "hsl(330, 50%, 70%)" (was 100%)
+console.log(dullPink.hsl); // "hsl(330, 50%, 70.59%)" (was "hsl(330, 100%, 70.59%)")
 ```  
 
 ---

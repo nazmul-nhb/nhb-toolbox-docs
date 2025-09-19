@@ -59,7 +59,7 @@ getWCAGRating(other: ColorType | CSSColor): 'Fail' | 'AA' | 'AAA'
 ```ts
 const text = "#333333";
 const background = new Color("#f0f0f0");
-console.log(background.getWCAGRating(text)); // "AA"
+console.log(background.getWCAGRating(text)); // "AAA"
 ```  
 
 ---
