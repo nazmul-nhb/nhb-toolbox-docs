@@ -63,10 +63,17 @@ type HSL = `hsl(${number}, ${number}%, ${number}%)` | `hsl(${number},${number}%,
 type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})` | `hsla(${number},${number}%,${number}%,${number})`; // With alpha
 ```
 
+#### ColorType
+
+```typescript
+// Union of Alpha & Solid `Hex`, `RGB` and `HSL`
+type ColorType = Hex | Hex6 | RGB | HSL | Hex8 | RGBA | HSLA;
+```
+
 #### CSSColor
 
 ```typescript
-type CSSColor = keyof typeof CSS_COLORS; // All valid CSS color names
+type CSSColor = "black" | "silver" | "gray" | "white" | "maroon" | "red" | "purple" | "fuchsia" | "green" | "lime" | "olive" | "yellow" | "navy" | "blue" | "teal" | "aqua" | "aliceblue" | "antiquewhite" | "aquamarine" | "azure" | "beige" | "bisque" | "blanchedalmond" | "blueviolet" | "brown" | "burlywood" | "cadetblue" | "chartreuse" | "chocolate" | "coral" | "cornflowerblue" | "cornsilk" | "crimson" | "cyan" | "darkblue" | "darkcyan" | "darkgoldenrod" | "darkgray" | "darkgreen" | "darkgrey" | "darkkhaki" | "darkmagenta" | "darkolivegreen" | "darkorange" | ... 112 more ... | "error"; // All valid (150+) CSS color names
 ```
 
 #### Percent

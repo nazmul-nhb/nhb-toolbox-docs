@@ -19,7 +19,7 @@ getComplementaryColor(): Color
 
 #### Example
 
-```javascript
+```ts
 const yellow = new Color("#ffff00");
 const complementary = yellow.getComplementaryColor();
 console.log(complementary.hex); // "#0000ff" (blue)
@@ -41,7 +41,7 @@ getAnalogousColors(): Analogous
 
 #### Example
 
-```javascript
+```ts
 const orange = new Color("#ffa500");
 const analogous = orange.getAnalogousColors();
 console.log(analogous.map(c => c.hex)); // ["#ffa500", "#ffd700", "#ff8c00"]
@@ -63,7 +63,7 @@ getTriadColors(): Triad
 
 #### Example
 
-```javascript
+```ts
 const red = new Color("#ff0000");
 const triad = red.getTriadColors();
 console.log(triad.map(c => c.hex)); // ["#ff0000", "#00ff00", "#0000ff"]
@@ -85,7 +85,7 @@ getTetradColors(): Tetrad
 
 #### Example
 
-```javascript
+```ts
 const teal = new Color("#008080");
 const tetrad = teal.getTetradColors();
 console.log(tetrad.map(c => c.hex)); // ["#008080", "#800080", "#808000", "#008080"]
