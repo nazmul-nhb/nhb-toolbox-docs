@@ -155,7 +155,7 @@ applyWhiteShade(percent: Percent): Color
 ```ts
 const purple = new Color("#800080");
 const softPurple = purple.applyWhiteShade(40); // 40% softer
-console.log(softPurple.hsl); // "hsl(300, 60%, 84%)" (was 50%)
+console.log(softPurple.hsl); // "hsl(300, 60%, 55.06%)" (was "hsl(300, 100%, 25.1%)")
 ```  
 
 ---
