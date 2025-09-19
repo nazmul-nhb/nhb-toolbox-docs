@@ -25,7 +25,7 @@ Most of the utility types and type helpers are exported from `'nhb-toolbox/utils
 
 ## Branding & Special Types
 
-### Branded<T, B>>`
+### `Branded<T, B>`
 
 ```ts
 type UserID = Branded<string, "UserID">;
@@ -36,7 +36,7 @@ const id: UserID = "user_123" as UserID;
 - `T`: Base type to brand
 - `B`: Brand identifier (string/symbol)
 
-### FlattenPartial<T>>`
+### `FlattenPartial<T>`
 
 ```ts
 type User = Partial<{ name: string; meta: { age: number } }>;
@@ -70,7 +70,7 @@ type Flattened = FlattenPartial<DoublePartial>;
 
 ## Key Extraction
 
-### NormalPrimitiveKey<T>>`
+### `NormalPrimitiveKey<T>`
 
 ```ts
 type Config = { name: string; age: number; active: boolean | null };
@@ -101,7 +101,7 @@ type Keys = NonNullishPrimitiveKey<Data>; // "id" | "count"
 - Gets non-nullish primitive keys
 - `T`: Source object type -->
 
-### HasMethods<T>>`
+### `HasMethods<T>`
 
 ```ts
 type WithMethods = { name: string; greet(): void };
@@ -118,7 +118,7 @@ type B = HasMethods<WithoutMethods>; // false
 
 ## Value & Key Utilities
 
-### ValueOf<T>>`
+### `ValueOf<T>`
 
 ```ts
 type User = { name: string; age: number };
@@ -128,7 +128,7 @@ type UserValues = ValueOf<User>; // string | number
 - Gets union of all property values
 - `T`: Object type
 
-### KeysOfUnion<T>>`
+### `KeysOfUnion<T>`
 
 ```ts
 type A = { a: string }; 
@@ -143,7 +143,7 @@ type UnionKeys = KeysOfUnion<A | B>; // "a" | "b"
 
 ## Object Transformation
 
-### Mutable<T>>`
+### `Mutable<T>`
 
 ```ts
 type ReadonlyUser = { readonly name: string };
@@ -153,7 +153,7 @@ type WritableUser = Mutable<ReadonlyUser>; // { name: string }
 - Removes readonly modifiers
 - `T`: Readonly type
 
-### Immutable<T>>`
+### `Immutable<T>`
 
 ```ts
 type User = { name: string };
@@ -163,7 +163,7 @@ type ReadonlyUser = Immutable<User>; // { readonly name: string }
 - Adds readonly recursively
 - `T`: Type to make immutable
 
-### Merge<T, U>>`
+### `Merge<T, U>`
 
 ```ts
 type A = { id: number; name: string };
@@ -175,7 +175,7 @@ type Combined = Merge<A, B>; // { id: number; name: boolean; active: boolean }
 - `T`: First type
 - `U`: Second type
 
-### OmitByValue<T, ValueType>>`
+### `OmitByValue<T, ValueType>`
 
 ```ts
 type Model = { id: number; name: string; hidden: boolean };
@@ -186,7 +186,7 @@ type PublicModel = OmitByValue<Model, boolean>; // { id: number; name: string }
 - `T`: Source type
 - `ValueType`: Type to match against
 
-### RequireOnly<T, K>>`
+### `RequireOnly<T, K>`
 
 ```ts
 type User = { id?: number; name?: string };
@@ -197,7 +197,7 @@ type UserWithId = RequireOnly<User, 'id'>; // { id: number; name?: string }
 - `T`: Source type
 - `K`: Keys to require
 
-### Prettify<T>>`
+### `Prettify<T>`
 
 ```ts
 type Complex = { a: string } & { b: number };
@@ -207,7 +207,7 @@ type Clean = Prettify<Complex>; // Shows as { a: string; b: number } in IDEs
 - Flattens complex types for display
 - `T`: Complex type
 
-### ExtractOptional<T>, ExtractRequired<T><T>`
+### `ExtractOptional<T>`, `ExtractRequired<T>`
 
 ```ts
 type Props = { id: string; name?: string; age?: number };
@@ -222,7 +222,7 @@ type Required = ExtractRequired<Props>; // { id: string }
 
 ## Literal & Union Types
 
-### LooseLiteral<T>>`
+### `LooseLiteral<T>`
 
 ```ts
 type Color = LooseLiteral<'red' | 'blue'>;
@@ -233,7 +233,7 @@ const c2: Color = 'other'; // Other string values are also valid
 - Allows base type while preserving literal values for autocomplete
 - `T`: Literal union type
 
-### OneOf<T, U>>`
+### `OneOf<T, U>`
 
 ```ts
 type A = { login: string };
@@ -249,7 +249,7 @@ type Auth = OneOf<A, B>; // Either { login } OR { token }
 
 ## Tuple & Array Utilities
 
-### TupleToUnion<T>>`
+### `TupleToUnion<T>`
 
 ```ts
 const roles = ['admin', 'user'] as const;
@@ -259,7 +259,7 @@ type Role = TupleToUnion<typeof roles>; // "admin" | "user"
 - Converts tuple to union
 - `T`: Tuple type
 
-### TupleOf<T, N>>`
+### `TupleOf<T, N>`
 
 ```ts
 type ThreeNumbers = TupleOf<number, 3>; // [number, number, number]
@@ -269,7 +269,7 @@ type ThreeNumbers = TupleOf<number, 3>; // [number, number, number]
 - `T`: Element type
 - `N`: Length
 
-### ValueOptional<O, K>>`
+### `ValueOptional<O, K>`
 
 ```ts
 type User = { name: string; age: number };
@@ -284,7 +284,7 @@ type PartialUser = ValueOptional<User, 'name'>; // { name: string | undefined; a
 
 ## Numeric Ranges
 
-### Enumerate<N>>`
+### `Enumerate<N>`
 
 ```ts
 type Index = Enumerate<3>; // 0 | 1 | 2
@@ -297,7 +297,7 @@ type Index = Enumerate<3>; // 0 | 1 | 2
 This utility supports ranges up to 998 due to TypeScript recursion limits.
 :::
 
-### NumberRange<From, To>>`
+### `NumberRange<From, To>`
 
 ```ts
 type Pages = NumberRange<1, 5>; // 1 | 2 | 3 | 4 | 5
@@ -315,7 +315,7 @@ This utility supports ranges up to 998 due to TypeScript recursion limits.
 
 ## Dot Notation
 
-### DotNotationKey<T>>`
+### `DotNotationKey<T>`
 
 ```ts
 type User = { name: string; address: { city: string } };
@@ -325,7 +325,7 @@ type Paths = DotNotationKey<User>; // "name" | "address" | "address.city"
 - Gets nested property paths
 - `T`: Object type
 
-### NestedKeyString<T>>`
+### `NestedKeyString<T>`
 
 ```ts
 type Data = { id: string; meta: { tag: string } };
@@ -335,7 +335,7 @@ type StringPaths = NestedKeyString<Data>; // "id" | "meta.tag"
 - Gets paths to string properties
 - `T`: Object type
 
-### NestedPrimitiveKey<T>>`
+### `NestedPrimitiveKey<T>`
 
 ```ts
 type Product = { name: string; price: number; meta: { stock: boolean } };
