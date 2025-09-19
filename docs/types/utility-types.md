@@ -284,6 +284,8 @@ type PartialUser = ValueOptional<User, 'name'>; // { name: string | undefined; a
 
 ## Numeric Ranges
 
+> These type helpers are imported from `nhb-toolbox/number/types`.
+
 ### `Enumerate<N>`
 
 ```ts

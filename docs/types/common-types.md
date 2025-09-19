@@ -143,8 +143,8 @@ const inputs: ChronosInput[] = [new Date(), "2023-01-01", 1672531200000];
 ### `Hex`, `Hex6`, `Hex8`  
 
 ```ts
-const primary: Hex6 = "#3C6945";  
-const translucent: Hex8 = "#3C6945AA";  
+const primary: Hex6 = "#3C6945";  // Also a valid `Hex`
+const translucent: Hex8 = "#3C6945AA"; // Also a valid `Hex`
 ```  
 
 :::info Note
