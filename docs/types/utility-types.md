@@ -357,9 +357,9 @@ type PrimPaths = NestedPrimitiveKey<Product>;
 | `RequireAtLeast<T, N>`        | Enforces that at least `N` properties of type `T` are required.                                       |
 | `RequireExactly<T, N>`        | Enforces that exactly `N` properties of type `T` are required. All other properties remain forbidden. |
 | `RequireBetween<T, Min, Max>` | Enforces that between `Min` and `Max` properties of type `T` are required.                            |
-| `Split<S, D>`                 | Split a string literal into an array of string literals. Reverse of `Join`.                           |
-| `Join<T, D>`                  | Join an array of string literals into a single string. Reverse of `Split`.                            |
-| `Cast<A1, A2>`                | Cast one type to another while preserving compatibility.                                              |
+| `Split<S, D>`                 | Split a string literal `S` into an array of string literals. Reverse of `Join`.                       |
+| `Join<T, D>`                  | Join an array of string literals `T` into a single string. Reverse of `Split`.                        |
+| `Cast<A1, A2>`                | Cast one type (`A1`) to another (`A2`) while preserving compatibility.                                |
 | `Pop<L>`                      | Remove the last element of a list (array).                                                            |
 
 :::info
