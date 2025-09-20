@@ -16,7 +16,7 @@ import { Finder } from 'nhb-toolbox';
 ### Type Definitions
 
 ```typescript
-interface FindOptions<T = unknown> {
+interface FindOptions<T extends GenericObject = {}> {
   fuzzy?: boolean;          // Enable fuzzy matching
   cacheKey?: string;        // Custom cache key
   forceBinary?: boolean;    // Force binary search
@@ -62,4 +62,5 @@ constructor(data: T[] | (() => T[]), ttl?: number)
 
 ### See Also
 
-- [Array.search](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/find) - Native array search
+- [Array.find](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/find) - Native array find
+- [Array.filter](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - Native array filter
