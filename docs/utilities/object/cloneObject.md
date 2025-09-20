@@ -15,9 +15,9 @@ function cloneObject<T extends GenericObject>(obj: T): T
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `obj` | `T extends GenericObject` | The object to clone |
+| Parameter | Type                      | Description         |
+| --------- | ------------------------- | ------------------- |
+| `obj`     | `T extends GenericObject` | The object to clone |
 
 ### Returns
 

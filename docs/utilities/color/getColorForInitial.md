@@ -15,9 +15,6 @@ function getColorForInitial(input: ColorInput, opacity?: Percent): Hex8;
 
 // Array input version
 function getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
-
-// Combined signature
-function getColorForInitial(input: ColorInput | ColorInputArray, opacity?: Percent): Hex8 | Hex8[];
 ```
 
 ### Parameters

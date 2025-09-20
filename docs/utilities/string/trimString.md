@@ -17,8 +17,8 @@ function trimString(input: string[]): string[];
 
 ### Parameters
 
-| Parameter | Type               | Description |
-|-----------|--------------------|-------------|
+| Parameter | Type                 | Description                              |
+| --------- | -------------------- | ---------------------------------------- |
 | `input`   | `string \| string[]` | A string or an array of strings to trim. |
 
 ### Return Value

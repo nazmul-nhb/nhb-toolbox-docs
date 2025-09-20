@@ -19,14 +19,14 @@ const generateRandomID = (options?: RandomIdOptions) => string;
 
 ### Options
 
-| Option       | Type               | Default   | Description |
-|--------------|--------------------|-----------|-------------|
-| `prefix`     | `string`           | `''`      | A string to prepend to the ID. |
-| `suffix`     | `string`           | `''`      | A string to append to the ID. |
-| `timeStamp`  | `boolean`          | `false`   | Whether to include the current timestamp. |
-| `length`     | `number`           | `16`      | Length of the random alphanumeric string. |
-| `separator`  | `string`           | `''`      | The separator between parts of the ID. |
-| `caseOption` | `'upper' \| 'lower' \| null` | `null` | Converts the ID to uppercase, lowercase, or keeps default case. |
+| Option       | Type                         | Default | Description                                                     |
+| ------------ | ---------------------------- | ------- | --------------------------------------------------------------- |
+| `prefix`     | `string`                     | `''`    | A string to prepend to the ID.                                  |
+| `suffix`     | `string`                     | `''`    | A string to append to the ID.                                   |
+| `timeStamp`  | `boolean`                    | `false` | Whether to include the current timestamp.                       |
+| `length`     | `number`                     | `16`    | Length of the random alphanumeric string.                       |
+| `separator`  | `string`                     | `''`    | The separator between parts of the ID.                          |
+| `caseOption` | `'upper' \| 'lower' \| null` | `null`  | Converts the ID to uppercase, lowercase, or keeps default case. |
 
 ### Return Value
 

@@ -33,15 +33,15 @@ Specifies the type of numbers to generate:
 
 Configuration object with these properties:
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `min` | `number` | `0` | Range minimum |
-| `max` | `number` | `100` | Range maximum |
-| `includeMin` | `boolean` | `true` | Include minimum value |
-| `includeMax` | `boolean` | `true` | Include maximum value |
-| `multiplesOf` | `number` | `undefined` | Filter for multiples of this number |
-| `getAsString` | `boolean` | `false` | Output format |
-| `separator` | `string` | `','` | String separator (only available when `getAsString=true`) |
+| Property      | Type      | Default     | Description                                               |
+| ------------- | --------- | ----------- | --------------------------------------------------------- |
+| `min`         | `number`  | `0`         | Range minimum                                             |
+| `max`         | `number`  | `100`       | Range maximum                                             |
+| `includeMin`  | `boolean` | `true`      | Include minimum value                                     |
+| `includeMax`  | `boolean` | `true`      | Include maximum value                                     |
+| `multiplesOf` | `number`  | `undefined` | Filter for multiples of this number                       |
+| `getAsString` | `boolean` | `false`     | Output format                                             |
+| `separator`   | `string`  | `','`       | String separator (only available when `getAsString=true`) |
 
 ### Return Value
 

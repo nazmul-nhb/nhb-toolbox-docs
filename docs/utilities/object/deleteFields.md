@@ -52,17 +52,17 @@ const filtered = deleteFields(user, ['email', 'age']);
 
 ### Type Parameters  
 
-| Name | Description |  
-|------|-------------|  
-| `T`  | Type of source object |  
-| `U`  | Type of keys to delete |  
+| Name | Description            |
+| ---- | ---------------------- |
+| `T`  | Type of source object  |
+| `U`  | Type of keys to delete |
 
 ### Parameters  
 
-| Name | Type | Description |  
-|------|------|-------------|  
-| `source` | `T` | Source object to delete fields from |  
-| `keys` | `readonly U[]` | Array of property keys to delete |  
+| Name     | Type           | Description                         |
+| -------- | -------------- | ----------------------------------- |
+| `source` | `T`            | Source object to delete fields from |
+| `keys`   | `readonly U[]` | Array of property keys to delete    |
 
 ### Returns  
 

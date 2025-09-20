@@ -43,10 +43,7 @@ Generates a unique random color and returns it in both HEX and RGB formats.
 ### Function Signature
 
 ```typescript
-function generateRandomColorInHexRGB(maxColors?: number): {
-  hex: Hex6;
-  rgb: RGB;
-};
+function generateRandomColorInHexRGB(maxColors?: number): RandomHexRGB;
 ```
 
 ### Parameters
@@ -113,6 +110,13 @@ type Hex = `#${string}`;
 type Hex6 = Branded<`#${string}`, 'Hex6'>;
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type HSL = `hsl(${number}, ${number}%, ${number}%)`;
+/** Represents an object with `hex` (`hex6`) and `rgb` color */
+type RandomHexRGB = {
+    /** Represents a hexadecimal color code. */
+    hex: Hex6;
+    /** Represents an RGB color string. */
+    rgb: RGB;
+};
 ```
 
 ## Conclusion

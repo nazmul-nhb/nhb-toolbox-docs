@@ -10,9 +10,7 @@ Extracts all numeric substrings from a given string and returns them as an array
 ### Function Signature
 
 ```ts
-export const extractNumbersFromString = (input: string): number[] => {
-  return (input.match(/\d+/g) || []).map(Number);
-};
+export const extractNumbersFromString = (input: string): number[];
 ```
 
 ### Parameters

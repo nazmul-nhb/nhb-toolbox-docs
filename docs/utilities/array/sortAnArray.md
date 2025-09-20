@@ -12,7 +12,6 @@ The `sortAnArray` function sorts an array of various data types (strings, number
 ```typescript
 function sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
 function sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
-function sortAnArray<T extends number | string | boolean | GenericObject>(array: T[], options?: SortOptions<T>): T[];
 ```
 
 ### Parameters
