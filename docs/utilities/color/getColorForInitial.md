@@ -11,7 +11,7 @@ Generates consistent hex colors based on the first character of strings/numbers.
 
 ```typescript
 // Single input version
-function getColorForInitial(input: ColorInput, opacity?: Percent): Hex8;
+function getColorForInitial(input: string | number, opacity?: Percent): Hex8;
 
 // Array input version
 function getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
@@ -21,8 +21,8 @@ function getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
 
 - **`input`**:
   - `ColorInput`: Single `string/number` value to generate color for
-  - `ColorInputArray`: Array (potentially nested) of values
-- **`opacity`** (optional): Number between 0-100 representing opacity percentage (default: 100)
+  - `ColorInputArray`: Array _(potentially nested)_ of values
+- **`opacity`** (_optional_): Number between `0-100` representing opacity percentage (default: `100`)
 
 ### Return Value
 
@@ -199,18 +199,18 @@ const chartColors = getColorForInitial(dataLabels);
 
 ### Notes
 
-- **Fallback Color**: #010514 (dark blue) used for:
+- **Fallback Color**: `"#010514FF"` (_dark blue_) used for:
   - Empty strings
   - Non-alphanumeric first characters
   - Invalid numbers (NaN)
   
 - **Opacity Handling**:
-  - 100% = FF (fully opaque)
-  - 0% = 00 (fully transparent)
-  - Values are clamped to 0-100 range
+  - 100% = `FF` (fully opaque)
+  - 0% = `00` (fully transparent)
+  - Values are clamped to `0-100` range
 
 - **Edge Cases**:
-  - Empty string/number returns fallback
+  - Empty `string/number` returns fallback
   - Empty array returns all 36 colors
   - Nested arrays are fully flattened
 
