@@ -4,8 +4,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { Fragment } from 'react';
-import HomeFeatures from '../components/HomeFeatures';
 
+import HomeFeatures from '../components/HomeFeatures';
 import Copy from '../components/Copy';
 import styles from './index.module.css';
 
@@ -21,7 +21,11 @@ function HomepageHeader() {
 				<p className="hero__subtitle">{siteConfig.tagline}</p>
 
 				<div style={{ marginBottom: 16 }} className={styles.buttons}>
-					<Link className="button button--info button--md" to="/docs">
+					<Link
+						to="/docs"
+						aria-label="Getting Started"
+						className="button button--info button--md"
+					>
 						📃 Getting Started
 					</Link>
 				</div>

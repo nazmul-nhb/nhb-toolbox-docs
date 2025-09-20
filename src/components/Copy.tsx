@@ -4,8 +4,11 @@ import { Fragment } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 interface Props {
+	/** * The string content to be copied. */
 	text: string;
+	/** * Text content to display in place of original content after successful copy. */
 	afterCopy?: string;
+	/** * Text content to display for the toast message. */
 	message?: string;
 }
 
