@@ -22,15 +22,8 @@ function HomepageHeader() {
 
 				<div style={{ marginBottom: 16 }} className={styles.buttons}>
 					<Link className="button button--info button--md" to="/docs">
-						📃 Explore Docs
+						📃 Getting Started
 					</Link>
-					{/* <Link
-						className="button button--success button--md margin-left--md"
-						to="https://www.npmjs.com/package/nhb-toolbox"
-						target="_blank"
-					>
-						NPM Registry 📦
-					</Link> */}
 				</div>
 
 				<div className={styles.heroHighlights}>
