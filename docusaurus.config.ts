@@ -184,7 +184,7 @@ export default async function config(): Promise<Config> {
 						type: 'docSidebar',
 						sidebarId: 'overviewSidebar',
 						position: 'left',
-						label: 'Overview',
+						label: 'Getting Started',
 					},
 					{
 						type: 'docSidebar',

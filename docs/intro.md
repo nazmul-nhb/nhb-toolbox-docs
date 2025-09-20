@@ -1,6 +1,6 @@
 ---
 id: intro
-title: Overview
+title: Getting Started
 slug: /
 ---
 
@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 - **Type Guards & Predicates**: Runtime safety with perfect type inference
 - **Validation Utilities**: Robust data validation patterns
 - **Zero Dependencies**: Framework-agnostic implementation using only native TS/JS with 0 external package
-- **Types**: Includes [types](/docs/types) designed to enhance type safety and developer ergonomics
+- **Types**: Includes reusable [types](/docs/types) designed to enhance type safety and developer ergonomics
 
 ## 🧰 Installation Guide
 
@@ -298,7 +298,7 @@ If you want to use both, just configure `.npmrc` accordingly and install the app
 - **Battle-Tested**: Reliable utilities refined through real-world production use
 - **Optimized for Production**: Focused on clean, efficient implementations
 
-## 🪧 Signature Utilities
+## 🪧 Examples from Signature Utilities
 
 ### 🕰️ Date & Time Mastery
 
