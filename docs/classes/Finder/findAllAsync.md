@@ -20,12 +20,12 @@ async findAllAsync(
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `supplier` | `() => Promise<T[]>` | Async function providing the dataset |
-| `matcher` | `string \| number` | Value to match against |
-| `keySelector` | `KeySelector<T>` | Property or function to extract comparison key |
-| `options` | `Omit<FindOptions<T>, 'data'>` | Search configuration (excluding `data` field) |
+| Parameter     | Type                           | Description                                    |
+| ------------- | ------------------------------ | ---------------------------------------------- |
+| `supplier`    | `() => Promise<T[]>`           | Async function providing the dataset           |
+| `matcher`     | `string \| number`             | Value to match against                         |
+| `keySelector` | `KeySelector<T>`               | Property or function to extract comparison key |
+| `options`     | `Omit<FindOptions<T>, 'data'>` | Search configuration (excluding `data` field)  |
 
 ### Returns
 

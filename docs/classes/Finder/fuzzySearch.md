@@ -29,12 +29,12 @@ The `fuzzySearch` method implements a flexible pattern matching algorithm that:
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
-| `array` | `T[]` | The collection to search |
-| `matcher` | `string` | The sequence to search for (e.g. "cmn" matches "California") |
-| `keySelector` | `(item: T) => string \| number` | Value extractor function |
-| `caseInsensitive` | `boolean` | Whether to ignore character case |
+| Name              | Type                            | Description                                                  |
+| ----------------- | ------------------------------- | ------------------------------------------------------------ |
+| `array`           | `T[]`                           | The collection to search                                     |
+| `matcher`         | `string`                        | The sequence to search for (e.g. "cmn" matches "California") |
+| `keySelector`     | `(item: T) => string \| number` | Value extractor function                                     |
+| `caseInsensitive` | `boolean`                       | Whether to ignore character case                             |
 
 ### Examples
 

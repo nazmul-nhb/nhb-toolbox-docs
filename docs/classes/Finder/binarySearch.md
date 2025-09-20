@@ -20,12 +20,12 @@ binarySearch(
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `sorted` | `T[]` | Pre-sorted array to search |
-| `matcher` | `string \| number` | Value to search for |
-| `keySelector` | `(item: T) => string \| number` | Function to extract comparison key from items |
-| `caseInsensitive` | `boolean` | Whether to ignore case for string comparisons |
+| Parameter         | Type                            | Description                                   |
+| ----------------- | ------------------------------- | --------------------------------------------- |
+| `sorted`          | `T[]`                           | Pre-sorted array to search                    |
+| `matcher`         | `string \| number`              | Value to search for                           |
+| `keySelector`     | `(item: T) => string \| number` | Function to extract comparison key from items |
+| `caseInsensitive` | `boolean`                       | Whether to ignore case for string comparisons |
 
 ### Returns
 
@@ -62,12 +62,12 @@ const result = finder.binarySearch(
 
 ### Performance
 
-| Metric | Value |
-|--------|-------|
-| Time Complexity | O(log n) |
-| Space Complexity | O(1) |
-| Best Case | O(1) |
-| Worst Case | O(log n) |
+| Metric           | Value    |
+| ---------------- | -------- |
+| Time Complexity  | O(log n) |
+| Space Complexity | O(1)     |
+| Best Case        | O(1)     |
+| Worst Case       | O(log n) |
 
 ### Use Cases
 

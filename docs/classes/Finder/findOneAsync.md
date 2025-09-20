@@ -20,12 +20,12 @@ async findOneAsync(
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `supplier` | `() => Promise<T[]>` | Async function providing the data |
-| `matcher` | `string \| number` | Value to match against |
-| `keySelector` | `KeySelector<T>` | Property name or value extractor |
-| `options` | `Omit<FindOptions<T>, 'data'>` | Search configuration |
+| Parameter     | Type                           | Description                       |
+| ------------- | ------------------------------ | --------------------------------- |
+| `supplier`    | `() => Promise<T[]>`           | Async function providing the data |
+| `matcher`     | `string \| number`             | Value to match against            |
+| `keySelector` | `KeySelector<T>`               | Property name or value extractor  |
+| `options`     | `Omit<FindOptions<T>, 'data'>` | Search configuration              |
 
 ### Returns
 

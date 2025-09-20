@@ -36,12 +36,19 @@ type OwnKeys<T> = { [K in keyof T]: {} extends Pick<T, K> ? never : K;}[keyof T]
 constructor(data: T[] | (() => T[]), ttl?: number)
 ```
 
+:::info
+
+- `T` is a generic type extending `GenericObject` - _an object with string keys and any values_.
+- `data` can be a _static array_ or _a function returning an array_.
+
+:::
+
 ### Parameters
 
-| Name | Type | Description | Default |
-|------|------|-------------|---------|
-| `data` | `T[] \| (() => T[])` | Dataset or provider function | - |
-| `ttl` | `number` | Cache duration in milliseconds | `300000` (5 min) |
+| Name   | Type                 | Description                    | Default          |
+| ------ | -------------------- | ------------------------------ | ---------------- |
+| `data` | `T[] \| (() => T[])` | Dataset or provider function   | -                |
+| `ttl`  | `number`             | Cache duration in milliseconds | `300000` (5 min) |
 
 ### Available Methods
 

@@ -22,7 +22,7 @@ findOne(
 #### `FindOptions<T>`
 
 ```ts
-interface FindOptions<T = unknown> {
+interface FindOptions<T extends GenericObject = {}> {
   /** Enables fuzzy matching when exact match fails */
   fuzzy?: boolean;
   /** Key for caching the result */
@@ -54,11 +54,11 @@ type OwnKeys<T> = { [K in keyof T]: {} extends Pick<T, K> ? never : K;}[keyof T]
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `matcher` | `string \| number` | Value to match against |
-| `keySelector` | `KeySelector<T>` | Property name or value extractor function |
-| `options` | `FindOptions<T>` | Search configuration |
+| Parameter     | Type               | Description                               |
+| ------------- | ------------------ | ----------------------------------------- |
+| `matcher`     | `string \| number` | Value to match against                    |
+| `keySelector` | `KeySelector<T>`   | Property name or value extractor function |
+| `options`     | `FindOptions<T>`   | Search configuration                      |
 
 ### Returns
 
