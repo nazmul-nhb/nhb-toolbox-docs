@@ -41,7 +41,7 @@
     "@docusaurus/types": "3.8.1",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
-    "nhb-scripts": "^1.8.70",
+    "nhb-scripts": "^1.8.80",
     "typescript": "~5.9.2"
   },
   "browserslist": {

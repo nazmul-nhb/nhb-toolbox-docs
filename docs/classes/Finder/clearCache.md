@@ -29,8 +29,8 @@ Cache management is particularly useful when:
 
 ### Parameters
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
+| Name  | Type     | Required    | Description                                                                |
+| ----- | -------- | ----------- | -------------------------------------------------------------------------- |
 | `key` | `string` | ❌ Optional | The specific cache key to remove. When omitted, clears all cached results. |
 
 ### Examples

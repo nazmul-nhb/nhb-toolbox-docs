@@ -76,8 +76,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       nhb-scripts:
-        specifier: ^1.8.70
-        version: 1.8.70
+        specifier: ^1.8.80
+        version: 1.8.80
       typescript:
         specifier: ~5.9.2
         version: 5.9.2
@@ -3899,8 +3899,8 @@ packages:
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  nhb-scripts@1.8.70:
-    resolution: {integrity: sha512-v7KCVDbkDvlWF81ZgeSkqwT2GjnD1TKrD+H7DgHxn7hXeHaY+pYCWWZz9+tyhj4j+SXNU7guaOUYAXzpKknoKw==}
+  nhb-scripts@1.8.80:
+    resolution: {integrity: sha512-rDUJPuauwtS4uqcJr0hXYUz9jxmDSRZvvuimORJDeiHCfRcs89vNVsu5IeNVdacJvIZkwM2ZC2a/1FbTY2NMdg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -10526,7 +10526,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@1.8.70:
+  nhb-scripts@1.8.80:
     dependencies:
       '@clack/prompts': 0.11.0
       chalk: 5.6.2
