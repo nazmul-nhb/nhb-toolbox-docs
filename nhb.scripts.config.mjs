@@ -10,6 +10,6 @@ export default defineScriptConfig({
     },
     count: {
         defaultPath: '.',
-        excludePaths: ['node_modules', 'dist', 'build']
+        excludePaths: ['node_modules', '.docusaurus', 'build']
     }
 });
