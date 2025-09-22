@@ -10,6 +10,13 @@ import TabItem from '@theme/TabItem';
 
 Converts specified values in objects or arrays of objects between string and number types, supporting nested properties via dot notation.
 
+:::danger[Return Type Issue]
+
+- There is a known issue in the return type currently. It makes all the string values to number and number values to string when converting to number or string, even if they were not specified in the keys. This is a known issue and will be addressed in future updates.
+- This does not affect the actual javascript return value, the issue is only with the TypeScript return type.
+
+:::
+
 ## Import
 
 ```typescript
