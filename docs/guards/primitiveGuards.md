@@ -24,12 +24,6 @@ export type FalsyPrimitive = false | 0 | '' | null | undefined;
 
 ## Core Type Guards
 
-Perfect — here’s your `isNumber` Docusaurus doc rewritten in **your original structure**, but now with **accurate, detailed behavior explanation**, matching your current logic:
-
-```ts
-return typeof value === 'number' && Number.isFinite(value);
-```
-
 ### `isNumber`
 
 Validates whether a value is a **finite number**.

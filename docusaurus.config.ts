@@ -220,6 +220,10 @@ export default async function config(): Promise<Config> {
 						position: 'right',
 						href: 'https://www.npmjs.com/package/nhb-toolbox',
 					},
+					// {
+					// 	type: 'Search',
+					// 	position: 'right',
+					// },
 				],
 			},
 			footer: {
@@ -317,7 +321,10 @@ export default async function config(): Promise<Config> {
 				indexName: process.env.ALGOLIA_INDEX_NAME!,
 				placeholder: 'Search in NHB Toolbox',
 				contextualSearch: true,
-				searchParameters: {},
+				// @ts-expect-error: `askAi` is available in @docusaurus/react 4.x.x
+				askAi: {
+					assistantId: process.env.ALGOLIA_AI_ASSISTANT_ID!,
+				},
 			},
 		} satisfies Preset.ThemeConfig,
 	};
