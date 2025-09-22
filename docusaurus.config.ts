@@ -205,6 +205,11 @@ export default async function config(): Promise<Config> {
 						label: 'Predicates & Guards',
 					},
 					{
+						to: '/ask',
+						label: 'AskAI',
+						position: 'right',
+					},
+					{
 						type: 'docSidebar',
 						sidebarId: 'typesSidebar',
 						position: 'left',

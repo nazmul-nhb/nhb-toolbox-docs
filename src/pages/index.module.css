@@ -98,3 +98,80 @@
 		transform: translate(-80px, -80px);
 	}
 }
+
+@keyframes gradient-animation {
+	0% {
+		background: radial-gradient(
+			circle at 80% 50%,
+			#165de9,
+			#1e52d3,
+			#2648bd,
+			#2d3da7,
+			#353292,
+			#3d277c,
+			#451d66,
+			#4c1250,
+			#54073a
+		);
+	}
+	25% {
+		background: radial-gradient(
+			circle at 50% 80%,
+			#165de9,
+			#1e52d3,
+			#2648bd,
+			#2d3da7,
+			#353292,
+			#3d277c,
+			#451d66,
+			#4c1250,
+			#54073a
+		);
+	}
+	50% {
+		background: radial-gradient(
+			circle at 20% 50%,
+			#165de9,
+			#1e52d3,
+			#2648bd,
+			#2d3da7,
+			#353292,
+			#3d277c,
+			#451d66,
+			#4c1250,
+			#54073a
+		);
+	}
+	75% {
+		background: radial-gradient(
+			circle at 50% 20%,
+			#165de9,
+			#1e52d3,
+			#2648bd,
+			#2d3da7,
+			#353292,
+			#3d277c,
+			#451d66,
+			#4c1250,
+			#54073a
+		);
+	}
+	100% {
+		background: radial-gradient(
+			circle at 80% 50%,
+			#165de9,
+			#1e52d3,
+			#2648bd,
+			#2d3da7,
+			#353292,
+			#3d277c,
+			#451d66,
+			#4c1250,
+			#54073a
+		);
+	}
+}
+
+.animated-gradient {
+	animation: gradient-animation 10s linear infinite;
+}
