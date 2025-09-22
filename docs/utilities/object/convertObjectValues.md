@@ -132,7 +132,7 @@ const order = {
 
 // Convert numbers throughout structure
 convertObjectValues(order, {
-  keys: ['total', 'items.price', 'customer.loyaltyPoints'],
+  keys: ['total', 'customer.loyaltyPoints'],
   convertTo: 'number'
 });
 /* Returns:
@@ -140,8 +140,8 @@ convertObjectValues(order, {
   id: "1001",
   total: 199.99,
   items: [
-    { id: "1", price: 49.99 },
-    { id: "2", price: 59.99 }
+    { id: "1", price: "49.99" },
+    { id: "2", price: "59.99" }
   ],
   customer: {
     id: 5001,
