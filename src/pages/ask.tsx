@@ -2,7 +2,6 @@ import { DocSearch } from '@docsearch/react';
 import type { ThemeConfig } from '@docusaurus/preset-classic';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-// import styles from './index.module.css';
 
 type ThemeConfigs = ThemeConfig & {
 	algolia?: { askAi?: { assistantId?: string } };
