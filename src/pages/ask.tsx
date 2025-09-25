@@ -32,8 +32,8 @@ export default function AskAI() {
 						Ask AI
 					</h1>
 					<p style={{ fontSize: '1.25rem', marginBottom: '2rem', color: '#ccc' }}>
-						Instantly search our documentation or ask our AI assistant anything
-						about NHB Toolbox. Answers and examples can be inaccurate sometimes.
+						Search our documentation or ask our AI assistant anything about NHB
+						Toolbox. Answers and examples can be inaccurate sometimes.
 					</p>
 
 					<div
