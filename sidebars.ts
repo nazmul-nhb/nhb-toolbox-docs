@@ -173,10 +173,11 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						'utilities/object/sanitizeData',
-						'utilities/object/convertObjectValues',
 						'utilities/object/mergeObjects',
 						'utilities/object/mergeAndFlattenObjects',
-						'utilities/object/parseJsonToObject',
+						'utilities/object/flattenObjectDotNotation',
+						'utilities/object/flattenObjectKeyValue',
+						'utilities/object/convertObjectValues',
 						'utilities/object/parseObjectValues',
 						'utilities/object/pickFields',
 						'utilities/object/deleteFields',
@@ -187,8 +188,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/object/extractNewFields',
 						'utilities/object/extractUpdatedFields',
 						'utilities/object/extractUpdatedAndNewFields',
-						'utilities/object/flattenObjectDotNotation',
-						'utilities/object/flattenObjectKeyValue',
+						'utilities/object/parseJsonToObject',
 					],
 				},
 				{

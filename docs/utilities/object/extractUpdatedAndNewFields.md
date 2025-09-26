@@ -1,6 +1,6 @@
 ---
 id: extractUpdatedAndNewFields
-title: Extract Updated And New Fields
+title: Extract Updated & New Fields
 ---
 
 ## extractUpdatedAndNewFields

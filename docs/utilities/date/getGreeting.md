@@ -1,6 +1,6 @@
 ---
 id: getGreeting  
-title: Get Greeting  
+title: Get Time-Based Greeting  
 ---
 
 ## getGreeting
