@@ -230,3 +230,50 @@ fromNowShort(): string
 ```ts
 new Chronos().subtract(150, 'minutes').fromNowShort(); // "2h ago"
 ```
+
+---
+
+## getGreeting()
+
+:::danger[Note]
+This method is provided by `greetingPlugin`. You must register it using `Chronos.use(greetingPlugin)` before calling `.getGreeting()`. Once registered, all Chronos instances will have access to the `.getGreeting()` method.
+:::
+
+Returns a time-appropriate greeting message based on configurable time periods. Supports custom messages and time thresholds.
+
+### Signature
+
+```typescript
+getGreeting(configs?: GreetingConfigs): string;
+```
+
+### Parameters
+
+- `configs`: Configurations options, e.g. times, msgs.
+
+### Return Type
+
+`string` - The appropriate greeting message.
+
+### Example
+
+```ts
+import { greetingPlugin } from 'nhb-toolbox/plugins/greetingPlugin';
+
+Chronos.use(greetingPlugin);
+
+// Use with default configs
+new Chronos().getGreeting(); // Greeting msg e.g. "Good Afternoon!"
+
+// Custom msg and times
+new Chronos().getGreeting({
+  morningEnds: '10:00',
+  noonEnds: '14:00',
+  afternoonEnds: '18:00',
+  eveningEnds: '22:00',
+  midnightMessage: 'Working late?',
+  currentTime: '01:30'
+});
+```
+
+> This method internally uses [getGreeting](/docs/utilities/date/getGreeting) function. For detailed usage please refer to the docs.

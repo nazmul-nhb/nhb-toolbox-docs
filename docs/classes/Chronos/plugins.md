@@ -80,6 +80,7 @@ chronos().enabledMethod()
 | `dayPartPlugin`      | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { dayPartPlugin } from 'nhb-toolbox/plugins/dayPartPlugin';" />           | [getPartOfDay](../Chronos/names#getpartofday) |
 | `zodiacPlugin`       | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiacPlugin';" />         | [getZodiacSign](../Chronos/names#getzodiacsign) |
 | `palindromePlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { palindromePlugin } from 'nhb-toolbox/plugins/palindromePlugin';" />     | [isPalindromeDate](../Chronos/checkers#ispalindromedate) |
+| `greetingPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { greetingPlugin  } from 'nhb-toolbox/plugins/greetingPlugin ';" />     | [greetingPlugin](../Chronos/format#getgreeting) |
 | *(More coming soon)* |                                                                                              | |
 
 ---

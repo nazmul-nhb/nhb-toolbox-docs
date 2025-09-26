@@ -15,22 +15,22 @@ function getGreeting(configs?: GreetingConfigs): string;
 
 ### Parameters (GreetingConfigs)
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `morningEnds` | `ClockTime` | `'11:59'` | When morning period ends (HH:MM) |
-| `noonEnds` | `ClockTime` | `'12:59'` | When noon period ends |
-| `afternoonEnds` | `ClockTime` | `'17:59'` | When afternoon period ends |
-| `eveningEnds` | `ClockTime` | `'23:59'` | When evening period ends |
-| `midnightEnds` | `ClockTime` | `'02:59'` | When midnight period ends |
-| `currentTime` | `ClockTime` | Current time | Override current time (HH:MM) |
-| `appendToMsg` | `string` | `''` | Text to append to messages |
-| `prependToMsg` | `string` | `''` | Text to prepend to messages |
-| `morningMessage` | `string` | `'Good Morning!'` | Custom morning greeting |
-| `noonMessage` | `string` | `'Good Noon!'` | Custom noon greeting |
-| `afternoonMessage` | `string` | `'Good Afternoon!'` | Custom afternoon greeting |
-| `eveningMessage` | `string` | `'Good Evening!'` | Custom evening greeting |
-| `midnightMessage` | `string` | `'Hello, Night Owl!'` | Custom midnight greeting |
-| `defaultMessage` | `string` | `'Greetings!'` | Fallback greeting |
+| Property           | Type        | Default               | Description                      |
+| ------------------ | ----------- | --------------------- | -------------------------------- |
+| `morningEnds`      | `ClockTime` | `'11:59'`             | When morning period ends (HH:MM) |
+| `noonEnds`         | `ClockTime` | `'12:59'`             | When noon period ends            |
+| `afternoonEnds`    | `ClockTime` | `'17:59'`             | When afternoon period ends       |
+| `eveningEnds`      | `ClockTime` | `'23:59'`             | When evening period ends         |
+| `midnightEnds`     | `ClockTime` | `'02:59'`             | When midnight period ends        |
+| `currentTime`      | `ClockTime` | Current time          | Override current time (HH:MM)    |
+| `appendToMsg`      | `string`    | `''`                  | Text to append to messages       |
+| `prependToMsg`     | `string`    | `''`                  | Text to prepend to messages      |
+| `morningMessage`   | `string`    | `'Good Morning!'`     | Custom morning greeting          |
+| `noonMessage`      | `string`    | `'Good Noon!'`        | Custom noon greeting             |
+| `afternoonMessage` | `string`    | `'Good Afternoon!'`   | Custom afternoon greeting        |
+| `eveningMessage`   | `string`    | `'Good Evening!'`     | Custom evening greeting          |
+| `midnightMessage`  | `string`    | `'Hello, Night Owl!'` | Custom midnight greeting         |
+| `defaultMessage`   | `string`    | `'Greetings!'`        | Fallback greeting                |
 
 ### Time Period Logic
 
