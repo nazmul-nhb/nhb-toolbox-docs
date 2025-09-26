@@ -8,7 +8,11 @@ title: Format Unit With Plural
 The `formatUnitWithPlural` function returns a grammatically correct unit string based on the numeric value provided simply by adding s at the end of the unit name. It optionally prefixes the unit with the number.
 
 :::tip[Pro Tips]
-For complex and versatile pluralization, please refer to [**pluralizer**](/docs/utilities/string/pluralizer) or [**Pluralizer Class**](/docs/classes/Pluralizer) instead.
+
+- This function only appends an _s_ at the end of the unit. It does not follow any grammar rules.
+
+- For complex and versatile _pluralization_ with proper grammar rules, please refer to [**pluralizer**](/docs/utilities/string/pluralizer) or [**Pluralizer Class**](/docs/classes/Pluralizer) instead.
+
 :::
 
 ### Function Signature
