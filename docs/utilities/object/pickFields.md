@@ -20,7 +20,7 @@ import { pickObjectFields } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function pickFields<T extends GenericObject, U extends keyof T>(
+pickFields<T extends GenericObject, U extends keyof T>(
   source: T,
   keys: U[]
 ): { [K in U]: T[K] }

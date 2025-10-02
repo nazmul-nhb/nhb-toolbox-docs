@@ -16,7 +16,7 @@ import { mergeAndFlattenObjects } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function mergeAndFlattenObjects<T extends GenericObject>(...objects: T[]): T
+mergeAndFlattenObjects<T extends GenericObject>(...objects: T[]): T
 ```
 
 ## Usage

@@ -17,7 +17,7 @@ import { remapObjectFields } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function remapFields<Source extends GenericObject, Target extends Record<string, keyof Source>>(
+remapFields<Source extends GenericObject, Target extends Record<string, keyof Source>>(
   source: Source,
   fieldMap: Target
 ): { [K in keyof Target]: Source[Target[K]] }

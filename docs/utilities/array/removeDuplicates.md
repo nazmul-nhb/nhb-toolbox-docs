@@ -10,7 +10,7 @@ The `removeDuplicatesFromArray` function removes duplicate values from an array 
 ### Function Signature
 
 ```typescript
-function removeDuplicatesFromArray<T>(array: T[]): T[];
+removeDuplicatesFromArray<T>(array: T[]): T[];
 ```
 
 ### Usage

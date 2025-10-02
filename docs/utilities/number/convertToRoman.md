@@ -14,7 +14,7 @@ Converts any valid number from `1` to `3999` into a Roman numeral.
 ### Function Signature
 
 ```ts
-function convertToRomanNumerals(num: Numeric): string;
+convertToRomanNumerals(num: Numeric): string;
 ```
 
 ### Parameters

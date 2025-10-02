@@ -10,7 +10,7 @@ The `getAverage` function calculates the average of a set of provided numbers, r
 ### Function Signature
 
 ```typescript
-function getAverage(...numbers: Numeric[]): number;
+getAverage(...numbers: Numeric[]): number;
 ```
 
 ### Parameters

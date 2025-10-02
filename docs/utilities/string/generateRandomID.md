@@ -10,7 +10,7 @@ The `generateRandomID` function creates a customizable random alphanumeric ID wi
 ### Function Signature
 
 ```typescript
-const generateRandomID = (options?: RandomIdOptions) => string;
+generateRandomID (options?: RandomIdOptions): string;
 ```
 
 ### Parameters

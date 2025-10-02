@@ -10,7 +10,7 @@ The `reverseString` function reverses the given string, returning a new string w
 ### Function Signature
 
 ```typescript
-function reverseString(input: string): string;
+reverseString(input: string): string;
 ```
 
 ### Parameters

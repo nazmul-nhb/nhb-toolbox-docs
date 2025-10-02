@@ -10,7 +10,7 @@ The `formatCurrency` function formats a number or numeric string as a locale-awa
 ### Function Signature  
 
 ```typescript
-function formatCurrency( value: Numeric,  currency?: CurrencyCode,  locale?: LocaleCode ): string;
+formatCurrency( value: Numeric,  currency?: CurrencyCode,  locale?: LocaleCode ): string;
 ```
 
 ### Parameters  

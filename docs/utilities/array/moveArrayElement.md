@@ -10,7 +10,7 @@ The `moveArrayElement` function repositions an element in an array from one inde
 ### Function Signature
 
 ```typescript
-function moveArrayElement<T>(arr: T[], fromIndex: number, toIndex: number): T[]
+moveArrayElement<T>(arr: T[], fromIndex: number, toIndex: number): T[]
 ```
 
 ### Usage

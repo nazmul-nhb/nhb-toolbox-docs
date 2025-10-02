@@ -12,37 +12,37 @@ Converts between color formats (HEX, RGB, HSL) and their alpha-channel variants 
 #### Hex6 Conversion
 
 ```typescript
-function convertColorCode(color: Hex6): { rgb: RGB; hsl: HSL };
+convertColorCode(color: Hex6): { rgb: RGB; hsl: HSL };
 ```
 
 #### RGB Conversion
 
 ```typescript
-function convertColorCode(color: RGB): { hex: Hex6; hsl: HSL };
+convertColorCode(color: RGB): { hex: Hex6; hsl: HSL };
 ```
 
 #### HSL Conversion
 
 ```typescript
-function convertColorCode(color: HSL): { hex: Hex6; rgb: RGB };
+convertColorCode(color: HSL): { hex: Hex6; rgb: RGB };
 ```
 
 #### Hex8 Conversion
 
 ```typescript
-function convertColorCode(color: Hex8): { rgba: RGBA; hsla: HSLA };
+convertColorCode(color: Hex8): { rgba: RGBA; hsla: HSLA };
 ```
 
 #### RGBA Conversion
 
 ```typescript
-function convertColorCode(color: RGBA): { hex8: Hex8; hsla: HSLA };
+convertColorCode(color: RGBA): { hex8: Hex8; hsla: HSLA };
 ```
 
 #### HSLA Conversion
 
 ```typescript
-function convertColorCode(color: HSLA): { hex8: Hex8; rgba: RGBA };
+convertColorCode(color: HSLA): { hex8: Hex8; rgba: RGBA };
 ```
 
 ### Type Definitions

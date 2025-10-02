@@ -10,7 +10,7 @@ Extracts the hour and minute components from a time string in `HH:MM` or `-HH:MM
 ### Function Signature
 
 ```typescript
-function extractHourMinute(time: `-${ClockTime}` | ClockTime): [number, number];
+extractHourMinute(time: `-${ClockTime}` | ClockTime): [number, number];
 ```
 
 ### Parameters

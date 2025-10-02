@@ -10,7 +10,7 @@ The `roundToNearest` function rounds a number (or numeric string) to the closest
 ### Function Signature  
 
 ```typescript
-function roundToNearest(value: Numeric, interval?: number): number;
+roundToNearest(value: Numeric, interval?: number): number;
 ```
 
 ### Parameters  

@@ -10,7 +10,7 @@ Returns a time-appropriate greeting message based on configurable time periods. 
 ### Function Signature
 
 ```typescript
-function getGreeting(configs?: GreetingConfigs): string;
+getGreeting(configs?: GreetingConfigs): string;
 ```
 
 ### Parameters (GreetingConfigs)

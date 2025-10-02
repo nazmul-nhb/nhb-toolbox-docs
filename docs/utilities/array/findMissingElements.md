@@ -10,7 +10,7 @@ Performs a deep comparison between two arrays and returns elements missing from 
 ### Function Signature
 
 ```typescript
-function findMissingElements<T, U>(
+findMissingElements<T, U>(
   array1: T[],
   array2: U[],
   missingFrom: 'from-first' | 'from-second'

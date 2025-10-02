@@ -11,7 +11,7 @@ Type guard that checks if a value is a valid time string in "HH:MM" format.
 ### Function Signature
 
 ```typescript
-function isValidTime(value: unknown): value is Time;
+isValidTime(value: unknown): value is Time;
 ```
 
 ### Parameters
@@ -61,7 +61,7 @@ Type guard that checks if a value is a valid UTC offset string.
 ### Function Signature
 
 ```typescript
-function isValidUTCOffSet(value: unknown): value is UTCOffSet;
+isValidUTCOffSet(value: unknown): value is UTCOffSet;
 ```
 
 ### Parameters

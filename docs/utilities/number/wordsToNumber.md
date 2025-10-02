@@ -13,7 +13,7 @@ Converts an English cardinal or ordinal word string into its numeric value.
 ### Function Signature
 
 ```ts
-function wordsToNumber(word: string): number;
+wordsToNumber(word: string): number;
 ```
 
 ### Parameters

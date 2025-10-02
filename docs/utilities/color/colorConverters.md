@@ -15,7 +15,7 @@ Converts HSL values to RGB format string.
 ### Function Signature
 
 ```typescript
-function convertHslToRgb(h: number, s: number, l: number): RGB;
+convertHslToRgb(h: number, s: number, l: number): RGB;
 ```
 
 ### Parameters
@@ -41,7 +41,7 @@ Converts RGB values to HSL format string.
 ### Function Signature
 
 ```typescript
-function convertRgbToHsl(r: number, g: number, b: number): HSL;
+convertRgbToHsl(r: number, g: number, b: number): HSL;
 ```
 
 ### Parameters
@@ -67,7 +67,7 @@ Converts HSL values to Hex6 format.
 ### Function Signature
 
 ```typescript
-function convertHslToHex(h: number, s: number, l: number): Hex6;
+convertHslToHex(h: number, s: number, l: number): Hex6;
 ```
 
 ### Example
@@ -87,7 +87,7 @@ Converts Hex string to HSL format.
 ### Function Signature
 
 ```typescript
-function convertHexToHsl(hex: Hex6 | Hex): HSL;
+convertHexToHsl(hex: Hex6 | Hex): HSL;
 ```
 
 ### Example
@@ -107,7 +107,7 @@ Converts RGB values to Hex6 format.
 ### Function Signature
 
 ```typescript
-function convertRgbToHex(r: number, g: number, b: number): Hex6;
+convertRgbToHex(r: number, g: number, b: number): Hex6;
 ```
 
 ### Example
@@ -127,7 +127,7 @@ Converts Hex string to RGB format.
 ### Function Signature
 
 ```typescript
-function convertHexToRgb(hex: Hex6 | Hex): RGB;
+convertHexToRgb(hex: Hex6 | Hex): RGB;
 ```
 
 ### Example
@@ -147,7 +147,7 @@ Converts RGB to RGBA format with opacity.
 ### Function Signature
 
 ```typescript
-function convertRgbToRgba(r: number, g: number, b: number, a?: number): RGBA;
+convertRgbToRgba(r: number, g: number, b: number, a?: number): RGBA;
 ```
 
 ### Example
@@ -167,7 +167,7 @@ Converts RGBA values to Hex8 format.
 ### Function Signature
 
 ```typescript
-function convertRgbaToHex8(r: number, g: number, b: number, a?: number): Hex8;
+convertRgbaToHex8(r: number, g: number, b: number, a?: number): Hex8;
 ```
 
 ### Example
@@ -187,7 +187,7 @@ Converts Hex8 string to RGBA format.
 ### Function Signature
 
 ```typescript
-function convertHex8ToRgba(hex8: Hex8): RGBA;
+convertHex8ToRgba(hex8: Hex8): RGBA;
 ```
 
 ### Example
@@ -207,7 +207,7 @@ Converts HSLA values to RGBA format.
 ### Function Signature
 
 ```typescript
-function convertHslaToRgba(h: number, s: number, l: number, a?: number): RGBA;
+convertHslaToRgba(h: number, s: number, l: number, a?: number): RGBA;
 ```
 
 ### Example
@@ -227,7 +227,7 @@ Converts RGBA values to HSLA format.
 ### Function Signature
 
 ```typescript
-function convertRgbaToHsla(r: number, g: number, b: number, a?: number): HSLA;
+convertRgbaToHsla(r: number, g: number, b: number, a?: number): HSLA;
 ```
 
 ### Example
@@ -247,7 +247,7 @@ Converts HSLA values to Hex8 format.
 ### Function Signature
 
 ```typescript
-function convertHslaToHex8(h: number, s: number, l: number, a?: number): Hex8;
+convertHslaToHex8(h: number, s: number, l: number, a?: number): Hex8;
 ```
 
 ### Example
@@ -267,7 +267,7 @@ Converts Hex8 string to HSLA format.
 ### Function Signature
 
 ```typescript
-function convertHex8ToHsla(hex8: Hex8): HSLA;
+convertHex8ToHsla(hex8: Hex8): HSLA;
 ```
 
 ### Example
@@ -294,18 +294,18 @@ type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})`;
 
 ### Solid Color Formats
 
-| Type | Format | Example |
-|------|--------|---------|
-| `Hex6` | `#RRGGBB` | `#3C6945` |
-| `RGB` | `rgb(R, G, B)` | `rgb(60, 105, 69)` |
-| `HSL` | `hsl(H, S%, L%)` | `hsl(130, 27%, 32%)` |
+| Type   | Format           | Example              |
+| ------ | ---------------- | -------------------- |
+| `Hex6` | `#RRGGBB`        | `#3C6945`            |
+| `RGB`  | `rgb(R, G, B)`   | `rgb(60, 105, 69)`   |
+| `HSL`  | `hsl(H, S%, L%)` | `hsl(130, 27%, 32%)` |
 
 ### Alpha Channel Formats
 
-| Type | Format | Example |
-|------|--------|---------|
-| `Hex8` | `#RRGGBBAA` | `#3C6945FF` |
-| `RGBA` | `rgba(R, G, B, A)` | `rgba(60, 105, 69, 1)` |
+| Type   | Format               | Example                  |
+| ------ | -------------------- | ------------------------ |
+| `Hex8` | `#RRGGBBAA`          | `#3C6945FF`              |
+| `RGBA` | `rgba(R, G, B, A)`   | `rgba(60, 105, 69, 1)`   |
 | `HSLA` | `hsla(H, S%, L%, A)` | `hsla(130, 27%, 32%, 1)` |
 
 ## Usage Examples

@@ -18,7 +18,7 @@ import { formatQueryParams } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function generateQueryParams<T extends QueryObject>(
+generateQueryParams<T extends QueryObject>(
   params: T = {} as T
 ): QueryString
 ```

@@ -16,7 +16,7 @@ import { parseJsonToObject } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function parseJsonToObject<T extends GenericObject = GenericObject>(
+parseJsonToObject<T extends GenericObject = GenericObject>(
   value: string,
   parsePrimitives?: boolean
 ): T

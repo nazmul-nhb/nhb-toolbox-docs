@@ -10,7 +10,7 @@ The `roundNumber` function provides flexible rounding capabilities, allowing rou
 ### Function Signature  
 
 ```typescript
-function roundNumber(number: Numeric, roundTo?: number): number;
+roundNumber(number: Numeric, roundTo?: number): number;
 ```
 
 ### Parameters  

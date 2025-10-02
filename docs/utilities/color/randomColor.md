@@ -11,7 +11,7 @@ Generates a unique random color in HSL format, ensuring it's visually distinct f
 ### Function Signature
 
 ```typescript
-function generateRandomHSLColor(maxColors?: number): HSL;
+generateRandomHSLColor(maxColors?: number): HSL;
 ```
 
 ### Parameters
@@ -43,7 +43,7 @@ Generates a unique random color and returns it in both HEX and RGB formats.
 ### Function Signature
 
 ```typescript
-function generateRandomColorInHexRGB(maxColors?: number): RandomHexRGB;
+generateRandomColorInHexRGB(maxColors?: number): RandomHexRGB;
 ```
 
 ### Parameters

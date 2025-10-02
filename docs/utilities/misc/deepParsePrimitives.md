@@ -21,7 +21,7 @@ import { parsePrimitivesDeep } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function deepParsePrimitives<T = unknown>(input: unknown): T
+deepParsePrimitives<T = unknown>(input: unknown): T
 ```
 
 ---

@@ -10,7 +10,7 @@ Checks if a given year is a leap year according to the Gregorian calendar rules.
 ### Function Signature
 
 ```typescript
-function isLeapYear(year: Numeric): boolean;
+isLeapYear(year: Numeric): boolean;
 ```
 
 ### Parameters

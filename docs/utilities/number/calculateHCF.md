@@ -10,7 +10,7 @@ The `calculateHCF` function calculates the highest common factor (HCF), also kno
 ### Function Signature
 
 ```typescript
-function calculateHCF(...numbers: Numeric[]): number;
+calculateHCF(...numbers: Numeric[]): number;
 ```
 
 ### Parameters

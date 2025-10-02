@@ -10,7 +10,7 @@ Shuffles the elements of an array.
 ### Function Signature
 
 ```typescript
-const shuffleArray = <T>(array: T[]): T[];
+shuffleArray <T>(array: T[]): T[];
 ```
 
 ### Parameters

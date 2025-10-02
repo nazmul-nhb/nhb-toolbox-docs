@@ -3,12 +3,14 @@ id: isDeepEqual
 title: Deep Equality Checker  
 ---
 
+## isDeepEqual
+
 Performs a **deep comparison** between two values (arrays, objects, and primitives) to determine if they are structurally and value-wise equal.  
 *This function is one of the foundational utilities, used internally throughout the `nhb-toolbox` package to compare arrays, objects, or any deeply nested structures.*
 
 ---
 
-## Import
+### Import
 
 ```typescript
 import { isDeepEqual } from 'nhb-toolbox';
@@ -16,15 +18,15 @@ import { isDeepEqual } from 'nhb-toolbox';
 
 ---
 
-## Function Signature
+### Function Signature
 
 ```typescript
-function isDeepEqual<T>(a: T, b: T): boolean
+isDeepEqual(a: unknown, b: unknown): boolean
 ```
 
 ---
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -96,23 +98,23 @@ isDeepEqual(null, undefined)       // false
 
 ---
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name | Type | Description                              |
 |------|------|------------------------------------------|
 | a    | T    | First value to compare.                  |
 | b    | T    | Second value to compare.                 |
 
-### Returns
+#### Returns
 
 - `true` if the values are deeply equal.
 - `false` otherwise.
 
 ---
 
-## How it Works
+### How it Works
 
 - **Strict Equality First:** If `a` and `b` are the same reference or primitive value, returns `true` immediately.
 - **Type & Null Checks:** If types differ or either value is null, returns `false` unless both are strictly equal.
@@ -122,7 +124,7 @@ isDeepEqual(null, undefined)       // false
 
 ---
 
-## Key Features
+### Key Features
 
 - **Recursive & Robust:** Handles arbitrary nesting for arrays and objects.
 - **Type Safety:** Works generically for any consistent types.
@@ -130,7 +132,7 @@ isDeepEqual(null, undefined)       // false
 
 ---
 
-## Limitations
+### Limitations
 
 - **No Cycles Supported:** Will stack overflow on *circular references*.
 - **No Symbol/Function/Date Support:** Only works for plain objects, arrays, and primitives. Special types (functions, Dates, Maps, Sets, Symbols) are not deeply compared.
@@ -139,7 +141,7 @@ isDeepEqual(null, undefined)       // false
 
 ---
 
-## Notes
+### Notes
 
 - If you compare objects with arrays, types, or keys in different order but same values, equality will follow JavaScript’s structure (order matters in arrays, not in objects).
 - For performance sensitive code, avoid using on excessively large or deeply nested structures unless necessary.
@@ -147,7 +149,7 @@ isDeepEqual(null, undefined)       // false
 
 ---
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Deduplicating structurally equal objects/arrays.
 - Testing and assertion helpers.

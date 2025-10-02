@@ -26,7 +26,7 @@ import {
 ## Function Signature(s)  
 
 ```typescript  
-function deleteFields<T extends GenericObject, U extends keyof T>(
+deleteFields<T extends GenericObject, U extends keyof T>(
   source: T,
   keys: readonly U[]
 ): { [K in Exclude<keyof T, U>]: T[K] }

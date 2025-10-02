@@ -12,7 +12,7 @@ Converts a number, numeric string, or cardinal word string into its **ordinal wo
 ### Function Signature
 
 ```ts
-function numberToWordsOrdinal(number: Numeric | string): string
+numberToWordsOrdinal(number: Numeric | string): string
 ```
 
 ---

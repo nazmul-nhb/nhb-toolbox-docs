@@ -10,13 +10,13 @@ Counts the number of words in a string, supporting multiple languages and script
 ### Function Signature
 
 ```ts
-export function countWords(text: string): number
+countWords(text: string): number
 ```
 
 ### Parameters
 
-| Name   | Description                          |
-|--------|--------------------------------------|
+| Name   | Description                           |
+| ------ | ------------------------------------- |
 | `text` | The input string to count words from. |
 
 ### Returns

@@ -185,6 +185,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/object/remapFields',
 						'utilities/object/cloneObject',
 						'utilities/object/countObjectFields',
+						'utilities/object/extractObjectKeys',
 						'utilities/object/extractNewFields',
 						'utilities/object/extractUpdatedFields',
 						'utilities/object/extractUpdatedAndNewFields',

@@ -10,10 +10,7 @@ A utility function that converts JavaScript objects into FormData with extensive
 ### Function Signature
 
 ```typescript
-function createFormData<T extends GenericObject>(
-  data: T,
-  configs?: FormDataConfigs<T>
-): FormData
+createFormData<T extends GenericObject>(data: T, configs?: FormDataConfigs<T>): FormData
 ```
 
 ### Parameters

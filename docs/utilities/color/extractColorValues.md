@@ -18,10 +18,10 @@ import { extractSolidColorValues, extractAlphaColorValues } from 'nhb-toolbox';
 
 ```typescript
 // For solid colors (RGB/HSL)
-function extractSolidColorValues(color: HSL | RGB): SolidValues;
+extractSolidColorValues(color: HSL | RGB): SolidValues;
 
 // For alpha colors (RGBA/HSLA)
-function extractAlphaColorValues(color: HSLA | RGBA): AlphaValues;
+extractAlphaColorValues(color: HSLA | RGBA): AlphaValues;
 ```
 
 ## Usage Examples

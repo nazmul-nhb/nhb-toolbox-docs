@@ -10,7 +10,7 @@ The `extractURLs` function extracts all web URLs from a given input string using
 ### Function Signature
 
 ```typescript
-function extractURLs(str: string): string[];
+extractURLs(str: string): string[];
 ```
 
 ### Parameters

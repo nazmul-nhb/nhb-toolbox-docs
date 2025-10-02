@@ -16,7 +16,7 @@ import { mergeObjects } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function mergeObjects<T extends GenericObject>(...objects: T[]): T
+mergeObjects<T extends GenericObject>(...objects: T[]): T
 ```
 
 ## Usage

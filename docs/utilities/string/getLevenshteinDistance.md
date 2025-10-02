@@ -10,7 +10,7 @@ The `getLevenshteinDistance` function computes the Levenshtein distance between 
 ### Function Signature
 
 ```typescript
-export const getLevenshteinDistance = (a: string, b: string): number;
+getLevenshteinDistance (a: string, b: string): number;
 ```
 
 ### Parameters

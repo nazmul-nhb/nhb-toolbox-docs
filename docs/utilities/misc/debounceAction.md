@@ -20,7 +20,7 @@ import { debounceAction } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function debounceAction<T extends VoidFunction>(callback: T, delay?: number): DelayedFn<T>
+debounceAction<T extends VoidFunction>(callback: T, delay?: number): DelayedFn<T>
 ```
 
 ---

@@ -18,7 +18,7 @@ The `formatUnitWithPlural` function returns a grammatically correct unit string 
 ### Function Signature
 
 ```typescript
-function formatUnitWithPlural(count: number, unit: string, withNumber?: boolean): string;
+formatUnitWithPlural(count: number, unit: string, withNumber?: boolean): string;
 ```
 
 ### Parameters

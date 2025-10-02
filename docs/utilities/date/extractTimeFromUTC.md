@@ -10,7 +10,7 @@ Extracts the time portion from a UTC offset string, converting it to `±HH:MM` f
 ### Function Signature
 
 ```typescript
-function extractTimeFromUTC(utc: UTCOffSet): `-${Time}` | Time;
+extractTimeFromUTC(utc: UTCOffSet): `-${Time}` | Time;
 ```
 
 ### Parameters

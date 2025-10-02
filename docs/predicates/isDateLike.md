@@ -59,7 +59,7 @@ The function recognizes these date-like objects:
 ### Function Signature
 
 ```ts
-function isDateLike(value: unknown): boolean;
+isDateLike(value: unknown): boolean;
 ```
 
 ### Parameters

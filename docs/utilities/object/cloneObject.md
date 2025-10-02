@@ -10,7 +10,7 @@ Creates a deep clone of an object using JSON serialization.
 ### Function Signature
 
 ```typescript
-function cloneObject<T extends GenericObject>(obj: T): T
+cloneObject<T extends GenericObject>(obj: T): T
 ```
 
 ### Parameters
@@ -36,7 +36,9 @@ const original = {
 };
 
 const cloned = cloneObject(original);
+
 console.log(cloned === original); // false
+console.log(isDeepEqual(cloned, original)); // true
 console.log(cloned.address === original.address); // false
 ```
 
@@ -93,11 +95,7 @@ type GenericObject = Record<string, any>;
 
 For more robust cloning consider:
 
-- Built-in `structuredClone`
+- Built-in [`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone)
 - Structured cloning algorithm
 - Lodash's `cloneDeep`
 - Manual cloning for complex types
-
-### SSR Note
-
-⚠️ Works in both browser and Node.js environments, but has the same limitations in both.

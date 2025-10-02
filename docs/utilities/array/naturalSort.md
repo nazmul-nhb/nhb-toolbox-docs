@@ -12,7 +12,7 @@ The `naturalSort` function compares two strings using a natural sorting order (e
 ### Function Signature
 
 ```typescript
-function naturalSort(a: string, b: string, options?: SortNature): number;
+naturalSort(a: string, b: string, options?: SortNature): number;
 ```
 
 ### Parameters

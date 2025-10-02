@@ -10,7 +10,7 @@ The `generateAnagrams` function generates unique anagrams of a given word. It re
 ### Function Signature
 
 ```ts
-function generateAnagrams(word: string, limit: number | 'all' = 100): string[]
+generateAnagrams(word: string, limit: number | 'all' = 100): string[]
 ```
 
 ### Parameters

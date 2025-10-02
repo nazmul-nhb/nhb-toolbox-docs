@@ -19,7 +19,7 @@ import { convertArrayToString } from 'nhb-toolbox';
 <TabItem value="primitive" label="Array of Primitives">
 
 ```ts
-function convertArrayToString<T extends Primitive>(
+convertArrayToString<T extends Primitive>(
   array: T[] | undefined,
   options?: {
     separator?: string;
@@ -31,7 +31,7 @@ function convertArrayToString<T extends Primitive>(
 <TabItem value="object" label="Array of Objects">
 
 ```ts
-function convertArrayToString<T extends GenericObject>(
+convertArrayToString<T extends GenericObject>(
   array: T[] | undefined,
   options: {
     target: NestedPrimitiveKey<T>;

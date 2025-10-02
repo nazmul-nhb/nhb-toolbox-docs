@@ -10,7 +10,7 @@ The `replaceAllInString` function replaces all occurrences of a specified substr
 ### Function Signature
 
 ```ts
-const replaceAllInString = (input: string, find: string | RegExp, replace: string): string;
+replaceAllInString (input: string, find: string | RegExp, replace: string): string;
 ```
 
 ### Parameters

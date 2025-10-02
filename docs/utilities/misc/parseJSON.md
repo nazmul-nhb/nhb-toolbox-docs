@@ -21,10 +21,7 @@ import { parseJsonDeep } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function parseJSON<T = unknown>(
-  value: string,
-  parsePrimitives?: boolean
-): T
+parseJSON<T = unknown>(value: string, parsePrimitives?: boolean): T
 ```
 
 ---

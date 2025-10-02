@@ -35,14 +35,14 @@ const count = countObjectFields(null); // Returns 0
 
 ### Type Parameters
 
-| Parameter | Description |
-|-----------|-------------|
+| Parameter | Description           |
+| --------- | --------------------- |
 | `T`       | A generic object type |
 
 ### Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter | Type | Description                       |
+| --------- | ---- | --------------------------------- |
 | `obj`     | `T`  | The object to count properties of |
 
 ### Return Value

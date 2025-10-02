@@ -10,7 +10,7 @@ Flattens a nested array recursively or wraps any non-array data type in an array
 ### Function Signature
 
 ```typescript
-const flattenArray = <T>(input: T | T[]): Flattened<T>[];
+flattenArray <T>(input: T | T[]): Flattened<T>[];
 ```
 
 ### Type Parameters

@@ -13,7 +13,7 @@ Converts a numeric value into its English word representation.
 ### Function Signature
 
 ```ts
-function numberToWords(number: Numeric): string;
+numberToWords(number: Numeric): string;
 ```
 
 ### Parameters

@@ -16,20 +16,13 @@ The `convertStringCase` function converts a string into common case styles and i
 ### Function Signature & Types
 
 ```ts
-function convertStringCase(value: string, format: CaseFormat, options?: StringCaseOptions): string;
+convertStringCase(value: string, format: CaseFormat, options?: StringCaseOptions): string;
 
 /** Supported output case formats. */
-export type CaseFormat =
-  | 'camelCase'
-  | 'snake_case'
-  | 'kebab-case'
-  | 'PascalCase'
-  | 'Title Case'
-  | 'UPPERCASE'
-  | 'lowercase';
+type CaseFormat = 'camelCase' | 'snake_case' | 'kebab-case' | 'PascalCase' | 'Title Case' | 'UPPERCASE' | 'lowercase';
 
 /** Options for convertStringCase. */
-export interface StringCaseOptions {
+interface StringCaseOptions {
   /**
    * Preserve uppercase acronyms (tokens with ≥2 uppercase letters) in
    * camelCase / PascalCase / Title Case where applicable.

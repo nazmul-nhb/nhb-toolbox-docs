@@ -10,7 +10,7 @@ The `getOrdinal` function returns the ordinal suffix (e.g., `'st'`, `'nd'`, `'rd
 ### Function Signature  
 
 ```typescript  
-function getOrdinal(num: Numeric, withNumber?: boolean): string;  
+getOrdinal(num: Numeric, withNumber?: boolean): string;  
 ```  
 
 ### Parameters  

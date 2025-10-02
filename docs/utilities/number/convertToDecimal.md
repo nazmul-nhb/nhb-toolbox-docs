@@ -10,7 +10,7 @@ The `convertToDecimal` function rounds a number to a specified number of decimal
 ### Function Signature
 
 ```typescript
-function convertToDecimal<T extends boolean | undefined = false>(
+convertToDecimal<T extends boolean | undefined = false>(
     input: Numeric, options?: DecimalOptions<T>
 ): ConvertedDecimal<T>;
 ```

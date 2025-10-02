@@ -10,7 +10,7 @@ The `calculateLCM` function calculates the least common multiple (LCM), also kno
 ### Function Signature
 
 ```typescript
-function calculateLCM(...numbers: Numeric[]): number;
+calculateLCM(...numbers: Numeric[]): number;
 ```
 
 ### Parameters

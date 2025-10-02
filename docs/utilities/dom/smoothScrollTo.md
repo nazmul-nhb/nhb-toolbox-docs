@@ -16,7 +16,7 @@ import { smoothScrollTo } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function smoothScrollTo(element: HTMLElement, offset?: number): void
+smoothScrollTo(element: HTMLElement, offset?: number): void
 ```
 
 ## Usage Examples

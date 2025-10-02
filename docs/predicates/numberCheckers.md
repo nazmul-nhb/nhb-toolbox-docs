@@ -11,7 +11,7 @@ Determines whether a given number is a prime number using an efficient 6k ± 1 o
 ### Function Signature
 
 ```ts
-function isPrime(number: number): boolean;
+isPrime(number: number): boolean;
 ```
 
 ### Parameters
@@ -64,7 +64,7 @@ Checks if a number is even (divisible by 2).
 ### Function Signature
 
 ```ts
-function isEven(input: number): boolean;
+isEven(input: number): boolean;
 ```
 
 ### Parameters
@@ -95,7 +95,7 @@ Checks if a number is odd (not divisible by 2).
 ### Function Signature
 
 ```ts
-function isOdd(input: number): boolean;
+isOdd(input: number): boolean;
 ```
 
 ### Parameters
@@ -126,7 +126,7 @@ Checks if a number is a multiple of another number.
 ### Function Signature
 
 ```ts
-function isMultiple(input: number, multipleOf: number): boolean;
+isMultiple(input: number, multipleOf: number): boolean;
 ```
 
 ### Parameters
@@ -159,7 +159,7 @@ Checks if a number is a perfect square.
 ### Function Signature
 
 ```ts
-function isPerfectSquare(num: number): boolean;
+isPerfectSquare(num: number): boolean;
 ```
 
 ### Parameters
@@ -186,7 +186,7 @@ Checks if a number is part of the Fibonacci sequence.
 ### Function Signature
 
 ```ts
-function isFibonacci(num: number): boolean;
+isFibonacci(num: number): boolean;
 ```
 
 ### Parameters
@@ -222,7 +222,7 @@ Checks if any input is not a finite number.
 ### Function Signature
 
 ```ts
-function areInvalidNumbers(...numbers: number[]): boolean;
+areInvalidNumbers(...numbers: number[]): boolean;
 ```
 
 ### Parameters

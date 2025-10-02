@@ -10,7 +10,7 @@ The `getNumbersInRange` function generates a sequence of numbers within a specif
 ### Function Signature
 
 ```typescript
-function getNumbersInRange<T extends boolean = false>(
+getNumbersInRange<T extends boolean = false>(
  type: NumberType = 'any',
  options?: RangeOptions<T>,
 ): RangedNumbers<T>;

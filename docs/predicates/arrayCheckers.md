@@ -10,7 +10,7 @@ Checks if a value is an empty array or an array with only empty values.
 ### Function Signature
 
 ```typescript
-const isInvalidOrEmptyArray = <T>(value: T): boolean;
+isInvalidOrEmptyArray <T>(value: T): boolean;
 ```
 
 ### Parameters

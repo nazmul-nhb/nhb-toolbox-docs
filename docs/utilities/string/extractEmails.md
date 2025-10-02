@@ -10,7 +10,7 @@ The `extractEmails` function extracts all email addresses from a given input str
 ### Function Signature
 
 ```typescript
-function extractEmails(str: string): string[];
+extractEmails(str: string): string[];
 ```
 
 ### Parameters

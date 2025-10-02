@@ -10,7 +10,7 @@ The `truncateString` function shortens a string to a specified maximum length an
 ### Function Signature
 
 ```typescript
-const truncateString = (string: string, maxLength: number) => string;
+truncateString (string: string, maxLength: number): string;
 ```
 
 ### Parameters

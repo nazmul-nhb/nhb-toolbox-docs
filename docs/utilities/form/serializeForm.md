@@ -10,7 +10,7 @@ Converts HTML form elements into structured JavaScript objects or query strings,
 ### Function Signature
 
 ```typescript
-function serializeForm<T extends boolean = false>(
+serializeForm<T extends boolean = false>(
   form: HTMLFormElement,
   toQueryString?: T
 ): SerializedForm<T>

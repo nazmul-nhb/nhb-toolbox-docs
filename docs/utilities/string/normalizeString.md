@@ -10,7 +10,7 @@ The `normalizeString` function removes diacritics (accent marks) from characters
 ### Function Signature
 
 ```ts
-function normalizeString(str: string): string;
+normalizeString(str: string): string;
 ```
 
 ### Parameters

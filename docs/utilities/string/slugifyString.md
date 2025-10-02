@@ -10,7 +10,7 @@ The `slugifyString` function converts a string into a URL-friendly `slug` by low
 ### Function Signature
 
 ```typescript
-function slugifyString(input: string): Lowercase<string>;
+slugifyString(input: string): Lowercase<string>;
 ```
 
 ### Parameters

@@ -20,7 +20,7 @@ import { pickFieldsByCondition } from 'nhb-toolbox';
 ## Function Signature(s)
 
 ```typescript
-function pickObjectFieldsByCondition<T extends GenericObject>(
+pickObjectFieldsByCondition<T extends GenericObject>(
   source: T,
   condition: (key: keyof T, value: T[keyof T]) => boolean
 ): Partial<T>

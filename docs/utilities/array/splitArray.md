@@ -12,7 +12,7 @@ The `splitArray` function divides an array into smaller sub-arrays (chunks) of a
 ### Function Signature
 
 ```typescript
-function splitArray<T>(arr: T[], chunkSize: number): T[][]
+splitArray<T>(arr: T[], chunkSize: number): T[][]
 ```
 
 ### Parameters
@@ -46,7 +46,7 @@ The `splitArrayByProperty` function groups an array of objects by a specified pr
 ### Function Signature
 
 ```ts
-function splitArrayByProperty<T extends GenericObject, P extends NestedPrimitiveKey<T>>(
+splitArrayByProperty<T extends GenericObject, P extends NestedPrimitiveKey<T>>(
   source: T[] | undefined,
   property: P
 ): T[][]

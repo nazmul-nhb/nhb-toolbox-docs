@@ -10,7 +10,7 @@ The `getRandomNumber` function generates a random number within a specified rang
 ### Function Signature
 
 ```typescript
-function getRandomNumber(options?: RandomNumberOptions): number;
+getRandomNumber(options?: RandomNumberOptions): number;
 ```
 
 ### Parameters

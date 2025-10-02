@@ -10,7 +10,7 @@ Converts FormData or query strings into structured JavaScript objects, with opti
 ### Function Signature
 
 ```typescript
-function parseFormData<T extends FormData | string>(
+parseFormData<T extends FormData | string>(
   data: T,
   parsePrimitives?: boolean
 ): ParsedFormData<T>

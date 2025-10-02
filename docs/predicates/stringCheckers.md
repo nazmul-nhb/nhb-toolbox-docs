@@ -11,7 +11,7 @@ Checks if a string follows the **camelCase** format.
 ### Function Signature
 
 ```ts
-function isCamelCase(str: string): boolean;
+isCamelCase(str: string): boolean;
 ```
 
 ### Parameters
@@ -38,7 +38,7 @@ Checks if a string follows the **PascalCase** format.
 ### Function Signature
 
 ```ts
-function isPascalCase(str: string): boolean;
+isPascalCase(str: string): boolean;
 ```
 
 ### Parameters
@@ -65,7 +65,7 @@ Checks if a string follows the **snake_case** format.
 ### Function Signature
 
 ```ts
-function isSnakeCase(str: string): boolean;
+isSnakeCase(str: string): boolean;
 ```
 
 ### Parameters
@@ -92,7 +92,7 @@ Checks if a string follows the **kebab-case** format.
 ### Function Signature
 
 ```ts
-function isKebabCase(str: string): boolean;
+isKebabCase(str: string): boolean;
 ```
 
 ### Parameters
@@ -119,7 +119,7 @@ Checks if a string is a **palindrome** (reads the same backward as forward, igno
 ### Function Signature
 
 ```ts
-const isPalindrome: (input: string) => boolean;
+isPalindrome: (input: string): boolean;
 ```
 
 ### Parameters
@@ -153,7 +153,7 @@ Checks if a string contains **only emojis**.
 ### Function Signature
 
 ```ts
-function isEmojiOnly(str: string): boolean;
+isEmojiOnly(str: string): boolean;
 ```
 
 ### Parameters

@@ -10,7 +10,7 @@ The `clampNumber` function restricts a number to fall within a specified range. 
 ### Function Signature  
 
 ```typescript
-function clampNumber(value: number, min: number, max: number): number;
+clampNumber(value: number, min: number, max: number): number;
 ```
 
 ### Parameters  

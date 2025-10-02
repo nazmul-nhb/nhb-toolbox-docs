@@ -10,7 +10,7 @@ The `sumDigits` function calculates the sum of all digits in a given number, ign
 ### Function Signature
 
 ```typescript
-function sumDigits(num: Numeric): number;
+sumDigits(num: Numeric): number;
 ```
 
 ### Parameters

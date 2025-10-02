@@ -14,7 +14,7 @@ Finds all primes between the `start` and `end` values (inclusive). If `start > e
 ### Function Signature
 
 ```ts
-function findPrimeNumbers(start?: number, end?: number): number[];
+findPrimeNumbers(start?: number, end?: number): number[];
 ```
 
 ### Parameters

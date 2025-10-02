@@ -16,7 +16,7 @@ The `sumByField` function calculates the total sum of a numeric field across all
 ### Function Signature
 
 ```ts
-function sumByField<T extends GenericObject>(
+sumByField<T extends GenericObject>(
   data: T[] | undefined,
   field: NumericDotKey<T>,
   roundTo = 2
@@ -49,7 +49,7 @@ The `averageByField` function calculates the average of a numeric field across a
 ### Function Signature
 
 ```ts
-function averageByField<T extends GenericObject>(
+averageByField<T extends GenericObject>(
   data: T[] | undefined,
   field: NumericDotKey<T>,
   roundTo = 2
@@ -82,7 +82,7 @@ The `sumFieldDifference` function calculates the sum of differences between two 
 ### Function Signature
 
 ```ts
-function sumFieldDifference<T extends GenericObject, P extends NumericDotKey<T>>(
+sumFieldDifference<T extends GenericObject, P extends NumericDotKey<T>>(
   data: T[] | undefined,
   first: P,
   second: P,
@@ -119,7 +119,7 @@ The `groupAndSumByField` function groups an array of objects by a field and calc
 ### Function Signature
 
 ```ts
-function groupAndSumByField<T extends GenericObject>(
+groupAndSumByField<T extends GenericObject>(
   data: T[] | undefined,
   groupBy: NestedPrimitiveKey<T>,
   sumBy: NumericDotKey<T>,
@@ -160,7 +160,7 @@ The `groupAndAverageByField` function groups an array of objects by a field and 
 ### Function Signature
 
 ```ts
-function groupAndAverageByField<T extends GenericObject>(
+groupAndAverageByField<T extends GenericObject>(
   data: T[] | undefined,
   groupBy: NestedPrimitiveKey<T>,
   averageBy: NumericDotKey<T>,

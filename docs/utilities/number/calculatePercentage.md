@@ -10,7 +10,7 @@ The `calculatePercentage` function performs various percentage-related calculati
 ### Function Signature
 
 ```typescript
-function calculatePercentage(options: PercentageOptions): number;
+calculatePercentage(options: PercentageOptions): number;
 ```
 
 ### Parameters

@@ -10,8 +10,8 @@ The `sortAnArray` function sorts an array of various data types (strings, number
 ### Function Signatures
 
 ```typescript
-function sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
-function sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
+sortAnArray<T extends GenericObject>(array: T[], options: SortByOption<T>): T[];
+sortAnArray<T extends string | number | boolean>(array: T[], options?: OrderOption): T[];
 ```
 
 ### Parameters

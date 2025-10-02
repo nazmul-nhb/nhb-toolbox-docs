@@ -17,7 +17,7 @@ import { parseStringifiedObjectValues } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function parseObjectValues<T>(object: T, parseNested?: boolean): { [K in keyof T]: any; }
+parseObjectValues<T>(object: T, parseNested?: boolean): { [K in keyof T]: any; }
 ```
 
 ## Type Definitions
@@ -179,7 +179,7 @@ const env = parseObjectValues({
 ### Form Data Conversion
 
 ```typescript
-function handleSubmit(formData: FormData) {
+handleSubmit(formData: FormData) {
   const data = parseObjectValues(Object.fromEntries(formData));
   // Convert checkbox values from "true"/"false" to booleans
 }

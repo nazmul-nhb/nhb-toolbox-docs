@@ -16,7 +16,7 @@ import { toggleFullScreen } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function toggleFullScreen(element?: HTMLElement): void
+toggleFullScreen(element?: HTMLElement): void
 ```
 
 ## Usage Examples

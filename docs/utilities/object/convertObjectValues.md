@@ -20,14 +20,14 @@ import { convertObjectValues } from 'nhb-toolbox';
 
 ```typescript
 // Object version
-export function convertObjectValues<
+convertObjectValues<
   T extends GenericObject,
   Key extends NumericDotKey<T>,
   C extends 'string' | 'number',
 >(data: T, options: ConvertObjectOptions<T, Key, C>): ConvertedObject<T, Key, C>;
 
 // Array version
-export function convertObjectValues<
+convertObjectValues<
   T extends GenericObject,
   Key extends NumericDotKey<T>,
   C extends 'string' | 'number',

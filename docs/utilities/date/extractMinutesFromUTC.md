@@ -10,7 +10,7 @@ Converts a UTC offset string in `UTC±HH:MM` format into total minutes as a numb
 ### Function Signature
 
 ```typescript
-function extractMinutesFromUTC(utc: UTCOffSet): number;
+extractMinutesFromUTC(utc: UTCOffSet): number;
 ```
 
 ### Parameters

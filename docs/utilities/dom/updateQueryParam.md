@@ -16,7 +16,7 @@ import { updateQueryParam } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function updateQueryParam(key: string, value: string): void
+updateQueryParam(key: string, value: string): void
 ```
 
 ## Usage Examples

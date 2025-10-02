@@ -10,7 +10,7 @@ Converts a minute-based offset to a standardized UTC offset string in `UTC±HH:M
 ### Function Signature
 
 ```typescript
-function formatUTCOffset(minutes: Numeric): UTCOffSet;
+formatUTCOffset(minutes: Numeric): UTCOffSet;
 ```
 
 ### Parameters

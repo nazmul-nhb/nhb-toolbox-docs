@@ -10,7 +10,7 @@ The `capitalizeString` function converts the first letter of a given string to u
 ### Function Signature
 
 ```typescript
-function capitalizeString(string: string, options?: CapitalizeOptions): string;
+capitalizeString(string: string, options?: CapitalizeOptions): string;
 ```
 
 ### Parameters

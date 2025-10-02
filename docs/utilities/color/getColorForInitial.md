@@ -11,10 +11,10 @@ Generates consistent hex colors based on the first character of strings/numbers.
 
 ```typescript
 // Single input version
-function getColorForInitial(input: string | number, opacity?: Percent): Hex8;
+getColorForInitial(input: string | number, opacity?: Percent): Hex8;
 
 // Array input version
-function getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
+getColorForInitial(input: ColorInputArray, opacity?: Percent): Hex8[];
 ```
 
 ### Parameters

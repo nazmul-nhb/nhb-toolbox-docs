@@ -10,7 +10,7 @@ The `reverseNumber` function reverses the digits of a given number. For negative
 ### Function Signature
 
 ```typescript
-function reverseNumber(num: Numeric): number;
+reverseNumber(num: Numeric): number;
 ```
 
 ### Parameters

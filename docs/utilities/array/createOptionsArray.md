@@ -10,7 +10,7 @@ Converts an array of objects into a formatted array of options.
 ### Function Signature
 
 ```typescript
-function createOptionsArray <
+createOptionsArray <
  T extends GenericObject,
  K1 extends string = 'value',
  K2 extends string = 'label',

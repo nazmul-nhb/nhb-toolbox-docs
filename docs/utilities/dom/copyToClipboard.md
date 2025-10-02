@@ -16,7 +16,7 @@ import { copyToClipboard } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-async function copyToClipboard(text: string): Promise<void>
+copyToClipboard(text: string): Promise<void>
 ```
 
 ## Usage Examples

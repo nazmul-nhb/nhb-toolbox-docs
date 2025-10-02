@@ -20,20 +20,20 @@ import { sanitizeData } from 'nhb-toolbox';
 
 ```typescript
 // String version
-function sanitizeData(input: string): string;
+sanitizeData(input: string): string;
 
 // String array version
-function sanitizeData(input: string[]): string[];
+sanitizeData(input: string[]): string[];
 
 // Object version with return type control
-function sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
+sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
   object: T,
   options?: SanitizeOptions<T>,
   _return?: B
 ): B extends 'partial' ? FlattenPartial<T> : T;
 
 // Array version with return type control
-function sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
+sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
   array: T[],
   options?: SanitizeOptions<T>,
   _return?: B

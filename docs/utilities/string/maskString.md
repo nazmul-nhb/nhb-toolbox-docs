@@ -10,7 +10,7 @@ The `maskString` function masks a portion of a string for privacy while allowing
 ### Function Signature
 
 ```typescript
-function maskString(input: string, options?: MaskOptions): string;
+maskString(input: string, options?: MaskOptions): string;
 ```
 
 ### Parameters

@@ -16,7 +16,7 @@ Converts a number of minutes into a standardized "HH:MM" time string format.
 ### Function Signature
 
 ```typescript
-function convertMinutesToTime(minutes: Numeric): HourMinutes;
+convertMinutesToTime(minutes: Numeric): HourMinutes;
 ```
 
 ### Parameters
@@ -85,7 +85,7 @@ type Numeric = number | `${number}`;
 For 24-hour formatted output with leading zeros create custom function:
 
 ```ts
-function formatWithLeadingZero(minutes: number) {
+formatWithLeadingZero(minutes: number) {
   const [h, m] = convertMinutesToTime(minutes).split(':');
   return `${h.padStart(2, '0')}:${m}`;
 }

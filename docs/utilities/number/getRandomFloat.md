@@ -10,7 +10,7 @@ The `getRandomFloat` function generates a random floating-point number within a 
 ### Function Signature  
 
 ```typescript
-function getRandomFloat(min: Numeric, max: Numeric): number;
+getRandomFloat(min: Numeric, max: Numeric): number;
 ```
 
 ### Parameters  

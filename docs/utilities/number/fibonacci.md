@@ -21,7 +21,7 @@ Generates the first `limit` Fibonacci numbers iteratively.
 ### Function Signature
 
 ```ts
-function getFibonacciSeries(limit: Numeric): number[];
+getFibonacciSeries(limit: Numeric): number[];
 ```
 
 ### Parameters
@@ -53,7 +53,7 @@ Generates the first `limit` Fibonacci numbers using recursion with memoization.
 ### Function Signature
 
 ```ts
-function getFibonacciSeriesMemo(limit: Numeric): number[];
+getFibonacciSeriesMemo(limit: Numeric): number[];
 ```
 
 ### Parameters
@@ -129,7 +129,7 @@ Returns the Fibonacci number at the specified `index`.
 ### Function Signature
 
 ```ts
-function getNthFibonacci(index: Numeric): number;
+getNthFibonacci(index: Numeric): number;
 ```
 
 ### Parameters

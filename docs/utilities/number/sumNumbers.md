@@ -10,7 +10,7 @@ The `sumNumbers` function calculates the total sum of a set of numbers, acceptin
 ### Function Signature
 
 ```typescript
-function sumNumbers(...numbers: Numeric[]): number;
+sumNumbers(...numbers: Numeric[]): number;
 ```
 
 ### Parameters

@@ -20,7 +20,7 @@ import { throttleAction } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function throttleAction<T extends VoidFunction>( callback: T, delay?: number): ThrottledFn<T>
+throttleAction<T extends VoidFunction>( callback: T, delay?: number): ThrottledFn<T>
 ```
 
 ---

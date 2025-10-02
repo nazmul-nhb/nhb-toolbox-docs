@@ -13,7 +13,7 @@ Checks if a value is a valid non-empty `FormData` instance.
 ### Function Signature
 
 ```typescript
-function isValidFormData(value: unknown): value is FormData
+isValidFormData(value: unknown): value is FormData
 ```
 
 ### Parameters
@@ -51,7 +51,7 @@ Checks if a value is an `OriginFileObj` (extended `File` with UID). For `Ant-Des
 ### Function Signature
 
 ```typescript
-function isOriginFileObj(value: unknown): value is OriginFileObj
+isOriginFileObj(value: unknown): value is OriginFileObj
 ```
 
 ### Type Definition
@@ -89,7 +89,7 @@ Checks if a value is a `CustomFile` object.
 ### Function Signature
 
 ```typescript
-function isCustomFile(value: unknown): value is CustomFile
+isCustomFile(value: unknown): value is CustomFile
 ```
 
 ### Type Definition
@@ -162,7 +162,7 @@ Checks if a value is an array of CustomFile objects.
 ### Function Signature
 
 ```typescript
-function isCustomFileArray(value: unknown): value is CustomFile[]
+isCustomFileArray(value: unknown): value is CustomFile[]
 ```
 
 ### Validation Rules
@@ -186,7 +186,7 @@ Checks if a value is an array of native File objects.
 ### Function Signature
 
 ```typescript
-function isFileArray(value: unknown): value is File[] | Blob[]
+isFileArray(value: unknown): value is File[] | Blob[]
 ```
 
 ### Validation Rules
@@ -210,7 +210,7 @@ Checks if a value is a FileList instance.
 ### Function Signature
 
 ```typescript
-function isFileList(value: unknown): value is FileList
+isFileList(value: unknown): value is FileList
 ```
 
 ### Validation Rules
@@ -234,7 +234,7 @@ Checks if a given value is an instance of `File` or `Blob`.
 ### Function Signature
 
 ```typescript
-function isFileOrBlob(value: unknown): value is File | Blob
+isFileOrBlob(value: unknown): value is File | Blob
 ```
 
 ### Validation Rules
@@ -260,7 +260,7 @@ Checks if a value is a FileUpload object.
 ### Function Signature
 
 ```typescript
-function isFileUpload(value: unknown): value is FileUpload
+isFileUpload(value: unknown): value is FileUpload
 ```
 
 ### Type Definition

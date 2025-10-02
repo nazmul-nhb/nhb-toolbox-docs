@@ -10,7 +10,7 @@ The `rotateArray` function rotates an array to the left or right by a specified 
 ### Function Signature
 
 ```typescript
-function rotateArray<T>(arr: T[], steps: number): T[]
+rotateArray<T>(arr: T[], steps: number): T[]
 ```
 
 ### Parameters

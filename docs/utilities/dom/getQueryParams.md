@@ -16,7 +16,7 @@ import { getQueryParams } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function getQueryParams(): Record<string, string>
+getQueryParams(): Record<string, string>
 ```
 
 ## Usage Examples

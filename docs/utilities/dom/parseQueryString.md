@@ -19,10 +19,7 @@ import { queryStringToObject } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-function parseQueryString(
-  query: string,
-  parsePrimitives?: boolean
-): StrictObject
+parseQueryString(query: string, parsePrimitives?: boolean): StrictObject
 ```
 
 ## Usage Examples
