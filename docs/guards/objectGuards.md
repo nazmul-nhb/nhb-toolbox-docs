@@ -108,10 +108,7 @@ function processConfig(config: unknown) {
 ## isObjectWithKeys
 
 ```typescript
-function isObjectWithKeys<T extends Record<string, unknown>>(
-  value: unknown,
-  keys: (keyof T)[]
-): value is T
+function isObjectWithKeys<Key extends string>(value: unknown, keys: ValidArray<Key>): value is Record<Key, unknown>
 ```
 
 ### Description
@@ -133,12 +130,17 @@ interface Person {
 }
 
 function validatePerson(data: unknown): Person {
-  if (isObjectWithKeys<Person>(data, ['name', 'age']) &&
-      isString(data.name) && 
-      isNumber(data.age)) {
-    return data; // data is now Person
+  if (
+    isObjectWithKeys(data, ['name', 'age']) &&
+    isString(data.name) &&
+    isNumber(data.age)
+  ) {
+    const { name, age } = data;
+
+    return { name, age }; // data is now Person
+  } else {
+    throw new Error('Invalid person data');
   }
-  throw new Error('Invalid person data');
 }
 
 // Edge cases

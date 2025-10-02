@@ -43,10 +43,10 @@ importers:
         version: 17.2.2
       nhb-hooks:
         specifier: ^1.14.0
-        version: 1.14.0(nhb-toolbox@4.20.52)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.0(nhb-toolbox@4.20.54)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.20.52
-        version: 4.20.52
+        specifier: ^4.20.54
+        version: 4.20.54
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -79,8 +79,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       nhb-scripts:
-        specifier: ^1.8.80
-        version: 1.8.80
+        specifier: ^1.8.81
+        version: 1.8.81
       typescript:
         specifier: ~5.9.2
         version: 5.9.2
@@ -1488,10 +1488,6 @@ packages:
   '@sindresorhus/is@5.6.0':
     resolution: {integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==}
     engines: {node: '>=14.16'}
-
-  '@sindresorhus/merge-streams@2.3.0':
-    resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
-    engines: {node: '>=18'}
 
   '@sindresorhus/merge-streams@4.0.0':
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
@@ -3067,9 +3063,9 @@ packages:
     resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  globby@14.1.0:
-    resolution: {integrity: sha512-0Ia46fDOaT7k4og1PDW4YbodWWr3scS2vAr2lTbsplOt2WkKp0vQbkI9wKis/T5LV/dqPjO3bpS/z6GTJB82LA==}
-    engines: {node: '>=18'}
+  globby@15.0.0:
+    resolution: {integrity: sha512-oB4vkQGqlMl682wL1IlWd02tXCbquGWM4voPEI85QmNKCaw8zGTm1f1rubFgkg3Eli2PtKlFgrnmUqasbQWlkw==}
+    engines: {node: '>=20'}
 
   goober@2.1.16:
     resolution: {integrity: sha512-erjk19y1U33+XAMe1VTvIONHYoSqE4iS7BYUZfHaqeohLmnC0FdxEh7rQU+6MZ4OajItzjZFSRtVANrQwNq6/g==}
@@ -3987,13 +3983,13 @@ packages:
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  nhb-scripts@1.8.80:
-    resolution: {integrity: sha512-rDUJPuauwtS4uqcJr0hXYUz9jxmDSRZvvuimORJDeiHCfRcs89vNVsu5IeNVdacJvIZkwM2ZC2a/1FbTY2NMdg==}
+  nhb-scripts@1.8.81:
+    resolution: {integrity: sha512-Dgd3BKq2AYmf3MXgk2I5JUtNp8XjIoAiBl/OFDmQXeZPsDiGDxeJEiVV0kDnbYegIbaYSrBlPFnHecUr0L3YjA==}
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.20.52:
-    resolution: {integrity: sha512-p08RLTYdCoaH+yggQc96P7xYoA/DWH+YHOB4NjUqJmwDPm0dWsbI6eoGcd6pj/Y6JeTYgTeSqvbtolPxHBMOxg==}
+  nhb-toolbox@4.20.54:
+    resolution: {integrity: sha512-zL/3X6aSAsOjxUeaPSeLieQaDaerobXLk93cnaSe1Y2PelK+6TSIB/xlvWXRqTc/krDL3TPKeGS2af5s+tFnXQ==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -7860,8 +7856,6 @@ snapshots:
 
   '@sindresorhus/is@5.6.0': {}
 
-  '@sindresorhus/merge-streams@2.3.0': {}
-
   '@sindresorhus/merge-streams@4.0.0': {}
 
   '@slorber/react-helmet-async@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
@@ -9530,9 +9524,9 @@ snapshots:
       merge2: 1.4.1
       slash: 4.0.0
 
-  globby@14.1.0:
+  globby@15.0.0:
     dependencies:
-      '@sindresorhus/merge-streams': 2.3.0
+      '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
       ignore: 7.0.5
       path-type: 6.0.0
@@ -10711,27 +10705,27 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.14.0(nhb-toolbox@4.20.52)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.14.0(nhb-toolbox@4.20.54)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.20.52
+      nhb-toolbox: 4.20.54
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@1.8.80:
+  nhb-scripts@1.8.81:
     dependencies:
       '@clack/prompts': 0.11.0
       chalk: 5.6.2
       execa: 9.6.0
-      globby: 14.1.0
+      globby: 15.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.20.52
+      nhb-toolbox: 4.20.54
       progress-estimator: 0.3.1
       rimraf: 6.0.1
       semver: 7.7.2
       type-fest: 5.0.1
       typescript: 5.9.2
 
-  nhb-toolbox@4.20.52: {}
+  nhb-toolbox@4.20.54: {}
 
   no-case@3.0.4:
     dependencies:
