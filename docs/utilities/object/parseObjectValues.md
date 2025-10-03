@@ -7,29 +7,29 @@ title: Parse Object Values
 
 Recursively converts stringified primitive values within objects and arrays to their proper types (boolean, number, null, etc.), while preserving non-string values and handling nested structures.
 
-## Import
+### Import
 
 ```typescript
 import { parseObjectValues } from 'nhb-toolbox';
 import { parseStringifiedObjectValues } from 'nhb-toolbox';
 ```
 
-## Function Signature
+### Function Signature
 
 ```typescript
 parseObjectValues<T>(object: T, parseNested?: boolean): { [K in keyof T]: any; }
 ```
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 /** Generic object with any value */
 type GenericObject = Record<string, any>;
 ```
 
-## Usage Examples
+### Usage Examples
 
-### Basic Primitive Conversion
+#### Basic Primitive Conversion
 
 ```typescript
 const config = {
@@ -48,7 +48,7 @@ parseObjectValues(config);
 // }
 ```
 
-### Nested Object Parsing
+#### Nested Object Parsing
 
 ```typescript
 const userData = {
@@ -77,7 +77,7 @@ parseObjectValues(userData);
 // }
 ```
 
-### Disabling Nested Parsing
+#### Disabling Nested Parsing
 
 ```typescript
 const nested = {
@@ -92,26 +92,26 @@ parseObjectValues(nested, false);
 // }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description |
 |------|-------------|
 | `T`  | Type of input object |
 
-### Parameters
+#### Parameters
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | `object` | `T` | | Object containing stringified values |
 | `parseNested` | `boolean` | `true` | Whether to recursively parse nested objects/arrays |
 
-### Returns
+#### Returns
 
 A new object with the same structure but parsed values.
 
-## Conversion Rules
+### Conversion Rules
 
 | Input Value Type | Example Input | Output Value |
 |-----------------|--------------|--------------|
@@ -126,7 +126,7 @@ A new object with the same structure but parsed values.
 | Other strings | "hello" | "hello" (unchanged) |
 | Non-string values | `{key: true}` | `{key: true}` (unchanged) |
 
-## Key Features
+### Key Features
 
 1. **Deep Parsing**: Recursively processes nested objects and arrays by default
 2. **JSON Support**: Automatically parses valid JSON strings
@@ -134,14 +134,14 @@ A new object with the same structure but parsed values.
 4. **Configurable**: Optional control over nested parsing
 5. **Error Tolerant**: Silently skips invalid JSON strings
 
-## Limitations
+### Limitations
 
 1. **No Date Parsing**: ISO date strings remain as strings
 2. **No Custom Revivers**: Can't handle special class instances
 3. **Performance Impact**: Deep parsing large objects may be slow
 4. **String Whitelist**: Only converts specific primitive patterns
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API response normalization
 - Environment variable processing
@@ -150,15 +150,15 @@ A new object with the same structure but parsed values.
 - Query parameter conversion
 - Local storage value hydration
 
-## Aliases
+### Aliases
 
 This function is also exported as:
 
 - `parseStringifiedObjectValues`
 
-## Common Patterns
+### Common Patterns
 
-### Processing API Responses
+#### Processing API Responses
 
 ```typescript
 const rawResponse = await fetch('/api/config');
@@ -166,7 +166,7 @@ const parsedConfig = parseObjectValues(await rawResponse.json());
 // parsedConfig has proper typed values
 ```
 
-### Environment Variable Handling
+#### Environment Variable Handling
 
 ```typescript
 const env = parseObjectValues({
@@ -176,7 +176,7 @@ const env = parseObjectValues({
 // PORT converted to number, DEBUG to boolean
 ```
 
-### Form Data Conversion
+#### Form Data Conversion
 
 ```typescript
 handleSubmit(formData: FormData) {

@@ -10,22 +10,22 @@ import TabItem from '@theme/TabItem';
 
 > Extracts the keys of an object with proper typing.
 
-## Import
+### Import
 
 ```typescript
 import { extractObjectKeys } from 'nhb-toolbox';
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const obj = { a: 1, b: 2, c: 3 };
 const keys = extractObjectKeys(obj); // Returns ['a', 'b', 'c']
 ```
 
-### With Empty Object
+#### With Empty Object
 >
 > TypeScript will complain and it will return empty array.
 
@@ -33,7 +33,7 @@ const keys = extractObjectKeys(obj); // Returns ['a', 'b', 'c']
 const keys = extractObjectKeys({}); // Returns []
 ```
 
-### With Null/Undefined
+#### With Null/Undefined
 >
 > TypeScript will complain and it will return empty array.
 
@@ -42,25 +42,25 @@ const keys = extractObjectKeys(null); // Returns []
 const keys = extractObjectKeys(undefined); // Returns []
 ```
 
-## API
+### API
 
-### Type Parameters
+#### Type Parameters
 
 | Parameter | Description           |
 | --------- | --------------------- |
 | `T`       | A generic object type |
 
-### Parameters
+#### Parameters
 
 | Parameter | Type | Description                     |
 | --------- | ---- | ------------------------------- |
 | `obj`     | `T`  | The object to extract keys from |
 
-### Return Value
+#### Return Value
 
 `Array<keyof T>`: An array of keys from the specified object, or empty array if the object is null/undefined/empty.
 
-## Examples
+### Examples
 
 <Tabs>
 <TabItem value="simple" label="Simple Object" default>
@@ -115,9 +115,9 @@ extractObjectKeys(123); // []
 </TabItem>
 </Tabs>
 
-##
+---
 
-## Notes
+### Notes
 
 - This function only returns top-level (own) enumerable properties
 - Returns an empty array for empty objects, null, undefined, or non-object values
@@ -126,3 +126,5 @@ extractObjectKeys(123); // []
 - Inherited properties are not included (only own properties)
 - The return type is properly typed as `Array<keyof T>` for better TypeScript support
 - For nested objects, only the top-level keys are extracted
+
+## extractObjectKeysDeep

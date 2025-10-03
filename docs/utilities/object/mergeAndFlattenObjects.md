@@ -7,21 +7,21 @@ title: Merge And Flatten Objects
 
 Deeply merges multiple objects and flattens the resulting structure using dot notation. Duplicate keys are resolved with last-in-wins behavior.
 
-## Import
+### Import
 
 ```typescript
 import { mergeAndFlattenObjects } from 'nhb-toolbox';
 ```
 
-## Function Signature(s)
+### Function Signature(s)
 
 ```typescript
 mergeAndFlattenObjects<T extends GenericObject>(...objects: T[]): T
 ```
 
-## Usage
+### Usage
 
-### Basic Merging
+#### Basic Merging
 
 ```typescript
 const obj1 = { a: 1, b: { c: 2 } };
@@ -30,25 +30,25 @@ const result = mergeAndFlattenObjects(obj1, obj2);
 // Returns { 'a': 1, 'b.c': 2, 'b.d': 3, 'e': 4 }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description           |
 | ---- | --------------------- |
 | `T`  | Type of input objects |
 
-### Parameters
+#### Parameters
 
 | Name         | Type  | Description                 |
 | ------------ | ----- | --------------------------- |
 | `...objects` | `T[]` | Objects to merge (variadic) |
 
-### Returns
+#### Returns
 
 `FlattenDotValue<MergeAll<T>>`: Single merged object (properly typed) with dot-notation keys
 
-## Key Features
+### Key Features
 
 1. **Deep Merging**: Combines multiple objects recursively
 2. **Dot Notation**: Flattens structure with nested keys
@@ -56,9 +56,9 @@ const result = mergeAndFlattenObjects(obj1, obj2);
 4. **Type Safety**: Maintains proper TypeScript typing
 5. **Non-Destructive**: Doesn't modify input objects
 
-## Examples
+### Examples
 
-### Multiple Object Merge
+#### Multiple Object Merge
 
 ```typescript
 const defaults = { theme: { color: 'blue' } };
@@ -72,7 +72,7 @@ mergeAndFlattenObjects(defaults, userPrefs, session);
 // }
 ```
 
-### Conflict Resolution
+#### Conflict Resolution
 
 ```typescript
 const a = { settings: { timeout: 30 } };
@@ -81,19 +81,19 @@ mergeAndFlattenObjects(a, b);
 // { 'settings.timeout': 60 }
 ```
 
-## Limitations
+### Limitations
 
 1. **Arrays**: Treated as terminal values (not merged)
 2. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 3. **Special Objects**: Date, Map, Set etc. treated as terminal values
 
-## Type Definition
+### Type Definition
 
 ```typescript
 type GenericObject = Record<string, any>;
 ```
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Configuration merging
 - Deep object composition
@@ -101,7 +101,7 @@ type GenericObject = Record<string, any>;
 - API response consolidation
 - State management updates
 
-## Comparison with Similar Functions
+### Comparison with Similar Functions
 
 | Feature          | mergeAndFlattenObjects | [mergeObjects](mergeObjects) |
 | ---------------- | ---------------------- | ---------------------------- |

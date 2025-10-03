@@ -7,7 +7,7 @@ title: Delete Object Fields
 
 Creates a new object by removing specified properties from a source object.
 
-## Import  
+### Import  
 
 ```typescript  
 // Main function  
@@ -23,7 +23,7 @@ import {
 } from 'nhb-toolbox';  
 ```  
 
-## Function Signature(s)  
+### Function Signature(s)  
 
 ```typescript  
 deleteFields<T extends GenericObject, U extends keyof T>(
@@ -32,9 +32,9 @@ deleteFields<T extends GenericObject, U extends keyof T>(
 ): { [K in Exclude<keyof T, U>]: T[K] }
 ```  
 
-## Usage  
+### Usage  
 
-### Basic Usage  
+#### Basic Usage  
 
 ```typescript  
 const user = {
@@ -48,36 +48,36 @@ const filtered = deleteFields(user, ['email', 'age']);
 // Returns { id: 1, name: 'John' }
 ```  
 
-## API Reference  
+### API Reference  
 
-### Type Parameters  
+#### Type Parameters  
 
 | Name | Description            |
 | ---- | ---------------------- |
 | `T`  | Type of source object  |
 | `U`  | Type of keys to delete |
 
-### Parameters  
+#### Parameters  
 
 | Name     | Type           | Description                         |
 | -------- | -------------- | ----------------------------------- |
 | `source` | `T`            | Source object to delete fields from |
 | `keys`   | `readonly U[]` | Array of property keys to delete    |
 
-### Returns  
+#### Returns  
 
 A new object excluding the specified properties  
 
-## Key Features  
+### Key Features  
 
 1. **Type Safe**: Maintains proper TypeScript typing  
 2. **Non-Destructive**: Creates new object without modifying original  
 3. **Simple API**: Easy to use with clear intent  
 4. **Performance**: Efficient implementation  
 
-## Examples  
+### Examples  
 
-### Nested Objects  
+#### Nested Objects  
 
 ```typescript  
 const book = {
@@ -96,7 +96,7 @@ deleteFields(book, ['author']);
 // }
 ```  
 
-### With Optional Fields  
+#### With Optional Fields  
 
 ```typescript  
 interface Product {
@@ -115,12 +115,12 @@ deleteFields(laptop, ['price']);
 // Returns { id: 101, name: 'MacBook Pro' }
 ```  
 
-## Limitations  
+### Limitations  
 
 1. **No Deep Deletion**: Only works with top-level properties  
 2. **No Dot Notation**: Doesn't support nested property paths  
 
-## Recommended Use Cases  
+### Recommended Use Cases  
 
 - Removing sensitive data before logging  
 - Creating subset objects for API responses  
@@ -128,7 +128,7 @@ deleteFields(laptop, ['price']);
 - Data redaction/obfuscation  
 - Preparing payloads for different contexts  
 
-## Aliases  
+### Aliases  
 
 This function is also exported as:  
 
@@ -138,7 +138,7 @@ This function is also exported as:
 - `removeFields`  
 - `removeObjectFields`  
 
-## Related Functions  
+### Related Functions  
 
 - [pickFields](pickFields) - Select specific object fields  
 - [remapFields](remapFields) - Remap object fields

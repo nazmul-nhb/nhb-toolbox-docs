@@ -7,15 +7,15 @@ title: Flatten Object Key Value
 
 Recursively flattens a nested object structure into a single-level object while preserving leaf values.
 
-## Import
+### Import
 
 ```typescript
 import { flattenObjectKeyValue } from 'nhb-toolbox';
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const nested = { 
@@ -30,25 +30,25 @@ const flat = flattenObjectKeyValue(nested);
 // Returns { name: 'John', age: 30 }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description          |
 | ---- | -------------------- |
 | `T`  | Type of input object |
 
-### Parameters
+#### Parameters
 
 | Name     | Type | Description              |
 | -------- | ---- | ------------------------ |
 | `object` | `T`  | Nested object to flatten |
 
-### Returns
+#### Returns
 
 `FlattenLeafValue<MergeAll<[T]>>`: Flat object with all leaf values (type cast to input types)
 
-## Key Features
+### Key Features
 
 1. **Deep Flattening**: Recursively processes nested objects
 2. **Value Preservation**: Maintains all terminal values
@@ -56,9 +56,9 @@ const flat = flattenObjectKeyValue(nested);
 4. **Type Safety**: Maintains proper TypeScript typing
 5. **Simple Output**: Single-level key-value structure
 
-## Examples
+### Examples
 
-### Simple Nesting
+#### Simple Nesting
 
 ```typescript
 const obj = { a: 1, b: { c: 2, d: { e: 3 } } };
@@ -66,7 +66,7 @@ flattenObjectKeyValue(obj);
 // { a: 1, c: 2, e: 3 }
 ```
 
-### Mixed Types
+#### Mixed Types
 
 ```typescript
 const data = {
@@ -82,19 +82,19 @@ flattenObjectKeyValue(data);
 // { version: '1.0', debug: true, items: ['a', 'b'] }
 ```
 
-## Limitations
+### Limitations
 
 1. **Key Collisions**: Nested objects may have duplicate keys that get overwritten
 2. **Arrays**: Treated as terminal values (not flattened)
 3. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 
-## Type Definition
+### Type Definition
 
 ```typescript
 type GenericObject = Record<string, any>;
 ```
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Simplifying complex configurations
 - Preparing data for key-value stores
@@ -102,7 +102,7 @@ type GenericObject = Record<string, any>;
 - Form data processing
 - API response simplification
 
-## Kye differences from [flattenObjectDotNotation](flattenObjectDotNotation)
+### Kye differences from [flattenObjectDotNotation](flattenObjectDotNotation)
 
 1. Doesn't use dot notation - merges keys at root level
 2. More aggressive flattening (loses structural information)

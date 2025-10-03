@@ -7,7 +7,7 @@ title: Pick Object Fields By Condition
 
 Creates a new object containing only the properties that satisfy a given condition.
 
-## Import
+### Import
 
 ```typescript
 // Main function
@@ -17,7 +17,7 @@ import { pickObjectFieldsByCondition } from 'nhb-toolbox';
 import { pickFieldsByCondition } from 'nhb-toolbox';
 ```
 
-## Function Signature(s)
+### Function Signature
 
 ```typescript
 pickObjectFieldsByCondition<T extends GenericObject>(
@@ -26,9 +26,9 @@ pickObjectFieldsByCondition<T extends GenericObject>(
 ): Partial<T>
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const user = {
@@ -47,35 +47,35 @@ const stringFields = pickObjectFieldsByCondition(
 // Returns { name: 'John', email: 'john@example.com' }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description |
 |------|-------------|
 | `T`  | Type of source object |
 
-### Parameters
+#### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | `source` | `T` | Source object to pick from |
 | `condition` | `(key: keyof T, value: T[keyof T]) => boolean` | Function that determines if a property should be picked |
 
-### Returns
+#### Returns
 
 `Partial<T>`: New object containing only the properties that satisfy the condition
 
-## Key Features
+### Key Features
 
 1. **Flexible Filtering**: Condition can be based on key, value, or both
 2. **Type Safe**: Maintains TypeScript typing
 3. **Non-Destructive**: Creates new object without modifying original
 4. **Deep Inspection**: Can evaluate both keys and values
 
-## Examples
+### Examples
 
-### Pick Non-Null Values
+#### Pick Non-Null Values
 
 ```typescript
 const data = {
@@ -89,7 +89,7 @@ pickObjectFieldsByCondition(data, (key, value) => value != null);
 // Returns { title: 'Document', author: 'Jane' }
 ```
 
-### Pick Numeric Fields
+#### Pick Numeric Fields
 
 ```typescript
 const product = {
@@ -106,7 +106,7 @@ pickObjectFieldsByCondition(
 // Returns { id: 101, price: 999.99 }
 ```
 
-### Key-Based Selection
+#### Key-Based Selection
 
 ```typescript
 const config = {
@@ -123,13 +123,13 @@ pickObjectFieldsByCondition(
 // Returns { retryCount: 3, debugMode: false }
 ```
 
-## Limitations
+### Limitations
 
 1. **Shallow Only**: Doesn't recursively inspect nested objects
 2. **No Dot Notation**: Can't filter nested properties by path
 3. **Performance**: Slower than `pickFields` for simple key selection
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Filtering object properties by type
 - Removing null/undefined values
@@ -137,12 +137,12 @@ pickObjectFieldsByCondition(
 - Data cleaning and normalization
 - Creating view-specific object subsets
 
-## Aliases
+### Aliases
 
 This function is also exported as:
 
 - `pickFieldsByCondition`
 
-## Related Functions
+### Related Functions
 
 - [pickFields](pickFields) - For simple key-based selection

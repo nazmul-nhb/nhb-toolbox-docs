@@ -7,15 +7,15 @@ title: Extract Updated & New Fields
 
 Identifies both changed and newly added fields between two objects, including deep/nested changes.
 
-## Import
+### Import
 
 ```typescript
 import { extractUpdatedAndNewFields } from 'nhb-toolbox';
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const original = { name: 'John', age: 30 };
@@ -24,36 +24,36 @@ const changes = extractUpdatedAndNewFields(original, updated);
 // Returns { name: 'Jane', role: 'admin' }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
-| Name | Description |
-|------|-------------|
-| `T`  | Type of base object |
+| Name | Description                  |
+| ---- | ---------------------------- |
+| `T`  | Type of base object          |
 | `U`  | Type of potential new fields |
 
-### Parameters
+#### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
-| `baseObject` | `T` | Original reference object |
-| `updatedObject` | `FlattenPartial<T> & FlattenPartial<U>` | Modified object |
+| Name            | Type                                    | Description               |
+| --------------- | --------------------------------------- | ------------------------- |
+| `baseObject`    | `T`                                     | Original reference object |
+| `updatedObject` | `FlattenPartial<T> & FlattenPartial<U>` | Modified object           |
 
-### Returns
+#### Returns
 
 Combined object with both changed and new fields (`FlattenPartial<T> & FlattenPartial<U>`)
 
-## Key Features
+### Key Features
 
 1. **Changed Fields**: Detects modified values (deep comparison)
 2. **New Fields**: Identifies newly added keys
 3. **Nested Objects**: Recursively compares object structures
 4. **Type Safety**: Maintains proper TypeScript typing
 
-## Examples
+### Examples
 
-### With Nested Objects
+#### With Nested Objects
 
 ```typescript
 const v1 = { user: { id: 1 }, settings: {} };
@@ -62,7 +62,7 @@ extractUpdatedAndNewFields(v1, v2);
 // Returns { user: { name: 'Alice' }, settings: { darkMode: true } }
 ```
 
-### Mixed Changes
+#### Mixed Changes
 
 ```typescript
 const config = { timeout: 30 };
@@ -71,20 +71,20 @@ extractUpdatedAndNewFields(config, updatedConfig);
 // Returns { timeout: 60, retries: 3 }
 ```
 
-## Limitations
+### Limitations
 
 1. **Circular References**: Not supported
 2. **Array Changes**: Treats arrays as atomic values
 3. **Special Types**: May not handle custom class instances properly
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 type GenericObject = Record<string, any>;
 type FlattenPartial<T> = Partial<{ [K in keyof T]: T[K] }>;
 ```
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API response diffing
 - Form change detection

@@ -7,21 +7,21 @@ title: Merge Objects
 
 Deeply merges two or more objects using a Map for efficient key-value storage and conflict resolution.
 
-## Import
+### Import
 
 ```typescript
 import { mergeObjects } from 'nhb-toolbox';
 ```
 
-## Function Signature(s)
+### Function Signature(s)
 
 ```typescript
 mergeObjects<T extends GenericObject>(...objects: T[]): T
 ```
 
-## Usage
+### Usage
 
-### Basic Merging
+#### Basic Merging
 
 ```typescript
 const obj1 = { a: 1, b: { x: 10 } };
@@ -30,34 +30,34 @@ const merged = mergeObjects(obj1, obj2);
 // Returns { a: 1, b: { x: 10, y: 20 }, c: 3 }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description           |
 | ---- | --------------------- |
 | `T`  | Type of input objects |
 
-### Parameters
+#### Parameters
 
 | Name         | Type  | Description                 |
 | ------------ | ----- | --------------------------- |
 | `...objects` | `T[]` | Objects to merge (variadic) |
 
-### Returns
+#### Returns
 
 `MergeAll<T>`: A new object (properly typed) containing the merged result
 
-## Key Features
+### Key Features
 
 1. **Deep Merging**: Recursively combines nested objects
 2. **Efficient**: Uses Map for better performance with many keys
 3. **Non-Destructive**: Preserves all input objects
 4. **Type Safe**: Maintains TypeScript type information
 
-## Examples
+### Examples
 
-### Multiple Object Merge
+#### Multiple Object Merge
 
 ```typescript
 const base = { theme: { color: 'blue' }, debug: false };
@@ -71,7 +71,7 @@ mergeObjects(base, user, session);
 // }
 ```
 
-### Conflict Resolution
+#### Conflict Resolution
 
 ```typescript
 const defaultConfig = { timeout: 30, retries: 3 };
@@ -81,20 +81,20 @@ mergeObjects(defaultConfig, customConfig);
 // { timeout: 60, retries: 3 }
 ```
 
-## Limitations
+### Limitations
 
 1. **Arrays**: Overwrites entire arrays (does not merge)
 2. **Special Objects**: Date, Map, Set etc. are treated as primitives
 3. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 4. **Prototypes**: May not preserve prototype chains in certain scenarios
 
-## Type Definition
+### Type Definition
 
 ```typescript
 type GenericObject = Record<string, any>;
 ```
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Configuration management
 - State hydration
@@ -102,7 +102,7 @@ type GenericObject = Record<string, any>;
 - Deep object composition
 - Default value application
 
-## Comparison with Similar Functions
+### Comparison with Similar Functions
 
 | Feature          | mergeObjects | [mergeAndFlattenObjects](mergeAndFlattenObjects) |
 | ---------------- | ------------ | ------------------------------------------------ |

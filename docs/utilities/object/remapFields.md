@@ -7,14 +7,14 @@ title: Remap Object Fields
 
 Transforms an object's structure by mapping properties to new names according to a provided field mapping.
 
-## Import
+### Import
 
 ```typescript
 import { remapFields } from 'nhb-toolbox';
 import { remapObjectFields } from 'nhb-toolbox';
 ```
 
-## Function Signature
+### Function Signature
 
 ```typescript
 remapFields<Source extends GenericObject, Target extends Record<string, keyof Source>>(
@@ -23,9 +23,9 @@ remapFields<Source extends GenericObject, Target extends Record<string, keyof So
 ): { [K in keyof Target]: Source[Target[K]] }
 ```
 
-## Usage Examples
+### Usage Examples
 
-### Basic Field Renaming
+#### Basic Field Renaming
 
 ```typescript
 const user = {
@@ -42,7 +42,7 @@ const mappedUser = remapFields(user, {
 // Returns { id: 123, name: 'John Doe', email: 'john@example.com' }
 ```
 
-### Partial Remapping
+#### Partial Remapping
 
 ```typescript
 const product = {
@@ -59,27 +59,27 @@ const inventoryItem = remapFields(product, {
 // Returns { id: 'P100', name: 'Laptop' }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description |
 |------|-------------|
 | `Source` | Type of source object |
 | `Target` | Object type mapping target keys to source keys |
 
-### Parameters
+#### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | `source` | `Source` | Source object to remap |
 | `fieldMap` | `Target` | Mapping of target keys to source keys |
 
-### Returns
+#### Returns
 
 An object with the same keys as `fieldMap` and corresponding value types from `source`
 
-## Key Features
+### Key Features
 
 1. **Type Safe**: Preserves value types from source object
 2. **Selective Mapping**: Only includes fields specified in fieldMap
@@ -87,19 +87,19 @@ An object with the same keys as `fieldMap` and corresponding value types from `s
 4. **Flexible**: Works with partial mappings
 5. **Simple Types**: No complex generic type parameters needed
 
-## Aliases
+### Aliases
 
 This function is also exported as:
 
 - `remapObjectFields`
 
-## Limitations
+### Limitations
 
 1. **Shallow Only**: Doesn't handle nested object remapping
 2. **No Transformation**: Only renames fields, doesn't transform values
 3. **No Defaults**: Missing fields become undefined, optional field's type will be `type` or `undefined`
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API response reshaping
 - Data normalization

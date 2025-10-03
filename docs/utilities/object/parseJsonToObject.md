@@ -7,13 +7,13 @@ title: Parse JSON To Object
 
 Safely parses a JSON string into an object with optional primitive value conversion.
 
-## Import
+### Import
 
 ```typescript
 import { parseJsonToObject } from 'nhb-toolbox';
 ```
 
-## Function Signature(s)
+### Function Signature(s)
 
 ```typescript
 parseJsonToObject<T extends GenericObject = GenericObject>(
@@ -22,9 +22,9 @@ parseJsonToObject<T extends GenericObject = GenericObject>(
 ): T
 ```
 
-## Usage
+### Usage
 
-### Basic Parsing
+#### Basic Parsing
 
 ```typescript
 const jsonString = '{"num":"42","bool":"true","text":"hello"}';
@@ -32,7 +32,7 @@ const result = parseJsonToObject(jsonString);
 // Returns { num: 42, bool: true, text: "hello" }
 ```
 
-### Without Primitive Conversion
+#### Without Primitive Conversion
 
 ```typescript
 const jsonString = '{"num":"42","valid":true}';
@@ -40,35 +40,35 @@ const result = parseJsonToObject(jsonString, false);
 // Returns { num: "42", valid: true }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
-| Name | Description |
-|------|-------------|
+| Name | Description                             |
+| ---- | --------------------------------------- |
 | `T`  | Return type (defaults to GenericObject) |
 
-### Parameters
+#### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
-| `value` | `string` | JSON string to parse |
+| Name              | Type      | Description                                    |
+| ----------------- | --------- | ---------------------------------------------- |
+| `value`           | `string`  | JSON string to parse                           |
 | `parsePrimitives` | `boolean` | Convert stringified primitives (default: true) |
 
-### Returns
+#### Returns
 
 `T`: Parsed object (or empty object on failure)
 
-## Key Features
+### Key Features
 
 1. **Safe Parsing**: Returns empty object on failure
 2. **Primitive Conversion**: Optionally converts string values to primitives
 3. **Type Safety**: Ensures return value is always an object
 4. **Strict Validation**: Rejects non-object root elements
 
-## Examples
+### Examples
 
-### Handling Invalid JSON
+#### Handling Invalid JSON
 
 ```typescript
 parseJsonToObject('invalid json'); // Returns {}
@@ -76,7 +76,7 @@ parseJsonToObject('"just a string"'); // Returns {}
 parseJsonToObject('null'); // Returns {}
 ```
 
-### Nested Conversion
+#### Nested Conversion
 
 ```typescript
 const json = '{"nested":{"bool":"false","num":"3.14"}}';
@@ -84,20 +84,20 @@ parseJsonToObject(json);
 // Returns { nested: { bool: false, num: 3.14 } }
 ```
 
-## Limitations
+### Limitations
 
 1. **Non-Objects**: Rejects valid JSON with non-object roots
 2. **Complex Types**: Doesn't handle Date, RegExp etc.
 3. **Custom Classes**: Loses class instances
 4. **Circular References**: Cannot parse circular structures
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 type GenericObject = Record<string, any>;
 ```
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API response parsing
 - Configuration loading
@@ -105,7 +105,7 @@ type GenericObject = Record<string, any>;
 - Strict object parsing
 - Safe JSON processing
 
-## Related Functions
+### Related Functions
 
 - `parseJSON`: For parsing any JSON value (not just objects)
 - [parseObjectValues](parseObjectValues): The primitive conversion utility used internally

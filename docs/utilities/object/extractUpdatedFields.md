@@ -7,15 +7,15 @@ title: Extract Updated Fields
 
 Extracts only the fields that have changed between two objects, including deep/nested changes.
 
-## Import
+### Import
 
 ```typescript
 import { extractUpdatedFields } from 'nhb-toolbox';
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const original = { name: 'John', age: 30 };
@@ -24,7 +24,7 @@ const changes = extractUpdatedFields(original, updated);
 // Returns { age: 31 }
 ```
 
-### Nested Objects
+#### Nested Objects
 
 ```typescript
 const v1 = { user: { id: 1, profile: { name: 'Alice' } } };
@@ -33,35 +33,35 @@ extractUpdatedFields(v1, v2);
 // Returns { }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description |
 |------|-------------|
 | `T`  | Type of the base object |
 
-### Parameters
+#### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | `baseObject` | `T` | Original reference object |
 | `updatedObject` | `FlattenPartial<T>` | Object containing potential updates |
 
-### Returns
+#### Returns
 
 `FlattenPartial<T>`: New object containing only changed fields (shallow copy)
 
-## Behavior
+### Behavior
 
 1. **Value Comparison**: Uses deep equality check to detect changes
 2. **Nested Objects**: Recursively compares nested object structures
 3. **Empty Results**: Returns empty object if no changes found
 4. **Reference Safety**: Never modifies input objects
 
-## Examples
+### Examples
 
-### Detecting Configuration Changes
+#### Detecting Configuration Changes
 
 ```typescript
 const oldConfig = { theme: 'dark', timeout: 30 };
@@ -70,7 +70,7 @@ extractUpdatedFields(oldConfig, newConfig);
 // { theme: 'light' }
 ```
 
-### Partial Updates
+#### Partial Updates
 
 ```typescript
 const dbRecord = { id: 1, content: 'Hello', meta: { views: 0 } };
@@ -79,21 +79,21 @@ extractUpdatedFields(dbRecord, update);
 // { content: 'Updated', meta: { views: 1 } }
 ```
 
-## Limitations
+### Limitations
 
 1. **Circular References**: Will fail on circular structures
 2. **Special Types**: May not handle special objects (Date, RegExp, etc.) as expected
 3. **Performance**: Deep comparison is slower for large objects
 4. **Arrays**: Treats array replacements as single changes (does not diff array items)
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 type GenericObject = Record<string, any>;
 type FlattenPartial<T> = Partial<{ [K in keyof T]: T[K] }>;
 ```
 
-## Suggested Use Cases
+### Suggested Use Cases
 
 - API patch requests
 - State change detection

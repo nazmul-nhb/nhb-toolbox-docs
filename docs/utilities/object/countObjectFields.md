@@ -10,46 +10,46 @@ import TabItem from '@theme/TabItem';
 
 Counts the number of enumerable properties in an object.
 
-## Import
+### Import
 
 ```typescript
 import { countObjectFields } from 'nhb-toolbox';
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const obj = { a: 1, b: 2, c: 3 };
 const count = countObjectFields(obj); // Returns 3
 ```
 
-### With Null/Undefined
+#### With Null/Undefined
 
 ```typescript
 const count = countObjectFields(null); // Returns 0
 ```
 
-## API
+### API
 
-### Type Parameters
+#### Type Parameters
 
 | Parameter | Description           |
 | --------- | --------------------- |
 | `T`       | A generic object type |
 
-### Parameters
+#### Parameters
 
 | Parameter | Type | Description                       |
 | --------- | ---- | --------------------------------- |
 | `obj`     | `T`  | The object to count properties of |
 
-### Return Value
+#### Return Value
 
 `number`: The count of enumerable properties, or 0 if the object is null/undefined.
 
-## Examples
+### Examples
 
 <Tabs>
 <TabItem value="simple" label="Simple Object" default>
@@ -86,7 +86,7 @@ countObjectFields(undefined); // 0
 </TabItem>
 </Tabs>
 
-## Notes
+### Notes
 
 - This function only counts enumerable properties (same behavior as `Object.keys()`)
 - Non-object values will return 0

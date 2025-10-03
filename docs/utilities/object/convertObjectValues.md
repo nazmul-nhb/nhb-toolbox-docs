@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 
 Converts specified values in objects or arrays of objects between string and number types, supporting nested properties via dot notation.
 
-## Import
+### Import
 
 ```typescript
 import { convertObjectValues } from 'nhb-toolbox';
 ```
 
-## Function Signatures
+### Function Signatures
 
 ```typescript
 // Object version
@@ -34,12 +34,12 @@ convertObjectValues<
 >(data: Array<T>, options: ConvertObjectOptions<T, Key, C>): Array<ConvertedObject<T, Key, C>>;
 ```
 
-## Usage Examples
+### Usage Examples
 
 <Tabs>
 <TabItem value="object" label="Object Conversion" default>
 
-### Convert to Numbers
+#### Convert to Numbers
 
 ```typescript
 const product = {
@@ -56,7 +56,7 @@ const result = convertObjectValues(product, {
 // Type: Numberified<typeof product>
 ```
 
-### Convert to Strings
+#### Convert to Strings
 
 ```typescript
 const user = {
@@ -75,7 +75,7 @@ convertObjectValues(user, {
 </TabItem>
 <TabItem value="array" label="Array Conversion">
 
-### Convert Array to Numbers
+#### Convert Array to Numbers
 
 ```typescript
 const items = [
@@ -94,7 +94,7 @@ convertObjectValues(items, {
 // Type: Numberified<typeof items[0]>[]
 ```
 
-### Convert Array to Strings
+#### Convert Array to Strings
 
 ```typescript
 const measurements = [
@@ -116,7 +116,7 @@ convertObjectValues(measurements, {
 </TabItem>
 <TabItem value="nested" label="Nested Objects">
 
-### Complex Nested Conversion
+#### Complex Nested Conversion
 
 ```typescript
 const order = {
@@ -156,7 +156,7 @@ convertObjectValues(order, {
 </TabItem>
 </Tabs>
 
-## Behavior Details
+### Behavior Details
 
 1. **Dot Notation**: Supports nested paths like `'user.profile.age'`
 2. **Type Safety**: Maintains proper TypeScript types in return value
@@ -164,14 +164,14 @@ convertObjectValues(order, {
 4. **Selective Conversion**: Only converts specified fields (only `string`, `number`, `undefined` fields are allowed), all others remain unchanged. Only allows the keys which are typed as `number`, `string` or `undefined`.
 5. **Array Support**: Works with arrays of objects but only the top level (no nested array conversion is allowed)
 
-## Limitations
+### Limitations
 
 1. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 2. **Special Types**: `Date`, `RegExp` etc. are preserved as-is and are not included in keys array if they are nested within objects
 3. **Invalid Numbers**: String values that can't convert to numbers are preserved
 4. **Performance**: Deep cloning may be slow for large structures
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API response normalization
 - Form data processing
@@ -179,9 +179,9 @@ convertObjectValues(order, {
 - Configuration transformation
 - Data migration scripts
 
-## Type Definitions
+### Type Definitions
 
-### `ConvertObjectOptions`
+#### `ConvertObjectOptions`
 
 ```typescript
 interface ConvertObjectOptions<

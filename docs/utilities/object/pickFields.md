@@ -7,7 +7,7 @@ title: Pick Object Fields
 
 Creates a new object containing only the specified properties from a source object.
 
-## Import
+### Import
 
 ```typescript
 // Main function
@@ -17,7 +17,7 @@ import { pickFields } from 'nhb-toolbox';
 import { pickObjectFields } from 'nhb-toolbox';
 ```
 
-## Function Signature(s)
+### Function Signature(s)
 
 ```typescript
 pickFields<T extends GenericObject, U extends keyof T>(
@@ -26,9 +26,9 @@ pickFields<T extends GenericObject, U extends keyof T>(
 ): { [K in U]: T[K] }
 ```
 
-## Usage
+### Usage
 
-### Basic Usage
+#### Basic Usage
 
 ```typescript
 const user = {
@@ -42,36 +42,36 @@ const picked = pickFields(user, ['name', 'email']);
 // Returns { name: 'John', email: 'john@example.com' }
 ```
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name | Description |
 |------|-------------|
 | `T`  | Type of source object |
 | `U`  | Type of keys to pick |
 
-### Parameters
+#### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | `source` | `T` | Source object to pick from |
 | `keys` | `U[]` | Array of property keys to pick |
 
-### Returns
+#### Returns
 
 A new object containing only the specified properties
 
-## Key Features
+### Key Features
 
 1. **Type Safe**: Maintains proper TypeScript typing
 2. **Non-Destructive**: Creates new object without modifying original
 3. **Simple API**: Easy to use with clear intent
 4. **Performance**: Efficient implementation
 
-## Examples
+### Examples
 
-### Nested Objects
+#### Nested Objects
 
 ```typescript
 const book = {
@@ -90,7 +90,7 @@ pickFields(book, ['title', 'details']);
 // }
 ```
 
-### With Optional Fields
+#### With Optional Fields
 
 ```typescript
 interface Product {
@@ -108,13 +108,13 @@ pickFields(laptop, ['name', 'price']);
 // Returns { name: 'MacBook Pro', price: undefined }
 ```
 
-## Limitations
+### Limitations
 
 1. **No Deep Picking**: Only works with top-level properties
 2. **No Dot Notation**: Doesn't support nested property paths
 3. **No Default Values**: Returns undefined for missing properties
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Creating view models from data objects
 - Selecting API response fields
@@ -122,13 +122,13 @@ pickFields(laptop, ['name', 'price']);
 - Creating partial objects for updates
 - Data masking/redaction
 
-## Aliases
+### Aliases
 
 This function is also exported as:
 
 - `pickObjectFields`
 
-## Related Functions
+### Related Functions
 
 - [pickFieldsByCondition](pickFieldsByCondition) - Pick object fields conditionally
 - [remapFields](remapFields) - Remap object fields

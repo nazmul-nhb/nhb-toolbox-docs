@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 
 A versatile utility that cleans and normalizes strings, arrays, and objects by trimming whitespace, removing empty values, and applying customizable filters.
 
-## Import
+### Import
 
 ```typescript
 import { sanitizeData } from 'nhb-toolbox';
 ```
 
-## Function Signatures
+### Function Signatures
 
 ```typescript
 // String version
@@ -40,7 +40,7 @@ sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
 ): B extends 'partial' ? FlattenPartial<T>[] : T[];
 ```
 
-## Usage Examples
+### Usage Examples
 
 <Tabs>
 <TabItem value="string" label="String Input" default>
@@ -135,7 +135,7 @@ sanitizeData(config, {
 </TabItem>
 </Tabs>
 
-## Features
+### Features
 
 1. **Return Type Control**:
    - Use `_return: 'partial'` to get `FlattenPartial<T>` return type
@@ -143,7 +143,7 @@ sanitizeData(config, {
 2. **Strict Typing**: Improved type inference for partial returns
 3. **Consistent Behavior**: Same filtering logic applies regardless of return type
 
-## Behavior Details
+### Behavior Details
 
 1. **String Trimming**: Removes leading/trailing whitespace (when `trimStrings=true`)
 2. **Nullish Handling**: Filters `null`/`undefined` (when `ignoreNullish=true`)
@@ -151,20 +151,20 @@ sanitizeData(config, {
 4. **Empty Removal**: Omits `{}` and `[]` (when `ignoreEmpty=true`)
 5. **Key Preservation**: Always keeps `requiredKeys` regardless of other options
 
-## When to Use Partial Return
+### When to Use Partial Return
 
 - When you need explicit partial types for optional data
 - When working with API responses that may have missing fields
 - When using the result with systems that expect partial structures
 
-## Limitations
+### Limitations
 
 1. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 2. **Special Objects**: Date, RegExp etc. are treated as regular objects and cannot be accessed their nested keys (which is good in most of the cases) through `keysToIgnore` or `requiredKeys` options.
 3. **Performance**: Deep processing may be slow for large structures
 4. **Type Strictness**: Return types are approximations of the runtime behavior
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - API input sanitization
 - Form data cleaning
@@ -172,7 +172,7 @@ sanitizeData(config, {
 - Database record preparation
 - Log payload cleaning
 
-## Type Definitions
+### Type Definitions
 
 ```typescript
 /** - Options for `sanitizeData` utility. */
