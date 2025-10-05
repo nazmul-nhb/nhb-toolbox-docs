@@ -16,7 +16,7 @@ import { getQueryParams } from 'nhb-toolbox';
 ## Function Signature
 
 ```typescript
-getQueryParams(): Record<string, string>
+getQueryParams<QParams extends Record<string, string>>(): QParams
 ```
 
 ## Usage Examples
@@ -61,9 +61,11 @@ const params = getQueryParams();
 
 ### Parameters
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name     | Type     | Description                                          |
+| -------- | -------- | ---------------------------------------------------- |
 | *(none)* | *(none)* | No arguments required; uses `window.location.search` |
+
+> For better type intellisense for the returned object, pass a generic type that extends to `Record<string, string>`
 
 ### Returns
 
