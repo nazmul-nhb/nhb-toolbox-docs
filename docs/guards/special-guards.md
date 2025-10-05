@@ -15,7 +15,7 @@ import { isDate, isSet, isMap, isRegExp, isError, isBigInt, isJSON } from 'nhb-t
 ## isDate
 
 ```typescript
-function isDate(value: unknown): value is Date
+isDate(value: unknown): value is Date
 ```
 
 ### Description
@@ -57,7 +57,7 @@ isDate(new iframeDate());       // true (works across realms)
 ## isSet
 
 ```typescript
-function isSet<T>(value: unknown): value is Set<T>
+isSet<T>(value: unknown): value is Set<T>
 ```
 
 ### Description
@@ -97,7 +97,7 @@ isSet(iframeSet);               // true
 ## isMap
 
 ```typescript
-function isMap<K, V>(value: unknown): value is Map<K, V>
+isMap<K, V>(value: unknown): value is Map<K, V>
 ```
 
 ### Description
@@ -136,7 +136,7 @@ isMap(iframeMap);               // true
 ## isRegExp
 
 ```typescript
-function isRegExp(value: unknown): value is RegExp
+isRegExp(value: unknown): value is RegExp
 ```
 
 ### Description
@@ -176,7 +176,7 @@ isRegExp(iframeRegex);         // true
 ## isError
 
 ```typescript
-function isError(value: unknown): value is Error
+isError(value: unknown): value is Error
 ```
 
 ### Description
@@ -217,7 +217,7 @@ try {
 ## isBigInt
 
 ```typescript
-function isBigInt(value: unknown): value is bigint
+isBigInt(value: unknown): value is bigint
 ```
 
 ### Description
@@ -256,7 +256,7 @@ isBigInt(undefined);           // false
 ## isJSON
 
 ```typescript
-function isJSON(value: unknown): value is string
+isJSON(value: unknown): value is string
 ```
 
 ### Description
@@ -295,9 +295,9 @@ function parseIfJSON(input: unknown) {
 
 ## Aliases
 
-| Main Export           | Alias Names                           |
-|-----------------------|---------------------------------------|
-| `isJSON`              | `isJSONObject`, `isValidJSON`         |
-| `isMap`               | `isValidMap`                          |
-| `isRegExp`            | `isRegularExpression`                 |
-| `isSet`               | `isValidSet`                          |
+| Main Export | Alias Names                   |
+| ----------- | ----------------------------- |
+| `isJSON`    | `isJSONObject`, `isValidJSON` |
+| `isMap`     | `isValidMap`                  |
+| `isRegExp`  | `isRegularExpression`         |
+| `isSet`     | `isValidSet`                  |

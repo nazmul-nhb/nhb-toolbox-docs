@@ -18,6 +18,14 @@ import TabItem from '@theme/TabItem';
 import { extractObjectKeys } from 'nhb-toolbox';
 ```
 
+### Function Signatures
+
+```typescript
+extractObjectKeys<T extends GenericObject>(obj: T): Array<keyof T>;
+
+extractObjectKeys<T extends GenericObject>(obj: T, tuple: true): Tuple<keyof T>;
+```
+
 ### Aliases
 
 - `extractKeys` - Alias for `extractObjectKeys`
@@ -165,6 +173,12 @@ extractObjectKeys(123); // []
 
 ```typescript
 import { extractObjectKeysDeep } from 'nhb-toolbox';
+```
+
+### Function Signatures
+
+```typescript
+extractObjectKeysDeep<T extends GenericObject>(obj: T): Array<DeepKeys<T>>;
 ```
 
 ### Aliases

@@ -22,7 +22,7 @@ import {
 ### `isEmail`
 
 ```typescript
-function isEmail(value: unknown): value is string
+isEmail(value: unknown): value is string
 ```
 
 #### Description
@@ -58,7 +58,7 @@ if (isEmail(input)) {
 ### `isEmailArray`
 
 ```typescript
-function isEmailArray(value: unknown): value is string[]
+isEmailArray(value: unknown): value is string[]
 ```
 
 #### Description
@@ -88,7 +88,7 @@ function processContacts(emails: unknown) {
 ### `isDateString`
 
 ```typescript
-function isDateString(value: unknown): value is string
+isDateString(value: unknown): value is string
 ```
 
 #### Description
@@ -116,7 +116,7 @@ function parseDate(input: unknown) {
 ### `isUUID`
 
 ```typescript
-function isUUID(value: unknown): value is string
+isUUID(value: unknown): value is string
 ```
 
 #### Description
@@ -153,7 +153,7 @@ function validateResource(res: unknown): res is Resource {
 ### `isURL`
 
 ```typescript
-function isURL(value: unknown): value is string
+isURL(value: unknown): value is string
 ```
 
 #### Description
@@ -186,7 +186,7 @@ function createLink(href: unknown) {
 ### `isBase64`
 
 ```typescript
-function isBase64(value: unknown): value is string
+isBase64(value: unknown): value is string
 ```
 
 #### Description
@@ -215,7 +215,7 @@ function decodeBase64(input: unknown) {
 ### `isPhoneNumber`
 
 ```typescript
-function isPhoneNumber(value: unknown): value is string
+isPhoneNumber(value: unknown): value is string
 ```
 
 #### Description
@@ -251,7 +251,7 @@ function formatPhone(input: unknown) {
 ### `isIPAddress`
 
 ```typescript
-function isIPAddress(value: unknown): value is string
+isIPAddress(value: unknown): value is string
 ```
 
 #### Description
@@ -287,7 +287,7 @@ function blockIP(ip: unknown) {
 ### `isNumericString`
 
 ```typescript
-function isNumericString(value: unknown): value is `${number}`
+isNumericString(value: unknown): value is `${number}`
 ```
 
 #### Description
@@ -346,7 +346,7 @@ Please, refer to number guard: [isNumber](primitive-guards#isnumber) for strict 
 ### `isBrowser`
 
 ```typescript
-function isBrowser(): boolean
+isBrowser(): boolean
 ```
 
 #### Description
@@ -381,7 +381,7 @@ function getWindowSize() {
 ### `isNode`
 
 ```typescript
-function isNode(): boolean
+isNode(): boolean
 ```
 
 #### Description
@@ -413,7 +413,7 @@ function loadModule() {
 ### `isEnvironment`
 
 ```typescript
-function isEnvironment(env: string): boolean
+isEnvironment(env: string): boolean
 ```
 
 #### Description

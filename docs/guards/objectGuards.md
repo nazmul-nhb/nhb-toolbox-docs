@@ -22,7 +22,7 @@ export type GenericObject = Record<string, any>;
 ## isObject
 
 ```typescript
-function isObject(value: unknown): value is Record<string, unknown>
+isObject(value: unknown): value is GenericObject
 ```
 
 ### Description
@@ -48,7 +48,7 @@ isObject(() => {});           // false (functions are objects but excluded)
 // Type narrowing
 const config: unknown = { env: 'production' };
 if (isObject(config)) {
-  // config is now Record<string, unknown>
+  // config is now GenericObject
   if (isString(config.env)) {
     // config.env is string
   }
@@ -64,9 +64,7 @@ if (isObject(config)) {
 ## isNotEmptyObject
 
 ```typescript
-function isNotEmptyObject(
-  value: unknown
-): value is Record<string, unknown>
+isNotEmptyObject(value: unknown): value is GenericObject
 ```
 
 ### Description
@@ -86,7 +84,7 @@ isNotEmptyObject(Object.create(null)); // false
 isNotEmptyObject({ [Symbol('key')]: 'value' }); // false (symbol keys not enumerable)
 
 // Practical usage
-function processConfig(config: unknown) {
+processConfig(config: unknown) {
   if (isNotEmptyObject(config)) {
     // Safe to access properties
     return {
@@ -108,7 +106,7 @@ function processConfig(config: unknown) {
 ## isObjectWithKeys
 
 ```typescript
-function isObjectWithKeys<Key extends string>(value: unknown, keys: ValidArray<Key>): value is Record<Key, unknown>
+isObjectWithKeys<Key extends string>(value: unknown, keys: ValidArray<Key>): value is { [K in Key]: unknown }
 ```
 
 ### Description
@@ -129,7 +127,7 @@ interface Person {
   age: number;
 }
 
-function validatePerson(data: unknown): Person {
+validatePerson(data: unknown): Person {
   if (
     isObjectWithKeys(data, ['name', 'age']) &&
     isString(data.name) &&
@@ -158,7 +156,7 @@ isObjectWithKeys({ [Symbol()]: 1 }, ['key']); // false
 ## isEmptyObject
 
 ```typescript
-function isEmptyObject(value: unknown): boolean
+isEmptyObject(value: unknown): boolean
 ```
 
 ### Description
@@ -181,7 +179,7 @@ const obj = Object.create({ inherited: 'prop' });
 isEmptyObject(obj);             // true (only checks own properties)
 
 // Type guard pattern
-function isMaybeEmpty<T>(value: T | {}): value is {} {
+isMaybeEmpty<T>(value: T | {}): value is {} {
   return isEmptyObject(value);
 }
 ```
@@ -195,7 +193,7 @@ function isMaybeEmpty<T>(value: T | {}): value is {} {
 
 ## Aliases
 
-| Main Export           | Alias Names                           |
-|-----------------------|---------------------------------------|
-| `isEmptyObject`       | `isEmptyObjectGuard`, `isObjectEmpty` |
-| `isNotEmptyObject`    | `isValidObject`                       |
+| Main Export        | Alias Names                           |
+| ------------------ | ------------------------------------- |
+| `isEmptyObject`    | `isEmptyObjectGuard`, `isObjectEmpty` |
+| `isNotEmptyObject` | `isValidObject`                       |

@@ -16,16 +16,16 @@ import { isFunction, isMethodDescriptor, isPromise, isReturningPromise } from 'n
 
 ```typescript
 /** Generic function type */
-export type GenericFn = (...args: unknown[]) => unknown;
+type GenericFn = (...args: any) => any;
 
 /** Asynchronous function type */
-export type AsyncFunction<T> = (...args: unknown[]) => Promise<T>;
+type AsyncFunction<T> = (...args: any) => Promise<T>;
 ```
 
 ## isFunction
 
 ```typescript
-function isFunction(value: unknown): value is GenericFn
+isFunction(value: unknown): value is GenericFn
 ```
 
 ### Description
@@ -71,7 +71,7 @@ function createInstance(ctor: unknown, ...args: unknown[]) {
 ## isMethodDescriptor
 
 ```typescript
-function isMethodDescriptor(descriptor: PropertyDescriptor | undefined): boolean
+isMethodDescriptor(descriptor: PropertyDescriptor | undefined): boolean
 ```
 
 ### Description
@@ -125,7 +125,7 @@ function logMethod(
 ### isPromise
 
 ```typescript
-function isPromise(value: unknown): value is Promise<unknown>
+isPromise<T>(value: unknown): value is Promise<T>
 ```
 
 #### Description
@@ -166,7 +166,7 @@ async function process(value: unknown) {
 ## isReturningPromise
 
 ```typescript
-function isReturningPromise<T>(fn: unknown): fn is AsyncFunction<T>
+isReturningPromise<T>(fn: unknown): fn is AsyncFunction<T>
 ```
 
 ### Description
@@ -213,7 +213,7 @@ function wrapAsync(fn: unknown) {
 
 ## Aliases
 
-| Main Export           | Alias Names                           |
-|-----------------------|---------------------------------------|
-| `isMethodDescriptor`  | `isMethod`                            |
-| `isReturningPromise`  | `doesReturnPromise`                   |
+| Main Export          | Alias Names         |
+| -------------------- | ------------------- |
+| `isMethodDescriptor` | `isMethod`          |
+| `isReturningPromise` | `doesReturnPromise` |

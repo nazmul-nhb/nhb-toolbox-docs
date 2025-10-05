@@ -38,7 +38,7 @@ This ensures strict numeric validation suitable for mathematical operations, use
 #### Signature
 
 ```typescript
-function isNumber(value: unknown): value is number
+isNumber(value: unknown): value is number
 ```
 
 #### Examples
@@ -75,7 +75,7 @@ Validates if a value is a string.
 **Signature:**
 
 ```typescript
-function isString(value: unknown): value is string
+isString(value: unknown): value is string
 ```
 
 **Examples:**
@@ -101,7 +101,7 @@ Validates if a value is a boolean.
 **Signature:**
 
 ```typescript
-function isBoolean(value: unknown): value is boolean
+isBoolean(value: unknown): value is boolean
 ```
 
 **Examples:**
@@ -120,7 +120,7 @@ Validates if a value is a Symbol.
 **Signature:**
 
 ```typescript
-function isSymbol(value: unknown): value is symbol
+isSymbol(value: unknown): value is symbol
 ```
 
 **Examples:**
@@ -160,7 +160,7 @@ Validates if a value is an integer.
 **Signature:**
 
 ```typescript
-function isInteger(value: unknown): value is number
+isInteger(value: unknown): value is number
 ```
 
 **Examples:**
@@ -178,7 +178,7 @@ Validates if a value is a positive integer.
 **Signature:**
 
 ```typescript
-function isPositiveInteger(value: unknown): value is number
+isPositiveInteger(value: unknown): value is number
 ```
 
 **Examples:**
@@ -198,7 +198,7 @@ Validates if a value is null.
 **Signature:**
 
 ```typescript
-function isNull(value: unknown): value is null
+isNull(value: unknown): value is null
 ```
 
 **Examples:**
@@ -216,7 +216,7 @@ Validates if a value is undefined.
 **Signature:**
 
 ```typescript
-function isUndefined(value: unknown): value is undefined
+isUndefined(value: unknown): value is undefined
 ```
 
 **Examples:**
@@ -236,7 +236,7 @@ Validates if a value is a JavaScript primitive. It covers `string | number | boo
 **Signature:**
 
 ```typescript
-function isPrimitive(value: unknown): value is Primitive
+isPrimitive(value: unknown): value is Primitive
 ```
 
 **Examples:**
@@ -257,16 +257,16 @@ Validates if a value is a normal JavaScript primitive. It covers `string | numbe
 **Signature:**
 
 ```typescript
-function isPrimitive(value: unknown): value is NormalPrimitive
+isNormalPrimitive(value: unknown): value is NormalPrimitive
 ```
 
 **Examples:**
 
 ```typescript
-isPrimitive('hello');   // true
-isPrimitive(42);        // true
-isPrimitive(null);      // true
-isPrimitive({});        // false
+isNormalPrimitive('hello');   // true
+isNormalPrimitive(42);        // true
+isNormalPrimitive(null);      // true
+isNormalPrimitive({});        // false
 ```
 
 ### `isNonEmptyString`
@@ -294,7 +294,7 @@ Validates if a value is falsy.
 **Signature:**
 
 ```typescript
-function isFalsy(value: unknown): value is FalsyPrimitive
+isFalsy(value: unknown): value is FalsyPrimitive
 ```
 
 **Examples:**
@@ -313,7 +313,7 @@ Validates if a value is truthy.
 **Signature:**
 
 ```typescript
-function isTruthy<T>(value: T): value is Exclude<T, FalsyPrimitive>
+isTruthy<T>(value: T): value is Exclude<T, FalsyPrimitive>
 ```
 
 **Examples:**
