@@ -40,7 +40,11 @@ export default async function config(): Promise<Config> {
 		projectName: 'nhb-toolbox', // Usually your repo name.
 
 		onBrokenLinks: 'throw',
-		onBrokenMarkdownLinks: 'warn',
+		markdown: {
+			hooks: {
+				onBrokenMarkdownLinks: 'warn',
+			},
+		},
 
 		// Even if you don't use internationalization, you can use this field to set
 		// useful metadata like html lang. For example, if your site is Chinese, you
@@ -205,11 +209,6 @@ export default async function config(): Promise<Config> {
 						label: 'Predicates & Guards',
 					},
 					{
-						to: '/ask',
-						label: 'AskAI',
-						position: 'right',
-					},
-					{
 						type: 'docSidebar',
 						sidebarId: 'typesSidebar',
 						position: 'left',
@@ -324,12 +323,9 @@ export default async function config(): Promise<Config> {
 				appId: process.env.ALGOLIA_APP_ID!,
 				apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
 				indexName: process.env.ALGOLIA_INDEX_NAME!,
-				placeholder: 'Search in NHB Toolbox',
+				askAi: process.env.ALGOLIA_AI_ASSISTANT_ID!,
+				placeholder: 'Ask AI or Search in NHB Toolbox',
 				contextualSearch: true,
-				// @ts-expect-error: `askAi` is available in @docusaurus/react 4.x.x
-				askAi: {
-					assistantId: process.env.ALGOLIA_AI_ASSISTANT_ID!,
-				},
 			},
 		} satisfies Preset.ThemeConfig,
 	};
