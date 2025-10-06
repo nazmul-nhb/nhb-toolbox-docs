@@ -76,6 +76,8 @@ export default async function config(): Promise<Config> {
 					docs: {
 						sidebarPath: './sidebars.ts',
 						editUrl: 'https://github.com/nazmul-nhb/nhb-toolbox-docs/blob/main',
+						showLastUpdateAuthor: true,
+						showLastUpdateTime: true,
 					},
 					blog: {
 						showReadingTime: true,
@@ -95,10 +97,10 @@ export default async function config(): Promise<Config> {
 						priority: 0.5,
 						filename: 'sitemap.xml',
 					},
-					gtag: {
-						trackingID: 'G-X2Z2YZ8LWZ',
-						anonymizeIP: true,
-					},
+					// gtag: {
+					// 	trackingID: 'G-X2Z2YZ8LWZ',
+					// 	anonymizeIP: true,
+					// },
 					googleTagManager: {
 						containerId: 'GTM-PDNKZ4VF',
 					},
@@ -224,10 +226,6 @@ export default async function config(): Promise<Config> {
 						position: 'right',
 						href: 'https://www.npmjs.com/package/nhb-toolbox',
 					},
-					// {
-					// 	type: 'Search',
-					// 	position: 'right',
-					// },
 				],
 			},
 			footer: {
