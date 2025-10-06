@@ -255,6 +255,10 @@ getGreeting(configs?: GreetingConfigs): string;
 
 `string` - The appropriate greeting message.
 
+### Alias
+
+- `greet` is an alias for `getGreeting` method.
+
 ### Example
 
 ```ts

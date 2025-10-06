@@ -404,17 +404,23 @@ This method is provided by `businessPlugin`. You must register it using `Chronos
 ### Signature
 
 ```typescript
-isWeekend(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
+isWeekend<Length extends NumberRange<1, 4>>(
+    weekStartsOn?: Enumerate<7>,
+    weekendLength?: Length,
+    weekendDays?: TupleOf<Enumerate<7>, Length>
+  ): boolean
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
-- `weekendLength`: Weekend days (default: 2)
+- By default (`weekStartsOn = 0`, `weekendLength = 2`), Saturday (6) and Friday (5) are considered weekend.
+  - `weekStartsOn` sets the start of the week for calculating weekend days.
+  - `weekendLength` sets how many days at the end of the week are treated as weekend.
+  - `weekendDays`, if provided, is used directly as the weekend days instead of calculating from `weekStartsOn` + `weekendLength`.
 
 ### Return Type
 
-`boolean` - Whether weekend
+`boolean` - Whether weekend (`true`) or not (`false`)
 
 ### Example
 
@@ -424,7 +430,19 @@ import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
 
 Chronos.use(businessPlugin);
 
-new Chronos('2025-01-15').isWeekend(); // true (Sunday)
+new Chronos('2025-01-11').isWeekend(); // true (Saturday)
+
+// Default: Saturday & Friday are weekend
+new Chronos().isWeekend();
+
+// Custom week start (Monday) with 2-day weekend (Saturday & Sunday)
+new Chronos().isWeekend(1, 2);
+
+// Custom 3-day weekend (Friday–Sunday)
+new Chronos().isWeekend(1, 3);
+
+// Fully custom weekend days (Sunday, Friday, Saturday)
+new Chronos().isWeekend(0, 3, [0, 5, 6]);
 ```
 
 ---
@@ -438,17 +456,23 @@ This method is provided by `businessPlugin`. You must register it using `Chronos
 ### Signature
 
 ```typescript
-isWorkday(weekStartsOn?: Enumerate<7>, weekendLength?: 1 | 2): boolean
+isWorkday<Length extends NumberRange<1, 4>>(
+    weekStartsOn?: Enumerate<7>,
+    weekendLength?: Length,
+    weekendDays?: TupleOf<Enumerate<7>, Length>
+  ): boolean
 ```
 
 ### Parameters
 
-- `weekStartsOn`: Week start day (from `0-6`) (default: 0)
-- `weekendLength`: Weekend days (default: 2)
+- By default (`weekStartsOn = 0`, `weekendLength = 2`), Saturday (6) and Friday (5) are considered weekend.
+  - `weekStartsOn` sets the start of the week for calculating weekend days.
+  - `weekendLength` sets how many days at the end of the week are treated as weekend.
+  - `weekendDays`, if provided, is used directly as the weekend days instead of calculating from `weekStartsOn` + `weekendLength`.
 
 ### Return Type
 
-`boolean` - Whether workday
+`boolean` - Whether workday (`true`) or not (`false`)
 
 ### Example
 
@@ -458,9 +482,12 @@ import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';
 
 Chronos.use(businessPlugin);
 
-new Chronos('2025-01-16').isWorkday(); // true (Monday)
+new Chronos('2025-01-16').isWorkday(); // true (Thursday)
 ```
 
+:::tip[Hint]
+This method internally uses [**isWeekend**](#isweekend) method.
+:::
 ---
 
 ## isBusinessHour()
@@ -472,31 +499,33 @@ This method is provided by `businessPlugin`. You must register it using `Chronos
 ### Signature
 
 ```ts
-isBusinessHour(options?: BusinessHourOptions): boolean
+isBusinessHour<Length extends NumberRange<1, 4>>(options?: BusinessHourOptions<Length>): boolean
 ```
 
 ### Parameters
 
-- `options`:Options to configure business hour
+- `options`: Options to configure business hour
 
 #### Options Type Definitions
 
 ```ts
-interface BusinessHourOptions {
+interface BusinessHourOptions<Length extends NumberRange<1, 4>> {
  /** - Optional starting hour of business time (0–23). Defaults to `9` (9 AM). */
  businessStartHour?: Enumerate<24>;
- /**- Optional ending hour of business time (0–23). Defaults to `17` (5 PM). */
+ /** - Optional ending hour of business time (0–23). Defaults to `17` (5 PM). */
  businessEndHour?: Enumerate<24>;
  /** - Optional day the week starts on (0–6). Default is `0` (Sunday). */
  weekStartsOn?: Enumerate<7>;
- /**- Optional weekend length (1 or 2). Default is `2`.*/
- weekendLength?: 1 | 2;
+ /** - Optional weekend length (1 or 2). Default is `2`.*/
+ weekendLength?: Length;
+ /** - Tuple of indices of weekend days. Default is `undefined`. */
+ weekendDays?: TupleOf<Enumerate<7>, Length>;
 }
 ```
 
 ### Return Type
 
-`boolean` - Whether business hour
+`boolean` - Whether business hour (`true`) or not (`false`)
 
 ### Example
 
@@ -508,6 +537,24 @@ Chronos.use(businessPlugin);
 
 new Chronos('2025-01-16T10:00:00').isBusinessHour(); // true
 ```
+
+:::tip
+
+- If you only want to pass `weekendDays` option you should pass the `weekendLength` option or pass a generic (1-4):
+
+```ts
+new Chronos().isBusinessHour<3>({ weekendDays: [0, 2, 4] });
+
+// Or
+
+new Chronos().isBusinessHour({weekendLength: 3, weekendDays: [0, 2, 4] });
+```
+
+:::
+
+:::tip[Note]
+Weekends are determined by `weekStartsOn` and `weekendLength` or `weekdays` array if provided using the [**isWeekend**](#isweekend) method.
+:::
 
 ---
 

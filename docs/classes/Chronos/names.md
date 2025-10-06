@@ -184,6 +184,10 @@ Get season name
 season(options?: SeasonOptions): string
 ```
 
+### Alias
+
+- `getSeasonName` is an alias for `season` method.
+
 ### Overview
 
 The `season()` method determines the current season based on either predefined regional presets or custom season definitions. It supports both month-based and exact date-based season boundaries.
@@ -435,6 +439,10 @@ When using month-based boundaries (`MonthBoundary`), the season calculation only
 ```typescript
 getZodiacSign(options?: ZodiacOptions): ZodiacSign
 ```
+
+### Alias
+
+- `zodiac` is an alias for `getZodiacSign` method.
 
 ### Overview
 
