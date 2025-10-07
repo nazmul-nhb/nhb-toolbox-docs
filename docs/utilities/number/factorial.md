@@ -10,12 +10,12 @@ The `factorial` function computes the *factorial* of *a non-negative numeric val
 ### Function Signature
 
 ```typescript
-factorial(number: Numeric | undefined): number | undefined
+factorial(int: Numeric | undefined): number | undefined
 ```
 
 ### Parameters
 
-- **`number`**: A numeric input value or numeric string whose factorial should be calculated. Can also be `undefined`.
+- **`int`**: A numeric input value or numeric string whose factorial should be calculated. Can also be `undefined`.
 
 ### Return Value
 
@@ -47,6 +47,7 @@ factorial(5.5);         // undefined
 - The function uses a *recursive approach* internally.
 - Input is normalized via [**normalizeNumber**](normalizeNumber) before computation.
 - Factorial of `0` and `1` is `1`.
+- It does not compute factorial for fractions (non-integer values).
 - Can return very large values quickly due to the rapid growth rate of factorial values.
 - Only *non-negative integer values* are considered valid for calculating factorial.
 
