@@ -1,24 +1,20 @@
 # NHB Toolbox
 
-## Official Docs
+## Intro
 
-Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package/nhb-toolbox) utility package.
+- Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package/nhb-toolbox) package.
 
 ## 🌐 Live Site
 
-[toolbox.nazmul-nhb.dev](https://toolbox.nazmul-nhb.dev/)
+- [**https://toolbox.nazmul-nhb.dev**](https://toolbox.nazmul-nhb.dev/)
 
 ## 🚀 Features
 
-- Built with [Docusaurus 3.8](https://docusaurus.io/)
-- Search powered by `Algolia DocSearch`
-
-## 📁 Folder Structure
-
-- `docs/`: Markdown/MDX documentation files
-- `src/`: Docusaurus custom components and config
-- `static/`: Static assets
+- Built with [`Docusaurus`](https://docusaurus.io/)
+- Search powered by [`Algolia DocSearch`](https://www.algolia.com/ref/docsearch) and [`AskAI`](https://www.algolia.com/products/ai/ask-ai)
+- Used [`Admonitions`](https://docusaurus.io/docs/markdown-features/admonitions) for special notes.
 
 ## 🤝 Contributing
 
-Contributions, suggestions, and fixes are welcome. Please submit issues or PRs in the main [`nhb-toolbox`](https://github.com/nazmul-nhb/nhb-toolbox) repo.
+- Contributions, suggestions, and fixes are welcome.
+- Please submit issues or PRs for the main project: [`nhb-toolbox`](https://github.com/nazmul-nhb/nhb-toolbox).
