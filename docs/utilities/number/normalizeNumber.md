@@ -26,7 +26,7 @@ import { normalizeNumber } from 'nhb-toolbox';
 ### 🔧 Signature
 
 ```ts
-function normalizeNumber(num: unknown): number | undefined
+normalizeNumber(num: unknown): number | undefined
 ```
 
 | Parameter | Type      | Description                                         |
