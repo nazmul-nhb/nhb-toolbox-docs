@@ -20,18 +20,19 @@ factorial(number: Numeric | undefined): number | undefined
 ### Return Value
 
 - Returns the factorial result as a number if the input is valid.
-- Returns `undefined` if the input is negative, not numeric, or `undefined`.
+- Returns `undefined` if the input is negative, not numeric, non-integer or `undefined`.
 
 ### Example Usage
 
 ```typescript
 import { factorial } from 'nhb-toolbox';
 
-console.log(factorial(5));        // 120
-console.log(factorial(0));        // 1
-console.log(factorial(1));        // 1
-console.log(factorial(-3));       // undefined
-console.log(factorial(undefined)); // undefined
+factorial(5);           // 120
+factorial(0);           // 1
+factorial(1);           // 1
+factorial(-3);          // undefined
+factorial(undefined);   // undefined
+factorial(5.5);         // undefined
 ```
 
 ### Alias
