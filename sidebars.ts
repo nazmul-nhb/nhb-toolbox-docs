@@ -156,6 +156,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/getAverage',
 						'utilities/number/sumNumbers',
 						'utilities/number/sumDigits',
+						'utilities/number/factorial',
 						'utilities/number/calculateHCF',
 						'utilities/number/calculateLCM',
 						'utilities/number/reverseNumber',
