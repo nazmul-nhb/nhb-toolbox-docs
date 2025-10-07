@@ -35,12 +35,12 @@ factorial(undefined);   // undefined
 factorial(5.5);         // undefined
 ```
 
-### Alias
+### Aliases
 
-`factorial` can also be imported using the following alias:
+`factorial` can also be imported using the following aliases:
 
-- `getFactorial`
-- `calculateFactorial`
+- `getFactorial`: Alias for `factorial`.
+- `calculateFactorial`: Alias for `factorial`.
 
 ### Notes
 
