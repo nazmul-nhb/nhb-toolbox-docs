@@ -53,7 +53,7 @@ factorial(5.5);         // undefined
 
 ### Conclusion
 
-The `factorial` function is useful for mathematical calculations involving permutations, combinations, and other scenarios where factorial values are required. It provides safe handling of invalid inputs by returning `undefined` for negative numbers, non-numeric values, or undefined inputs.
+The `factorial` function is useful for mathematical calculations involving permutations, combinations, and other scenarios where factorial values are required. It provides safe handling of invalid inputs by returning `undefined` for *negative numbers*, *non-numeric and non-integer values*, or `undefined` inputs.
 
 ### See Also
 

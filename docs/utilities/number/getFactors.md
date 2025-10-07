@@ -37,8 +37,8 @@ getFactors(6.6);       // []
 
 ### Notes
 
-- Uses the square root method for optimal performance (`O(√n)` complexity).
-- Returns an empty array for negative numbers, non-integer values, or undefined input.
+- Uses the *square root method* for optimal performance (`O(√n)` complexity).
+- Returns an *empty array* for *negative numbers*, *non-integer values*, or `undefined` input.
 - For the number `1`, returns `[1]`.
 - Factors are always returned in ascending order.
 
@@ -52,6 +52,8 @@ getFactors(6.6);       // []
 ### Conclusion
 
 The `getFactors` function is useful for mathematical operations requiring divisor analysis, such as number theory calculations, prime factorization, or finding common factors between numbers. It provides efficient computation with proper handling of edge cases.
+
+### See Also
 
 - [**calculateHCF**](calculateHCF)
 - [**calculateLCM**](calculateLCM)
