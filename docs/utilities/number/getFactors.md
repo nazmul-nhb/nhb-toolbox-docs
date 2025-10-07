@@ -52,3 +52,7 @@ getFactors(6.6);       // []
 ### Conclusion
 
 The `getFactors` function is useful for mathematical operations requiring divisor analysis, such as number theory calculations, prime factorization, or finding common factors between numbers. It provides efficient computation with proper handling of edge cases.
+
+- [**calculateHCF**](calculateHCF)
+- [**calculateLCM**](calculateLCM)
+- [**factorial**](factorial)

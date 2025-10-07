@@ -47,3 +47,9 @@ console.log(calculateHCF());           // 0
 ### Conclusion
 
 The `calculateHCF` function is essential for determining the greatest common divisor of multiple numbers, making it useful in scenarios such as fraction simplification or number theory calculations.
+
+### See Also
+
+- [**calculateLCM**](calculateLCM)
+- [**factorial**](factorial)
+- [**getFactors**](getFactors)

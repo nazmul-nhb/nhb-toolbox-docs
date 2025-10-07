@@ -59,3 +59,4 @@ The `factorial` function is useful for mathematical calculations involving permu
 
 - [**calculateHCF**](calculateHCF)
 - [**calculateLCM**](calculateLCM)
+- [**getFactors**](getFactors)

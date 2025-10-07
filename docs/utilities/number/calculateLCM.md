@@ -47,3 +47,9 @@ console.log(calculateLCM());           // 0
 ### Conclusion
 
 The `calculateLCM` function is useful for determining the least common multiple of multiple numbers, making it valuable in problems such as scheduling, fractions, and number theory.
+
+### See Also
+
+- [**calculateHCF**](calculateHCF)
+- [**factorial**](factorial)
+- [**getFactors**](getFactors)
