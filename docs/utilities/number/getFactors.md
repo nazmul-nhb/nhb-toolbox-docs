@@ -1,6 +1,6 @@
 ---
 id: getFactors
-title: getFactors
+title: Factors of a Number
 ---
 
 ## getFactors
