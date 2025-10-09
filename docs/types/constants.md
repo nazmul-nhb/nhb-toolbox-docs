@@ -19,37 +19,38 @@ import { CONSTANT_NAME } from 'nhb-toolbox/constants';
 
 ### Available Constants
 
-| Constant                 | Description                                                              |
-| ------------------------ | ------------------------------------------------------------------------ |
-| `WEEK_DAYS`              | Array of weekday names (Sunday-Saturday)                                 |
-| `MONTHS`                 | Array of month names (January-December)                                  |
-| `TIME_ZONES`             | Standard timezone identifiers                                            |
-| `TIME_ZONE_LABELS`       | Human-readable timezone labels                                           |
-| `VEDIC_ZODIAC_SIGNS`     | Traditional Indian/Vedic zodiac signs                                    |
-| `WESTERN_ZODIAC_SIGNS`   | Western astrology zodiac signs                                           |
-| `AUSTRALIA_SEASONS`      | Seasonal definitions for Australia                                       |
-| `BANGLADESH_SEASONS`     | Seasonal definitions for Bangladesh                                      |
-| `ETHIOPIA_SEASONS`       | Seasonal definitions for Ethiopia                                        |
-| `INDIA_IMD_SEASONS`      | Indian Meteorological Department seasons                                 |
-| `INDIA_TAMIL_SEASONS`    | Traditional Tamil seasonal calendar                                      |
-| `INDIA_VEDIC_SEASONS`    | Ancient Vedic seasonal divisions                                         |
-| `JAPAN_SEASONS`          | Traditional Japanese seasons                                             |
-| `PHILIPPINES_SEASONS`    | Seasonal patterns for the Philippines                                    |
-| `SEASON_PRESETS`         | Collection of all seasonal definitions                                   |
-| `US_ACADEMIC_SEASONS`    | U.S. academic season names                                               |
-| `WESTERN_SEASONS`        | Standard four-season model (Spring, Summer, Fall, Winter)                |
-| `ALPHABET_COLOR_PALETTE` | Color palette mapped to letters A-Z                                      |
-| `NUMBER_COLOR_PALETTE`   | Color palette mapped to numbers 0-9                                      |
-| `CSS_COLORS`             | Standard CSS color names and hex values                                  |
-| `CURRENCY_CODES`         | ISO 4217 currency codes (e.g., USD, EUR)                                 |
-| `CURRENCY_LOCALES`       | Default locales for currency formatting                                  |
-| `FRANKFURTER_CURRENCIES` | Currencies supported by Frankfurter API                                  |
-| `LOCALE_CODES`           | Standard locale identifiers (e.g., en-US, fr-FR)                         |
-| `LOWERCASED_WORDS`       | Common lowercase words (articles, prepositions etc.) for text processing |
-| `HTTP_STATUS_CODES`      | Complete set of HTTP status codes with with jsdoc                        |
-| `HTTP_STATUS`            | Alias for HTTP_STATUS_CODES                                              |
-| `HTTP_CODES`             | Alias for HTTP_STATUS_CODES                                              |
-| `STATUS_CODES`           | Alias for HTTP_STATUS_CODES                                              |
+| Constant                 | Description                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| `WEEK_DAYS`              | Array of weekday names (Sunday-Saturday)                                                   |
+| `MONTHS`                 | Array of month names (January-December)                                                    |
+| `TIME_ZONES`             | Standard timezone identifiers                                                              |
+| `TIME_ZONE_LABELS`       | Human-readable timezone labels                                                             |
+| `VEDIC_ZODIAC_SIGNS`     | Traditional Indian/Vedic zodiac signs                                                      |
+| `WESTERN_ZODIAC_SIGNS`   | Western astrology zodiac signs                                                             |
+| `AUSTRALIA_SEASONS`      | Seasonal definitions for Australia                                                         |
+| `BANGLADESH_SEASONS`     | Seasonal definitions for Bangladesh                                                        |
+| `ETHIOPIA_SEASONS`       | Seasonal definitions for Ethiopia                                                          |
+| `INDIA_IMD_SEASONS`      | Indian Meteorological Department seasons                                                   |
+| `INDIA_TAMIL_SEASONS`    | Traditional Tamil seasonal calendar                                                        |
+| `INDIA_VEDIC_SEASONS`    | Ancient Vedic seasonal divisions                                                           |
+| `JAPAN_SEASONS`          | Traditional Japanese seasons                                                               |
+| `PHILIPPINES_SEASONS`    | Seasonal patterns for the Philippines                                                      |
+| `SEASON_PRESETS`         | Collection of all seasonal definitions                                                     |
+| `US_ACADEMIC_SEASONS`    | U.S. academic season names                                                                 |
+| `WESTERN_SEASONS`        | Standard four-season model (Spring, Summer, Fall, Winter)                                  |
+| `ALPHABET_COLOR_PALETTE` | Color palette mapped to letters A-Z                                                        |
+| `NUMBER_COLOR_PALETTE`   | Color palette mapped to numbers 0-9                                                        |
+| `CSS_COLORS`             | Standard CSS color names and hex values                                                    |
+| `COUNTRIES`              | List of countries with full-name, country code and ISO country code (both 2 & 3 character) |
+| `CURRENCY_CODES`         | ISO 4217 currency codes (e.g., USD, EUR)                                                   |
+| `CURRENCY_LOCALES`       | Default locales for currency formatting                                                    |
+| `FRANKFURTER_CURRENCIES` | Currencies supported by Frankfurter API                                                    |
+| `LOCALE_CODES`           | Standard locale identifiers (e.g., en-US, fr-FR)                                           |
+| `LOWERCASED_WORDS`       | Common lowercase words (articles, prepositions etc.) for text processing                   |
+| `HTTP_STATUS_CODES`      | Complete set of HTTP status codes with with jsdoc                                          |
+| `HTTP_STATUS`            | Alias for HTTP_STATUS_CODES                                                                |
+| `HTTP_CODES`             | Alias for HTTP_STATUS_CODES                                                                |
+| `STATUS_CODES`           | Alias for HTTP_STATUS_CODES                                                                |
 
 ---
 
