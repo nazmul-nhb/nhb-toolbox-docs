@@ -6,7 +6,7 @@ title: Chronos Wrapper Function
 ## Overview
 
 :::info
-Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provides identical functionality with a simpler interface. All Chronos features are available through this function.
+Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provides identical functionality with a simpler interface. All `Chronos` features are available through this function.
 :::
 
 ## Key Features
@@ -71,7 +71,7 @@ date.formatStrict() // Formatted date string
 
 ## Available Methods
 
-The wrapper provides access to all Chronos methods through the returned instance:
+The wrapper provides access to all `Chronos` methods through the returned instance:
 
 - **[Public Properties](/docs/classes/Chronos#public-properties)** - Access public properties for debugging
 - **[Getters](/docs/classes/Chronos/getters)** - Access date components
@@ -82,7 +82,7 @@ The wrapper provides access to all Chronos methods through the returned instance
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations
 - **[Component Methods](/docs/classes/Chronos/components)** - Date part manipulation
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
-- **[Chronos Plugins](/docs/classes/Chronos/plugins)** - Learn about Chronos plugins
+- **[Chronos Plugins](/docs/classes/Chronos/plugins)** - Learn about `Chronos` plugins
 - **[String Methods](/docs/classes/Chronos/strings)** - Get time as string (some are just augmentation of JS defaults)
 - **[Extra Time Information](/docs/classes/Chronos/comparison)** - Get extra information about part of year, month, day/date etc.
 

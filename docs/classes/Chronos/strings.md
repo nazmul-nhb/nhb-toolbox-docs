@@ -80,7 +80,7 @@ toLocaleString(
 
 ### Notes
 
-- Wrapper around native `Date.toLocaleString()`
+- Wrapper around native [`Date.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
 
 ### Example
 

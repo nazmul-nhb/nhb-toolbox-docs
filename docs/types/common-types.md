@@ -134,7 +134,7 @@ const unit: TimeUnit = "hour";  // "year" | "month" | "day" etc.
 const inputs: ChronosInput[] = [new Date(), "2023-01-01", 1672531200000];  
 ```  
 
-- Valid input types for Chronos constructor  
+- Valid input types for `Chronos` constructor  
 
 ---
 

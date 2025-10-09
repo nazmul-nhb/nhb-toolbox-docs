@@ -9,7 +9,7 @@ import Copy from '@site/src/components/Copy'
 
 :::info
 
-- Chronos supports a powerful **plugin system** that allows developers to inject additional methods or utilities into the `Chronos` class **without modifying its core**. This enables clean separation of concerns, tree-shaking, modular feature design, and maintainability.
+- `Chronos` supports a powerful **plugin system** that allows developers to inject additional methods or utilities into the `Chronos` class **without modifying its core**. This enables clean separation of concerns, tree-shaking, modular feature design, and maintainability.
 
 - Plugins can be official (maintained by the core team) or custom (developed by users). [See the list of official plugins below](#-official-plugins) or [learn how to write your own plugin](#️-writing-your-own-custom-plugin).
 
@@ -226,7 +226,7 @@ export const timeZonePlugin = (ChronosClass: typeof Chronos): void => {
 
 :::danger[Important]
 
-1. Always augment Chronos via module augmentation to ensure TypeScript recognizes your new methods using this subpath: `'nhb-toolbox/chronos'`
+1. Always augment `Chronos` via module augmentation to ensure TypeScript recognizes your new methods using this subpath: `'nhb-toolbox/chronos'`
 2. Import `Chronos` and `INTERNALS` from `'nhb-toolbox'` in your plugin file
 3. Always use the static `[INTERNALS]` interface rather than trying to access private fields directly
 4. The `withOrigin` method should be used when creating new `Chronos` instances to maintain proper origin tracking

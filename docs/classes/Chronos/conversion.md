@@ -21,7 +21,7 @@ clone(): Chronos
 
 - Creates a new instance with the same timestamp as the original
 - Preserves the original's internal metadata (origin tracking)
-- While Chronos is immutable, cloning is still useful for:
+- While `Chronos` is immutable, cloning is still useful for:
   - Maintaining separate metadata histories
   - Explicitly creating new instances for semantic clarity
   - Working with libraries/frameworks that check object identity
@@ -149,7 +149,7 @@ Chronos.utc('2025-01-15').toLocal(); // Local time instance
 ## timeZone()
 
 :::danger[Note]
-This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all Chronos instances will have access to the `.timeZone()` method.
+This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all `Chronos` instances will have access to the `.timeZone()` method.
 :::
 
 ### Signature

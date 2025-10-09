@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 - **Type Guards & Predicates**: Runtime safety with perfect type inference
 - **Validation Utilities**: Robust data validation patterns
 - **Zero Dependencies**: Framework-agnostic implementation using only native TS/JS with 0 external package
-- **Types**: Includes reusable [types](/docs/types) designed to enhance type safety and developer ergonomics
+- **Types**: Includes utility [types](/docs/types) designed to enhance type safety and developer ergonomics
 
 ## 🧰 Installation Guide
 

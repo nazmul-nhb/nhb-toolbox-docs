@@ -9,7 +9,7 @@ Along with utilities, classes and types, `nhb-toolbox` exports a collection of r
 
 ### 📦 Import
 
-All (20+) constants can be imported using this pattern:
+All (25+) constants can be imported using this pattern:
 
 ```ts
 import { CONSTANT_NAME } from 'nhb-toolbox/constants';
@@ -40,14 +40,14 @@ import { CONSTANT_NAME } from 'nhb-toolbox/constants';
 | `WESTERN_SEASONS`        | Standard four-season model (Spring, Summer, Fall, Winter)                                  |
 | `ALPHABET_COLOR_PALETTE` | Color palette mapped to letters A-Z                                                        |
 | `NUMBER_COLOR_PALETTE`   | Color palette mapped to numbers 0-9                                                        |
-| `CSS_COLORS`             | Standard CSS color names and hex values                                                    |
-| `COUNTRIES`              | List of countries with full-name, country code and ISO country code (both 2 & 3 character) |
+| `CSS_COLORS`             | [**Standard CSS color names**](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color#value) and hex values                                                    |
+| `COUNTRIES`              | [**List of countries**](https://countrycode.org/) with full-name, country code and ISO country code (both 2 & 3 character) |
 | `CURRENCY_CODES`         | ISO 4217 currency codes (e.g., USD, EUR)                                                   |
 | `CURRENCY_LOCALES`       | Default locales for currency formatting                                                    |
 | `FRANKFURTER_CURRENCIES` | Currencies supported by Frankfurter API                                                    |
 | `LOCALE_CODES`           | Standard locale identifiers (e.g., en-US, fr-FR)                                           |
 | `LOWERCASED_WORDS`       | Common lowercase words (articles, prepositions etc.) for text processing                   |
-| `HTTP_STATUS_CODES`      | Complete set of HTTP status codes with with jsdoc                                          |
+| `HTTP_STATUS_CODES`      | Complete set of [**HTTP status codes**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) with with js/tsdoc                                           |
 | `HTTP_STATUS`            | Alias for HTTP_STATUS_CODES                                                                |
 | `HTTP_CODES`             | Alias for HTTP_STATUS_CODES                                                                |
 | `STATUS_CODES`           | Alias for HTTP_STATUS_CODES                                                                |

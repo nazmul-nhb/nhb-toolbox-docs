@@ -18,12 +18,12 @@ valueOf(): number
 
 ### Return Type
 
-`number` - Returns the timestamp (milliseconds since Unix epoch) of the Chronos instance
+`number` - Returns the timestamp (milliseconds since Unix epoch) of the `Chronos` instance
 
 ### Behavior & Notes
 
 - Enables arithmetic and comparison operations when used with primitive conversion
-- Automatically called when Chronos instance is used in numeric context
+- Automatically called when `Chronos` instance is used in numeric context
 - Equivalent to `getTimeStamp()` method
 - Returns same value as JavaScript Date's `valueOf()`
 
@@ -46,7 +46,7 @@ const timestamp = new Chronos().valueOf();
 
 ### Use Cases
 
-- Sorting arrays of Chronos instances
+- Sorting arrays of `Chronos` instances
 - Calculating time differences
 - Interoperability with libraries expecting numeric timestamps
 

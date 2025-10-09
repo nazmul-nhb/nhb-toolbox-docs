@@ -40,7 +40,7 @@ Along with type definitions, `nhb-toolbox` exports a collection of ready-to-use 
 
 ### Import
 
-All (20+) [constants](/docs/types/constants) can be imported using this pattern:
+All (25+) [constants](/docs/types/constants) can be imported using this pattern:
 
 ```ts
 import { CONSTANT_NAME } from 'nhb-toolbox/constants';

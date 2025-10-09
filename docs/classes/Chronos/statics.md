@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## use()
 
-Injects a plugin into the Chronos system. This enables dynamic extension of the `Chronos` class at runtime by registering external functionality as methods on its prototype.
+Injects a plugin into the `Chronos` system. This enables dynamic extension of the `Chronos` class at runtime by registering external functionality as methods on its prototype.
 
 :::info One-time Injection
 A plugin is only injected once per runtime. Re-registering the same plugin has no effect.
@@ -26,7 +26,7 @@ static use(plugin: ChronosPlugin): void
 
 | Name   | Type            | Description                                                                    |
 | ------ | --------------- | ------------------------------------------------------------------------------ |
-| plugin | `ChronosPlugin` | A plugin function that receives the Chronos class constructor and augments it. |
+| plugin | `ChronosPlugin` | A plugin function that receives the `Chronos` class constructor and augments it. |
 
 ### Example
 
@@ -49,7 +49,7 @@ c.timeZone('UTC+06:00');
 :::info
 
 * Plugins should be injected **before** any instance creation.
-* Internally, Chronos maintains a `#plugins` set to prevent duplicate injections.
+* Internally, `Chronos` maintains a `#plugins` set to prevent duplicate injections.
 * This system is ideal for modular features like `seasons`, `zodiac`, or `timeZone` etc. support.
 
 :::
@@ -222,7 +222,7 @@ static yesterday(): Chronos
 ### Example
 
 ```ts
-Chronos.yesterday(); // Chronos instance for yesterday
+Chronos.yesterday(); // `Chronos` instance for yesterday
 ```
 
 ---
@@ -242,7 +242,7 @@ static tomorrow(): Chronos
 ### Example
 
 ```ts
-Chronos.tomorrow(); // Chronos instance for tomorrow
+Chronos.tomorrow(); // `Chronos` instance for tomorrow
 ```
 
 ---
@@ -261,7 +261,7 @@ static now(): number
 
 ### Notes
 
-* Same as `Date.now()`
+* Same as [`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)
 
 ### Example
 
@@ -285,11 +285,11 @@ static utc(dateLike?: ChronosInput): Chronos
 
 ### Return Type
 
-`Chronos` — A new Chronos instance representing the UTC equivalent of the given (or current) date.
+`Chronos` — A new `Chronos` instance representing the UTC equivalent of the given (or current) date.
 
 ### Notes
 
-* Creates a Chronos instance based on Coordinated Universal Time (UTC).
+* Creates a `Chronos` instance based on Coordinated Universal Time (UTC).
 * If no `dateLike` (string/number/object) is provided, it uses the current date and time.
 * This UTC instance is considered the **base time**, meaning all time zone conversions are derived from this reference point and not the local time.
 
@@ -628,7 +628,7 @@ static isValidChronos(value: unknown): value is Chronos
 
 ### Return Type
 
-`boolean` - Whether Chronos instance
+`boolean` - Whether `Chronos` instance
 
 ### Example
 

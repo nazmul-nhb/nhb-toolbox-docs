@@ -24,7 +24,7 @@ getUTCOffset(): string
 Returns the **system’s current UTC offset** in string format.
 
 :::caution[Note]
-Unlike JavaScript's `Date.prototype.getTimezoneOffset()` which returns the offset in **minutes behind UTC** (positive for locations west of UTC), this method returns a human-readable offset using **time zone sign conventions** (e.g., `+06:00` means 6 hours ahead of UTC).
+Unlike JavaScript's [`Date.prototype.getTimezoneOffset()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset) which returns the offset in **minutes behind UTC** (positive for locations west of UTC), this method returns a human-readable offset using **time zone sign conventions** (e.g., `+06:00` means 6 hours ahead of UTC).
 :::
 
 ### Example
@@ -49,12 +49,12 @@ getTimeZoneOffset(): string
 
 ### Description
 
-Returns the **offset string of this Chronos instance’s stored timezone**, regardless of the current system's timezone.
+Returns the **offset string of this `Chronos` instance’s stored timezone**, regardless of the current system's timezone.
 
 - Useful for working with date instances that were parsed with or set to a specific timezone.
 
 :::info
-Follows the same sign convention as `getUTCOffset()` — positive if ahead of UTC, negative if behind.
+Follows the same sign convention as [**getUTCOffset()**](#getutcoffset) — positive if ahead of UTC, negative if behind.
 :::
 
 ### Example
@@ -85,7 +85,7 @@ Returns the **system’s UTC offset in minutes**, but using a **flipped sign con
 - Returns a **negative value** if behind UTC.
 
 :::tip[Note]
-🧠 This matches the intuitive reading of `+06:00 → 360`, `-05:30 → -330`, unlike `Date.prototype.getTimezoneOffset()` which reverses this.
+🧠 This matches the intuitive reading of `+06:00 → 360`, `-05:30 → -330`, unlike [`Date.prototype.getTimezoneOffset()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset) which reverses this.
 :::
 
 ### Example
@@ -110,7 +110,7 @@ getTimeZoneOffsetMinutes(): number
 
 ### Description
 
-Returns the **offset of the current Chronos instance's timezone in minutes**, based on the internally stored offset string (e.g., `UTC+06:00` → `360`).
+Returns the **offset of the current `Chronos` instance's timezone in minutes**, based on the internally stored offset string (e.g., `UTC+06:00` → `360`).
 
 - Independent of system timezone
 - Matches the `±HH:mm` sign convention
@@ -130,7 +130,7 @@ new Chronos().timeZone('IST-IN').getTimeZoneOffsetMinutes(); // 330
 ## toAcademicYear()
 
 :::danger[Note]
-This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toAcademicYear()`. Once registered, all Chronos instances will have access to the `.toAcademicYear()` method.
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toAcademicYear()`. Once registered, all `Chronos` instances will have access to the `.toAcademicYear()` method.
 :::
 
 ### Signature
@@ -189,7 +189,7 @@ new Chronos('2025-04-01').toQuarter(); // 2
 ## toFiscalQuarter()
 
 :::danger[Note]
-This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toFiscalQuarter()`. Once registered, all Chronos instances will have access to the `.toFiscalQuarter()` method.
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.toFiscalQuarter()`. Once registered, all `Chronos` instances will have access to the `.toFiscalQuarter()` method.
 :::
 
 ### Signature

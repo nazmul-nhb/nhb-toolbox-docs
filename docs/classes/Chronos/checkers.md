@@ -14,13 +14,13 @@ isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boo
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 - `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is before the comparison date
+`boolean` - Returns `true` if the current `Chronos` date is before the comparison date
 
 ### Example
 
@@ -44,7 +44,7 @@ isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): bool
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 - `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
@@ -74,7 +74,7 @@ isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boole
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 - `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
@@ -105,13 +105,13 @@ isSameOrBefore(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>)
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 - `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is either:
+`boolean` - Returns `true` if the current `Chronos` date is either:
 
 - Exactly equal to the comparison date at the specified unit level, OR
 - Occurs before the comparison date at the specified unit level
@@ -141,13 +141,13 @@ isSameOrAfter(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>):
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 - `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is either:
+`boolean` - Returns `true` if the current `Chronos` date is either:
 
 - Exactly equal to the comparison date at the specified unit level, OR
 - Occurs after the comparison date at the specified unit level
@@ -220,11 +220,11 @@ isEqual(other: ChronosInput): boolean
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is exactly equal to the comparison date (including time components)
+`boolean` - Returns `true` if the current `Chronos` date is exactly equal to the comparison date (including time components)
 
 ### Example
 
@@ -250,11 +250,11 @@ isEqualOrBefore(other: ChronosInput): boolean
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is either:
+`boolean` - Returns `true` if the current `Chronos` date is either:
 
 - Exactly equal to the comparison date, OR
 - Occurs before the comparison date
@@ -284,11 +284,11 @@ isEqualOrAfter(other: ChronosInput): boolean
 
 ### Parameters
 
-- `other`: The date to compare against (can be string, Date, or Chronos instance)
+- `other`: The date to compare against (can be string, Date, or `Chronos` instance)
 
 ### Return Type
 
-`boolean` - Returns `true` if the current Chronos date is either:
+`boolean` - Returns `true` if the current `Chronos` date is either:
 
 - Exactly equal to the comparison date, OR
 - Occurs after the comparison date
@@ -311,7 +311,7 @@ new Chronos('2025-01-10').isEqualOrAfter('2025-01-15'); // false
 ## isToday()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isToday()`. Once registered, all Chronos instances will have access to the `.isToday()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isToday()`. Once registered, all `Chronos` instances will have access to the `.isToday()` method.
 :::
 
 ### Signature
@@ -340,7 +340,7 @@ new Chronos().isToday(); // true
 ## isTomorrow()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isTomorrow()`. Once registered, all Chronos instances will have access to the `.isTomorrow()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isTomorrow()`. Once registered, all `Chronos` instances will have access to the `.isTomorrow()` method.
 :::
 
 ### Signature
@@ -369,7 +369,7 @@ new Chronos().add(1, 'day').isTomorrow(); // true
 ## isYesterday()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isYesterday()`. Once registered, all Chronos instances will have access to the `.isYesterday()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.isYesterday()`. Once registered, all `Chronos` instances will have access to the `.isYesterday()` method.
 :::
 
 ### Signature
@@ -398,7 +398,7 @@ new Chronos().subtract(1, 'day').isYesterday(); // true
 ## isWeekend()
 
 :::danger[Note]
-This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWeekend()`. Once registered, all Chronos instances will have access to the `.isWeekend()` method.
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWeekend()`. Once registered, all `Chronos` instances will have access to the `.isWeekend()` method.
 :::
 
 ### Signatures
@@ -448,7 +448,7 @@ new Chronos().isWeekend([0, 5, 6]);
 ## isWorkday()
 
 :::danger[Note]
-This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWorkday()`. Once registered, all Chronos instances will have access to the `.isWorkday()` method.
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isWorkday()`. Once registered, all `Chronos` instances will have access to the `.isWorkday()` method.
 :::
 
 ### Signatures
@@ -489,7 +489,7 @@ This method internally uses [**isWeekend**](#isweekend) method.
 ## isBusinessHour()
 
 :::danger[Note]
-This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isBusinessHour()`. Once registered, all Chronos instances will have access to the `.isBusinessHour()` method.
+This method is provided by `businessPlugin`. You must register it using `Chronos.use(businessPlugin)` before calling `.isBusinessHour()`. Once registered, all `Chronos` instances will have access to the `.isBusinessHour()` method.
 :::
 
 ### Signatures
@@ -561,7 +561,7 @@ Weekends are determined by `weekStartsOn` and `weekendLength` or `weekdays` arra
 ## isPalindromeDate()
 
 :::danger[Note]
-This method is provided by `palindromePlugin`. You must register it using `Chronos.use(palindromePlugin)` before calling `.isPalindromeDate()`. Once registered, all Chronos instances will have access to the `.isPalindromeDate()` method.
+This method is provided by `palindromePlugin`. You must register it using `Chronos.use(palindromePlugin)` before calling `.isPalindromeDate()`. Once registered, all `Chronos` instances will have access to the `.isPalindromeDate()` method.
 :::
 
 ### Signature

@@ -93,7 +93,7 @@ isDateString(value: unknown): value is string
 
 #### Description
 
-Validates if a string can be parsed into a valid Date. More strict than direct Date parsing as it requires properly formatted date strings.
+Validates if a string can be parsed into a valid [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). More strict than direct [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) parsing as it requires properly formatted date strings.
 
 #### Examples
 

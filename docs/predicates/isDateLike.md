@@ -44,15 +44,15 @@ console.log(isDateLike('2023-01-01')); // false`}
 
 The function recognizes these date-like objects:
 
-| Library     | Detection Criteria                                            |
-| ----------- | ------------------------------------------------------------- |
-| Native Date | `instanceof Date`                                             |
-| Chronos     | Has `format()`, `toJSON()`, and `toISOString()` methods       |
-| Dayjs       | Same as Chronos                                               |
-| Moment.js   | Same as Chronos                                               |
-| Luxon       | Has `toISO()`, `toFormat()` methods and `isValid` property    |
-| JS-Joda     | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
-| Temporal    | Has `toJSON()`, `toString()` and specific constructor names   |
+| Library       | Detection Criteria                                            |
+| ------------- | ------------------------------------------------------------- |
+| Native `Date` | `instanceof Date`                                             |
+| `Chronos`     | Has `format()`, `toJSON()`, and `toISOString()` methods       |
+| `Dayjs`       | Same as `Chronos`                                             |
+| `Moment.js`   | Same as `Chronos`                                             |
+| `Luxon`       | Has `toISO()`, `toFormat()` methods and `isValid` property    |
+| `JS-Joda`    | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
+| `Temporal`    | Has `toJSON()`, `toString()` and specific constructor names   |
 
 ## API Reference
 

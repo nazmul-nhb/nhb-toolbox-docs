@@ -173,7 +173,7 @@ date.calendar(); // "Yesterday at [time]"
 ## fromNow()
 
 :::danger[Note]
-This method is provided by `fromNowPlugin`. You must register it using `Chronos.use(fromNowPlugin)` before calling `.fromNow()`. Once registered, all Chronos instances will have access to the `.fromNow()` method.
+This method is provided by `fromNowPlugin`. You must register it using `Chronos.use(fromNowPlugin)` before calling `.fromNow()`. Once registered, all `Chronos` instances will have access to the `.fromNow()` method.
 :::
 
 ### Signature
@@ -236,7 +236,7 @@ new Chronos().subtract(150, 'minutes').fromNowShort(); // "2h ago"
 ## getGreeting()
 
 :::danger[Note]
-This method is provided by `greetingPlugin`. You must register it using `Chronos.use(greetingPlugin)` before calling `.getGreeting()`. Once registered, all Chronos instances will have access to the `.getGreeting()` method.
+This method is provided by `greetingPlugin`. You must register it using `Chronos.use(greetingPlugin)` before calling `.getGreeting()`. Once registered, all `Chronos` instances will have access to the `.getGreeting()` method.
 :::
 
 Returns a time-appropriate greeting message based on configurable time periods. Supports custom messages and time thresholds.

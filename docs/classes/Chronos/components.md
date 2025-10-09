@@ -50,8 +50,8 @@ getTimeStamp(): number
 
 ### Behavior & Notes
 
-- Equivalent to JavaScript `Date.getTime()`
-- Returns the primitive timestamp value of the Chronos instance
+- Equivalent to JavaScript [`Date.getTime()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)
+- Returns the primitive timestamp value of the `Chronos` instance
 - Useful for interoperability with other date libraries or storage
 
 ### Example

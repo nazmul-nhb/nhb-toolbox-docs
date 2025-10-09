@@ -9,7 +9,7 @@ title: Comparison Methods
 ## compare()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.compare()`. Once registered, all Chronos instances will have access to the `.compare()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.compare()`. Once registered, all `Chronos` instances will have access to the `.compare()` method.
 :::
 
 ### Signature
@@ -53,7 +53,7 @@ futureDate.compare('hour'); // 3
 ## getRelativeYear()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeYear()`. Once registered, all Chronos instances will have access to the `.getRelativeYear()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeYear()`. Once registered, all `Chronos` instances will have access to the `.getRelativeYear()` method.
 :::
 
 ### Signature
@@ -93,7 +93,7 @@ date.getRelativeYear('2023-07-01'); // -3
 ## getRelativeMonth()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMonth()`. Once registered, all Chronos instances will have access to the `.getRelativeMonth()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMonth()`. Once registered, all `Chronos` instances will have access to the `.getRelativeMonth()` method.
 :::
 
 ### Signature
@@ -133,7 +133,7 @@ date.getRelativeMonth('2023-03-20'); // -2
 ## getRelativeWeek()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeWeek()`. Once registered, all Chronos instances will have access to the `.getRelativeWeek()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeWeek()`. Once registered, all `Chronos` instances will have access to the `.getRelativeWeek()` method.
 :::
 
 ### Signature
@@ -171,7 +171,7 @@ new Chronos().getRelativeWeek('2023-01-01'); // Weeks between dates
 ## getRelativeDay()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeDay()`. Once registered, all Chronos instances will have access to the `.getRelativeDay()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeDay()`. Once registered, all `Chronos` instances will have access to the `.getRelativeDay()` method.
 :::
 
 ### Signature
@@ -217,7 +217,7 @@ tomorrow.getRelativeDay(); // 1
 ## getRelativeHour()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeHour()`. Once registered, all Chronos instances will have access to the `.getRelativeHour()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeHour()`. Once registered, all `Chronos` instances will have access to the `.getRelativeHour()` method.
 :::
 
 ### Signature
@@ -251,7 +251,7 @@ date.getRelativeHour(); // 1 (full hours)
 ## getRelativeMinute()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMinute()`. Once registered, all Chronos instances will have access to the `.getRelativeMinute()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMinute()`. Once registered, all `Chronos` instances will have access to the `.getRelativeMinute()` method.
 :::
 
 ### Signature
@@ -285,7 +285,7 @@ date.getRelativeMinute(); // 2 (full minutes)
 ## getRelativeSecond()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeSecond()`. Once registered, all Chronos instances will have access to the `.getRelativeSecond()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeSecond()`. Once registered, all `Chronos` instances will have access to the `.getRelativeSecond()` method.
 :::
 
 ### Signature
@@ -319,7 +319,7 @@ date.getRelativeSecond(); // 1 (full seconds)
 ## getRelativeMilliSecond()
 
 :::danger[Note]
-This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMilliSecond()`. Once registered, all Chronos instances will have access to the `.getRelativeMilliSecond()` method.
+This method is provided by `relativeTimePlugin`. You must register it using `Chronos.use(relativeTimePlugin)` before calling `.getRelativeMilliSecond()`. Once registered, all `Chronos` instances will have access to the `.getRelativeMilliSecond()` method.
 :::
 
 ### Signature

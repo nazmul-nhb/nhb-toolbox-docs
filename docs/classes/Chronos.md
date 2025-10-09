@@ -19,7 +19,7 @@ Whether you're building a calendar, a countdown, or scheduling logic, `Chronos` 
 This documentation provides a detailed guide to the `Chronos` class, a comprehensive date and time manipulation class. The methods are grouped into logical categories for easier navigation.
 
 :::info
-For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/date/chronos)
+For `chronos` function, a `Chronos` wrapper, refer to [**chronos**](/docs/utilities/date/chronos)
 :::
 
 ### Chronos Methods
@@ -75,7 +75,7 @@ However, in JavaScript, these properties _can technically be mutated_ (Compile-t
 Returns the underlying native JavaScript `Date` object used internally by the `Chronos` instance. This is useful for interoperability with APIs or libraries that expect a native `Date`.
 
 :::danger[Note]
-It is **HIGHLY** advised not to rely on this `native` public property to access native JS Date. It's not reliable when timezone and/or UTC related operations are performed. This particular `native` Date always shows a relative UTC time of the current instance even for UTC or zoned time. If you really need to use correct native `Date`, use [`toDate()`](Chronos/conversion#todate) instance method.
+It is **HIGHLY** advised not to rely on this `native` public property to access [native JS Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). It's not reliable when timezone and/or UTC related operations are performed. This particular `native` Date always shows a relative UTC time of the current instance even for UTC or zoned time. If you really need to use correct native `Date`, use [`toDate()`](Chronos/conversion#todate) instance method.
 :::
 
 ```ts
