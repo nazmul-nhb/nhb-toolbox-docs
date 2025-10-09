@@ -38,7 +38,7 @@ For chronos function, a `Chronos` wrapper, refer to [chronos](/docs/utilities/da
 - [Extra Time Information](Chronos/extras)
 - [Symbol Methods](Chronos/symbols)
 
-## Overload Signatures
+## Constructor Signatures
 
 ```ts
  constructor();

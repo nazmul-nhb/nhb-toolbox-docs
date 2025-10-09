@@ -160,18 +160,20 @@ round(unit: TimeUnit, nearest?: number): Chronos
 ### Parameters
 
 - `unit`: The time unit to round to. Valid units: `'year'`, `'month'`, `'week'`, `'day'`, `'hour'`, `'minute'`, `'second'`, `'millisecond'`
-- `nearest`: (Optional) The nearest multiple to round to (default: `1`)
+- `nearest`: *(optional)*: The nearest multiple to round to. Defaults to `1`.
 
 ### Return Type
 
-`Chronos` - Returns a new `Chronos` instance rounded to the nearest point based on the specified unit and granularity
+`Chronos` - Returns a new `Chronos` instance rounded to the nearest point based on the specified unit and granularity. If an invalid unit is passed, the original instance is returned unchanged.
 
 ### Behavior & Notes
 
 - Rounding is based on the **proximity to the start or end** of the specified time unit
+- Rounding uses sub-unit fractions (e.g., seconds within minutes, minutes within hours) to determine proximity precisely.
 - `nearest` defines the multiple to round to (e.g., 15-minute intervals)
+- Rounding applies fractional logic based on how far into the unit the date is.
 - If an invalid unit is passed, returns the original instance unchanged
-- Returns a new immutable instance (does not modify the original)
+- Returns a new immutable instance *(does not modify the original)*
 
 #### Unit-specific Behavior
 
@@ -184,9 +186,14 @@ round(unit: TimeUnit, nearest?: number): Chronos
   - Example: `2025-05-23T18:00:00` rounds to `2025-05-24T00:00:00`
 
 - **Weeks**:
-  - Uses ISO 8601 convention (weeks start on Monday)
-  - Rounds to nearest Monday based on proximity
-  - Example: A Wednesday closer to next Monday rounds forward
+  - Uses *ISO 8601* convention: **weeks start on Monday**.
+  - Rounds to *nearest Monday* based on proximity
+  - Rounding is determined by comparing the current date to:
+    - The **start of the current week** (Monday at 00:00),
+    - The **start of the next week** (the following Monday at 00:00).
+  - If the current date is **closer to the next Monday**, it rounds forward. Otherwise, it rounds back to the previous (or same) Monday.
+  - Rounded weeks are treated as **0-indexed** relative to the year.
+  - Example: Once the current date passes *midweek* (e.g., *late Wednesday* or *beyond*), it becomes closer to the *next Monday*, so rounding moves forward to that *Monday’s start*.
 
 - **Months**:
   - Rounds based on progress through the month (midpoint is day 15)
@@ -228,8 +235,8 @@ duration(toTime?: ChronosInput, absolute?: boolean): TimeDuration
 
 ### Parameters
 
-- `toTime`: End date (default: now)
-- `absolute`: Return absolute values (default: true)
+- `toTime`: End date (default: `now`)
+- `absolute`: Return absolute value, always positive if `true` (default: `true`)
 
 ### Return Type
 
@@ -253,52 +260,6 @@ interface TimeDuration {
 new Chronos('2020-01-01').duration('2025-01-01');
 // {years: 3, months: 0, days: 0, ...}
 ```
-
----
-
-## round()
-
-### Signature
-
-```ts
-round(unit: TimeUnit, nearest?: number): Chronos
-```
-
-### Parameters
-
-- `unit`: The time unit to round to. Valid units: `'year'`, `'month'`, `'week'`, `'day'`, `'hour'`, `'minute'`, `'second'`, `'millisecond'`.
-- `nearest` *(optional)*: The nearest multiple to round to. Defaults to `1`.
-
-### Return Type
-
-`Chronos` – Returns a new `Chronos` instance rounded to the nearest point based on the specified unit and granularity. If an invalid unit is passed, the original instance is returned.
-
-### Example
-
-```ts
-new Chronos('2025-01-15T14:35:30').round('hour');        // 2025-01-15T15:00:00
-new Chronos('2025-01-15T14:35:30').round('minute', 15);  // 2025-01-15T14:30:00
-```
-
-### Behavior & Notes
-
-- Rounding is based on the **proximity to the start or end** of the specified time unit.
-- `nearest` defines the multiple to round to (e.g., 15-minute intervals).
-- Rounding applies fractional logic based on how far into the unit the date is.
-
-#### Unit-specific Notes
-
-- **`millisecond` / `second` / `minute` / `hour` / `day`**: Uses sub-unit fractions (e.g., seconds from minutes) for precise rounding.
-- **month**: Rounding is based on how far into the month the date is (e.g., the 15th of May is halfway through). If the date is past the midpoint of the month, it rounds forward; otherwise, it rounds back. Internally, month indices are 0-based, but the resulting date is standard ISO-formatted.
-- **`year`**: Considers day-of-year progress relative to leap years.
-- **`week`**:
-  - Uses ISO 8601 convention: **weeks start on Monday**.
-  - Rounding is determined by comparing the current date to:
-    - The **start of the current week** (Monday at 00:00),
-    - The **start of the next week** (the following Monday at 00:00).
-  - If the current date is **closer to the next Monday**, it rounds forward.
-  - Otherwise, it rounds back to the previous (or same) Monday.
-  - Rounded weeks are treated as **0-indexed** relative to the year.
 
 ---
 
