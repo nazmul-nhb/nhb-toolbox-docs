@@ -244,13 +244,20 @@ duration(toTime?: ChronosInput, absolute?: boolean): TimeDuration
 
 ```typescript
 interface TimeDuration {
-  years: number;
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  milliseconds: number;
+ /** Total number of years. */
+ years: number;
+ /** Number of months remaining after full years are counted. */
+ months: number;
+ /** Number of days remaining after full months are counted. */
+ days: number;
+ /** Number of hours remaining after full days are counted. */
+ hours: number;
+ /** Number of minutes remaining after full hours are counted. */
+ minutes: number;
+ /** Number of seconds remaining after full minutes are counted. */
+ seconds: number;
+ /** Number of milliseconds remaining after full seconds are counted. */
+ milliseconds: number;
 }
 ```
 
