@@ -1,6 +1,6 @@
 ---
 id: numberToWordsOrdinal
-title: Number to Ordinal Words
+title: Number to Words (Ordinal)
 ---
 
 ## numberToWordsOrdinal

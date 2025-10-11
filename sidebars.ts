@@ -138,6 +138,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/numberToWords',
 						'utilities/number/numberToWordsOrdinal',
 						'utilities/number/wordsToNumber',
+						'utilities/number/roman-numerals',
 						'utilities/number/calculatePercentage',
 						{
 							type: 'doc',
@@ -152,7 +153,11 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/getRandomFloat',
 						'utilities/number/normalizeNumber',
 						'utilities/number/fibonacci',
-						'utilities/number/findPrimeNumbers',
+						{
+							type: 'doc',
+							id: 'utilities/number/findPrimeNumbers',
+							label: 'Find Prime Numbers ',
+						},
 						'utilities/number/getAverage',
 						'utilities/number/sumNumbers',
 						'utilities/number/sumDigits',
@@ -161,7 +166,6 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/calculateHCF',
 						'utilities/number/calculateLCM',
 						'utilities/number/reverseNumber',
-						'utilities/number/convertToRoman',
 						'utilities/number/getOrdinal',
 						'utilities/number/clampNumber',
 					],
