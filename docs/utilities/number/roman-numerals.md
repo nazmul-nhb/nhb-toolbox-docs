@@ -59,7 +59,7 @@ convertToRomanNumerals(0); // throws RangeError
 
 ### Notes
 
-- Roman numerals were used in ancient Rome for counting and notation. This implementation supports only traditional Roman numerals (`1``–3999`).
+- Roman numerals were used in ancient Rome for counting and notation. This implementation supports only traditional Roman numerals (`1`–`3999`).
 - The conversion follows standard subtractive notation rules: e.g., `4 = IV`, `9 = IX`, `40 = XL`, `90 = XC`.
 - This function does not support numbers ≥ 4000 due to limitations in classical Roman numeral representation.
 
@@ -77,7 +77,7 @@ Use `convertToRomanNumerals` when you need to represent numbers in Roman format 
 **Converts a Roman numeral into its equivalent Arabic integer representation.**
 :::
 
-Converts any valid Roman numeral from `I` to `MMMCMXCIX` (1 to 3999) into an integer.
+Converts any valid Roman numeral from `I` to `MMMCMXCIX` (`1`–`3999`) into an integer.
 
 ### Function Signature
 
@@ -87,7 +87,7 @@ romanToInteger(roman: LooseRomanNumeral): number;
 
 ### Parameters
 
-- `roman` — The Roman numeral input (*case-insensitive*) to be converted. Type `LooseRomanNumeral` represents valid *Roman numeral* (`1-3999`) and any other string.
+- `roman` — The Roman numeral input (*case-insensitive*) to be converted. Type `LooseRomanNumeral` represents valid *Roman numeral* (`1`–`3999`) and any other string.
 
 ### Returns
 
