@@ -176,25 +176,35 @@ date.calendar(); // "Yesterday at [time]"
 This method is provided by `fromNowPlugin`. You must register it using `Chronos.use(fromNowPlugin)` before calling `.fromNow()`. Once registered, all `Chronos` instances will have access to the `.fromNow()` method.
 :::
 
+:::info
+
+- This method calculates the **elapsed time difference** (excludes the end day), consistent with libraries like `Day.js` and `Luxon`.
+- If you need an *inclusive calendar-style* difference (counting both start and end days), adjust one day manually before calling `fromNow()`.
+
+:::
+
 ### Signature
 
 ```typescript
-fromNow(
-  level?: Exclude<TimeUnit, 'millisecond'>,
-  withSuffixPrefix?: boolean,
-  time?: ChronosInput
-): string
+fromNow(level?: FromNowUnit, withSuffixPrefix?: boolean, time?: ChronosInput): string
 ```
 
 ### Parameters
 
-- `level`: Smallest unit to include (default: 'minute')
+- `level`: Smallest unit to include (default: 'second')
 - `withSuffixPrefix`: Include "ago"/"in" (default: true)
 - `time`: Comparison time (default: now)
 
 ### Return Type
 
 `string` - Human-readable duration
+
+### Type Definition
+
+```ts
+/** Name of time unit from year to millisecond, except `'week'` */
+type FromNowUnit = "year" | "month" | "day" | "hour" | "minute" | "second" | "millisecond";
+```
 
 ### Example
 
@@ -205,6 +215,7 @@ Chronos.use(fromNowPlugin);
 
 new Chronos().subtract(2, 'days').fromNow(); // "2 days ago"
 new Chronos().add(3, 'hours').fromNow(); // "in 3 hours"
+new Chronos().fromNow(); // "0 second ago"
 ```
 
 ---
@@ -219,7 +230,7 @@ fromNowShort(): string
 
 ### Return Type
 
-`string` - Short duration string
+`string` - Short duration string, from `year` to `second`
 
 ### Notes
 
