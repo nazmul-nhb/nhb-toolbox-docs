@@ -25,7 +25,11 @@ convertToRomanNumerals(value: Numeric): RomanNumeralCap;
 
 ### Returns
 
-- A `RomanNumeralCap` representing the Roman numeral form of the number. Type `RomanNumeralCap` represents up to 5 characters in *Roman* and does not enforce valid Roman numeral formation.
+- A `RomanNumeralCap` representing uppercase Roman numeral form of the `value`.
+
+:::tip[Note]
+Type `RomanNumeralCap` represents up to *5 characters in uppercase Roman* and does not enforce valid Roman numeral formation.
+:::
 
 ### Throws
 
