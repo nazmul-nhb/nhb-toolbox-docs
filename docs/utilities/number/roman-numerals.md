@@ -25,7 +25,7 @@ convertToRomanNumerals(value: Numeric): RomanNumeralCap;
 
 ### Returns
 
-- A `string` representing the Roman numeral form of the number. Type `RomanNumeralCap` represents up to 5 characters in *Roman*.
+- A `RomanNumeralCap` representing the Roman numeral form of the number. Type `RomanNumeralCap` represents up to 5 characters in *Roman* and does not enforce valid Roman numeral formation.
 
 ### Throws
 
