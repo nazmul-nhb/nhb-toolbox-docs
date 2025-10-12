@@ -180,6 +180,8 @@ This method is provided by `fromNowPlugin`. You must register it using `Chronos.
 
 - This method calculates the **elapsed time difference** (excludes the end day), consistent with libraries like `Day.js` and `Luxon`.
 - If you need an *inclusive calendar-style* difference (counting both start and end days), adjust one day manually before calling `fromNow()`.
+- The smallest unit included can be customized via the `level` parameter (from `'year'` to `'millisecond'`).
+- Returns `"0 <unit>"` if no time difference is detected at the requested precision.
 
 :::
 
@@ -191,9 +193,9 @@ fromNow(level?: FromNowUnit, withSuffixPrefix?: boolean, time?: ChronosInput): s
 
 ### Parameters
 
-- `level`: Smallest unit to include (default: 'second')
-- `withSuffixPrefix`: Include "ago"/"in" (default: true)
-- `time`: Comparison time (default: now)
+- `level`: Smallest unit to include (default: `'second'`)
+- `withSuffixPrefix`: Include `"ago"` or `"in"` depending on the time direction (default: `true`)
+- `time`: Optional comparison time (`string`, `number`, `Date`, or `Chronos` instance). Defaults to `now`.
 
 ### Return Type
 
@@ -202,7 +204,7 @@ fromNow(level?: FromNowUnit, withSuffixPrefix?: boolean, time?: ChronosInput): s
 ### Type Definition
 
 ```ts
-/** Name of time unit from year to millisecond, except `'week'` */
+/** Name of time unit from `'year'` to `'millisecond'`, excluding `'week'` */
 type FromNowUnit = "year" | "month" | "day" | "hour" | "minute" | "second" | "millisecond";
 ```
 
@@ -213,9 +215,15 @@ import { fromNowPlugin } from 'nhb-toolbox/plugins/fromNowPlugin';
 
 Chronos.use(fromNowPlugin);
 
-new Chronos().subtract(2, 'days').fromNow(); // "2 days ago"
-new Chronos().add(3, 'hours').fromNow(); // "in 3 hours"
 new Chronos().fromNow(); // "0 second ago"
+new Chronos().add(3, 'hours').fromNow(); // "in 3 hours"
+new Chronos().subtract(2, 'days').fromNow(); // "2 days ago"
+
+new Chronos('2020-03-16').fromNow('day', false, '2025-10-01'); 
+// "5 years 6 months 15 days" (exclusive of end day)
+
+new Chronos('2020-03-16').subtract(1, 'day').fromNow('day', false, '2025-10-01'); 
+// "5 years 6 months 16 days" (inclusive of end day)
 ```
 
 ---
