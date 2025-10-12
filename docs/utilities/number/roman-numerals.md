@@ -11,12 +11,12 @@ title: Handle Roman Numerals
 **Converts an integer into its equivalent Roman numeral representation.**
 :::
 
-Converts any valid number from `1` to `3999` into a Roman numeral.
+Converts any valid integer from `1` to `3999` into a Roman numeral.
 
 ### Function Signature
 
 ```ts
-convertToRomanNumerals(value: Numeric): RomanNumeralCap;
+convertToRomanNumerals(value: Numeric): RomanCapital;
 ```
 
 ### Parameters
@@ -25,15 +25,11 @@ convertToRomanNumerals(value: Numeric): RomanNumeralCap;
 
 ### Returns
 
-- A `RomanNumeralCap` representing uppercase Roman numeral form of the `value`.
-
-:::tip[Note]
-Type `RomanNumeralCap` represents up to *5 characters in uppercase Roman* and does not enforce valid Roman numeral formation.
-:::
+- A `RomanCapital` representing uppercase Roman numeral form of the `value`.
 
 ### Throws
 
-- `RangeError` — If the number is less than `1` or greater than `3999`.
+- `RangeError` — If the number is *not an integer* or less than `1` or greater than `3999`.
 
 ---
 
@@ -86,12 +82,12 @@ Converts any valid Roman numeral from `I` to `MMMCMXCIX` (1 to 3999) into an int
 ### Function Signature
 
 ```ts
-romanToInteger(roman: RomanNumeral): number;
+romanToInteger(roman: LooseRomanNumeral): number;
 ```
 
 ### Parameters
 
-- `roman` — The Roman numeral input (*case-insensitive* string) to be converted. Type `RomanNumeral` represents up to 5 characters (*case-insensitive*) in *Roman* and any other string.
+- `roman` — The Roman numeral input (*case-insensitive*) to be converted. Type `LooseRomanNumeral` represents valid *Roman numeral* (`1-3999`) and any other string.
 
 ### Returns
 
