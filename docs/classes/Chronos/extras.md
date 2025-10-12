@@ -12,12 +12,12 @@ title: Extra Time Information
 ### Signature
 
 ```ts
-getUTCOffset(): string
+getUTCOffset(): $UTCOffset
 ```
 
 ### Return Type
 
-`string` — Offset string in the format `±HH:mm` (e.g., `+05:30`, `-06:00`)
+`$UTCOffset` — Offset string in the format `±HH:mm` (e.g., `+05:30`, `-06:00`)
 
 ### Description
 
@@ -40,12 +40,12 @@ new Chronos('2025-01-15').getUTCOffset(); // "-05:00" for EST
 ### Signature
 
 ```ts
-getTimeZoneOffset(): string
+getTimeZoneOffset(): $UTCOffset
 ```
 
 ### Return Type
 
-`string` — Offset string in the format `±HH:mm`
+`$UTCOffset` — Offset string in the format `±HH:mm`
 
 ### Description
 
