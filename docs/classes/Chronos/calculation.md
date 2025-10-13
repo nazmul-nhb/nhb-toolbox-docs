@@ -151,6 +151,10 @@ date2.diff(date1, 'days'); // 14
 
 ## round()
 
+:::danger[Note]
+This method is provided by `roundPlugin`. You must register it using `Chronos.use(roundPlugin)` before calling `.round()`. Once registered, all `Chronos` instances will have access to the `.round()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -170,10 +174,10 @@ round(unit: TimeUnit, nearest?: number): Chronos
 
 - Rounding is based on the **proximity to the start or end** of the specified time unit
 - Rounding uses sub-unit fractions (e.g., seconds within minutes, minutes within hours) to determine proximity precisely.
-- `nearest` defines the multiple to round to (e.g., 15-minute intervals)
+- `nearest` defines the multiple to round to (e.g., 15-minute intervals), internally uses [**roundToNearest**](/docs/utilities/number/roundToNearest).
 - Rounding applies fractional logic based on how far into the unit the date is.
-- If an invalid unit is passed, returns the original instance unchanged
-- Returns a new immutable instance *(does not modify the original)*
+- If an invalid unit is passed, returns the original instance unchanged.
+- Returns a new immutable `Chronos` instance *(does not modify the original)*.
 
 #### Unit-specific Behavior
 
@@ -206,6 +210,10 @@ round(unit: TimeUnit, nearest?: number): Chronos
 ### Examples
 
 ```typescript
+import { roundPlugin } from 'nhb-toolbox/plugins/roundPlugin';
+
+Chronos.use(roundPlugin);
+
 // Round to nearest hour
 new Chronos('2025-01-15T14:35:30').round('hour'); 
 // Returns: 2025-01-15T15:00:00
