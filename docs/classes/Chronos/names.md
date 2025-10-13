@@ -82,7 +82,11 @@ new Chronos().monthName(11);           // "December"
 
 ## getTimeZoneName()
 
-Get time zone name
+Get full time zone name or UTC offset
+
+:::danger[Note]
+This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.getTimeZoneName()`. Once registered, all `Chronos` instances will have access to the `.getTimeZoneName()` method.
+:::
 
 ### Signature
 
@@ -102,6 +106,11 @@ getTimeZoneName(utc?: UTCOffset): LooseLiteral<UTCOffset>
 ### Example Usage
 
 ```ts
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+
+Chronos.use(timeZonePlugin);
+
 new Chronos().getTimeZoneName(); // "Bangladesh Standard Time"
 
 // If it's a custom time zone or does not math with predefined time zones:
@@ -127,7 +136,7 @@ new Chronos().getTimeZoneName('UTC+06:15');
 
 ## getTimeZoneNameShort()
 
-Get abbreviated time zone name
+Get abbreviated time zone name or UTC offset
 
 :::danger[Note]
 This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.getTimeZoneNameShort()`. Once registered, all `Chronos` instances will have access to the `.getTimeZoneNameShort()` method.
@@ -151,6 +160,11 @@ getTimeZoneNameShort(utc?: UTCOffset): TimeZone | UTCOffset
 ### Example Usage
 
 ```ts
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+
+Chronos.use(timeZonePlugin);
+
 new Chronos().getTimeZoneNameShort(); // "BST"
 
 // If it's a custom time zone or does not math with predefined time zones:

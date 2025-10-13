@@ -110,8 +110,9 @@ toString(): string
 
 ### Notes
 
-- Returns localized string representation
-- Includes timezone information when relevant
+- Returns localized string representation.
+- Includes timezone information when relevant.
+- *If any UTC method is applied before calling this method*, instead of timezone information it will output: `(Coordinated Universal Time)`.
 
 ### Example
 
