@@ -1,7 +1,9 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import dotenv from 'dotenv';
-import { resolve } from 'path';
+import { mkdirSync, writeFileSync } from 'fs';
+import { Stylog } from 'nhb-toolbox/stylog';
+import { dirname, resolve } from 'path';
 import { themes } from 'prism-react-renderer';
 
 dotenv.config({ path: resolve(__dirname, '.env'), quiet: true });
@@ -18,10 +20,47 @@ async function getNpmVersion(pkg: string): Promise<string> {
 	return data.version;
 }
 
+/**
+ * Fetch the latest CHANGELOG.md from GitHub raw URL
+ * and write it to docs/CHANGELOG.md (for Docusaurus to render).
+ */
+async function syncChangelog(): Promise<void> {
+	const rawUrl =
+		'https://raw.githubusercontent.com/nazmul-nhb/nhb-toolbox/main/CHANGELOG.md';
+
+	const response = await fetch(rawUrl);
+	if (!response.ok)
+		throw new Error(`❌ Failed to fetch CHANGELOG.md: ${response.statusText}`);
+
+	let content = await response.text();
+
+	// 🧩 Prepend required Docusaurus front-matter
+	const frontMatter = ['---', 'id: changelog', 'slug: changelog', '---', ''].join('\n');
+
+	// 🔗 Fix unresolved relative links like (README.md) → full GitHub URL
+	content = content.replace(
+		/\]\((?:\.\/)?README\.md\)/g,
+		'](https://github.com/nazmul-nhb/nhb-toolbox/blob/main/README.md)'
+	);
+
+	const outputPath = resolve('./docs/CHANGELOG.md');
+	mkdirSync(dirname(outputPath), { recursive: true });
+	writeFileSync(outputPath, `${frontMatter}\n${content}`, 'utf-8');
+
+	console.log(
+		Stylog.ansi16('green').toANSI(
+			'✅ Synced latest CHANGELOG.md from GitHub → docs/CHANGELOG.md'
+		)
+	);
+}
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 export default async function config(): Promise<Config> {
 	const npmVersion = await getNpmVersion('nhb-toolbox');
+
+	console.log(Stylog.ansi16('green').toANSI(`📦 nhb-toolbox@${npmVersion}`));
+	await syncChangelog();
 
 	return {
 		title: 'NHB Toolbox',
@@ -225,6 +264,12 @@ export default async function config(): Promise<Config> {
 						label: `v${npmVersion}`,
 						position: 'right',
 						href: 'https://www.npmjs.com/package/nhb-toolbox',
+					},
+					{
+						type: 'doc',
+						docId: 'changelog',
+						position: 'right',
+						label: 'Changelog',
 					},
 				],
 			},
