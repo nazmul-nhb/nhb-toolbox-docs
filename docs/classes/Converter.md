@@ -23,15 +23,17 @@ The system consists of a main `Converter` function and specialized converter cla
 - ✅ **Easy-to-use API** with intuitive methods
 - ✅ **Extensible architecture** for future unit categories *(More to come!)*
 
+> More categories and units may be added in future releases based on requirements.
+
 ---
 
 ### 📦 Import
 
 ```ts
-// From main package path
+// from main package path
 import { 
   Converter, 
-  converter,
+  converter, // Alias for Converter
   TimeConverter,
   LengthConverter, 
   DataConverter,
@@ -40,10 +42,11 @@ import {
   AreaConverter,
   VolumeConverter
  } from 'nhb-toolbox';
+
 // or from package subpath
 import { 
   Converter, 
-  converter,
+  converter, // Alias for Converter
   TimeConverter,
   LengthConverter, 
   DataConverter,
@@ -231,45 +234,6 @@ Converter(2.5, 'hour').toString(); // "2.5 hours"
 Converter(1, 'minute').toString(); // "1 minute"
 ```
 
-### Mathematical Operations
-
-All converters support mathematical operations that return new instances:
-
-```ts
-const time = Converter(1, 'hour');
-
-time.add(30).toString(); // "31 hours" (assumes same unit)
-time.subtract(15).toString(); // "14 hours"
-time.multiply(2).toString(); // "2 hours"  
-time.divide(4).toString(); // "0.25 hours"
-```
-
-### `abs()`
-
-Get absolute value.
-
-```ts
-Converter(-5, 'hour').abs().toString(); // "5 hours"
-```
-
-### `round(decimals?)`
-
-Round to specified decimal places.
-
-```ts
-Converter(1.2345, 'hour').round(2).toString(); // "1.23 hours"
-```
-
-### Comparison Methods
-
-```ts
-const time = Converter(2, 'hour');
-
-time.gt(1); // true
-time.lt(3); // true  
-time.eq(2); // true
-```
-
 ### `format(decimals?)`
 
 Format the current value with pluralization.
@@ -305,6 +269,45 @@ Internally used by JS engines to for JSON serialization
 
 ```ts
 Converter(2.5, 'hour').toJSON(); // '{"value":2.5,"unit":"hour"}'
+```
+
+### Mathematical Operations
+
+All converters support mathematical operations that return new instances:
+
+```ts
+const time = Converter(1, 'hour');
+
+time.add(30).toString(); // "31 hours" (assumes same unit)
+time.subtract(15).toString(); // "14 hours"
+time.multiply(2).toString(); // "2 hours"  
+time.divide(4).toString(); // "0.25 hours"
+```
+
+#### `abs()`
+
+Get absolute value.
+
+```ts
+Converter(-5, 'hour').abs().toString(); // "5 hours"
+```
+
+#### `round(decimals?)`
+
+Round to specified decimal places.
+
+```ts
+Converter(1.2345, 'hour').round(2).toString(); // "1.23 hours"
+```
+
+### Comparison Methods
+
+```ts
+const time = Converter(2, 'hour');
+
+time.gt(1); // true
+time.lt(3); // true  
+time.eq(2); // true
 ```
 
 ---
