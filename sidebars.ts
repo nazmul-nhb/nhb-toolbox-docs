@@ -57,6 +57,7 @@ const sidebars: SidebarsConfig = {
 						{ type: 'doc', label: 'Verbalizer', id: 'classes/Verbalizer' },
 						{ type: 'doc', label: 'LogStyler', id: 'classes/LogStyler' },
 						{ type: 'doc', label: 'HttpStatus', id: 'classes/HttpStatus' },
+						{ type: 'doc', label: 'Converter', id: 'classes/Converter' },
 						{ type: 'doc', label: 'Paginator', id: 'classes/Paginator' },
 						{ type: 'doc', label: 'Finder', id: 'classes/Finder' },
 						{ type: 'doc', label: 'Unit', id: 'classes/Unit' },
@@ -365,6 +366,7 @@ const sidebars: SidebarsConfig = {
 				{ type: 'doc', label: 'Verbalizer', id: 'classes/Verbalizer' },
 				{ type: 'doc', label: 'LogStyler', id: 'classes/LogStyler' },
 				{ type: 'doc', label: 'HttpStatus', id: 'classes/HttpStatus' },
+				{ type: 'doc', label: 'Converter', id: 'classes/Converter' },
 				{
 					type: 'category',
 					label: 'Paginator',
