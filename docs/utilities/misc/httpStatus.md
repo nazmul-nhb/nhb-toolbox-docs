@@ -45,6 +45,8 @@ This utility includes all standard HTTP status codes with metadata adapted from 
 
 ```ts
 import { httpStatus } from 'nhb-toolbox';
+// or
+import { httpStatus } from 'nhb-toolbox/http-status';
 ```
 
 ---

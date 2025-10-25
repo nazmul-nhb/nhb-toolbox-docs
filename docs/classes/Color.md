@@ -19,6 +19,16 @@ The `Color` class provides a robust way to work with colors in various formats (
 
 ---
 
+### Import
+
+```ts
+import { Color } from 'nhb-toolbox';
+// or
+import { Color } from 'nhb-toolbox/color';
+```
+
+---
+
 ### Type Definitions
 
 #### Hex

@@ -51,6 +51,8 @@ All methods return the trimmed word if the input has trailing spaces.
 
 ```ts
 import { pluralizer } from 'nhb-toolbox';
+// or
+import { pluralizer } from 'nhb-toolbox/pluralizer';
 ```
 
 ---

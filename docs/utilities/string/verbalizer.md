@@ -41,6 +41,8 @@ All methods return the trimmed verb if the input has trailing spaces.
 
 ```ts
 import { verbalizer } from 'nhb-toolbox';
+// or
+import { verbalizer } from 'nhb-toolbox/verbalizer';
 ```
 
 ---

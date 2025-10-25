@@ -60,6 +60,8 @@ type ChronosInput = number | string | Date | Chronos;
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
+// or
+import { Chronos } from 'nhb-toolbox/chronos';
 ```
 
 ## Public Properties
