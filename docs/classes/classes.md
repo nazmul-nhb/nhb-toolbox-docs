@@ -13,6 +13,7 @@ title: Explore well-crafted classes for efficiency
 - [**`Verbalizer`**](/docs/classes/Verbalizer) - Verb form (`Base` ↔ `Past` ↔ `Past Participle`) conversion  
 - [**`LogStyler`**](/docs/classes/LogStyler) - Console output(s) style handling
 - [**`HttpStatus`**](/docs/classes/HttpStatus) - Elegant HTTP status codes management  
+- [**`Converter`**](/docs/classes/Converter) *classes* - Comprehensive Measurement Conversion  
 - [**`Finder`**](/docs/classes/Finder) - Sophisticated array searching  
 - [**`Paginator`**](/docs/classes/Paginator) - Elegant pagination handling  
 - [**`Unit`**](/docs/classes/Unit) & [**`Currency`**](/docs/classes/Currency) - Unit and currency handling

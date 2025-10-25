@@ -20,13 +20,15 @@ The system consists of a main `Converter` function and specialized converter cla
 - ✅ **Batch conversions** with `.toAll()` method
 - ✅ **Custom formatting** with decimal control
 - ✅ **Comprehensive unit support** across 7 categories
+- ✅ **Easy-to-use API** with intuitive methods
+- ✅ **Extensible architecture** for future unit categories *(More to come!)*
 
 ---
 
 ### 📦 Import
 
 ```ts
-// Main converter function and classes
+// From main package path
 import { 
   Converter, 
   converter,
@@ -38,7 +40,7 @@ import {
   AreaConverter,
   VolumeConverter
  } from 'nhb-toolbox';
-// or
+// or from package subpath
 import { 
   Converter, 
   converter,
@@ -139,6 +141,10 @@ All converter instances inherit these methods from the base class:
 
 Convert to a specific target unit.
 
+:::danger[Warning]
+Not available in `$BaseConverter`
+:::
+
 ```ts
 Converter(60, 'minute').to('hour'); // 1
 Converter(1000, 'meter').to('kilometer'); // 1
@@ -148,6 +154,10 @@ Converter(1024, 'kilobyte').to('megabyte'); // 1
 ### `toAll()`
 
 Convert to all available units in the category.
+
+:::danger[Warning]
+Not available in `$BaseConverter`
+:::
 
 ```ts
 const time = Converter(90, 'minute');
@@ -164,6 +174,10 @@ const all = time.toAll();
 ```
 
 ### `formatTo(targetUnit, options?)`
+
+:::danger[Warning]
+Not available in `$BaseConverter`
+:::
 
 Format the converted value with various styling options.
 
@@ -186,6 +200,10 @@ length.formatTo('mile', { style: 'scientific', decimals: 4 }); //  "3.2622e+0 mi
 
 Get the raw numeric value.
 
+:::tip
+Internally used by JS engines to coerce to number
+:::
+
 ```ts
 const conv = Converter(5, 'hour');
 conv.valueOf(); // 5
@@ -203,6 +221,10 @@ Converter(5, 'hour').getUnit(); // "hour"
 ### `toString()`
 
 Get formatted string with pluralization.
+
+:::tip
+Internally used by JS engines to coerce to string
+:::
 
 ```ts
 Converter(2.5, 'hour').toString(); // "2.5 hours"
@@ -277,6 +299,10 @@ Converter(2.5, 'hour').toObject(); // { value: 2.5, unit: "hour" }
 
 Get JSON string representation.
 
+:::tip
+Internally used by JS engines to for JSON serialization
+:::
+
 ```ts
 Converter(2.5, 'hour').toJSON(); // '{"value":2.5,"unit":"hour"}'
 ```
@@ -285,7 +311,7 @@ Converter(2.5, 'hour').toJSON(); // '{"value":2.5,"unit":"hour"}'
 
 ## Category-Specific Details
 
-### TimeConverter
+### `TimeConverter`
 
 **Units**: `nanosecond`, `microsecond`, `millisecond`, `second`, `minute`, `hour`, `day`, `week`, `month`, `year`, `decade`, `century`, `millennium`
 
@@ -297,7 +323,7 @@ time.to('hour'); // 1.5
 time.formatTo('day', { style: 'compact' }); // "0.06d"
 ```
 
-### LengthConverter
+### `LengthConverter`
 
 **Units**: `millimeter`, `centimeter`, `meter`, `kilometer`, `inch`, `foot`, `yard`, `mile`, `nautical-mile`, `light-year` (both US and UK spellings)
 
@@ -309,7 +335,7 @@ length.to('mile'); // 3.1068559611866697
 length.formatTo('foot', { style: 'plural' }); // "16404.2 feet"
 ```
 
-### DataConverter
+### `DataConverter`
 
 **Units**: `bit`, `byte`, `kilobit`, `kilobyte`, `megabit`, `megabyte`, `gigabit`, `gigabyte`, `terabit`, `terabyte`, `petabit`, `petabyte`
 
@@ -321,7 +347,7 @@ data.to('megabyte'); // 1
 data.formatTo('gigabyte', { style: 'compact' }); // "0GB"
 ```
 
-### TemperatureConverter
+### `TemperatureConverter`
 
 **Units**: `celsius`, `fahrenheit`, `kelvin`
 
@@ -334,7 +360,7 @@ temp.to('kelvin'); // 298.15
 temp.formatTo('fahrenheit', { style: 'compact' }); // "77°F"
 ```
 
-### MassConverter
+### `MassConverter`
 
 **Units**: `microgram`, `milligram`, `gram`, `kilogram`, `tonne`, `ounce`, `pound`, `stone`, `short-ton`, `long-ton`
 
@@ -346,7 +372,7 @@ mass.to('pound'); // 2.2046226218487757
 mass.formatTo('ounce', { decimals: 0 }); // "35 ounces"
 ```
 
-### AreaConverter
+### `AreaConverter`
 
 **Units**: `square-millimeter`, `square-centimeter`, `square-meter`, `square-kilometer`, `square-inch`, `square-foot`, `square-yard`, `square-mile`, `hectare`, `acre` (both US and UK spellings)
 
@@ -358,7 +384,7 @@ area.to('acre'); // 2.471053814671653
 area.formatTo('square-meter', { style: 'scientific' }); // "1.00e+4 square-meter"
 ```
 
-### VolumeConverter
+### `VolumeConverter`
 
 **Units**: `cubic-millimeter`, `cubic-centimeter`, `cubic-meter`, `cubic-kilometer`, `cubic-inch`, `cubic-foot`, `cubic-yard`, `liter`, `milliliter`, `gallon`, `quart`, `pint`, `cup`, `tablespoon`, `teaspoon` (both US and UK spellings)
 
@@ -376,7 +402,7 @@ volume.formatTo('milliliter', { style: 'compact' }); // "1000mL"
 
 ```ts
 /** - Type for Record of Units */ 
-type UnitsRecord = typeof UNITS; // Not exported
+type UnitsRecord = typeof UNITS;
 
 /** * Category of units supported by the converter. */
 type Category = keyof UnitsRecord;

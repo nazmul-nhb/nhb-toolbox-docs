@@ -32,20 +32,21 @@ async function syncChangelog(): Promise<void> {
 	if (!response.ok)
 		throw new Error(`❌ Failed to fetch CHANGELOG.md: ${response.statusText}`);
 
-	let content = await response.text();
+	const content = await response.text();
 
-	// 🧩 Prepend required Docusaurus front-matter
+	// Prepend required Docusaurus front-matter
 	const frontMatter = ['---', 'id: changelog', 'slug: changelog', '---', ''].join('\n');
 
-	// 🔗 Fix unresolved relative links like (README.md) → full GitHub URL
-	content = content.replace(
+	// Fix unresolved relative links (README.md) → full GitHub URL
+	const contents = content.replace(
 		/\]\((?:\.\/)?README\.md\)/g,
 		'](https://github.com/nazmul-nhb/nhb-toolbox/blob/main/README.md)'
 	);
 
 	const outputPath = resolve('./docs/CHANGELOG.md');
+
 	mkdirSync(dirname(outputPath), { recursive: true });
-	writeFileSync(outputPath, `${frontMatter}\n${content}`, 'utf-8');
+	writeFileSync(outputPath, `${frontMatter}\n${contents}`, 'utf-8');
 
 	console.log(
 		Stylog.ansi16('green').toANSI(

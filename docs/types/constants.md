@@ -51,6 +51,8 @@ import { CONSTANT_NAME } from 'nhb-toolbox/constants';
 | `HTTP_STATUS`            | Alias for HTTP_STATUS_CODES                                                                |
 | `HTTP_CODES`             | Alias for HTTP_STATUS_CODES                                                                |
 | `STATUS_CODES`           | Alias for HTTP_STATUS_CODES                                                                |
+| `GENERAL_UNITS`          | Units used in [**Unit**](/docs/classes/Unit) class                                                 |
+| `CATEGORIZED_UNITS`      | Units used in [**Converter**](/docs/classes/Converter) classes                                          |
 
 ---
 
