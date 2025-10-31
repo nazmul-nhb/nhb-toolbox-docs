@@ -11,6 +11,26 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.24.4] - 2025-10-31
+
+- **Exported** color *checkers/guards* from *main path*. **Reverted** color types (optimized spacing).
+
+## [4.24.2] - 2025-10-31
+
+- **Fixed** *return type* when no `'colorType'` option is passed in `generateRandomColor`. **Improved** color related *types*.
+
+## [4.24.1] - 2025-10-30
+
+- **Added** aliases for `generateRandomHSLColor`. **Updated** tsdoc for some color utilities.
+
+## [4.24.0] - 2025-10-30
+
+- **Added** new color utility `generateRandomColor` with alias `getRandomColor` and **deprecated** `generateRandomColorInHexRGB`.
+
+## [4.23.25] - 2025-10-27
+
+- **Updated** tsdoc for `Chronos` *constructor* and **optimized** *internal logic* for some *checker methods*.
+
 ## [4.23.24] - 2025-10-26
 
 - **Fixed** *pluralization issue* with ***suffixed*** `'-foot' --> '-feet'` for *format methods* in *converter classes*.
