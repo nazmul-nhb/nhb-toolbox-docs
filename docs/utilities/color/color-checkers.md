@@ -35,8 +35,8 @@ isHex6(color: string): color is Hex6
 import { isHex6 } from 'nhb-toolbox';
 
 isHex6('#FF5733');    // true
-isHex6('#FF573');     // false (5 characters)
-isHex6('#FF57333');   // false (7 characters)
+isHex6('#FF573');         // false (5 characters)
+isHex6('#FF57333');       // false (7 characters)
 isHex6('rgb(255,0,0)'); // false (wrong format)
 ```
 
@@ -255,4 +255,4 @@ These checkers work well with:
 - Design system validators
 - Input validation pipelines
 
-> For comprehensive color manipulation, consider using the [`Color`](/docs/classes/Color) class. These checkers are also available as [static methods in `Color` class](/docs/classes/Color/static-validation).
+> For comprehensive color manipulation, consider using the [`Color`](/docs/classes/Color) class. These checkers are also available as [static methods in `Color` class](/docs/classes/Color/static-validation#color-format-checkers).
