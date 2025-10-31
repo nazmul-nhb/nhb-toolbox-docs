@@ -104,4 +104,6 @@ function handleError(error: unknown) {
 
 ---
 
+> For color guards please refer to the [**Color Format Checkers**](/docs/utilities/color/color-checkers)
+
 Browse by category or use the search to find the perfect type guard for your task.
