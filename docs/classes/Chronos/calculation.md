@@ -76,7 +76,7 @@ add(amount: number, unit: TimeUnit): Chronos
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-01-31').add(1, 'month'); // 2025-02-28
 ```
 
@@ -112,7 +112,7 @@ subtract(amount: number, unit: TimeUnit): Chronos
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2025-03-31').subtract(1, 'month'); // 2025-02-28
 ```
 
@@ -141,7 +141,7 @@ diff(other: ChronosInput, unit: TimeUnit): number
 
 ### Example
 
-```javascript
+```ts
 const date1 = new Chronos('2025-01-01');
 const date2 = new Chronos('2025-01-15');
 date2.diff(date1, 'days'); // 14
@@ -271,10 +271,104 @@ interface TimeDuration {
 
 ### Example
 
-```javascript
+```ts
 new Chronos('2020-01-01').duration('2025-01-01');
 // {years: 3, months: 0, days: 0, ...}
 ```
+
+### See Also
+
+- For string output, please refer to [**durationString**](#durationstring) method.
+
+---
+
+## durationString()
+
+### Signature
+
+```typescript
+durationString(options?: DurationOptions): string
+```
+
+### Parameters
+
+`DurationOptions` configuration object:
+
+| Parameter   | Type                | Default  | Description                                                          |
+| ----------- | ------------------- | -------- | -------------------------------------------------------------------- |
+| `toTime`    | `ChronosInput`      | `now`    | The end time to calculate duration against                           |
+| `absolute`  | `boolean`           | `true`   | Return absolute value, always positive if `true`                     |
+| `maxUnits`  | `NumberRange<1, 7>` | `7`      | Maximum number of time units to display                              |
+| `separator` | `string`            | `", "`   | Separator between units in the output string                         |
+| `style`     | `"full" \| "short"` | `"full"` | Display format: `"full"` for full words, `"short"` for abbreviations |
+| `showZero`  | `boolean`           | `false`  | Whether to include units with zero values                            |
+
+### Return Type
+
+`string` - Human-readable formatted duration string
+
+### Description
+
+Returns a human-readable string representation of the duration between the current `Chronos` instance (start time) and another specified time. The method provides flexible formatting options to control the output format, including the number of units displayed, formatting style, and zero-value handling.
+
+### Examples
+
+```ts
+// Basic usage - with default options
+new Chronos('2020-01-01').durationString({ toTime: '2025-01-01' });
+// "5 years"
+
+// Short style with default options
+new Chronos('2020-01-01').durationString({ 
+  toTime: '2025-01-01',
+  style: 'short',
+});
+// "5y"
+
+// Custom separator and showing only non-zero values
+new Chronos('2023-01-01 10:30:00').durationString({
+  toTime: '2023-01-01 12:45:30',
+  separator: ' · ',
+  maxUnits: 3
+});
+// "2 hours · 15 minutes · 30 seconds"
+
+// Short format for compact display
+new Chronos('2023-01-01 10:30:00').durationString({
+  toTime: '2023-01-01 12:45:30',
+  style: 'short',
+  separator: ' ',
+  maxUnits: 2
+});
+// "2h 15m"
+
+// Including zero values
+new Chronos('2023-01-01').durationString({
+  toTime: '2023-01-01',
+  showZero: true,
+  maxUnits: 3
+});
+// "0 years, 0 months, 0 days"
+
+// Empty duration fallback
+new Chronos('2023-01-01').durationString({
+  toTime: '2023-01-01',
+  showZero: false
+});
+// "0 seconds"
+```
+
+### Notes
+
+- When `showZero` is `false` (default), only units with non-zero values are included in the output
+- The `maxUnits` parameter limits the number of time units displayed, starting from the largest unit (`years`). It respects `showZero` option.
+- The method automatically handles pluralization in `"full"` style (e.g., `"1 second"` vs `"2 seconds"`)
+- If all filtered values are zero and `showZero` is `false`, returns `"0 seconds"` or `"0s"` depending on style
+- Short style abbreviations: `years` (y), `months` (mo), `days` (d), `hours` (h), `minutes` (m), `seconds` (s), `milliseconds` (ms)
+
+### See Also
+
+- To implement custom formatting or logic, use the [**duration**](#duration) method. It provides a full duration object that offers greater control and flexibility for advanced scenarios.
 
 ---
 
@@ -323,16 +417,16 @@ Generates dates between two points in time with:
 
 Configuration object accepting either fixed or relative range parameters:
 
-| Parameter   | Type                             | Required | Default         | Description                                        |
-|-------------|----------------------------------|----------|-----------------|----------------------------------------------------|
-| `from`      | `ChronosInput`                   | ❌      | Current date     | Start date (inclusive)                            |
-| `to`        | `ChronosInput`                   | ❌      | 4 weeks from now | End date (inclusive)                              |
-| `span`      | `number`                         | ❌      | 4                | Number of time units                              |
-| `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌      | 'week'           | Unit of time for relative ranges                  |
-| `format`    | `'local'\|'utc'`                 | ❌      | 'local'          | Output format for ISO strings                     |
-| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`             | Weekdays to exclude (e.g. `['Sunday', 'Saturday']` or `[0, 6]`) |
-| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌      | `[]`             | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
-| `roundDate` | `boolean`                        | ❌      | `false`          | Round dates to start of day                       |
+| Parameter   | Type                             | Required | Default          | Description                                                                    |
+| ----------- | -------------------------------- | -------- | ---------------- | ------------------------------------------------------------------------------ |
+| `from`      | `ChronosInput`                   | ❌       | Current date     | Start date (inclusive)                                                         |
+| `to`        | `ChronosInput`                   | ❌       | 4 weeks from now | End date (inclusive)                                                           |
+| `span`      | `number`                         | ❌       | 4                | Number of time units                                                           |
+| `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌       | 'week'           | Unit of time for relative ranges                                               |
+| `format`    | `'local'\|'utc'`                 | ❌       | 'local'          | Output format for ISO strings                                                  |
+| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌       | `[]`             | Weekdays to exclude (e.g. `['Sunday', 'Saturday']` or `[0, 6]`)                |
+| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌       | `[]`             | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
+| `roundDate` | `boolean`                        | ❌       | `false`          | Round dates to start of day                                                    |
 
 <Tabs>
 <TabItem value="fixed-options" label="Fixed Range Options">
