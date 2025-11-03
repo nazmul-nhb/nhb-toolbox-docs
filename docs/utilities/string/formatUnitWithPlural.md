@@ -56,7 +56,7 @@ console.log(formatUnitWithPlural(5, 'month', false));  // "months"
 
 ### Notes
 
-- Automatically pluralizes the unit if the absolute count is not `1`.
+- Automatically pluralizes the unit if the absolute count is not `1`. Any number (`count`) which is not `1` is considered plural.
 - Accepts both positive and negative numbers (e.g., `-1` is treated like `1` for pluralization).
 - Does not handle irregular plurals like `child` -> `children` instead it does return unit with `s`. For complex and versatile pluralization, please refer to [**pluralizer**](/docs/utilities/string/pluralizer) or [**Pluralizer Class**](/docs/classes/Pluralizer) instead.
 

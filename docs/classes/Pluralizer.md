@@ -114,6 +114,10 @@ Options you can pass to `pluralize(word, options?)` to control how the result is
 | **`count`**     | `Numeric` | Determines whether to use singular or plural form. <br/>If omitted, the method always returns the plural form. | `{ count: 1 or '1' }` → returns singular <br/>`{ count: 5 or '5' }` → returns plural                                    |
 | **`inclusive`** | `boolean`                    | Whether to include the count in the returned string. <br/>Works only if `count` is provided.                   | `{ count: 3, inclusive: true }` → `"3 categories"` <br/>`{ count: 3, inclusive: false }` → `"categories"` |
 
+:::tip[Note]
+Any number (`count`) which is not `1` is considered plural.
+:::
+
 ---
 
 ##### Example Usage

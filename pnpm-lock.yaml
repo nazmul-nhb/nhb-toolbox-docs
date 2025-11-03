@@ -42,11 +42,11 @@ importers:
         specifier: ^17.2.3
         version: 17.2.3
       nhb-hooks:
-        specifier: ^1.14.0
-        version: 1.14.0(nhb-toolbox@4.24.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.20.6
+        version: 1.20.6(nhb-toolbox@4.25.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.24.4
-        version: 4.24.4
+        specifier: ^4.25.0
+        version: 4.25.0
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -4118,8 +4118,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nhb-hooks@1.14.0:
-    resolution: {integrity: sha512-u+tnvieDfC1HqBDMTxoN4IN9tmaWxAlNkqUY1OWsGjbzR5UbvU2LGSAtC9cGeo8nB2p2YOZETh3qOHt/vBqlTg==}
+  nhb-hooks@1.20.6:
+    resolution: {integrity: sha512-Sn5FJ2HHnGXdlgF7tPJhaUKqJDWi0PVA5h3Bs6kWqlVto7XEyUecaWVb0bZSXSSbEFhbCS0LkE9ZavtOw9dlDg==}
     peerDependencies:
       nhb-toolbox: '>=4.12.67'
       react: ^18 || ^19
@@ -4130,8 +4130,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.24.4:
-    resolution: {integrity: sha512-jjQfQW7O4IEHBwOZlXDh5c4DsjEx/uYxl4sLcEqDcv/F5mIHrDeJK9q86/cwBYMcaccEdkGEvRp+vK1lvzhsKg==}
+  nhb-toolbox@4.25.0:
+    resolution: {integrity: sha512-qjrNfWfKAojJjcNMr829KkcJV6j1iLpXMMQg/HMaV6nZ7Rk7OYrYMIpledDjaVyeI68kl/+BP7sGEGxzpmbLRQ==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -5425,8 +5425,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@5.1.0:
-    resolution: {integrity: sha512-wQ531tuWvB6oK+pchHIu5lHe5f5wpSCqB8Kf4dWQRbOYc9HTge7JL0G4Qd44bh6QuJCccIzL3bugb8GI0MwHrg==}
+  type-fest@5.2.0:
+    resolution: {integrity: sha512-xxCJm+Bckc6kQBknN7i9fnP/xobQRsRQxR01CztFkp/h++yfVxUUcmMgfR2HttJx/dpWjS9ubVuyspJv24Q9DA==}
     engines: {node: '>=20'}
 
   type-is@1.6.18:
@@ -11054,9 +11054,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.14.0(nhb-toolbox@4.24.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.20.6(nhb-toolbox@4.25.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.24.4
+      nhb-toolbox: 4.25.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -11067,14 +11067,14 @@ snapshots:
       execa: 9.6.0
       globby: 15.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.24.4
+      nhb-toolbox: 4.25.0
       progress-estimator: 0.3.1
       rimraf: 6.1.0
       semver: 7.7.3
-      type-fest: 5.1.0
+      type-fest: 5.2.0
       typescript: 5.9.3
 
-  nhb-toolbox@4.24.4: {}
+  nhb-toolbox@4.25.0: {}
 
   no-case@3.0.4:
     dependencies:
@@ -12503,7 +12503,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@5.1.0:
+  type-fest@5.2.0:
     dependencies:
       tagged-tag: 1.0.0
 
