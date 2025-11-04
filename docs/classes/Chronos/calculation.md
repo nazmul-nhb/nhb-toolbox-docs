@@ -360,11 +360,11 @@ new Chronos('2023-01-01').durationString({
 
 ### Notes
 
-- When `showZero` is `false` (default), only units with non-zero values are included in the output
+- When `showZero` is `false` (default), only units with non-zero values are included in the output.
 - The `maxUnits` parameter limits the number of time units displayed, starting from the largest unit (`years`). It respects `showZero` option.
-- The method automatically handles pluralization in `"full"` style (e.g., `"1 second"` vs `"2 seconds"`)
-- If all filtered values are zero and `showZero` is `false`, returns `"0 seconds"` or `"0s"` depending on style
-- Short style abbreviations: `years` (y), `months` (mo), `days` (d), `hours` (h), `minutes` (m), `seconds` (s), `milliseconds` (ms)
+- The method automatically handles pluralization in `"full"` style (e.g., `"1 second"` vs `"2 seconds"`).
+- If all filtered values are zero and `showZero` is `false`, returns `"0 seconds"` or `"0s"` depending on style.
+- Short style abbreviations: `years` (y), `months` (mo), `days` (d), `hours` (h), `minutes` (m), `seconds` (s), `milliseconds` (ms).
 
 ### See Also
 
