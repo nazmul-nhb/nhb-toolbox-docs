@@ -304,7 +304,7 @@ A generic type representing an object with string keys and any values.
 
 ```ts
 /** Type for first field key */
-export type FirstFieldKey<
+type FirstFieldKey<
  T extends GenericObject,
  K1 extends string = 'value',
  K2 extends string = 'label',
@@ -316,7 +316,7 @@ export type FirstFieldKey<
 
 ```ts
 /** Type for firs field value */
-export type FirstFieldValue<
+type FirstFieldValue<
  T extends GenericObject,
  K1 extends string = 'value',
  K2 extends string = 'label',
@@ -335,7 +335,7 @@ export type FirstFieldValue<
 
 ```ts
 /** Type of values for the option fields */
-export type FieldValue<
+type FieldValue<
  P extends K1 | K2,
  T extends GenericObject,
  K1 extends string = 'value',
@@ -348,7 +348,7 @@ export type FieldValue<
 
 ```ts
 /** Type of an option in `OptionsArray` */
-export type Option<
+type Option<
  T extends GenericObject,
  K1 extends string = 'value',
  K2 extends string = 'label',

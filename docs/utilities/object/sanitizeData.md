@@ -176,7 +176,7 @@ sanitizeData(config, {
 
 ```typescript
 /** - Options for `sanitizeData` utility. */
-export interface SanitizeOptions<T> {
+interface SanitizeOptions<T> {
  /**
   * An array of dot-notation keys to exclude from the sanitized output.
   * This is only applicable when sanitizing plain objects or arrays of objects.

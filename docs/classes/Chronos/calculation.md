@@ -489,7 +489,7 @@ interface RelativeDateRange {
 
 ```ts
 /** - Unified type that supports either a fixed or relative date range configuration. */
-export type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
+type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 ```
 
 </TabItem>

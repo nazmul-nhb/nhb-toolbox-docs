@@ -19,7 +19,7 @@ import {
 
 ```typescript
 /** Represents all falsy primitive values */
-export type FalsyPrimitive = false | 0 | '' | null | undefined;
+type FalsyPrimitive = false | 0 | '' | null | undefined;
 ```
 
 ## Core Type Guards

@@ -246,7 +246,7 @@ interface InversePercentageOptions {
 }
 
 /** * Options for calculating percentages and related values. */
-export type PercentageOptions = (
+type PercentageOptions = (
  | GetPercentOptions
  | GetValueOptions
  | GetOriginalOptions

@@ -105,7 +105,7 @@ const formData = createFormData({
 
 ```typescript
 /** - Configuration options to control FormData generation behavior. */
-export interface FormDataConfigs<T> {
+interface FormDataConfigs<T> {
  /**
   * * An array of dot-notation keys to exclude from processing.
   * * Ignored keys are omitted entirely, even if included in other options.

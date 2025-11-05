@@ -186,10 +186,10 @@ type RGB = `rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${n
 type HSL = `hsl(${number}, ${number}%, ${number}%)` | `hsl(${number},${number}%,${number}%)`;
 
 /** Basic color type: `hex`, `rgb` or `hsl`. */
-export type $ColorType = 'hex' | 'rgb' | 'hsl';
+type $ColorType = 'hex' | 'rgb' | 'hsl';
 
 /** Options for random color generation. */
-export interface RandomColorOptions<C extends $ColorType | undefined> {
+interface RandomColorOptions<C extends $ColorType | undefined> {
  /** The type of expected return type of color: `hex`, `rgb` or `hsl`. Default is `'hex'`. */
  colorType?: C;
  /** The maximum number of recent colors to store in memory. Default is `16`. */
@@ -197,7 +197,7 @@ export interface RandomColorOptions<C extends $ColorType | undefined> {
 }
 
 /** Infers random color type (`Hex6`, `RGB`, or `HSL`) based on the provided color type `C`. */
-export type RandomColor<C extends $ColorType | undefined = undefined> =
+type RandomColor<C extends $ColorType | undefined = undefined> =
  C extends undefined | 'hex' ? Hex6
  : C extends 'hsl' ? HSL
  : C extends 'rgb' ? RGB

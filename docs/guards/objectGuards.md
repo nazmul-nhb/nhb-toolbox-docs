@@ -16,7 +16,7 @@ import { isObject, isNotEmptyObject, isObjectWithKeys, isEmptyObject } from 'nhb
 
 ```typescript
 /** Generic object with any value */
-export type GenericObject = Record<string, any>;
+type GenericObject = Record<string, any>;
 ```
 
 ## isObject
