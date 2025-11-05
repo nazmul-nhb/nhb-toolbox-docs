@@ -25,18 +25,24 @@ A plugin is a function that takes the `Chronos` class constructor and augments i
 type ChronosPlugin = (ChronosClass: typeof Chronos) => void;
 ```
 
-You can inject plugins via the static `Chronos.use()` method or its wrapper function:
+You can inject plugins via the static [`Chronos.use()`](/docs/classes/Chronos/statics#use) or [`Chronos.register()`](/docs/classes/Chronos/statics#register) method or its wrapper function:
 
 ```ts
 Chronos.use(pluginName);
 
 // or 
-chronos.use(pluginName)
+chronos.use(pluginName);
+
+// or
+Chronos.register(pluginName);
+
+// or 
+chronos.register(pluginName);
 ```
 
 :::tip
 
-- Each plugin is only applied once, even if `use()` is called multiple times with the same plugin.
+- Each plugin is only applied once, even if `use()` or `register()` is called multiple times with the same plugin.
 - If a plugin enables multiple methods, injecting once will enable all the methods by that particular plugin. [See the list below](#-official-plugins)
 
 :::
@@ -45,7 +51,7 @@ chronos.use(pluginName)
 
 ## ✅ Using a Plugin
 
-To enable a plugin, use the static `Chronos.use()` method **before creating instances**:
+To enable a plugin, use the static [`Chronos.use()`](/docs/classes/Chronos/statics#use) or [`Chronos.register()`](/docs/classes/Chronos/statics#register) method **before creating instances**:
 
 ```ts
 import { Chronos, chronos } from 'nhb-toolbox';
@@ -56,7 +62,11 @@ import { pluginName } from 'nhb-toolbox/plugins/pluginName';
 // Using the plugin
 Chronos.use(pluginName);
 // or 
-chronos.use(pluginName)
+chronos.use(pluginName);
+// or
+Chronos.register(pluginName);
+// or 
+chronos.register(pluginName);
 
 // Using the method enabled by that plugin
 const c = new Chronos();
@@ -127,6 +137,8 @@ import { customPlugin } from './path-to-your-plugin-file';
 
 // Use the plugin in your application's root/entry file or where you initialize `Chronos`
 Chronos.use(customPlugin);
+// or
+Chronos.register(customPlugin);
 
 new Chronos().customMethod('NHB');
 // => "Hello NHB, Welcome to custom plugin! Current date: { local: 2025-09-22T14:47:44.132+06:00 } { utc: 2025-09-22T08:47:44.132Z }"

@@ -1,6 +1,6 @@
 {
   "name": "nhb-toolbox-docs",
-  "version": "4.25.1",
+  "version": "4.25.4",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
