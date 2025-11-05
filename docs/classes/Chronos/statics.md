@@ -67,6 +67,36 @@ This method is also available as [`Chronos.register()`](#register). Both behave 
 
 This is just an alias for [**use**](#use) method. It internally uses [`Chronos.use()`](#use).
 
+### Signature
+
+```typescript
+static register(plugin: ChronosPlugin): void
+```
+
+### Parameters
+
+| Name   | Type            | Description                                                                      |
+| ------ | --------------- | -------------------------------------------------------------------------------- |
+| plugin | `ChronosPlugin` | A plugin function that receives the `Chronos` class constructor and augments it. |
+
+### Example
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+
+Chronos.register(timeZonePlugin); // Injects timeZone() and other timezone specific methods
+```
+
+Once injected, the plugin methods become available on all `Chronos` instances:
+
+```ts
+const c = new Chronos();
+c.timeZone('UTC+06:30'); // Chronos instance for timezone with `UTC+06:30`
+```
+
+### Notes
+
 - Using [**use**](#use) method in `React` projects may trigger *linter error* like `"React Hooks must be called in a React function component or a custom React Hook function."`
   - To prevent this incorrect *linter error* in `React` projects, prefer using this (`register`) method over [**use**](#use) method.
 
