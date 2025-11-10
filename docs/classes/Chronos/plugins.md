@@ -84,6 +84,7 @@ chronos().enabledMethod()
 | :------------------- | :------------------------------------------ | :--------------------------------------------- |
 | `relativeTimePlugin` | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { relativeTimePlugin } from 'nhb-toolbox/plugins/relativeTimePlugin';" /> | [getRelativeYear](../Chronos/comparison#getrelativeyear), [getRelativeMonth](../Chronos/comparison#getrelativemonth), [getRelativeWeek](../Chronos/comparison#getrelativeweek), [getRelativeDay](../Chronos/comparison#getrelativeday), [getRelativeHour](../Chronos/comparison#getrelativehour), [getRelativeMinute](../Chronos/comparison#getrelativeminute), [getRelativeSecond](../Chronos/comparison#getrelativesecond), [getRelativeMilliSecond](../Chronos/comparison#getrelativemillisecond), [compare](../Chronos/comparison#compare), [isToday](../Chronos/checkers#istoday), [isTomorrow](../Chronos/checkers#istomorrow), [isYesterday](../Chronos/checkers#isyesterday) |
 | `timeZonePlugin`     | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';" />         | [timeZone](../Chronos/conversion#timezone), [getTimeZoneName](../Chronos/names#gettimezonename), [getTimeZoneNameShort](../Chronos/names#gettimezonenameshort) |
+| `durationPlugin`     | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { durationPlugin } from 'nhb-toolbox/plugins/durationPlugin';" />         | [duration](../Chronos/calculation#duration), [durationString](../Chronos/calculation#durationstring) |
 | `fromNowPlugin`      | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { fromNowPlugin } from 'nhb-toolbox/plugins/fromNowPlugin';" />           | [fromNow](../Chronos/format#fromnow) |
 | `businessPlugin`     | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { businessPlugin } from 'nhb-toolbox/plugins/businessPlugin';" />         | [isWeekend](../Chronos/checkers#isweekend),  [isWorkday](../Chronos/checkers#isworkday), [isBusinessHour](../Chronos/checkers#isbusinesshour),  [toAcademicYear](../Chronos/extras#toacademicyear), [toFiscalQuarter](../Chronos/extras#tofiscalquarter) |
 | `seasonPlugin`       | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';" />             | [season](../Chronos/names#season) |
@@ -92,7 +93,8 @@ chronos().enabledMethod()
 | `palindromePlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { palindromePlugin } from 'nhb-toolbox/plugins/palindromePlugin';" />     | [isPalindromeDate](../Chronos/checkers#ispalindromedate) |
 | `greetingPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { greetingPlugin  } from 'nhb-toolbox/plugins/greetingPlugin ';" />     | [getGreeting](../Chronos/format#getgreeting) |
 | `roundPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { roundPlugin  } from 'nhb-toolbox/plugins/roundPlugin ';" />     | [round](../Chronos/calculation#round) |
-| *(More coming soon)* |                                                                                              | |
+
+> More coming soon...
 
 ---
 

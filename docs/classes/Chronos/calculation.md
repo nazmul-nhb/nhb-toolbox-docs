@@ -235,6 +235,12 @@ new Chronos('2025-01-16T18:00:00').round('week');
 
 ## duration()
 
+Returns the full time duration breakdown between current input (start) and another time (to) as `TimeDuration` object.
+
+:::danger[Note]
+This method is provided by `durationPlugin`. You must register it using `Chronos.use(durationPlugin)` before calling `.duration()`. Once registered, all `Chronos` instances will have access to the `.duration()` method.
+:::
+
 ### Signature
 
 ```typescript
@@ -272,6 +278,10 @@ interface TimeDuration {
 ### Example
 
 ```ts
+import { durationPlugin } from 'nhb-toolbox/plugins/durationPlugin';
+
+Chronos.use(durationPlugin);
+
 new Chronos('2020-01-01').duration('2025-01-01');
 // {years: 3, months: 0, days: 0, ...}
 ```
@@ -283,6 +293,12 @@ new Chronos('2020-01-01').duration('2025-01-01');
 ---
 
 ## durationString()
+
+Returns a human-readable formatted duration string between the current instance (start) and another time (to).
+
+:::danger[Note]
+This method is provided by `durationPlugin`. You must register it using `Chronos.use(durationPlugin)` before calling `.durationString()`. Once registered, all `Chronos` instances will have access to the `.durationString()` method.
+:::
 
 ### Signature
 
@@ -314,6 +330,10 @@ Returns a human-readable string representation of the duration between the curre
 ### Examples
 
 ```ts
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+
+Chronos.use(timeZonePlugin);
+
 // Basic usage - with default options
 new Chronos('2020-01-01').durationString({ toTime: '2025-01-01' });
 // "5 years"
