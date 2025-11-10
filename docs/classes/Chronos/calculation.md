@@ -120,6 +120,8 @@ new Chronos('2025-03-31').subtract(1, 'month'); // 2025-02-28
 
 ## diff()
 
+Returns the difference between current and another date in the given unit.
+
 ### Signature
 
 ```typescript

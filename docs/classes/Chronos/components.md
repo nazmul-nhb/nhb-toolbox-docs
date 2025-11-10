@@ -75,10 +75,12 @@ console.log(jsDate.getTime() === new Chronos(jsDate).getTimeStamp()); // true
 
 ## set()
 
+Returns a new `Chronos` instance with the specified unit set to the given value.
+
 ### Signature
 
 ```typescript
-set(unit: TimeUnit, value: number): Chronos
+set<Unit extends TimeUnit>(unit: Unit, value: TimeUnitValue<Unit>): Chronos
 ```
 
 ### Parameters
@@ -90,11 +92,32 @@ set(unit: TimeUnit, value: number): Chronos
 
 `Chronos` - New instance with updated value
 
+### Type Definitions
+
+```ts
+/** Name of time unit from `year` to `millisecond` */
+type TimeUnit = 'year' | 'month' | 'day' | 'week' | 'hour' | 'minute' | 'second' | 'millisecond';
+
+/** Conditional value for `TimeUnit` */
+type TimeUnitValue<Unit extends TimeUnit> =
+ Unit extends 'month' ? NumberRange<1, 12> // 1-12
+ : Unit extends 'week' ? NumberRange<1, 53> // 1-51
+ : Unit extends 'day' ? NumberRange<1, 31> // 1-31
+ : Unit extends 'hour' ? Enumerate<24> // 0-23
+ : Unit extends 'minute' | 'second' ? Enumerate<60> // 0-59
+ : Unit extends 'millisecond' ? Milliseconds // 0-999
+ : number;
+```
+
 ### Example
 
 ```javascript
-new Chronos('2025-01-15').set('month', 5); // June 15
+new Chronos('2025-01-15').set('month', 6); // June 15
 ```
+
+:::info[N.B.]
+month is `1` based (`1`: January, `12`: December)
+:::
 
 :::tip[See Also]
 [`with`](/docs/classes/Chronos/statics#with) static method for more options

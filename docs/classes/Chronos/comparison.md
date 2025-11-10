@@ -33,6 +33,10 @@ compare(unit: TimeUnit = 'minute', time?: ChronosInput): number
 - Positive value indicates future time
 - Wrapper around the various `getRelativeUnit` methods
 
+:::tip
+To calculate accurate difference use [**diff()**](./calculation#diff) method.
+:::
+
 ### Example
 
 ```ts

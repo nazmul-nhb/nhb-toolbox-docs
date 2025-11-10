@@ -54,14 +54,14 @@ type ClockMinute = '00'|'01'|...|'59';
 
 ---
 
-## isValidUTCOffSet
+## isValidUTCOffset
 
 Type guard that checks if a value is a valid UTC offset string.
 
 ### Function Signature
 
 ```typescript
-isValidUTCOffSet(value: unknown): value is UTCOffset;
+isValidUTCOffset(value: unknown): value is UTCOffset;
 ```
 
 ### Parameters
@@ -75,12 +75,12 @@ isValidUTCOffSet(value: unknown): value is UTCOffset;
 ### Example Usage
 
 ```typescript
-import { isValidUTCOffSet } from 'nhb-toolbox';
+import { isValidUTCOffset } from 'nhb-toolbox';
 
-console.log(isValidUTCOffSet("UTC+05:30")); // true
-console.log(isValidUTCOffSet("UTC-14:00")); // true
-console.log(isValidUTCOffSet("GMT+08:00")); // false (invalid prefix)
-console.log(isValidUTCOffSet("UTC+25:00")); // false (invalid hour)
+console.log(isValidUTCOffset("UTC+05:30")); // true
+console.log(isValidUTCOffset("UTC-14:00")); // true
+console.log(isValidUTCOffset("GMT+08:00")); // false (invalid prefix)
+console.log(isValidUTCOffset("UTC+25:00")); // false (invalid hour)
 ```
 
 ### Validation Rules
@@ -94,7 +94,10 @@ console.log(isValidUTCOffSet("UTC+25:00")); // false (invalid hour)
 
 ### Alias
 
+This guard is also available as following aliases:
+
 - `isValidUTC`
+- `isValidUTCOffSet`
 
 ### Type Definition
 
