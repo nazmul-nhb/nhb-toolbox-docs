@@ -24,7 +24,7 @@ For `chronos` function, a `Chronos` wrapper, refer to [**chronos**](/docs/utilit
 
 ### Chronos Methods
 
-- [Getters](Chronos/getters)
+- [Getter Methods](Chronos/getters)
 - [Format Methods](Chronos/format)
 - [Calculation Methods](Chronos/calculation)
 - [Name Getter Methods](Chronos/names)
@@ -214,6 +214,4 @@ Each plugin enhances the `Chronos` prototype and becomes available globally afte
 
 ## Alias
 
-The `Chronos` class is also available under the following alias:
-
-- `Chronus`
+The `Chronos` class is also available as `Chronus` alias.

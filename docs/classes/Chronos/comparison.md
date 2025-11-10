@@ -31,7 +31,7 @@ compare(unit: TimeUnit = 'minute', time?: ChronosInput): number
 
 - Negative value indicates past time relative to comparison time
 - Positive value indicates future time
-- Wrapper around the various `getRelative*` methods
+- Wrapper around the various `getRelativeUnit` methods
 
 ### Example
 
