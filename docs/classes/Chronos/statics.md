@@ -190,6 +190,8 @@ const mixed = Chronos.with({
 
 ## parse()
 
+Parses a date string according to the specified format and returns a new `Chronos` instance.
+
 ### Signature
 
 ```typescript
@@ -198,31 +200,60 @@ static parse(dateStr: string, format: string): Chronos
 
 ### Parameters
 
-- `dateStr`: Date string to parse
-- `format`: Format string
+- **`dateStr`**: The date string to parse
+- **`format`**: The format pattern defining how to interpret the date string
 
 ### Return Type
 
-`Chronos` - Parsed date
+- **`Chronos`** - A new instance representing the parsed date
 
-### Supported Tokens
+### Supported Format Tokens
 
-- `YYYY`, `YY` - Year
-- `MM`, `M` - Month
-- `DD`, `D` - Day
-- `HH`, `H` - Hour
-- `mm`, `m` - Minute
-- `ss`, `s` - Second
+| Token  | Description                        | Range     | Example                  |
+| ------ | ---------------------------------- | --------- | ------------------------ |
+| `YYYY` | Four-digit year                    | 0000-9999 | `2025`                   |
+| `YY`   | Two-digit year (20th/21st century) | 00-99     | `25` → 2025, `99` → 1999 |
+| `MM`   | Two-digit month                    | 01-12     | `12`                     |
+| `M`    | One or two-digit month             | 1-12      | `12`                     |
+| `DD`   | Two-digit day of month             | 01-31     | `15`                     |
+| `D`    | One or two-digit day of month      | 1-31      | `15`                     |
+| `HH`   | Two-digit hour (24-hour)           | 00-23     | `14`                     |
+| `H`    | One or two-digit hour (24-hour)    | 0-23      | `14`                     |
+| `mm`   | Two-digit minute                   | 00-59     | `30`                     |
+| `m`    | One or two-digit minute            | 0-59      | `30`                     |
+| `ss`   | Two-digit second                   | 00-59     | `45`                     |
+| `s`    | One or two-digit second            | 0-59      | `45`                     |
+| `mss`  | Three-digit millisecond            | 000-999   | `123`                    |
+| `ms`   | One to three-digit millisecond     | 0-999     | `123`                    |
 
 ### Example
 
 ```ts
-Chronos.parse('15-01-2025', 'DD-MM-YYYY'); // Jan 15 2025
+// Parse date in DD-MM-YYYY format
+Chronos.parse('15-01-2025', 'DD-MM-YYYY');
+// Returns: Chronos instance for January 15, 2025
+
+// Parse datetime with various components
+Chronos.parse('23-12-31 15:30:45.123', 'YY-MM-DD HH:mm:ss.mss');
+// Returns: Chronos instance for 2023-12-31T15:30:45.123
 ```
+
+### Throws
+
+- **`Error`** - When the input date string does not match the specified format pattern
+
+### Remarks
+
+- The parser uses regular expressions to match the format pattern against the input string
+- All unmatched components default to their minimum values (year: 1970, month: 1, day: 1, time: 00:00:00.000)
+- Two-digit years (`YY`) are interpreted as years in the 20th/21st century (00-99 → 2000-2099)
+- The method creates a new `Chronos` instance with the origin set to `'parse'`
 
 ---
 
 ## today()
+
+Returns the current date and time in a specified format in local time.
 
 ### Signature
 
@@ -253,6 +284,8 @@ Chronos.today({format: 'YYYY-MM-DD'}); // "2025-07-20"
 
 ## yesterday()
 
+Returns a new `Chronos` instance representing yesterday's date.
+
 ### Signature
 
 ```typescript
@@ -273,6 +306,8 @@ Chronos.yesterday(); // `Chronos` instance for yesterday
 
 ## tomorrow()
 
+Returns a new `Chronos` instance representing tomorrow's date.
+
 ### Signature
 
 ```typescript
@@ -292,6 +327,8 @@ Chronos.tomorrow(); // `Chronos` instance for tomorrow
 ---
 
 ## now()
+
+Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).
 
 ### Signature
 
@@ -316,6 +353,8 @@ Chronos.now(); // 1689876543210
 ---
 
 ## utc()
+
+Creates a UTC-based `Chronos` instance.
 
 ### Signature
 
@@ -353,6 +392,8 @@ const nowUTC = Chronos.utc();
 ---
 
 ## formatTimePart()
+
+Formats a time-only string into a formatted time string.
 
 ### Signature
 
@@ -399,6 +440,8 @@ Chronos.formatTimePart('14:50:00.800+05:30', 'HH:mm:ss');
 ---
 
 ## getDatesForDay()
+
+Returns ISO date strings for each occurrence of a weekday.
 
 ### Signature
 
@@ -529,6 +572,8 @@ Chronos.getDatesForDay('Friday', {
 
 ## min()
 
+Returns earliest `Chronos`
+
 ### Signature
 
 ```typescript
@@ -553,6 +598,8 @@ Chronos.min('2025-01-01', '2025-02-01'); // Jan 1
 
 ## max()
 
+Returns latest `Chronos`
+
 ### Signature
 
 ```typescript
@@ -576,6 +623,8 @@ Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
 ---
 
 ## isLeapYear()
+
+Checks if the year in the date string or year (from 0 - 9999) is a leap year.
 
 :::info
 
@@ -612,6 +661,8 @@ Chronos.isLeapYear(2024); // true
 
 ## isValidDate()
 
+Checks if the given value is a valid `Date` object.
+
 ### Signature
 
 ```typescript
@@ -636,6 +687,11 @@ Chronos.isValidDate(new Date()); // true
 
 ## isDateString()
 
+Checks if the given value is a valid date string.
+
+- A value is considered a valid date string if it is a string and can be parsed by `Date.parse()`.
+- This uses the native JavaScript date parser internally.
+
 ### Signature
 
 ```typescript
@@ -659,6 +715,8 @@ Chronos.isDateString('2025-01-01'); // true
 ---
 
 ## isValidChronos()
+
+Checks if the given value is an instance of `Chronos`.
 
 ### Signature
 
