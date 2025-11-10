@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://toolbox.nazmul-nhb.dev/sitemap.xml
+Sitemap: https://nhb-toolbox.vercel.app/sitemap.xml
