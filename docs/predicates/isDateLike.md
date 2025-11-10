@@ -51,7 +51,7 @@ The function recognizes these date-like objects:
 | `Dayjs`       | Same as `Chronos`                                             |
 | `Moment.js`   | Same as `Chronos`                                             |
 | `Luxon`       | Has `toISO()`, `toFormat()` methods and `isValid` property    |
-| `JS-Joda`    | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
+| `JS-Joda`     | Has `plus()`, `minus()`, `equals()`, and `getClass()` methods |
 | `Temporal`    | Has `toJSON()`, `toString()` and specific constructor names   |
 
 ## API Reference

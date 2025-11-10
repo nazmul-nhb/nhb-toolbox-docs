@@ -104,16 +104,80 @@ type UTCOffset = `UTC${PositiveUTCHour|NegativeUTCHour}:${UTCMinute}`;
 
 ---
 
+## isValidTimeZoneId()
+
+Validates whether the provided value is a recognized [**IANA timezone identifier from the TZ database**](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+### Signature
+
+```typescript
+isValidTimeZoneId(value: unknown): value is TimeZoneIdentifier
+```
+
+### Parameters
+
+- **`value`** - The value to validate as a timezone identifier
+
+### Return Type
+
+- **`value is TimeZoneIdentifier`** - Type predicate that returns `true` if the value is a valid IANA timezone identifier
+
+### Example
+
+```ts
+import { isValidTimeZoneId } from 'nhb-toolbox';
+
+// Valid IANA identifiers
+console.log(isValidTimeZoneId('Asia/Dhaka')); // → true
+console.log(isValidTimeZoneId('America/New_York')); // → true
+console.log(isValidTimeZoneId('Europe/London')); // → true
+
+// Invalid identifiers
+console.log(isValidTimeZoneId('EST')); // → false (abbreviation, not identifier)
+console.log(isValidTimeZoneId('UTC+06:00')); // → false (offset, not identifier)
+console.log(isValidTimeZoneId('Invalid/Zone')); // → false
+console.log(isValidTimeZoneId(123)); // → false
+console.log(isValidTimeZoneId(null)); // → false
+```
+
+### Remarks
+
+- **Validates against the IANA TZ Database** - checks if the value exists in the comprehensive list of timezone identifiers
+- **Type predicate function** - when returns `true`, TypeScript narrows the type to `TimeZoneIdentifier`
+- **Case-sensitive** - identifiers must match exactly (e.g., `'America/New_York'`, not `'america/new_york'`)
+- **Useful for runtime validation** - ensures timezone identifiers are valid before passing to timezone-sensitive operations
+
+### Typical Use Cases
+
+```ts
+// Validate user input
+const userInput = 'Asia/Dhaka';
+if (isValidTimeZoneId(userInput)) {
+    const ch = new Chronos().timeZone(userInput); // Type-safe usage
+}
+
+// Filter valid timezone identifiers
+const potentialZones = ['Asia/Dhaka', 'EST', 'UTC+06:00', 'Invalid/Zone'];
+const validZones = potentialZones.filter(isValidTimeZoneId);
+// → ['Asia/Dhaka']
+
+// Configuration validation
+const config = { timezone: 'America/Los_Angeles' };
+if (!isValidTimeZoneId(config.timezone)) {
+    throw new Error('Invalid timezone identifier in configuration');
+}
+```
+
 ## Conclusion
 
-These type guards provide:
+**These type guards provide:**
 
 1. **Strict validation** of time formats
 2. **Type narrowing** for TypeScript
 3. **Consistent checking** across applications
 4. **Safety** for time-related operations
 
-Ideal for:
+**Ideal for:**
 
 - Input validation
 - API response checking
