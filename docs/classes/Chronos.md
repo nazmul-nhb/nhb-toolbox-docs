@@ -112,8 +112,8 @@ Returns the current UTC offset in `UTC±HH:mm` format (e.g., `"UTC+06:00"`, `"UT
 
 :::tip[Info]
 
-- Also accessible via [`getUTCOffset()`](Chronos/query#getutcoffset) instance method without `UTC` prefix (in `±HH:mm` format).
-- This value is automatically updated when using timezone manipulation methods.
+- Also accessible via [`getUTCOffset()`](Chronos/extras#getutcoffset) instance method without `UTC` prefix (in `±HH:mm` format).
+- This value is automatically updated when using timezone or UTC manipulation methods.
 
 :::
 
