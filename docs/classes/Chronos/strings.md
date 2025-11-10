@@ -60,19 +60,30 @@ new Chronos('2025-01-01T00:00:00-05:00').toISOString();
 
 ## toLocaleString()
 
+Wrapper over native `Date` object's `toLocaleString` method with improved type system.
+
 ### Signature
 
 ```typescript
-toLocaleString(
-  locale?: LocaleCode | Intl.Locale | (LocaleCode | Intl.Locale)[],
-  options?: Intl.DateTimeFormatOptions
-): string
+toLocaleString(locales?: LocalesArguments, options?: DateTimeFormatOptions): string
 ```
 
 ### Parameters
 
 - `locale`: Locale string(s)
-- `options`: Intl.DateTimeFormat options
+- `options`: Enhanced Intl.DateTimeFormat options
+
+#### Type Definitions
+
+```ts
+/** Locale arguments for `toLocaleString` method. Includes `BCP47` tags and `Intl.Locale`. */
+type LocalesArguments = LocaleCode | Intl.Locale | Array<LocaleCode | Intl.Locale>;
+
+/** Format options for `toLocaleString` method. Extends `Intl.DateTimeFormatOptions `to update `timeZone` option. */
+interface DateTimeFormatOptions extends Intl.DateTimeFormatOptions {
+ timeZone?: TimeZoneIdentifier;
+}
+```
 
 ### Return Type
 

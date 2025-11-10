@@ -28,12 +28,12 @@ All notable changes to the package will be documented here.
 
     ```ts
     // Example structure after unification
-    const TIME_ZONE_IDS: Record<string, { tzName: string; offset: UTCOffSet }> = {
+    const TIME_ZONE_IDS: Record<string, { tzName: string; offset: UTCOffset }> = {
       'Asia/Dhaka': { tzName: 'Bangladesh Standard Time', offset: 'UTC+06:00' },
       // ...
     };
 
-    const TIME_ZONES: Record<string, { tzName: string; offset: UTCOffSet }> = {
+    const TIME_ZONES: Record<string, { tzName: string; offset: UTCOffset }> = {
       BST: { tzName: 'Bangladesh Standard Time', offset: 'UTC+06:00' },
       // ...
     };

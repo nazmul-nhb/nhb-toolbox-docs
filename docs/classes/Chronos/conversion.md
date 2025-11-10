@@ -148,6 +148,8 @@ Chronos.utc('2025-01-15').toLocal(); // Local time instance
 
 ## timeZone()
 
+Creates a new instance of `Chronos` for the specified time zone identifier, abbreviated time zone name or UTC offset.
+
 :::danger[Note]
 This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all `Chronos` instances will have access to the `.timeZone()` method.
 :::
@@ -155,16 +157,49 @@ This method is provided by `timeZonePlugin`. You must register it using `Chronos
 ### Signature
 
 ```typescript
-timeZone(zone: TimeZone | UTCOffSet): Chronos
+timeZone(tzId: TimeZoneIdentifier): Chronos;
+timeZone(zone: TimeZone): Chronos;
+timeZone(utc: UTCOffset): Chronos;
 ```
 
 ### Parameters
 
-- `zone`: Timezone identifier or offset
+- **`tzId`**: IANA timezone identifier (e.g., `'Africa/Harare'`, `'America/New_York'`)
+- **`zone`**: Standard timezone abbreviation (e.g., `'EST'`, `'IST'`, `'UTC'`)
+- **`utc`**: UTC offset in `UTC±HH:mm` format for fictional/unlisted timezones (e.g., `'UTC+06:15'`)
 
 ### Return Type
 
-`Chronos` - Instance in specified timezone
+**`Chronos`** - New instance configured with the specified timezone context
+
+### Overloads
+
+#### Timezone Identifier
+
+Creates a new instance using an IANA timezone identifier. This is the recommended approach for accurate timezone handling.
+
+```ts
+new Chronos('2025-01-15').timeZone('Asia/Dhaka');
+new Chronos('2025-01-15').timeZone('America/Los_Angeles');
+```
+
+#### Timezone Abbreviation  
+
+Creates a new instance using a standard timezone abbreviation. Use when timezone identifiers are not available.
+
+```ts
+new Chronos('2025-01-15').timeZone('EST'); // Eastern Standard Time
+new Chronos('2025-01-15').timeZone('IST'); // Indian Standard Time
+```
+
+#### UTC Offset
+
+Creates a new instance using a UTC offset for fictional or unlisted timezones.
+
+```ts
+new Chronos('2025-01-15').timeZone('UTC+08:00'); // 8 hours ahead of UTC
+new Chronos('2025-01-15').timeZone('UTC-05:30'); // 5 hours 30 minutes behind UTC
+```
 
 ### Example
 
@@ -172,15 +207,32 @@ timeZone(zone: TimeZone | UTCOffSet): Chronos
 import { Chronos } from 'nhb-toolbox';
 import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 
+// Register plugin
 Chronos.use(timeZonePlugin);
 
-new Chronos('2025-01-15').timeZone('EST'); // Eastern Time instance
-new Chronos('2025-01-15').timeZone('UTC+08:00'); // 8 hours ahead of UTC/GMT
+// Using IANA identifier (recommended)
+const dhakaTime = new Chronos('2025-01-15').timeZone('Asia/Dhaka');
+
+// Using timezone abbreviation
+const easternTime = new Chronos('2025-01-15').timeZone('EST');
+
+// Using UTC offset
+const customOffset = new Chronos('2025-01-15').timeZone('UTC+06:30');
 ```
+
+### Remarks
+
+- **Timezone identifiers** provide the most accurate timezone handling and are recommended for production use
+- **Timezone abbreviations** should be used only when identifiers are not available, as they may have ambiguous interpretations  
+- **UTC offsets** are suitable for fictional timezones or regions not covered by the IANA database
+- Invalid input automatically falls back to `UTC` timezone
+- Returns a new `Chronos` instance - the original instance remains unchanged
 
 ---
 
 ## toObject()
+
+Converts to object with all date unit parts
 
 ### Signature
 
@@ -232,6 +284,8 @@ new Chronos('2025-01-15').toObject();
 ---
 
 ## toArray()
+
+Converts to array with all date unit parts
 
 ### Signature
 

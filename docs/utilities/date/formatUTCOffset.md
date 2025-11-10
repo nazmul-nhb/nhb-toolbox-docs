@@ -10,7 +10,7 @@ Converts a minute-based offset to a standardized UTC offset string in `UTC±HH:M
 ### Function Signature
 
 ```typescript
-formatUTCOffset(minutes: Numeric): UTCOffSet;
+formatUTCOffset(minutes: Numeric): UTCOffset;
 ```
 
 ### Parameters
@@ -41,7 +41,7 @@ console.log(formatUTCOffset(0)); // "UTC+00:00"
 - Rounds down to nearest hour for minute conversion
 - Pads hours and minutes with leading zeros
 - Handles both positive and negative offsets
-- Returns valid `UTCOffSet` type strings only
+- Returns valid `UTCOffset` type strings only
 
 ---
 
@@ -80,12 +80,12 @@ Supported minute offset values (quarter-hour increments):
 type UTCMinute = '00' | '15' | '30' | '45';
 ```
 
-#### UTCOffSet
+#### UTCOffset
 
 Complete UTC offset string format:
 
 ```typescript
-type UTCOffSet = `UTC${PositiveUTCHour | NegativeUTCHour}:${UTCMinute}`;
+type UTCOffset = `UTC${PositiveUTCHour | NegativeUTCHour}:${UTCMinute}`;
 ```
 
 ### Validation Rules

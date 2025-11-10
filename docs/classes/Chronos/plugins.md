@@ -163,7 +163,7 @@ interface ChronosInternals {
   withOrigin(
     instance: Chronos,
     method: ChronosMethods,
-    label?: UTCOffSet,
+    label?: UTCOffset,
   ): Chronos;
 
   /**
@@ -183,7 +183,7 @@ interface ChronosInternals {
    * Gets the current UTC offset
    * @param instance - Chronos instance to access
    */
-  offset(instance: Chronos): UTCOffSet;
+  offset(instance: Chronos): UTCOffset;
 }
 ```
 
@@ -204,10 +204,10 @@ declare module 'nhb-toolbox/chronos' {
 export const timeZonePlugin = (ChronosClass: typeof Chronos): void => {
   ChronosClass.prototype.timeZone = function (
     this: Chronos,
-    zone: TimeZone | UTCOffSet
+    zone: TimeZone | UTCOffset
   ): Chronos {
     let targetOffset: number;
-    let stringOffset: UTCOffSet;
+    let stringOffset: UTCOffset;
 
     if (isValidUTCOffSet(zone)) {
       targetOffset = extractMinutesFromUTC(zone);

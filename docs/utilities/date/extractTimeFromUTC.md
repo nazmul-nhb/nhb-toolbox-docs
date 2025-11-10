@@ -10,7 +10,7 @@ Extracts the time portion from a UTC offset string, converting it to `±HH:MM` f
 ### Function Signature
 
 ```typescript
-extractTimeFromUTC(utc: UTCOffSet): `-${Time}` | Time;
+extractTimeFromUTC(utc: UTCOffset): `-${Time}` | Time;
 ```
 
 ### Parameters
@@ -46,7 +46,7 @@ console.log(extractTimeFromUTC("UTC+00:00"));  // "00:00"
 - Preserves the original sign (+/-)
 - Returns only the time portion without "UTC" prefix
 - Maintains leading zeros for single-digit hours/minutes
-- Works with all valid `UTCOffSet` formats
+- Works with all valid `UTCOffset` formats
 
 ### Aliases
 
@@ -56,7 +56,7 @@ console.log(extractTimeFromUTC("UTC+00:00"));  // "00:00"
 ### Type Definition
 
 ```typescript
-type UTCOffSet = `UTC${'+00'|'+01'|...|'+14'|'-00'|'-01'|...|'-14'}:${'00'|'15'|'30'|'45'}`;
+type UTCOffset = `UTC${'+00'|'+01'|...|'+14'|'-00'|'-01'|...|'-14'}:${'00'|'15'|'30'|'45'}`;
 type ClockTime = `${ClockHour}:${ClockMinute}`;
 ```
 

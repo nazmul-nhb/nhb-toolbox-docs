@@ -61,7 +61,7 @@ Type guard that checks if a value is a valid UTC offset string.
 ### Function Signature
 
 ```typescript
-isValidUTCOffSet(value: unknown): value is UTCOffSet;
+isValidUTCOffSet(value: unknown): value is UTCOffset;
 ```
 
 ### Parameters
@@ -99,7 +99,7 @@ console.log(isValidUTCOffSet("UTC+25:00")); // false (invalid hour)
 ### Type Definition
 
 ```typescript
-type UTCOffSet = `UTC${PositiveUTCHour|NegativeUTCHour}:${UTCMinute}`;
+type UTCOffset = `UTC${PositiveUTCHour|NegativeUTCHour}:${UTCMinute}`;
 ```
 
 ---

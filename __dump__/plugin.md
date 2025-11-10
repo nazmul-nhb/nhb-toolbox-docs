@@ -60,7 +60,7 @@ interface ChronosInternals {
   withOrigin(
     instance: Chronos,
     method: ChronosMethods,
-    label?: UTCOffSet,
+    label?: UTCOffset,
   ): Chronos;
 
   /**
@@ -80,7 +80,7 @@ interface ChronosInternals {
    * Gets the current UTC offset
    * @param instance - Chronos instance to access
    */
-  offset(instance: Chronos): UTCOffSet;
+  offset(instance: Chronos): UTCOffset;
 }
 ```
 

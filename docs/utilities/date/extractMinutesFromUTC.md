@@ -10,7 +10,7 @@ Converts a UTC offset string in `UTC±HH:MM` format into total minutes as a numb
 ### Function Signature
 
 ```typescript
-extractMinutesFromUTC(utc: UTCOffSet): number;
+extractMinutesFromUTC(utc: UTCOffset): number;
 ```
 
 ### Parameters
@@ -50,7 +50,7 @@ const altMinutes = getMinutesFromUTC(utcString);      // -390 (alias)
 
 ### Notes
 
-- Only accepts valid `UTCOffSet` formatted strings
+- Only accepts valid `UTCOffset` formatted strings
 - Minutes are calculated as `(hours * 60) + minutes`
 - Returns 0 for UTC+00:00
 - Maintains sign convention (negative for west of UTC)
@@ -74,7 +74,7 @@ const altMinutes = getMinutesFromUTC(utcString);      // -390 (alias)
 type PositiveUTCHour = '+00'|'+01'|...|'+14';
 type NegativeUTCHour = '-00'|'-01'|...|'-14';
 type UTCMinute = '00'|'15'|'30'|'45';
-type UTCOffSet = `UTC${PositiveUTCHour | NegativeUTCHour}:${UTCMinute}`;
+type UTCOffset = `UTC${PositiveUTCHour | NegativeUTCHour}:${UTCMinute}`;
 ```
 
 ---
