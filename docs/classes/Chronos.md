@@ -22,23 +22,15 @@ This documentation provides a detailed guide to the `Chronos` class, a comprehen
 For `chronos` function, a `Chronos` wrapper, refer to [**chronos**](/docs/utilities/date/chronos)
 :::
 
-### Chronos Methods
+### Import
 
-- [Getter Methods](Chronos/getters)
-- [Format Methods](Chronos/format)
-- [Calculation Methods](Chronos/calculation)
-- [Name Getter Methods](Chronos/names)
-- [Checker Methods](Chronos/checkers)
-- [Conversion Methods](Chronos/conversion)
-- [Comparison Methods](Chronos/comparison)
-- [Component Methods](Chronos/components)
-- [Static Methods](Chronos/statics)
-- [Chronos Plugins](Chronos/plugins)
-- [String Methods](Chronos/strings)
-- [Extra Time Information](Chronos/extras)
-- [Symbol Methods](Chronos/symbols)
+```ts
+import { Chronos } from 'nhb-toolbox';
+// or
+import { Chronos } from 'nhb-toolbox/chronos';
+```
 
-## Constructor Signatures
+### Constructor Signatures
 
 ```ts
  constructor();
@@ -50,21 +42,13 @@ For `chronos` function, a `Chronos` wrapper, refer to [**chronos**](/docs/utilit
  constructor(value?: ChronosInput);
 ```
 
-### ChronosInput
+#### ChronosInput
 
 ```ts
 type ChronosInput = number | string | Date | Chronos;
 ```
 
-## Import
-
-```ts
-import { Chronos } from 'nhb-toolbox';
-// or
-import { Chronos } from 'nhb-toolbox/chronos';
-```
-
-## Public & Protected Properties
+### Public & Protected Properties
 
 These properties provide non-destructive, read-only (only the core ones) access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
 
@@ -72,7 +56,7 @@ These properties provide non-destructive, read-only (only the core ones) access 
 However, in JavaScript, these properties _can technically be mutated_ (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist _purely for developer convenience and sugar_.
 :::
 
-### `native: Date`
+#### `native: Date`
 
 Returns the underlying native JavaScript `Date` object used internally by the `Chronos` instance. This is useful for interoperability with APIs or libraries that expect a native `Date`.
 
@@ -89,7 +73,7 @@ const ch = new Chronos('2025-01-01');
 console.log(ch.native.toISOString()); // → 2025-01-01T00:00:00.000Z
 ```
 
-### `origin: ChronosMethods | 'root'`
+#### `origin: ChronosMethods | 'root'`
 
 Indicates how the current `Chronos` instance was created. This can be helpful for debugging flow logic or tracing method chains in complex date-time pipelines.
 
@@ -106,7 +90,7 @@ console.log(root.origin); // → 'root'
 console.log(viaMethod.origin); // → 'addDays'
 ```
 
-### `utcOffset: UTCOffset`
+#### `utcOffset: UTCOffset`
 
 Returns the current UTC offset in `UTC±HH:mm` format (e.g., `"UTC+06:00"`, `"UTC-05:30"`).
 
@@ -129,7 +113,7 @@ console.log(ny.utcOffset); // → "UTC-05:00" (or UTC-04:00 during DST)
 This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
 :::
 
-### `timeZoneName: LooseLiteral<TimeZoneName>`
+#### `timeZoneName: LooseLiteral<TimeZoneName>`
 
 Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or falls back to the corresponding timezone identifier (e.g., `"Asia/Dhaka"`) if no name can be resolved.
 
@@ -152,7 +136,7 @@ console.log(custom.timeZoneName); // → "UTC+05:45" (no named timezone)
 This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
 :::
 
-### `timeZoneId: TimeZoneId`
+#### `timeZoneId: TimeZoneId`
 
 Represents the current timezone context, which can be a single identifier, an array of equivalent identifiers, or a UTC offset.
 
@@ -186,23 +170,234 @@ console.log(offsetOnly.timeZoneId); // → "UTC+02:15" (no named timezone)
 This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
 :::
 
-### `$tzTracker?: TimeZoneIdentifier | TimeZone | UTCOffset`
+#### `$tzTracker?: TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
 _**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases.
 :::
 
-## Plugin System
+### Chronos Methods
 
-Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` static method.
+<details>
+  <summary>[**Getter Methods**](Chronos/getters)</summary>
+    | Method                                             | Short Description                                                      |
+    | -------------------------------------------------- | ---------------------------------------------------------------------- |
+    | [year](Chronos/getters#year)                       | Gets the full year of the date.                                        |
+    | [month](Chronos/getters#month)                     | Gets the month (0-11) of the date.                                     |
+    | [date](Chronos/getters#date)                       | Gets the day of the month (1-31).                                      |
+    | [weekDay](Chronos/getters#weekday)                 | Gets the day of the week (0-6, where 0 is Sunday).                     |
+    | [hour](Chronos/getters#hour),                      | Gets the hour (0-23) of the date.                                      |
+    | [minute](Chronos/getters#minute)                   | Gets the minute (0-59) of the date.                                    |
+    | [second](Chronos/getters#second)                   | Gets the second (0-59) of the date.                                    |
+    | [millisecond](Chronos/getters#millisecond)         | Gets the millisecond (0-999) of the date.                              |
+    | [isoWeekDay](Chronos/getters#isoweekday)           | Gets ISO weekday: 1 = Monday, 7 = Sunday.                              |
+    | [isoMonth](Chronos/getters#isomonth)               | Gets ISO month (1–12 instead of 0–11).                                 |
+    | [unix](Chronos/getters#unix)                       | Returns the Unix timestamp (seconds since the Unix epoch).             |
+    | [timestamp](Chronos/getters#timestamp)             | Gets the time value in milliseconds since midnight, 1970-01-01 UTC.    |
+    | [lastDateOfMonth](Chronos/getters#lastdateofmonth) | Gets the last date (number) of the current month `(28, 29, 30 or 31)`. |
+</details>
 
-### How it works
+<details>
+  <summary>[**Format Methods**](Chronos/format)</summary>
+    | Method                                        | Short Description                                                         |
+    | --------------------------------------------- | ------------------------------------------------------------------------- |
+    | [format()](Chronos/format#format)             | Formats the current date into a custom string format.                     |
+    | [formatStrict()](Chronos/format#formatstrict) | Formats the date into a predefined strict string format.                  |
+    | [formatUTC()](Chronos/format#formatutc)       | Formats the date into a custom string format (UTC time).                  |
+    | [calendar()](Chronos/format#calendar)         | Returns a human-readable relative calendar time like `"Today at 3:00 PM"` |
+    | [fromNow()](Chronos/format#fromnow)           | Returns full time difference as string down to a given level.             |
+    | [fromNowShort()](Chronos/format#fromnowshort) | Returns a short human-readable string like "2h ago", "in 5m".             |
+    | [getGreeting()](Chronos/format#getgreeting)   | Returns a greeting message based on `Chronos` instance or provided time.  |
+    | [greet()](Chronos/format#alias)               | Alias for [`getGreeting()`](Chronos/format#getgreeting)                   |
+</details>
+
+<details>
+  <summary>[**Calculation Methods**](Chronos/calculation)</summary>
+    | Method                                                   | Short Description                                                    |
+    | -------------------------------------------------------- | -------------------------------------------------------------------- |
+    | [valueOf()](Chronos/calculation#valueof)                 | Enables arithmetic and comparison operations (e.g., +new Chronos()). |
+    | [add()](Chronos/calculation#add)                         | Returns a new `Chronos` instance with the specified unit added.      |
+    | [addDays()](Chronos/calculation#alternatives)            | Adds days and returns a new immutable instance.                      |
+    | [addHours()](Chronos/calculation#alternatives)           | Adds hours and returns a new immutable instance.                     |
+    | [addMinutes()](Chronos/calculation#alternatives)         | Adds minutes and returns a new immutable instance.                   |
+    | [addMonths()](Chronos/calculation#alternatives)          | Adds months and returns a new immutable instance.                    |
+    | [addSeconds()](Chronos/calculation#alternatives)         | Adds seconds and returns a new immutable instance.                   |
+    | [addWeeks()](Chronos/calculation#alternatives)           | Adds weeks and returns a new immutable instance.                     |
+    | [addYears()](Chronos/calculation#alternatives)           | Adds years and returns a new immutable instance.                     |
+    | [subtract()](Chronos/calculation#subtract)               | Returns a new `Chronos` instance with the specified unit subtracted. |
+    | [diff()](Chronos/calculation#diff)                       | Returns the difference between current and another date.             |
+    | [duration()](Chronos/calculation#duration)               | Returns full time duration between current and another time object.  |
+    | [durationString()](Chronos/calculation#durationstring)   | Returns a human-readable formatted duration string between 2 dates.  |
+    | [round()](Chronos/calculation#round)                     | Rounds the current date-time to the nearest unit and interval.       |
+    | [getDatesInRange()](Chronos/calculation#getdatesinrange) | Generates a list of ISO date strings within a specified range.       |
+</details>
+
+<details>
+  <summary>[**Name Getter Methods**](Chronos/names)</summary>
+    | Method                                                       | Short Description                                               |
+    | ------------------------------------------------------------ | --------------------------------------------------------------- |
+    | [day()](Chronos/names#day)                                   | Returns the name of the current day or optional day index.      |
+    | [monthName()](Chronos/names#monthname)                       | Returns the name of the current month or optional month index.  |
+    | [$getNativeTimeZone()](Chronos/names#getnativetimezone)      | Retrieves the local system's current timezone name.             |
+    | [$getNativeTimeZoneId()](Chronos/names#getnativetimezoneid)  | Retrieves the IANA time zone identifier for the local system.   |
+    | [getTimeZoneName()](Chronos/names#gettimezonename)           | Returns the current time zone name as a full descriptive string |
+    | [getTimeZoneNameShort()](Chronos/names#gettimezonenameshort) | Returns the current time zone abbreviation (e.g. `"BST"`).      |
+    | [season()](Chronos/names#season)                             | Returns the current season name based on options.               |
+    | [getSeasonName()](Chronos/names#season)                      | Alias for [`season()`](Chronos/names#season)                    |
+    | [getZodiacSign()](Chronos/names#getzodiacsign)               | Returns the zodiac sign based on current date or `birthDate`.   |
+    | [zodiac()](Chronos/names#getzodiacsign)                      | Alias for [`getZodiacSign()`](Chronos/names#getzodiacsign)      |
+    | [getPartOfDay()](Chronos/names#getpartofday)                 | Returns the part of day based on the current hour.              |
+</details>
+
+<details>
+  <summary>[**Checker Methods**](Chronos/checkers)</summary>
+    | Method                                                    | Short Description                                                    |
+    | --------------------------------------------------------- | -------------------------------------------------------------------- |
+    | [isAfter()](Chronos/checkers#isafter)                     | Checks if this date is after another date in a specific unit.        |
+    | [isBefore()](Chronos/checkers#isbefore)                   | Checks if this date is before another date in a specific unit.       |
+    | [isBetween()](Chronos/checkers#isbetween)                 | Checks if the current date is between the given start and end dates. |
+    | [isSame()](Chronos/checkers#issame)                       | Checks if another date is the same as this one in a specific unit.   |
+    | [isSameOrAfter()](Chronos/checkers#issameorafter)         | Checks if this date is same or after another in a specific unit.     |
+    | [isSameOrBefore()](Chronos/checkers#issameorbefore)       | Checks if this date is same or before another in a specific unit.    |
+    | [isEqual()](Chronos/checkers#isequal)                     | Checks if another date is exactly equal to this one.                 |
+    | [isEqualOrAfter()](Chronos/checkers#isequalorafter)       | Checks if another date is exactly equal to or after this one.        |
+    | [isEqualOrBefore()](Chronos/checkers#isequalorbefore)     | Checks if another date is exactly equal to or before this one.       |
+    | [isBusinessHour()](Chronos/checkers#isbusinesshour)       | Checks if the current date and time fall within business hours.      |
+    | [isWeekend()](Chronos/checkers#isweekend)                 | Checks if the current date falls on a weekend.                       |
+    | [isWorkday()](Chronos/checkers#isworkday)                 | Checks if the current date is a workday.                             |
+    | [isFirstDayOfMonth()](Chronos/checkers#isfirstdayofmonth) | Checks if current day is the first day of the current month.         |
+    | [isLastDayOfMonth()](Chronos/checkers#islastdayofmonth)   | Checks if current day is the last day of the current month.          |
+    | [isToday()](Chronos/checkers#istoday)                     | Checks if the current date is today.                                 |
+    | [isTomorrow()](Chronos/checkers#istomorrow)               | Checks if the current date is tomorrow.                              |
+    | [isYesterday()](Chronos/checkers#isyesterday)             | Checks if the current date is yesterday.                             |
+    | [isLeapYear()](Chronos/checkers#isleapyear)               | Checks if the current year is a leap year.                           |
+    | [isPalindromeDate()](Chronos/checkers#ispalindromedate)   | Checks if the current date (date part only) is a palindrome.         |
+    | [isDST()](Chronos/checkers#isdst)                         | Checks if the date is within daylight saving time (DST).             |
+</details>
+
+<details>
+  <summary>[**Conversion Methods**](Chronos/conversion)</summary>
+    | Method                                    | Short Description                                                            |
+    | ----------------------------------------- | ---------------------------------------------------------------------------- |
+    | [clone()](Chronos/conversion#clone)       | Clones and returns a new `Chronos` instance with the same date.              |
+    | [toUTC()](Chronos/conversion#toutc)       | Returns new `Chronos` instance in UTC time.                                  |
+    | [toLocal()](Chronos/conversion#tolocal)   | Returns new `Chronos` instance in local time.                                |
+    | [timeZone()](Chronos/conversion#timezone) | Creates a new instance of `Chronos` for the specified time zone information. |
+    | [toDate()](Chronos/conversion#todate)     | Gets the native `Date` instance.                                             |
+    | [toArray()](Chronos/conversion#toarray)   | Converts to array with all date unit part                                    |
+    | [toObject()](Chronos/conversion#toobject) | Converts to object with all date unit parts                                  |
+</details>
+
+<details>
+  <summary>[**Comparison Methods**](Chronos/comparison)</summary>
+    | Method                                                                | Short Description                                    |
+    | --------------------------------------------------------------------- | ---------------------------------------------------- |
+    | [compare()](Chronos/comparison#compare)                               | Returns the difference of 2 dates in specified unit. |
+    | [getRelativeDay()](Chronos/comparison#getrelativeday)                 | Returns the number of days between 2 dates.          |
+    | [getRelativeHour()](Chronos/comparison#getrelativehour)               | Returns the number of hours between 2 dates.         |
+    | [getRelativeMinute()](Chronos/comparison#getrelativeminute)           | Returns the number of minutes between 2 dates.       |
+    | [getRelativeSecond()](Chronos/comparison#getrelativesecond)           | Returns the number of seconds between 2 dates.       |
+    | [getRelativeMilliSecond()](Chronos/comparison#getrelativemillisecond) | Returns the number of milliseconds between 2 dates.  |
+    | [getRelativeWeek()](Chronos/comparison#getrelativeweek)               | Returns the number of weeks between 2 dates.         |
+    | [getRelativeMonth()](Chronos/comparison#getrelativemonth)             | Returns the number of months between 2 dates.        |
+    | [getRelativeYear()](Chronos/comparison#getrelativeyear)               | Returns the number of years between 2 dates.         |
+</details>
+
+<details>
+  <summary>[**Get & Set Methods**](Chronos/get-set)</summary>
+    | Method                                               | Short Description                                                       |
+    | ---------------------------------------------------- | ----------------------------------------------------------------------- |
+    | [get()](Chronos/get-set#get)                         | Gets the value of a specific time unit from the date.                   |
+    | [set()](Chronos/get-set#set)                         | Returns a new instance with the specified unit set to the given value.  |
+    | [startOf()](Chronos/get-set#startof)                 | Returns a new `Chronos` instance at the start of a given unit.          |
+    | [endOf()](Chronos/get-set#endof)                     | Returns a new `Chronos` instance at the end of a given unit.            |
+    | [getWeek()](Chronos/get-set#getweek)                 | Calculates the ISO 8601 week number of the year.                        |
+    | [setWeek()](Chronos/get-set#setweek)                 | Sets the date to the specified ISO week number within the current year. |
+    | [getWeekOfYear()](Chronos/get-set#getweekofyear)     | Calculates the week number of the year based on custom week start.      |
+    | [getWeekYear()](Chronos/get-set#getweekyear)         | Returns the ISO week-numbering year for the current date.               |
+    | [getDayOfYear()](Chronos/get-set#getdayofyear)       | Returns day of year (1 - 366).                                          |
+    | [getTimeStamp()](Chronos/get-set#gettimestamp)       | Returns the time value in milliseconds since midnight, 1970-01-01 UTC.  |
+    | [daysInMonth()](Chronos/get-set#daysinmonth)         | Returns number of days in current month.                                |
+    | [firstDayOfMonth()](Chronos/get-set#firstdayofmonth) | Returns a new instance set to the first day of the current month.       |
+    | [lastDayOfMonth()](Chronos/get-set#lastdayofmonth)   | Returns a new instance set to the last day of the current month.        |
+</details>
+
+<details>
+  <summary>[**String Methods**](Chronos/strings)</summary>
+    | Method                                                 | Short Description                                                      |
+    | ------------------------------------------------------ | ---------------------------------------------------------------------- |
+    | [toString()](Chronos/strings#tostring)                 | Returns a string representation of a date.                             |
+    | [toISOString()](Chronos/strings#toisostring)           | Returns a date as a string value in ISO format. Respects timezone UTC. |
+    | [toLocalISOString()](Chronos/strings#tolocalisostring) | Returns ISO string with local machine's timezone offset.               |
+    | [toLocaleString()](Chronos/strings#tolocalestring)     | Wrapper over native JS `toLocaleString` with improved type system.     |
+    | [toJSON()](Chronos/strings#tojson)                     | Enables `JSON.stringify` to show readable output.                      |
+    | [inspect()](Chronos/strings#inspect)                   | Returns a debug-friendly string for `console.log` or `util.inspect`.   |
+</details>
+
+<details>
+  <summary>[**Extra Time Information**](Chronos/extras)</summary>
+    | Method                                                                | Short Description                                       |
+    | --------------------------------------------------------------------- | ------------------------------------------------------- |
+    | [getUTCOffset()](Chronos/extras#getutcoffset)                         | Returns the system's UTC offset formatted as `±HH:mm`   |
+    | [getTimeZoneOffset()](Chronos/extras#gettimezoneoffset)               | Returns the timezone offset in `±HH:mm` format          |
+    | [getUTCOffsetMinutes()](Chronos/extras#getutcoffsetminutes)           | Gets difference in mins between UTC and local system.   |
+    | [getTimeZoneOffsetMinutes()](Chronos/extras#gettimezoneoffsetminutes) | Returns the current instance's UTC offset in minutes.   |
+    | [toQuarter()](Chronos/extras#toquarter)                               | Returns the calendar quarter (1 to 4) of the instance.  |
+    | [toFiscalQuarter()](Chronos/extras#tofiscalquarter)                   | Returns the fiscal quarter based on custom start month. |
+    | [toAcademicYear()](Chronos/extras#toacademicyear)                     | Returns the academic year in format `YYYY-YYYY`.        |
+</details>
+
+<details>
+  <summary>[**Static Methods**](Chronos/statics)</summary>
+    | Method                                             | Short Description                                                          |
+    | -------------------------------------------------- | -------------------------------------------------------------------------- |
+    | [now()](Chronos/statics#now)                       | Returns the number of milliseconds elapsed since midnight, 1970-01-01 UTC. |
+    | [use()](Chronos/statics#use)                       | Injects a plugin into the `Chronos` system.                                |
+    | [register()](Chronos/statics#register)             | Alias for [`use()`](Chronos/statics#use)                                   |
+    | [utc()](Chronos/statics#utc)                       | Creates a UTC-based `Chronos` instance.                                    |
+    | [with()](Chronos/statics#with)                     | Creates a new `Chronos` instance with the provided time component(s).      |
+    | [parse()](Chronos/statics#parse)                   | Parses a date string with a given format (limited support only).           |
+    | [max()](Chronos/statics#max)                       | Returns latest Chronos.                                                    |
+    | [min()](Chronos/statics#min)                       | Returns earliest Chronos.                                                  |
+    | [today()](Chronos/statics#today)                   | Returns the current date and time in a specified format in local time.     |
+    | [tomorrow()](Chronos/statics#tomorrow)             | Returns a new `Chronos` instance representing tomorrow's date.             |
+    | [yesterday()](Chronos/statics#yesterday)           | Returns a new `Chronos` instance representing yesterday's date.            |
+    | [formatTimePart()](Chronos/statics#formattimepart) | Formats a time-only string into a formatted time string.                   |
+    | [getDatesForDay()](Chronos/statics#getdatesforday) | Returns ISO date strings for each occurrence of a weekday.                 |
+    | [isLeapYear()](Chronos/statics#isleapyear)         | Checks if the year in the date or year (from 0 - 9999) is a leap year.     |
+    | [isValidChronos()](Chronos/statics#isvalidchronos) | Checks if the given value is an instance of `Chronos`.                     |
+    | [isValidDate()](Chronos/statics#isvaliddate)       | Checks if the given value is a valid `Date` object.                        |
+    | [isDateString()](Chronos/statics#isdatestring)     | Checks if the given value is a valid date string.                          |
+</details>
+
+<details>
+  <summary>[**Symbol Methods**](Chronos/symbols)</summary>
+    | Method                                                                | Short Description                                        |
+    | --------------------------------------------------------------------- | -------------------------------------------------------- |
+    | [Symbol.iterator](Chronos/symbols#symboliterator)                     | Returns the default iterator for an object.              |
+    | [Symbol.toPrimitive](Chronos/symbols#symboltoprimitive)               | Converts an object to a corresponding primitive value.   |
+    | [Symbol.replace](Chronos/symbols#symbolreplace)                       | `RegExp` method, replaces matched parts of a string.     |
+    | [Symbol.search](Chronos/symbols#symbolsearch)                         | `RegExp` method, returns index within a matched string.  |
+    | [Symbol.split](Chronos/symbols#symbolsplit)                           | `RegExp` method, splits a string at the matched indices. |
+    | [Symbol.match](Chronos/symbols#symbolmatch)                           | `RegExp` method, matches the `RegExp` against a string.  |
+    | [Symbol.toStringTag](Chronos/symbols#symboltostringtag)               | Called by the built-in `Object.prototype.toString`.      |
+    | [Symbol.isConcatSpreadable](Chronos/symbols#symbolisconcatspreadable) | Enables to be spread with the spread operator `...`      |
+</details>
+
+### [Plugin System](Chronos/plugins)
+
+Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` or `.register()` static method.
+
+#### How it works
 
 ```ts
 import { Chronos } from 'nhb-toolbox';
 import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
 
-Chronos.use(seasonPlugin); // Register the plugin before using its methods
+// Register the plugin before using its methods
+Chronos.use(seasonPlugin); 
+// or
+Chronos.register(seasonPlugin);
 
 const now = new Chronos();
 console.log(now.season()); // ✅ Safe to use after plugin registration

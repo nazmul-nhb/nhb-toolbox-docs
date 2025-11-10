@@ -183,7 +183,7 @@ const mixed = Chronos.with({
 - Time component manipulation without affecting other components
 
 :::tip[See Also]
-[`set`](/docs/classes/Chronos/components#set) instance method for flexibility
+[`set`](/docs/classes/Chronos/get-set#set) instance method for flexibility
 :::
 
 ---

@@ -204,6 +204,8 @@ declare module 'nhb-toolbox/chronos' {
 }
 
 export const timeZonePlugin = (ChronosClass: typeof Chronos): void => {
+  const { internalDate, withOrigin } = ChronosClass[INTERNALS];
+
   ChronosClass.prototype.timeZone = function (
     this: Chronos,
     zone: TimeZone | UTCOffset
@@ -222,15 +224,11 @@ export const timeZonePlugin = (ChronosClass: typeof Chronos): void => {
     const previousOffset = this.getTimeZoneOffsetMinutes();
     const relativeOffset = targetOffset - previousOffset;
 
-    const internals = ChronosClass[INTERNALS];
-
-    const adjustedTime = new Date(
-      internals.internalDate(this).getTime() + relativeOffset * 60 * 1000
-    );
+    const adjustedTime = new Date(internalDate(this).getTime() + relativeOffset * 60 * 1000);
 
     const instance = new ChronosClass(adjustedTime);
 
-    return internals.withOrigin(instance, 'timeZone', stringOffset);
+    return withOrigin(instance, 'timeZone', stringOffset);
   };
 };
 ```

@@ -5,61 +5,9 @@ title: Symbol Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
-## [Symbol.toPrimitive]
-
-### Signature
-
-```ts
-[Symbol.toPrimitive](hint: string): string | number
-```
-
-### Parameters
-
-- `hint`: Conversion hint ('number' or 'string')
-
-### Return Type
-
-`string | number` - Primitive value
-
-### Behavior
-
-- `number` hint: Returns timestamp
-- Other hints: Returns ISO string
-
-### Example
-
-```ts
-+new Chronos(); // timestamp 1746866213184
-`${new Chronos()}`; // ISO string 2025-05-10T14:37:20.105+06:00
-```
-
----
-
-## [Symbol.toStringTag]
-
-### Signature
-
-```ts
-get [Symbol.toStringTag](): string
-```
-
-### Return Type
-
-`string` - String tag
-
-### Notes
-
-- Used by `Object.prototype.toString()`
-
-### Example
-
-```ts
-Object.prototype.toString.call(new Chronos()); // [object 2025-05-10T14:34:55.615+06:00]
-```
-
----
-
 ## [Symbol.iterator]
+
+Enables iteration over date components, allowing destructuring and array spreading.
 
 ### Signature
 
@@ -69,11 +17,13 @@ Object.prototype.toString.call(new Chronos()); // [object 2025-05-10T14:34:55.61
 
 ### Return Type
 
-`IterableIterator<[string, number]>` - Date components
+`IterableIterator<[string, number]>` - Date components as key-value pairs
 
-### Notes
+### Behavior
 
-- Allows destructuring and iteration
+- Yields all date components as `[property, value]` pairs
+- Enables destructuring assignment and `for...of` loops
+- Compatible with array spread operator
 
 ### Example
 
@@ -97,48 +47,154 @@ for (const [key, value] of new Chronos()) {
 
 ---
 
-## [Symbol.isConcatSpreadable]
+## [Symbol.toPrimitive]
+
+Provides primitive value conversion for mathematical operations and string interpolation.
 
 ### Signature
 
-```typescript
-get [Symbol.isConcatSpreadable](): boolean
+```ts
+[Symbol.toPrimitive](hint: string): string | number
 ```
+
+### Parameters
+
+- `hint`: Conversion hint (`'number'` or `'string'`)
 
 ### Return Type
 
-`boolean` - Always returns `true`
+`string | number` - Primitive value
 
 ### Behavior
 
-- Enables the `Chronos` instance to be spread when used with the spread operator `...`
-- Allows `Chronos` objects to be iterated and spread into arrays
+- `number` hint: Returns timestamp for mathematical operations
+- `string` hint: Returns ISO string based on instance origin
+- `default` hint: Returns ISO string for string interpolation
 
 ### Example
 
 ```ts
-const chronosInstance = new Chronos('2023-12-31');
-const array1 = [1, 2, 3];
-const array2 = [4, 5, 6];
-
-// Chronos instance will be spread into the resulting array
-console.info([...array1, ...array2, ...chronosInstance]);
-// Result: [1, 2, 3, 4, 5, 6, ['year', 2023], ['month', 12], ['date', 31], ...date components]
++new Chronos(); // timestamp 1746866213184
+`${new Chronos()}`; // ISO string 2025-05-10T14:37:20.105+06:00
 ```
 
-### Notes
+---
 
-- This allows `Chronos` objects to be destructured and spread like arrays
-- Useful for extracting all date components into an array
-- Returns key-value pairs `[property, value]` for each date component
+## [Symbol.replace]
+
+Enables `Chronos` instances to be used as search patterns in `String.prototype.replace()`.
+
+### Signature
+
+```ts
+[Symbol.replace](string: string, replacement: string): string
+```
+
+### Parameters
+
+- `string`: The string to perform replacement on
+- `replacement`: The replacement string
+
+### Return Type
+
+`string` - The modified string with replacements
+
+### Behavior
+
+- Replaces date patterns in strings based on `Chronos` instance format
+- Handles different ISO string formats depending on instance origin
+- Supports timezone-aware replacements
+
+### Example
+
+```ts
+const chronos = new Chronos('2025-09-01T13:26:00');
+const text = 'Event scheduled for 2025-09-01T13:26:00';
+
+text.replace(chronos, '2025-10-15T09:30:00');
+// Returns: 'Event scheduled for 2025-10-15T09:30:00'
+```
+
+---
+
+## [Symbol.search]
+
+Enables `Chronos` instances to be used as search patterns in `String.prototype.search()`.
+
+### Signature
+
+```ts
+[Symbol.search](string: string): number
+```
+
+### Parameters
+
+- `string`: The string to search within
+
+### Return Type
+
+`number` - Index of the first match or `-1` if not found
+
+### Behavior
+
+- Searches for date patterns in strings
+- Returns the position of the matched date pattern
+- Handles different ISO formats based on instance origin
+
+### Example
+
+```ts
+const chronos = new Chronos('2025-09-01T00:00:00');
+const text = 'Meeting on 2025-09-01T00:00:00 at conference room';
+
+text.search(chronos); // Returns: 11
+```
+
+---
+
+## [Symbol.split]
+
+Enables `Chronos` instances to be used as separators in `String.prototype.split()`.
+
+### Signature
+
+```ts
+[Symbol.split](string: string): string[]
+```
+
+### Parameters
+
+- `string`: The string to split
+
+### Return Type
+
+`string[]` - Array of substrings
+
+### Behavior
+
+- Splits strings using the `Chronos` instance's date pattern as delimiter
+- Handles different date formats based on instance origin
+- Useful for parsing text containing date separators
+
+### Example
+
+```ts
+const chronos = new Chronos('2025-09-01T00:00:00.000+06:00');
+const text = 'Log entries: Error2025-09-01T00:00:00Nothing Serious';
+
+text.split(chronos);
+// Returns: [ 'Log entries: Error', 'Nothing Serious' ]
+```
 
 ---
 
 ## [Symbol.match]
 
+Enables `Chronos` instances to be used as regex patterns in string matching operations.
+
 ### Signature
 
-```typescript
+```ts
 [Symbol.match](string: string): RegExpMatchArray | null
 ```
 
@@ -152,9 +208,9 @@ console.info([...array1, ...array2, ...chronosInstance]);
 
 ### Behavior
 
-- Enables `Chronos` instances to be used as regex patterns in string matching
 - Supports fuzzy matching of various date and time formats
 - Automatically handles both date-only and datetime patterns
+- Flexible separator matching (hyphens, slashes, dots, or no separators)
 
 ### Supported Formats
 
@@ -188,17 +244,77 @@ const text3 = 'Meeting on 20250901';
 const text4 = 'Meeting at 2025-09-01T13:26:00';
 const text5 = 'Meeting at 2025/09/01 13.26.00';
 
-text1.match(chronosInstance); // ✅ ["2025-09-01"]
-text2.match(chronosInstance); // ✅ ["2025/09/01"]  
-text3.match(chronosInstance); // ✅ ["20250901"]
-text4.match(chronosInstance); // ✅ ["2025-09-01T13:26:00"]
-text5.match(chronosInstance); // ✅ ["2025/09/01 13.26.00"]
+text1.match(chronosInstance)[0], // ✅ ["2025-09-01"]
+text2.match(chronosInstance)[0], // ✅ ["2025/09/01"]
+text3.match(chronosInstance)[0], // ✅ ["20250901"]
+text4.match(chronosInstance)[0], // ✅ ["2025-09-01T13:26:00"]
+text5.match(chronosInstance)[0]  // ✅ ["2025/09/01 13.26.00"]
+```
+
+---
+
+## [Symbol.toStringTag]
+
+Customizes the default string description of the object.
+
+### Signature
+
+```ts
+get [Symbol.toStringTag](): string
+```
+
+### Return Type
+
+`string` - String tag representation
+
+### Behavior
+
+- Used by `Object.prototype.toString()` method
+- Returns different ISO string formats based on instance origin
+- Provides meaningful string representation for object inspection
+
+### Example
+
+```ts
+Object.prototype.toString.call(new Chronos()); // [object 2025-11-11T00:29:01.599+06:00]
+```
+
+---
+
+## [Symbol.isConcatSpreadable]
+
+Enables Chronos instances to be spread when used with array concatenation.
+
+### Signature
+
+```ts
+get [Symbol.isConcatSpreadable](): boolean
+```
+
+### Return Type
+
+`boolean` - Always returns `true`
+
+### Behavior
+
+- Allows `Chronos` objects to be spread into arrays using spread operator
+- Enables array concatenation with `Chronos` instances
+- Returns key-value pairs for each date component when spread
+
+### Example
+
+```ts
+const chronosInstance = new Chronos('2023-12-31');
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+// Chronos instance will be spread into the resulting array
+console.info([...array1, ...array2, ...chronosInstance]);
+// Result: [1, 2, 3, 4, 5, 6, ['year', 2023], ['month', 12], ['date', 31], ...date components]
 ```
 
 ### Notes
 
-- Perfect for log analysis, text processing, and date extraction from strings
-- Automatically adapts to match either full datetime or date-only patterns
-- Returns `null` if no matching date pattern is found in the string
-
----
+- Useful for extracting all date components into an array
+- Enables functional programming patterns with date data
+- Compatible with array methods like `map`, `filter`, and `reduce`

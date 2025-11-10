@@ -1,5 +1,5 @@
 ---
-id: components
+id: get-set
 title: Get & Set Methods
 ---
 

@@ -80,7 +80,7 @@ The wrapper provides access to all `Chronos` methods through the returned instan
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations
 - **[Checker Methods](/docs/classes/Chronos/checkers)** - Date validation
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations
-- **[Component Methods](/docs/classes/Chronos/components)** - Date part manipulation
+- **[Component Methods](/docs/classes/Chronos/get-set)** - Date part manipulation
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
 - **[Chronos Plugins](/docs/classes/Chronos/plugins)** - Learn about `Chronos` plugins
 - **[String Methods](/docs/classes/Chronos/strings)** - Get time as string (some are just augmentation of JS defaults)
