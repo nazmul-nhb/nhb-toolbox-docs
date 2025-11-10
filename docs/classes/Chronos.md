@@ -135,8 +135,8 @@ Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or fa
 
 :::info[Remarks]
 
-- Invoking the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method sets the timezone name that corresponds to the specified UTC offset, or the UTC offset itself if no name exists. For more details on this behavior, see [`getTimeZoneName()`](/docs/classes/Chronos/names#gettimezonename).
-- To retrieve the local system's native timezone name (or its identifier if the name is unavailable), use the [`$getNativeTimeZone()`](Chronos/timezone#getnativetimezone) instance method.
+- Invoking the [`timeZone()`](Chronos/conversion#timezone) method sets the timezone name that corresponds to the specified UTC offset, or the UTC offset itself if no name exists. For more details on this behavior, see [`getTimeZoneName()`](Chronos/names#gettimezonename).
+- To retrieve the local system's native timezone name (or its identifier if the name is unavailable), use the [`$getNativeTimeZone()`](Chronos/names#getnativetimezone) instance method.
 
 :::
 
@@ -158,15 +158,15 @@ Represents the current timezone context, which can be a single identifier, an ar
 
 **Possible return types:**
 
-- **`TimeZoneIdentifier`** — e.g., `"Asia/Dhaka"`. Returned when the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method has not been invoked (default behavior).
+- **`TimeZoneIdentifier`** — e.g., `"Asia/Dhaka"`. Returned when the [`timeZone()`](Chronos/conversion#timezone) method has not been invoked (default behavior).
 - **Array of `TimeZoneIdentifier`** — e.g., `['Asia/Kathmandu', 'Asia/Katmandu']`, used when multiple timezones share the same UTC offset such as `"UTC+05:45"`.
 - **`UTCOffset`** — e.g., `"UTC+06:45"` or `"UTC+02:15"`, returned when no named timezone corresponds to a given offset.
 
 :::info[Remarks]
 
-- By default, when [`timeZone()`](/docs/classes/Chronos/conversion#timezone) is not applied, a single `TimeZoneIdentifier` string is provided.
+- By default, when [`timeZone()`](Chronos/conversion#timezone) is not applied, a single `TimeZoneIdentifier` string is provided.
 - When applied, it may instead return a single identifier string, an array of equivalent identifiers, or a UTC offset string.
-- To retrieve the local system's native timezone identifier, use the [`$getNativeTimeZoneId()`](Chronos/timezone#getnativetimezoneid) instance method.
+- To retrieve the local system's native timezone identifier, use the [`$getNativeTimeZoneId()`](Chronos/names#getnativetimezoneid) instance method.
 
 :::
 
@@ -189,7 +189,7 @@ This property is mutable. Mutating this property will not impact the Chronos ins
 ### `$tzTracker?: TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
-_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases.
+_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases.
 :::
 
 ## Plugin System

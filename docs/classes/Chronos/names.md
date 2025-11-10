@@ -80,6 +80,100 @@ new Chronos().monthName(11);           // "December"
 
 ---
 
+## $getNativeTimeZone()
+
+Retrieves the local system's current timezone name, falling back to its IANA timezone identifier if the name cannot be determined.
+
+### Signature
+
+```typescript
+$getNativeTimeZone(): LooseLiteral<TimeZoneName | TimeZoneIdentifier>
+```
+
+### Return Type
+
+- **`LooseLiteral<TimeZoneName | TimeZoneIdentifier>`** - The resolved timezone name or IANA identifier as fallback
+
+### Example
+
+```ts
+const ch = new Chronos('2025-01-15');
+
+// Get native timezone name
+console.log(ch.$getNativeTimeZone());
+// → "Bangladesh Standard Time" (if in Asia/Dhaka)
+// → "Eastern Standard Time" (if in America/New_York)
+// → "Asia/Dhaka" (fallback if name unavailable)
+```
+
+### Remarks
+
+- **Always reflects the local machine's timezone** regardless of whether `timeZone()`, `utc()`, or `toUTC()` methods have been applied
+- **For modified instances**, use the `timeZoneName` public property instead to get the current instance's timezone context
+- Uses `Intl.DateTimeFormat` with `timeZoneName: 'long'` to resolve the display name
+- Falls back to the IANA identifier when no display name can be determined
+
+### Usage Notes
+
+```ts
+const ch = new Chronos('2025-01-15').timeZone('UTC+02:45');
+
+// These reflect the modified instance's timezone
+console.log(ch.timeZoneName); // → "UTC+02:45"
+
+// These always reflect the native system timezone
+console.log(ch.$getNativeTimeZone());   // → "Bangladesh Standard Time"
+```
+
+---
+
+## $getNativeTimeZoneId()
+
+Retrieves the IANA timezone identifier for the local system's current timezone.
+
+### Signature
+
+```typescript
+$getNativeTimeZoneId(): TimeZoneIdentifier
+```
+
+### Return Type
+
+- **`TimeZoneIdentifier`** - The local system's IANA timezone identifier
+
+### Example
+
+```ts
+const ch = new Chronos('2025-01-15');
+
+// Get native IANA timezone identifier
+console.log(ch.$getNativeTimeZoneId());
+// → "Asia/Dhaka" (if in Bangladesh)
+// → "America/New_York" (if in Eastern Time)
+// → "Europe/London" (if in UK)
+```
+
+### Remarks
+
+- **Always returns the local machine's timezone identifier** regardless of whether `timeZone()`, `utc()`, or `toUTC()` methods have been applied
+- **For modified instances**, use the `timeZoneId` public property instead to get the current instance's timezone context
+- Directly accesses `Intl.DateTimeFormat().resolvedOptions().timeZone` for the system identifier
+- Returns standardized IANA timezone identifiers (e.g., `"Asia/Dhaka"`, `"America/New_York"`)
+
+### Usage Notes
+
+```ts
+const ch = new Chronos('2025-01-15').timeZone('UTC+02:45');
+
+// These reflect the modified instance's timezone
+console.log(ch.timeZoneId);   // → "UTC+02:45"
+
+// These always reflect the native system timezone
+console.log(ch.$getNativeTimeZoneId()); // → "Asia/Dhaka"
+```
+
+---
+
 ## getTimeZoneName()
 
 Get full time zone name or UTC offset
@@ -129,6 +223,8 @@ new Chronos().getTimeZoneName('UTC+06:15');
 - If multiple time zones share the same UTC offset, it returns the **first match** from the predefined list.
 - If **no match** is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:15"`).
 - Passing a custom `utc` offset overrides system/instance's offset detection.
+- To retrieve the local system's native time zone name (or its identifier if the name is unavailable), use the [**$getNativeTimeZone**](#getnativetimezone) instance method.
+- To retrieve the local system's native time zone identifier, use the [**$getNativeTimeZoneId**](#getnativetimezoneid) instance method.
 
 :::
 
@@ -183,6 +279,8 @@ new Chronos().getTimeZoneNameShort('UTC+06:15');
 - If multiple time zones share the same UTC offset, it returns the **first match** from the predefined list.
 - If **no match** is found (which is rare), it falls back to returning the UTC offset (e.g. `"UTC+06:15"`).
 - Passing a custom `utc` offset overrides system/instance's offset detection.
+- To retrieve the local system's native time zone name (or its identifier if the name is unavailable), use the [**$getNativeTimeZone**](#getnativetimezone) instance method.
+- To retrieve the local system's native time zone identifier, use the [**$getNativeTimeZoneId**](#getnativetimezoneid) instance method.
 
 :::
 
