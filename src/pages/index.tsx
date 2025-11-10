@@ -5,17 +5,15 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { Fragment } from 'react';
 
-import HomeFeatures from '../components/HomeFeatures';
 import Copy from '../components/Copy';
+import HomeFeatures from '../components/HomeFeatures';
 import styles from './index.module.css';
 
 function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
 
 	return (
-		<header
-			className={clsx('hero hero--dark', styles.heroBanner, styles.heroAnimation)}
-		>
+		<header className={clsx('hero hero--dark', styles.heroBanner, styles.heroAnimation)}>
 			<div className="container">
 				<h1 className="hero__title">{siteConfig.title}</h1>
 				<p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -81,7 +79,7 @@ export default function Home() {
 	return (
 		<Fragment>
 			<Head>
-				<title>{`${siteConfig.title} | TypeScript Utility Library`}</title>
+				<title>{`${siteConfig.title} | JavaScript/TypeScript Utility Library`}</title>
 				<meta
 					name="description"
 					content="NHB Toolbox: A comprehensive collection of 200+ type-safe utilities and 6+ powerful classes for professional TypeScript/JavaScript development. Featuring tree-shakable string/number/color utilities, FormData and date handling, type guards, utility types and minimal DOM operations."

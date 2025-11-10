@@ -11,7 +11,71 @@ All notable changes to the package will be documented here.
 
 ---
 
-## [4.25.1-4] - 2025-11-04
+## [4.26.20] - 2025-11-10
+
+### 🕧 Updates in Chronos
+
+- **Moved** `duration` and `durationString` methods to `Chronos` *plugin system*, usable via `durationPlugin`.
+- **Optimized** related *plugins* where *internal private methods* are used.
+- **Updated** *tsdoc* for `relativeTimePlugin` methods.
+
+## [4.26.10] - 2025-11-09
+
+### 🕧 Updates in Chronos
+
+- **Fixed** *timezone conversion issues* by updating `TIME_ZONE_IDS`, and `TIME_ZONES` constants:
+  - Now both the constants have similar *type definitions* and used with `as const` in the codebase.
+
+    ```ts
+    // Example structure after unification
+    const TIME_ZONE_IDS: Record<string, { tzName: string; offset: UTCOffSet }> = {
+      'Asia/Dhaka': { tzName: 'Bangladesh Standard Time', offset: 'UTC+06:00' },
+      // ...
+    };
+
+    const TIME_ZONES: Record<string, { tzName: string; offset: UTCOffSet }> = {
+      BST: { tzName: 'Bangladesh Standard Time', offset: 'UTC+06:00' },
+      // ...
+    };
+    ```
+
+- **Added** new *protected property* `$tzTracker`. **Updated** `withOrigin` and `#withOrigin` methods.
+- **Added** *3 overload signatures* and *internal caching mechanism* for `timeZonePlugin` methods.
+- **Updated** *tsdoc* for some `Chronos` methods. **Created** new type `TimeZoneName` and *more*.
+
+## [4.26.1] - 2025-11-08
+
+- **Updated** *tsdoc* for some `Chronos` *methods* and *public properties*.
+
+## [4.26.0] - 2025-11-08
+
+### 🕧 New in Chronos
+
+- **Added** new *instance methods* `$getNativeTimeZone()` and `$getNativeTimeZoneId()` to access *local machine's timezone name and identifier*.
+- **Added** new *public properties* `timeZoneName`, `timeZoneId` and `utcOffset` to access *current instance's timezone name, identifier(s) and UTC offset*.
+
+### 🕧 Updates in Chronos
+
+- **Updated** `Chronos` `timeZonePlugin` method `timeZone` to accept *timezone identifier* (`TimeZoneIdentifier`) along with *short timezone names* (`TimeZone`) and *UTC offset* (`UTCOffset`).
+- **Fixed** issues with `toDate()` and `toLocalISOString()`: now returns `proper date`. **Fixed** *UTC offset* related issues.
+- **Fixed** issues with `native` property: now *provides correct native* `Date`.
+- **Updated** *type interfaces* for `toLocaleString()` `Chronos` method: **created** `LocalesArguments` and `DateTimeFormatOptions` *type* and *interface*.
+- **Updated** *static* `parse` method to accept *millisecond tokens*.
+
+### 🛠️ Other Updates
+
+- **Added** new *constant* `TIME_ZONE_IDS` scrapped from [**IANA TZ Database**](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- **Added** new *guard* `isValidTimeZoneId(...)` to check if a string value is a valid *timezone identifier* from **IANA Database**.
+
+## [4.25.11] - 2025-11-06
+
+- **Fixed** *pluralization logic* in `fromNow()` method of `Chronos`: *Only `1` is considered singular, every other number is plural*.
+
+## [4.25.10] - 2025-11-06
+
+- **Fixed** *pluralization issues* in the methods of `Converter` classes.
+
+## [4.25.1-4] - 2025-11-05
 
 - **Added** *alias* for `Chronos` *static method* `use`: `register`.
 - **Updated** *tsdoc* for `Chronos` *static methods* `use` and `register`.

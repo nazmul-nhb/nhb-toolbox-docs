@@ -42,11 +42,11 @@ importers:
         specifier: ^17.2.3
         version: 17.2.3
       nhb-hooks:
-        specifier: ^1.30.11
-        version: 1.30.11(nhb-toolbox@4.25.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.40.0
+        version: 1.40.0(nhb-toolbox@4.26.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.25.4
-        version: 4.25.4
+        specifier: ^4.26.20
+        version: 4.26.20
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -4118,20 +4118,20 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nhb-hooks@1.30.11:
-    resolution: {integrity: sha512-KQ2bvVv2mUtd718bJAd4NaZVcT4Sw5WGBSm6unNiVuZvv4cHd4xdXAQ1024CjdBnWsXS1AktkoDO5mW7TEpEhw==}
+  nhb-hooks@1.40.0:
+    resolution: {integrity: sha512-Twrr2678k4HavpMWFkTwiNwFNjIuredhhyQJMPr636rJJJwApO30dEn91p6zbFOih42FXLytihR9oPmVnVgPRw==}
     peerDependencies:
-      nhb-toolbox: '>=4.12.67'
-      react: ^18 || ^19
-      react-dom: ^18 || ^19
+      nhb-toolbox: '>=4.26.20'
+      react: '>=18.3.1 || ^19.0.0'
+      react-dom: '>=18.3.1 || ^19.0.0'
 
   nhb-scripts@1.8.81:
     resolution: {integrity: sha512-Dgd3BKq2AYmf3MXgk2I5JUtNp8XjIoAiBl/OFDmQXeZPsDiGDxeJEiVV0kDnbYegIbaYSrBlPFnHecUr0L3YjA==}
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.25.4:
-    resolution: {integrity: sha512-k3Zj+svVYt2dC+mXuEbkBOpTb7Fl0NNRgXPPK4ELXuAPspVa7+5HgAWaxzvwKTF3J6SefQElKGpYrWGIr5yV5g==}
+  nhb-toolbox@4.26.20:
+    resolution: {integrity: sha512-Tea932XYgtXWTa0H0IgDgBg8ZrOufuN/xYIkplFUB+werE/3LbM5l1Hq476I/ul8PTYrelKD0sjZA4n15vUN/g==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -4317,8 +4317,8 @@ packages:
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
-  path-scurry@2.0.0:
-    resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
+  path-scurry@2.0.1:
+    resolution: {integrity: sha512-oWyT4gICAu+kaA7QWk/jvCHWarMKNs6pXOGWKDTr7cw4IGcUbW+PeTfbaQiLGheFRpjo6O9J0PmyMfQPjH71oA==}
     engines: {node: 20 || >=22}
 
   path-to-regexp@0.1.12:
@@ -9830,7 +9830,7 @@ snapshots:
       minimatch: 10.1.1
       minipass: 7.1.2
       package-json-from-dist: 1.0.1
-      path-scurry: 2.0.0
+      path-scurry: 2.0.1
 
   global-dirs@3.0.1:
     dependencies:
@@ -11054,9 +11054,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.30.11(nhb-toolbox@4.25.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.40.0(nhb-toolbox@4.26.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.25.4
+      nhb-toolbox: 4.26.20
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -11067,14 +11067,14 @@ snapshots:
       execa: 9.6.0
       globby: 15.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.25.4
+      nhb-toolbox: 4.26.20
       progress-estimator: 0.3.1
       rimraf: 6.1.0
       semver: 7.7.3
       type-fest: 5.2.0
       typescript: 5.9.3
 
-  nhb-toolbox@4.25.4: {}
+  nhb-toolbox@4.26.20: {}
 
   no-case@3.0.4:
     dependencies:
@@ -11261,7 +11261,7 @@ snapshots:
 
   path-parse@1.0.7: {}
 
-  path-scurry@2.0.0:
+  path-scurry@2.0.1:
     dependencies:
       lru-cache: 11.2.2
       minipass: 7.1.2

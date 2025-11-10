@@ -64,9 +64,9 @@ import { Chronos } from 'nhb-toolbox';
 import { Chronos } from 'nhb-toolbox/chronos';
 ```
 
-## Public Properties
+## Public & Protected Properties
 
-These properties provide non-destructive, read-only access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
+These properties provide non-destructive, read-only (only the core ones) access to the copies of internal states of a `Chronos` instance for debugging, inspection, or meta-awareness.
 
 :::info
 However, in JavaScript, these properties _can technically be mutated_ (Compile-time `Error` occurs in TypScript if these properties are tried to be mutated), but such mutations (changes) **do not** affect the `Chronos` instance itself. The class internally manages equivalent strict **readonly/private state**. These public properties exist _purely for developer convenience and sugar_.
@@ -76,8 +76,12 @@ However, in JavaScript, these properties _can technically be mutated_ (Compile-t
 
 Returns the underlying native JavaScript `Date` object used internally by the `Chronos` instance. This is useful for interoperability with APIs or libraries that expect a native `Date`.
 
-:::danger[Note]
+<!-- :::danger[Note]
 It is **HIGHLY** advised not to rely on this `native` public property to access [native JS Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). It's not reliable when timezone and/or UTC related operations are performed. This particular `native` Date always shows a relative UTC time of the current instance even for UTC or zoned time. If you really need to use correct native `Date`, use [`toDate()`](Chronos/conversion#todate) instance method.
+::: -->
+
+:::tip[Info]
+Equivalent to [`toDate()`](Chronos/conversion#todate) instance method.
 :::
 
 ```ts
@@ -101,6 +105,92 @@ const viaMethod = root.addDays(3);
 console.log(root.origin); // → 'root'
 console.log(viaMethod.origin); // → 'addDays'
 ```
+
+### `utcOffset: UTCOffset`
+
+Returns the current UTC offset in `UTC±HH:mm` format (e.g., `"UTC+06:00"`, `"UTC-05:30"`).
+
+:::tip[Info]
+
+- Also accessible via [`getUTCOffset()`](Chronos/query#getutcoffset) instance method without `UTC` prefix (in `±HH:mm` format).
+- This value is automatically updated when using timezone manipulation methods.
+
+:::
+
+```ts
+const ch = new Chronos('2025-01-01', 'Asia/Dhaka');
+console.log(ch.utcOffset); // → "UTC+06:00"
+
+const ny = ch.timeZone('America/New_York');
+console.log(ny.utcOffset); // → "UTC-05:00" (or UTC-04:00 during DST)
+```
+
+:::danger[Caution]
+This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+:::
+
+### `timeZoneName: LooseLiteral<TimeZoneName>`
+
+Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or falls back to the corresponding timezone identifier (e.g., `"Asia/Dhaka"`) if no name can be resolved.
+
+:::info[Remarks]
+
+- Invoking the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method sets the timezone name that corresponds to the specified UTC offset, or the UTC offset itself if no name exists. For more details on this behavior, see [`getTimeZoneName()`](/docs/classes/Chronos/names#gettimezonename).
+- To retrieve the local system's native timezone name (or its identifier if the name is unavailable), use the [`$getNativeTimeZone()`](Chronos/timezone#getnativetimezone) instance method.
+
+:::
+
+```ts
+const ch = new Chronos('2025-01-01', 'Asia/Dhaka');
+console.log(ch.timeZoneName); // → "Bangladesh Standard Time"
+
+const custom = ch.timeZone('UTC+05:45');
+console.log(custom.timeZoneName); // → "UTC+05:45" (no named timezone)
+```
+
+:::danger[Caution]
+This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+:::
+
+### `timeZoneId: TimeZoneId`
+
+Represents the current timezone context, which can be a single identifier, an array of equivalent identifiers, or a UTC offset.
+
+**Possible return types:**
+
+- **`TimeZoneIdentifier`** — e.g., `"Asia/Dhaka"`. Returned when the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method has not been invoked (default behavior).
+- **Array of `TimeZoneIdentifier`** — e.g., `['Asia/Kathmandu', 'Asia/Katmandu']`, used when multiple timezones share the same UTC offset such as `"UTC+05:45"`.
+- **`UTCOffset`** — e.g., `"UTC+06:45"` or `"UTC+02:15"`, returned when no named timezone corresponds to a given offset.
+
+:::info[Remarks]
+
+- By default, when [`timeZone()`](/docs/classes/Chronos/conversion#timezone) is not applied, a single `TimeZoneIdentifier` string is provided.
+- When applied, it may instead return a single identifier string, an array of equivalent identifiers, or a UTC offset string.
+- To retrieve the local system's native timezone identifier, use the [`$getNativeTimeZoneId()`](Chronos/timezone#getnativetimezoneid) instance method.
+
+:::
+
+```ts
+const ch = new Chronos('2025-01-01');
+console.log(ch.timeZoneId); // → "Asia/Dhaka" (system timezone)
+
+const multi = ch.timeZone('UTC+05:45');
+console.log(multi.timeZoneId); 
+// → ['Asia/Kathmandu', 'Asia/Katmandu'] (multiple equivalent zones)
+
+const offsetOnly = ch.timeZone('UTC+02:15');
+console.log(offsetOnly.timeZoneId); // → "UTC+02:15" (no named timezone)
+```
+
+:::danger[Caution]
+This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+:::
+
+### `$tzTracker?: TimeZoneIdentifier | TimeZone | UTCOffset`
+
+:::danger
+_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](/docs/classes/Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases.
+:::
 
 ## Plugin System
 
