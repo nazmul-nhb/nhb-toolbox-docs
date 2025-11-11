@@ -6,7 +6,7 @@ title: Chronos Wrapper Function
 ## Overview
 
 :::info
-Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provides identical functionality with a simpler interface. All `Chronos` features are available through this function.
+Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provides identical functionality with a simpler interface. All [`Chronos`](/docs/classes/Chronos) features are available through this function.
 :::
 
 ## Key Features
@@ -83,15 +83,39 @@ The wrapper provides access to all `Chronos` methods through the returned instan
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations
 - **[Checker Methods](/docs/classes/Chronos/checkers)** - Date validation
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations
-- **[Component Methods](/docs/classes/Chronos/get-set)** - Date part manipulation
+- **[Get & Set Methods](/docs/classes/Chronos/get-set)** - Set and get date part(s)
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
-- **[Chronos Plugins](/docs/classes/Chronos/plugins)** - Learn about `Chronos` plugins
-- **[String Methods](/docs/classes/Chronos/strings)** - Get time as string (some are just augmentation of JS defaults)
+- **[String Methods](/docs/classes/Chronos/strings)** - Get time as string
 - **[Extra Time Information](/docs/classes/Chronos/comparison)** - Get extra information about part of year, month, day/date etc.
 
 ## [Static Methods](/docs/classes/Chronos/statics)
 
 All [`Chronos static methods`](/docs/classes/Chronos/statics) are available directly on the wrapper function:
+
+<details>
+  <summary>**List of Static Methods**</summary>
+    | Method                                             | Short Description                                                          |
+    | -------------------------------------------------- | -------------------------------------------------------------------------- |
+    | [now()](Chronos/statics#now)                       | Returns the number of milliseconds elapsed since midnight, 1970-01-01 UTC. |
+    | [use()](Chronos/statics#use)                       | Injects a plugin into the `Chronos` system.                                |
+    | [register()](Chronos/statics#register)             | Alias for [`use()`](Chronos/statics#use)                                   |
+    | [utc()](Chronos/statics#utc)                       | Creates a UTC-based `Chronos` instance.                                    |
+    | [with()](Chronos/statics#with)                     | Creates a new `Chronos` instance with the provided time component(s).      |
+    | [parse()](Chronos/statics#parse)                   | Parses a date string with a given format (limited support only).           |
+    | [max()](Chronos/statics#max)                       | Returns latest Chronos.                                                    |
+    | [min()](Chronos/statics#min)                       | Returns earliest Chronos.                                                  |
+    | [today()](Chronos/statics#today)                   | Returns the current date and time in a specified format in local time.     |
+    | [tomorrow()](Chronos/statics#tomorrow)             | Returns a new `Chronos` instance representing tomorrow's date.             |
+    | [yesterday()](Chronos/statics#yesterday)           | Returns a new `Chronos` instance representing yesterday's date.            |
+    | [formatTimePart()](Chronos/statics#formattimepart) | Formats a time-only string into a formatted time string.                   |
+    | [getDatesForDay()](Chronos/statics#getdatesforday) | Returns ISO date strings for each occurrence of a weekday.                 |
+    | [isLeapYear()](Chronos/statics#isleapyear)         | Checks if the year in the date or year (from 0 - 9999) is a leap year.     |
+    | [isValidChronos()](Chronos/statics#isvalidchronos) | Checks if the given value is an instance of `Chronos`.                     |
+    | [isValidDate()](Chronos/statics#isvaliddate)       | Checks if the given value is a valid `Date` object.                        |
+    | [isDateString()](Chronos/statics#isdatestring)     | Checks if the given value is a valid date string.                          |
+</details>
+
+### Examples
 
 ```typescript
 import { Chronos } from 'nhb-toolbox';
@@ -123,4 +147,4 @@ The `chronos` function is also available under the following aliases:
 
 ## Full Documentation
 
-For complete method documentation, see the [`Chronos` class reference](/docs/classes/Chronos). All methods shown there are available through this wrapper.
+For complete method documentation, see the [`Chronos` class reference](/docs/classes/Chronos#chronos-methods). All methods shown there are available through this wrapper.

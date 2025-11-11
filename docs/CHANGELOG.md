@@ -11,11 +11,25 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.26.30] - 2025-11-11
+
+### 🕧 Updates in Chronos
+
+- **Fixed** issues in `getTimeZoneName()` and `getTimeZoneNameShort()` where expected outputs were *missing or incorrect*.
+- **Updated** *timezone constants*vby removing *redundant hints* and *improving internal consistency*.
+- **Introduced** a new *method alias* `getTimeZoneNameAbbr()` for `getTimeZoneNameShort()`.
+- **Fixed** an issue where the `clone()` method *did not correctly duplicate the instance state*.
+
 ## [4.26.21] - 2025-11-10
 
-- **Fixed** issues with `Chronos` timezone methods: `getTimeZoneName()` and `getTimeZoneNameShort()` *not providing name/short* name for *optional UTC*.
+### 🕧 Updates in Chronos
+
+- **Fixed** issues with `Chronos` timezone methods: `getTimeZoneName()` and `getTimeZoneNameShort()` *not providing name/short name* for *optional UTC*.
 - **Fixed** issues with `Chronos` `diff()` method: now *calculates exact differences for month and year* too.
 - **Changed** the signature of `Chronos` `set()` method to `set<Unit extends TimeUnit>(unit: Unit, value: TimeUnitValue<Unit>): Chronos`. **Created** new type helper `TimeUnitValue<Unit>`.
+
+### 🛠️ Other Updates
+
 - **Renamed** `isValidUTCOffSet` *guard* as `isValidUTCOffset` and also kept `isValidUTCOffSet` as alias.
 
 ## [4.26.20] - 2025-11-10
