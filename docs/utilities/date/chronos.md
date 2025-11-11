@@ -17,7 +17,7 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 - Supports all `Chronos` input types
 - Maintains identical type safety
 
-### 🧩 [Plugin System](Chronos/plugins)
+### 🧩 [Plugin System](/docs/classes/Chronos/plugins)
 
 Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` or `.register()` static method.
 
@@ -79,12 +79,12 @@ The wrapper provides access to all `Chronos` methods through the returned instan
 - **[Public/Protected Properties](/docs/classes/Chronos#public--protected-properties)** - Access public/protected properties for debugging and easy access
 - **[Getters](/docs/classes/Chronos/getters)** - Access date components
 - **[Format Methods](/docs/classes/Chronos/format)** - Date display formatting
-- **[Name Getter Methods](/docs/classes/Chronos/names)** - Get names of the date parts (day-name, month-name, time zone etc.)
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations
+- **[Name Getter Methods](/docs/classes/Chronos/names)** - Get names of the date parts (day-name, month-name, time zone etc.)
 - **[Checker Methods](/docs/classes/Chronos/checkers)** - Date validation
 - **[Conversion Methods](/docs/classes/Chronos/conversion)** - Type transformations
-- **[Get & Set Methods](/docs/classes/Chronos/get-set)** - Set and get date part(s)
 - **[Comparison Methods](/docs/classes/Chronos/comparison)** - Date relation checks
+- **[Get & Set Methods](/docs/classes/Chronos/get-set)** - Set and get date part(s)
 - **[String Methods](/docs/classes/Chronos/strings)** - Get time as string
 - **[Extra Time Information](/docs/classes/Chronos/comparison)** - Get extra information about part of year, month, day/date etc.
 
@@ -147,4 +147,4 @@ The `chronos` function is also available under the following aliases:
 
 ## Full Documentation
 
-For complete method documentation, see the [`Chronos` class reference](/docs/classes/Chronos#chronos-methods). All methods shown there are available through this wrapper.
+For complete method documentation, see the [`Chronos` class reference](/docs/classes/Chronos). All methods shown there are available through this wrapper.
