@@ -284,6 +284,10 @@ new Chronos().getTimeZoneNameShort('UTC+06:15');
 
 :::
 
+### ALias
+
+Also available as `getTimeZoneNameAbbr()` alias.
+
 ---
 
 ## season()

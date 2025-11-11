@@ -17,17 +17,20 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 - Supports all `Chronos` input types
 - Maintains identical type safety
 
-### 🧩 Plugin System
+### 🧩 [Plugin System](Chronos/plugins)
 
-Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` static method.
+Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` or `.register()` static method.
 
 #### How it works
 
 ```ts
-import { Chronos } from 'nhb-toolbox';
+import { chronos } from 'nhb-toolbox';
 import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
 
-chronos.use(seasonPlugin); // Register the plugin before using its methods
+// Register the plugin before using its methods
+chronos.use(seasonPlugin); 
+// or
+chronos.register(seasonPlugin);
 
 console.log(chronos().season()); // ✅ Safe to use after plugin registration
 ```

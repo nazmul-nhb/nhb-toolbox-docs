@@ -50,7 +50,7 @@ const base = new Chronos('2025-01-01');
 const modified = base.clone().subtract(3, 'days');
 
 // Track different origins while maintaining immutability
-console.log(base.origin);     // "constructor" 
+console.log(base.origin);     // "root" 
 console.log(modified.origin); // "clone"
 ```
 

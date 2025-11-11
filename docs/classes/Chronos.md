@@ -242,6 +242,7 @@ _**[Protected]**_ Internal tracker to identify instances created by the [`timeZo
     | [$getNativeTimeZoneId()](Chronos/names#getnativetimezoneid)  | Retrieves the IANA time zone identifier for the local system.   |
     | [getTimeZoneName()](Chronos/names#gettimezonename)           | Returns the current time zone name as a full descriptive string |
     | [getTimeZoneNameShort()](Chronos/names#gettimezonenameshort) | Returns the current time zone abbreviation (e.g. `"BST"`).      |
+    | [getTimeZoneNameAbbr()](Chronos/names#gettimezonenameshort)  | Get time zone abbreviation (Alias of `getTimeZoneNameShort()`). |
     | [season()](Chronos/names#season)                             | Returns the current season name based on options.               |
     | [getSeasonName()](Chronos/names#season)                      | Alias for [`season()`](Chronos/names#season)                    |
     | [getZodiacSign()](Chronos/names#getzodiacsign)               | Returns the zodiac sign based on current date or `birthDate`.   |
@@ -279,7 +280,7 @@ _**[Protected]**_ Internal tracker to identify instances created by the [`timeZo
   <summary>[**Conversion Methods**](Chronos/conversion)</summary>
     | Method                                    | Short Description                                                            |
     | ----------------------------------------- | ---------------------------------------------------------------------------- |
-    | [clone()](Chronos/conversion#clone)       | Clones and returns a new `Chronos` instance with the same date.              |
+    | [clone()](Chronos/conversion#clone)       | Clones and returns exactly same `Chronos` instance.                          |
     | [toUTC()](Chronos/conversion#toutc)       | Returns new `Chronos` instance in UTC time.                                  |
     | [toLocal()](Chronos/conversion#tolocal)   | Returns new `Chronos` instance in local time.                                |
     | [timeZone()](Chronos/conversion#timezone) | Creates a new instance of `Chronos` for the specified time zone information. |
