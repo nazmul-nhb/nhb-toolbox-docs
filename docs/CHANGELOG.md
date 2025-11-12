@@ -11,12 +11,28 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.26.41] - 2025-11-12
+
+- **Updated** *tsdoc* for some `Chronos` *methods* and `getTimeZoneDetails` utility.
+
+## [4.26.40] - 2025-11-12
+
+### 🕧 Updates in Chronos
+
+- **Fixed** *tree-shaking issue* for *constant imports* from same module(s).
+- **Renamed** `$getNativeTimeZone()` method to `$getNativeTimeZoneName()` and *optional* `tzId` parameter.
+- **Enhanced** `timeZoneName()` and `getTimeZoneNameAbbr()`/`getTimeZoneNameShort()` methods: now look up for *time zone name* using `Intl.DateTimeFormat` when fails to resolve from `TIME_ZONE_IDS`.
+
+### 🛠️ Other Updates
+
+- **Added** new *date/time utility* `getTimeZoneDetails` to retrieve *time zone information*.
+
 ## [4.26.30] - 2025-11-11
 
 ### 🕧 Updates in Chronos
 
 - **Fixed** issues in `getTimeZoneName()` and `getTimeZoneNameShort()` where expected outputs were *missing or incorrect*.
-- **Updated** *timezone constants*vby removing *redundant hints* and *improving internal consistency*.
+- **Updated** *timezone constants* by removing *redundant hints* and *improving internal consistency*.
 - **Introduced** a new *method alias* `getTimeZoneNameAbbr()` for `getTimeZoneNameShort()`.
 - **Fixed** an issue where the `clone()` method *did not correctly duplicate the instance state*.
 

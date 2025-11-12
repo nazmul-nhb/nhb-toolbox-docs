@@ -120,7 +120,7 @@ Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or fa
 :::info[Remarks]
 
 - Invoking the [`timeZone()`](Chronos/conversion#timezone) method sets the timezone name that corresponds to the specified UTC offset, or the UTC offset itself if no name exists. For more details on this behavior, see [`getTimeZoneName()`](Chronos/names#gettimezonename).
-- To retrieve the local system's native timezone name (or its identifier if the name is unavailable), use the [`$getNativeTimeZone()`](Chronos/names#getnativetimezone) instance method.
+- To retrieve the local system's native timezone name (or its identifier if the name is unavailable), use the [`$getNativeTimeZoneName()`](Chronos/names#getnativetimezonename) instance method.
 
 :::
 
@@ -238,9 +238,9 @@ _**[Protected]**_ Internal tracker to identify instances created by the [`timeZo
     | ------------------------------------------------------------ | --------------------------------------------------------------- |
     | [day()](Chronos/names#day)                                   | Returns the name of the current day or optional day index.      |
     | [monthName()](Chronos/names#monthname)                       | Returns the name of the current month or optional month index.  |
-    | [$getNativeTimeZone()](Chronos/names#getnativetimezone)      | Retrieves the local system's current timezone name.             |
+    | [$getNativeTimeZoneName()](Chronos/names#getnativetimezonename) | Retrieves the local system's current timezone name.         |
     | [$getNativeTimeZoneId()](Chronos/names#getnativetimezoneid)  | Retrieves the IANA time zone identifier for the local system.   |
-    | [getTimeZoneName()](Chronos/names#gettimezonename)           | Returns the current time zone name as a full descriptive string |
+    | [getTimeZoneName()](Chronos/names#gettimezonename)           | Returns the current time zone name in descriptive string.       |
     | [getTimeZoneNameShort()](Chronos/names#gettimezonenameshort) | Returns the current time zone abbreviation (e.g. `"BST"`).      |
     | [getTimeZoneNameAbbr()](Chronos/names#gettimezonenameshort)  | Get time zone abbreviation (Alias of `getTimeZoneNameShort()`). |
     | [season()](Chronos/names#season)                             | Returns the current season name based on options.               |
