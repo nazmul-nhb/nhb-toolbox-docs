@@ -5,7 +5,7 @@ title: Get Time Zone Details
 
 ## getTimeZoneDetails
 
-Retrieves comprehensive time zone information using the Internationalization API (`Intl`). Provides time zone identifiers, localized names, and GMT offset information.
+Retrieves comprehensive time zone information using the Internationalization API (`Intl`): time zone identifiers, localized names, and GMT offset information.
 
 ### Function Signature
 
@@ -24,12 +24,12 @@ getTimeZoneDetails(tzId?: TimeZoneIdentifier, date?: Date): TimeZoneDetails
 
 Returns a [`TimeZoneDetails`](#type-definitions) object containing:
 
-| Property            | Type                               | Description                               |
-| ------------------- | ---------------------------------- | ----------------------------------------- |
-| `tzIdentifier`      | `LooseLiteral<TimeZoneIdentifier>` | IANA time zone identifier                 |
-| `tzNameLong`        | `LooseLiteral<TimeZoneName>`       | Complete time zone name with location     |
-| `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`       | Generic time zone name (location omitted) |
-| `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">` | GMT offset representation                 |
+| Property            | Type                               | Description                                        |
+| ------------------- | ---------------------------------- | -------------------------------------------------- |
+| `tzIdentifier`      | `LooseLiteral<TimeZoneIdentifier>` | IANA time zone identifier                          |
+| `tzNameLong`        | `LooseLiteral<TimeZoneName>`       | Long localized form of full time zone name         |
+| `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`       | Long generic non-location format of time zone name |
+| `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">` | GMT offset representation of time zone name        |
 
 ### Example Usage
 
@@ -67,12 +67,9 @@ console.log(londonTZ);
 
 ```typescript
 // Various international time zones
-const timeZones = [
-  'Asia/Tokyo',
-  'Australia/Sydney', 
-  'Europe/Paris',
-  'Pacific/Honolulu'
-].map(tz => getTimeZoneDetails(tz));
+const timeZones = (
+ ['Asia/Tokyo', 'Australia/Sydney', 'Europe/Paris', 'Pacific/Honolulu'] as const
+).map((tz) => getTimeZoneDetails(tz));
 
 timeZones.forEach(tz => {
   console.log(`${tz.tzIdentifier}: ${tz.tzNameLong} (${tz.tzNameLongOffset})`);
@@ -87,17 +84,14 @@ timeZones.forEach(tz => {
 
 ```typescript
 interface TimeZoneDetails {
-  /** IANA time zone identifier */
-  tzIdentifier: LooseLiteral<TimeZoneIdentifier>;
-  
-  /** Complete time zone name including location */
-  tzNameLong?: LooseLiteral<TimeZoneName>;
-  
-  /** Generic time zone name (location omitted) */
-  tzNameLongGeneric?: LooseLiteral<TimeZoneName>;
-  
-  /** GMT offset representation */
-  tzNameLongOffset?: LooseLiteral<`GMT${$UTCOffset}`>;
+ /** IANA time zone identifier */
+ tzIdentifier: LooseLiteral<TimeZoneIdentifier>;
+ /** Long localized form (e.g., `'Pacific Standard Time'`, `'Nordamerikanische Westküsten-Normalzeit'`) */
+ tzNameLong?: LooseLiteral<TimeZoneName>;
+ /** Long generic non-location format (e.g.: `'Pacific Time'`, `'Nordamerikanische Westküstenzeit'`) */
+ tzNameLongGeneric?: LooseLiteral<TimeZoneName>;
+ /** Long localized GMT format, prefixed with `"GMT"` (e.g., `"GMT-08:00"`) */
+ tzNameLongOffset?: LooseLiteral<`GMT${$UTCOffset}`>;
 }
 ```
 
