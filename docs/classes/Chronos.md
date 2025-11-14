@@ -31,24 +31,6 @@ import { Chronos } from 'nhb-toolbox';
 import { Chronos } from 'nhb-toolbox/chronos';
 ```
 
-### Constructor Signatures
-
-```ts
- constructor();
- constructor(value: number);
- constructor(value: string);
- constructor(value: Date);
- constructor(value: Chronos);
- constructor(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number);
- constructor(value?: ChronosInput);
-```
-
-#### ChronosInput
-
-```ts
-type ChronosInput = number | string | Date | Chronos;
-```
-
 ### [Plugin System](Chronos/plugins)
 
 Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**, you must explicitly install them using the `.use()` or `.register()` static method.
@@ -71,6 +53,24 @@ console.log(now.season()); // ✅ Safe to use after plugin registration
 :::info
 Each plugin enhances the `Chronos` prototype and becomes available globally after registration.
 :::
+
+### Constructor Signatures
+
+```ts
+ constructor();
+ constructor(value: number);
+ constructor(value: string);
+ constructor(value: Date);
+ constructor(value: Chronos);
+ constructor(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number);
+ constructor(value?: ChronosInput);
+```
+
+#### ChronosInput
+
+```ts
+type ChronosInput = number | string | Date | Chronos;
+```
 
 ### Public & Protected Properties
 
