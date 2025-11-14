@@ -15,21 +15,21 @@ getTimeZoneDetails(tzId?: $TimeZoneIdentifier, date?: Date): TimeZoneDetails
 
 ### Parameters
 
-| Parameter | Type                 | Required | Default         | Description                                            |
-| --------- | -------------------- | -------- | --------------- | ------------------------------------------------------ |
+| Parameter | Type                  | Required | Default         | Description                                            |
+| --------- | --------------------- | -------- | --------------- | ------------------------------------------------------ |
 | `tzId`    | `$TimeZoneIdentifier` | No       | System timezone | IANA time zone identifier (e.g., `"America/New_York"`) |
-| `date`    | `Date`               | No       | Current date    | Specific date for time zone resolution                 |
+| `date`    | `Date`                | No       | Current date    | Specific date for time zone resolution                 |
 
 ### Return Value
 
 Returns a [`TimeZoneDetails`](#type-definitions) object containing:
 
-| Property            | Type                               | Description                                        |
-| ------------------- | ---------------------------------- | -------------------------------------------------- |
+| Property            | Type                                | Description                                        |
+| ------------------- | ----------------------------------- | -------------------------------------------------- |
 | `tzIdentifier`      | `LooseLiteral<$TimeZoneIdentifier>` | IANA time zone identifier                          |
-| `tzNameLong`        | `LooseLiteral<TimeZoneName>`       | Long localized form of full time zone name         |
-| `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`       | Long generic non-location format of time zone name |
-| `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">` | GMT offset representation of time zone name        |
+| `tzNameLong`        | `LooseLiteral<TimeZoneName>`        | Long localized form of full time zone name         |
+| `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`        | Long generic non-location format of time zone name |
+| `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">`  | GMT offset representation of time zone name        |
 
 ### Example Usage
 
@@ -85,13 +85,13 @@ timeZones.forEach(tz => {
 ```typescript
 interface TimeZoneDetails {
  /** IANA time zone identifier */
- tzIdentifier: LooseLiteral<$TimeZoneIdentifier>;
+ tzIdentifier: $TimeZoneIdentifier;
  /** Long localized form (e.g., `'Pacific Standard Time'`, `'Nordamerikanische Westküsten-Normalzeit'`) */
- tzNameLong?: LooseLiteral<TimeZoneName>;
+ tzNameLong: LooseLiteral<TimeZoneName> | undefined;
  /** Long generic non-location format (e.g.: `'Pacific Time'`, `'Nordamerikanische Westküstenzeit'`) */
- tzNameLongGeneric?: LooseLiteral<TimeZoneName>;
+ tzNameLongGeneric: LooseLiteral<TimeZoneName> | undefined;
  /** Long localized GMT format, prefixed with `"GMT"` (e.g., `"GMT-08:00"`) */
- tzNameLongOffset?: LooseLiteral<`GMT${$UTCOffset}`>;
+ tzNameLongOffset: LooseLiteral<`GMT${$UTCOffset}`> | undefined;
 }
 ```
 

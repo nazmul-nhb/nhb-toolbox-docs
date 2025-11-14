@@ -128,8 +128,8 @@ Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or fa
 const ch = new Chronos('2025-01-01', 'Asia/Dhaka');
 console.log(ch.timeZoneName); // → "Bangladesh Standard Time"
 
-const custom = ch.timeZone('UTC+05:45');
-console.log(custom.timeZoneName); // → "UTC+05:45" (no named timezone)
+const custom = ch.timeZone('UTC+02:45');
+console.log(custom.timeZoneName); // → "UTC+02:45" (no named timezone)
 ```
 
 :::danger[Caution]
@@ -158,22 +158,22 @@ Represents the current timezone context, which can be a single identifier, an ar
 const ch = new Chronos('2025-01-01');
 console.log(ch.timeZoneId); // → "Asia/Dhaka" (system timezone)
 
-const multi = ch.timeZone('UTC+05:45');
+const multi = ch.timeZone('UTC+05:30');
 console.log(multi.timeZoneId); 
-// → ['Asia/Kathmandu', 'Asia/Katmandu'] (multiple equivalent zones)
+// → [ 'Asia/Calcutta', 'Asia/Colombo' ] (multiple equivalent zones)
 
 const offsetOnly = ch.timeZone('UTC+02:15');
 console.log(offsetOnly.timeZoneId); // → "UTC+02:15" (no named timezone)
 ```
 
 :::danger[Caution]
-This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+This property is mutable. Mutating this property will not impact the Chronos instance itself but the property will simply be overwritten.
 :::
 
 #### `$tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
-_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases. _DO NOT MUTATE THIS PROPERTY UNLESS NEEDED!_
+_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases. _NEVER MUTATE THIS PROPERTY UNLESS NEEDED!_
 :::
 
 ### Available Methods
