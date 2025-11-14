@@ -158,14 +158,20 @@ Plugins can safely access protected and/or private internal properties or method
 interface ChronosInternals {
   /**
    * Creates a new Chronos instance with origin tracking
-   * @param instance - Chronos instance to operate on
-   * @param method - Name of the method creating this instance
-   * @param label - Optional UTC offset label
-   */
+   * @param origin Origin of the instance, the method name from where it was created.
+   * @param offset Optional UTC offset in `UTC±HH:mm` format.
+   * @param tzName Optional time zone name to set.
+   * @param tzId Optional time zone identifier(s) to set.
+   * @param tzTracker Optional tracker to identify the instance created by {@link timeZone} method.
+   * @returns The `Chronos` instance with the specified origin and other properties.
+  */
   withOrigin(
-    instance: Chronos,
-    method: ChronosMethods,
-    label?: UTCOffset,
+   instance: Chronos,
+   method: PluginMethods,
+   offset?: UTCOffset,
+   tzName?: LooseLiteral<TimeZoneName>,
+   tzId?: TimeZoneId,
+   tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset
   ): Chronos;
 
   /**
@@ -191,7 +197,7 @@ interface ChronosInternals {
 
 #### 🚀 Usage Example
 
-> Here's a real example from the package itself: plugin that adds a `timeZone` method to `Chronos` instances, allowing users to convert the instance to a specified time zone using some internal methods and properties:
+> Here's a real example (simpler version) from the package itself: plugin that adds a `timeZone` method to `Chronos` instances, allowing users to convert the instance to a specified time zone using some internal methods and properties:
 
 ```ts
 import { Chronos, INTERNALS } from 'nhb-toolbox';
