@@ -76,7 +76,7 @@ date.formatStrict() // Formatted date string
 
 The wrapper provides access to all `Chronos` methods through the returned instance:
 
-- **[Public/Protected Properties](/docs/classes/Chronos#public--protected-properties)** - Access public/protected properties for debugging and easy access
+- **[Public/Protected Properties](/docs/classes/Chronos#public--protected-properties)** - Public/protected properties for debugging and easy access
 - **[Getters](/docs/classes/Chronos/getters)** - Access date components
 - **[Format Methods](/docs/classes/Chronos/format)** - Date display formatting
 - **[Calculation Methods](/docs/classes/Chronos/calculation)** - Date math operations

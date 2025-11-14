@@ -142,13 +142,13 @@ Represents the current timezone context, which can be a single identifier, an ar
 
 **Possible return types:**
 
-- **`TimeZoneIdentifier`** — e.g., `"Asia/Dhaka"`. Returned when the [`timeZone()`](Chronos/conversion#timezone) method has not been invoked (default behavior).
-- **Array of `TimeZoneIdentifier`** — e.g., `['Asia/Kathmandu', 'Asia/Katmandu']`, used when multiple timezones share the same UTC offset such as `"UTC+05:45"`.
+- **`$TimeZoneIdentifier`** — e.g., `"Asia/Dhaka"`. Returned when the [`timeZone()`](Chronos/conversion#timezone) method has not been invoked (default behavior).
+- **Array of `$TimeZoneIdentifier`** — e.g., `['Asia/Kathmandu', 'Asia/Katmandu']`, used when multiple timezones share the same UTC offset such as `"UTC+05:45"`.
 - **`UTCOffset`** — e.g., `"UTC+06:45"` or `"UTC+02:15"`, returned when no named timezone corresponds to a given offset.
 
 :::info[Remarks]
 
-- By default, when [`timeZone()`](Chronos/conversion#timezone) is not applied, a single `TimeZoneIdentifier` string is provided.
+- By default, when [`timeZone()`](Chronos/conversion#timezone) is not applied, a single `$TimeZoneIdentifier` string is provided.
 - When applied, it may instead return a single identifier string, an array of equivalent identifiers, or a UTC offset string.
 - To retrieve the local system's native timezone identifier, use the [`$getNativeTimeZoneId()`](Chronos/names#getnativetimezoneid) instance method.
 
@@ -170,13 +170,13 @@ console.log(offsetOnly.timeZoneId); // → "UTC+02:15" (no named timezone)
 This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
 :::
 
-#### `$tzTracker?: TimeZoneIdentifier | TimeZone | UTCOffset`
+#### `$tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
-_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases.
+_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases. _DO NOT MUTATE THIS PROPERTY UNLESS NEEDED!_
 :::
 
-### Chronos Methods
+### Available Methods
 
 <details>
   <summary>[**Getter Methods**](Chronos/getters)</summary>

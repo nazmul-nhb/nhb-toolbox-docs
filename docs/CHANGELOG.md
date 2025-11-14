@@ -11,9 +11,18 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.26.50-51] - 2025-11-14
+
+- **Updated** `TimeZoneIdentifier` type: now **excludes** `Factory` and *time zone abbreviations* already present in `TimeZone` literal type. **Created** new `$TimeZoneIdentifier` type as *replacement*.
+- **Replaced** `TIME_ZONE_IDS` with `Intl.supportedValuesOf('timeZone')` API to get *time zone identifier* to reduce the `timeZonePlugin` size.
+
+## [4.26.45] - 2025-11-13
+
+- **Removed** *time zone id* `'Factory'` from `TIME_ZONE_IDS` and **replaced** `'EDT'` with `'EST5EDT'` to fix the *issue with getting time zone details* using `Intl` API.
+
 ## [4.26.44] - 2025-11-13
 
-- **Fixed** issues with passing optional *time zone id* in `Chronos` method `$getNativeTimeZoneName` and `getTimeZoneDetails` utility
+- **Fixed** issues with passing optional *time zone id* in `Chronos` method `$getNativeTimeZoneName` and `getTimeZoneDetails` utility.
 
 ## [4.26.41] - 2025-11-12
 

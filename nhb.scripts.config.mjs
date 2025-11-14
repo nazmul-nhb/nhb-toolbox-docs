@@ -9,7 +9,7 @@ export default defineScriptConfig({
         wrapPrefixWith: "`",
     },
     count: {
-        defaultPath: '.',
+        defaultPath: 'node_modules/nhb-toolbox/dist/esm/index.js',
         excludePaths: ['node_modules', '.docusaurus', 'build']
     }
 });

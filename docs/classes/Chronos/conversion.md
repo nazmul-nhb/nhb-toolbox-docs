@@ -160,6 +160,7 @@ This method is provided by `timeZonePlugin`. You must register it using `Chronos
 timeZone(tzId: TimeZoneIdentifier): Chronos;
 timeZone(zone: TimeZone): Chronos;
 timeZone(utc: UTCOffset): Chronos;
+timeZone(utc: TimeZoneIdentifier | TimeZone | UTCOffset): Chronos;
 ```
 
 ### Parameters

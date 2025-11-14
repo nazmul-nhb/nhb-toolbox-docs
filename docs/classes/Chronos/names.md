@@ -87,7 +87,7 @@ Retrieves the local system's current timezone name, falling back to its IANA tim
 ### Signature
 
 ```typescript
-$getNativeTimeZoneName(tzId?: TimeZoneIdentifier): LooseLiteral<TimeZoneName | TimeZoneIdentifier>
+$getNativeTimeZoneName(tzId?: $TimeZoneIdentifier): LooseLiteral<TimeZoneName | $TimeZoneIdentifier>
 ```
 
 ### Parameters  
@@ -96,7 +96,7 @@ $getNativeTimeZoneName(tzId?: TimeZoneIdentifier): LooseLiteral<TimeZoneName | T
 
 ### Return Type
 
-- `LooseLiteral<TimeZoneName | TimeZoneIdentifier>` - The resolved timezone name or IANA identifier as fallback
+- `LooseLiteral<TimeZoneName | $TimeZoneIdentifier>` - The resolved timezone name or IANA identifier as fallback
 
 ### Example
 
@@ -138,12 +138,12 @@ Retrieves the IANA timezone identifier for the local system's current timezone.
 ### Signature
 
 ```typescript
-$getNativeTimeZoneId(): TimeZoneIdentifier
+$getNativeTimeZoneId(): $TimeZoneIdentifier
 ```
 
 ### Return Type
 
-- **`TimeZoneIdentifier`** - The local system's IANA timezone identifier
+- **`$TimeZoneIdentifier`** - The local system's IANA timezone identifier
 
 ### Example
 

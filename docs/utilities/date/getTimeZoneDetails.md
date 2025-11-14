@@ -10,14 +10,14 @@ Retrieves comprehensive time zone information using the Internationalization API
 ### Function Signature
 
 ```typescript
-getTimeZoneDetails(tzId?: TimeZoneIdentifier, date?: Date): TimeZoneDetails
+getTimeZoneDetails(tzId?: $TimeZoneIdentifier, date?: Date): TimeZoneDetails
 ```
 
 ### Parameters
 
 | Parameter | Type                 | Required | Default         | Description                                            |
 | --------- | -------------------- | -------- | --------------- | ------------------------------------------------------ |
-| `tzId`    | `TimeZoneIdentifier` | No       | System timezone | IANA time zone identifier (e.g., `"America/New_York"`) |
+| `tzId`    | `$TimeZoneIdentifier` | No       | System timezone | IANA time zone identifier (e.g., `"America/New_York"`) |
 | `date`    | `Date`               | No       | Current date    | Specific date for time zone resolution                 |
 
 ### Return Value
@@ -26,7 +26,7 @@ Returns a [`TimeZoneDetails`](#type-definitions) object containing:
 
 | Property            | Type                               | Description                                        |
 | ------------------- | ---------------------------------- | -------------------------------------------------- |
-| `tzIdentifier`      | `LooseLiteral<TimeZoneIdentifier>` | IANA time zone identifier                          |
+| `tzIdentifier`      | `LooseLiteral<$TimeZoneIdentifier>` | IANA time zone identifier                          |
 | `tzNameLong`        | `LooseLiteral<TimeZoneName>`       | Long localized form of full time zone name         |
 | `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`       | Long generic non-location format of time zone name |
 | `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">` | GMT offset representation of time zone name        |
@@ -85,7 +85,7 @@ timeZones.forEach(tz => {
 ```typescript
 interface TimeZoneDetails {
  /** IANA time zone identifier */
- tzIdentifier: LooseLiteral<TimeZoneIdentifier>;
+ tzIdentifier: LooseLiteral<$TimeZoneIdentifier>;
  /** Long localized form (e.g., `'Pacific Standard Time'`, `'Nordamerikanische Westküsten-Normalzeit'`) */
  tzNameLong?: LooseLiteral<TimeZoneName>;
  /** Long generic non-location format (e.g.: `'Pacific Time'`, `'Nordamerikanische Westküstenzeit'`) */
@@ -122,7 +122,7 @@ const formatter = new Intl.DateTimeFormat('en', {
 
 ```typescript
 // Contextual greeting with timezone awareness
-function getLocalizedGreeting(tzId: TimeZoneIdentifier) {
+function getLocalizedGreeting(tzId: $TimeZoneIdentifier) {
   const tzDetails = getTimeZoneDetails(tzId);
   const localTime = new Date().toLocaleString('en', { timeZone: tzId });
   

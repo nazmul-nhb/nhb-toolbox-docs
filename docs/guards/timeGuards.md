@@ -114,7 +114,7 @@ Validates whether the provided value is a recognized [**IANA timezone identifier
 ### Signature
 
 ```typescript
-isValidTimeZoneId(value: unknown): value is TimeZoneIdentifier
+isValidTimeZoneId(value: unknown): value is $TimeZoneIdentifier
 ```
 
 ### Parameters
@@ -123,7 +123,7 @@ isValidTimeZoneId(value: unknown): value is TimeZoneIdentifier
 
 ### Return Type
 
-- **`value is TimeZoneIdentifier`** - Type predicate that returns `true` if the value is a valid IANA timezone identifier
+- **`value is $TimeZoneIdentifier`** - Type predicate that returns `true` if the value is a valid IANA timezone identifier
 
 ### Example
 
@@ -146,7 +146,7 @@ console.log(isValidTimeZoneId(null)); // → false
 ### Remarks
 
 - **Validates against the IANA TZ Database** - checks if the value exists in the comprehensive list of timezone identifiers
-- **Type predicate function** - when returns `true`, TypeScript narrows the type to `TimeZoneIdentifier`
+- **Type predicate function** - when returns `true`, TypeScript narrows the type to `$TimeZoneIdentifier`
 - **Case-sensitive** - identifiers must match exactly (e.g., `'America/New_York'`, not `'america/new_york'`)
 - **Useful for runtime validation** - ensures timezone identifiers are valid before passing to timezone-sensitive operations
 

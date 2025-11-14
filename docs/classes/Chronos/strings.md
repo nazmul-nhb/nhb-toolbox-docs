@@ -81,7 +81,7 @@ type LocalesArguments = LocaleCode | Intl.Locale | Array<LocaleCode | Intl.Local
 
 /** Format options for `toLocaleString` method. Extends `Intl.DateTimeFormatOptions `to update `timeZone` option. */
 interface DateTimeFormatOptions extends Intl.DateTimeFormatOptions {
- timeZone?: TimeZoneIdentifier;
+ timeZone?: $TimeZoneIdentifier;
 }
 ```
 
