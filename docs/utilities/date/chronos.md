@@ -19,7 +19,7 @@ Function wrapper around the [`Chronos`](/docs/classes/Chronos) class that provid
 
 ### 🧩 [Plugin System](/docs/classes/Chronos/plugins)
 
-Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` or `.register()` static method.
+[`Chronos`](/docs/classes/Chronos) supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**, you must explicitly register them using the `.use()` or `.register()` static method.
 
 #### How it works
 
@@ -45,6 +45,8 @@ Each plugin enhances the `Chronos` prototype and becomes available globally afte
 
 ```ts
 import { chronos } from 'nhb-toolbox';
+// or
+import { chronos } from 'nhb-toolbox/chronos';
 ```
 
 ### Basic Instantiation

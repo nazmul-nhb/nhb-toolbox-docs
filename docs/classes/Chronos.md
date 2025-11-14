@@ -3,6 +3,8 @@ id: Chronos
 title: Chronos - Play with Time and Date, Be a Time Master like Chronos
 ---
 
+<!-- markdownlint-disable-file MD024 -->
+
 ## `Chronos`
 
 :::tip[About Chronos]
@@ -13,7 +15,6 @@ Designed to go beyond `Date`, it empowers you to manipulate, format, compare, an
 Whether you're building a calendar, a countdown, or scheduling logic, `Chronos` gives you the power to shape time as you see fit.
 :::
 
-<!-- markdownlint-disable-file MD024 -->
 ## API Reference for Chronos
 
 This documentation provides a detailed guide to the `Chronos` class, a comprehensive date and time manipulation class. The methods are grouped into logical categories for easier navigation.
@@ -47,6 +48,29 @@ import { Chronos } from 'nhb-toolbox/chronos';
 ```ts
 type ChronosInput = number | string | Date | Chronos;
 ```
+
+### [Plugin System](Chronos/plugins)
+
+Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**, you must explicitly install them using the `.use()` or `.register()` static method.
+
+#### How it works
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
+
+// Register the plugin before using its methods
+Chronos.use(seasonPlugin); 
+// or
+Chronos.register(seasonPlugin);
+
+const now = new Chronos();
+console.log(now.season()); // ✅ Safe to use after plugin registration
+```
+
+:::info
+Each plugin enhances the `Chronos` prototype and becomes available globally after registration.
+:::
 
 ### Public & Protected Properties
 
@@ -102,7 +126,7 @@ Returns the current UTC offset in `UTC±HH:mm` format (e.g., `"UTC+06:00"`, `"UT
 :::
 
 ```ts
-const ch = new Chronos('2025-01-01', 'Asia/Dhaka');
+const ch = new Chronos('2025-01-01');
 console.log(ch.utcOffset); // → "UTC+06:00"
 
 const ny = ch.timeZone('America/New_York');
@@ -125,7 +149,7 @@ Represents the current timezone name (e.g., `"Bangladesh Standard Time"`), or fa
 :::
 
 ```ts
-const ch = new Chronos('2025-01-01', 'Asia/Dhaka');
+const ch = new Chronos('2025-01-01');
 console.log(ch.timeZoneName); // → "Bangladesh Standard Time"
 
 const custom = ch.timeZone('UTC+02:45');
@@ -384,29 +408,6 @@ _**[Protected]**_ Internal tracker to identify instances created by the [`timeZo
     | [Symbol.toStringTag](Chronos/symbols#symboltostringtag)               | Called by the built-in `Object.prototype.toString`.      |
     | [Symbol.isConcatSpreadable](Chronos/symbols#symbolisconcatspreadable) | Enables to be spread with the spread operator `...`      |
 </details>
-
-### [Plugin System](Chronos/plugins)
-
-Chronos supports a modular plugin system that allows you to extend its capabilities without bloating the core. Plugin methods are **not available by default**—you must explicitly install them using the `.use()` or `.register()` static method.
-
-#### How it works
-
-```ts
-import { Chronos } from 'nhb-toolbox';
-import { seasonPlugin } from 'nhb-toolbox/plugins/seasonPlugin';
-
-// Register the plugin before using its methods
-Chronos.use(seasonPlugin); 
-// or
-Chronos.register(seasonPlugin);
-
-const now = new Chronos();
-console.log(now.season()); // ✅ Safe to use after plugin registration
-```
-
-:::info
-Each plugin enhances the `Chronos` prototype and becomes available globally after registration.
-:::
 
 ## Alias
 
