@@ -32,13 +32,13 @@ clone(): Chronos
 const original = new Chronos('2025-01-15T12:00:00');
 const copy = original.clone();
 
-console.log(original.isSame(copy)); // true (same timestamp)
-console.log(original === copy);     // false (different instances)
+console.log(original.isEqual(copy)); // true (same timestamp)
+console.log(original === copy); // false (different instances)
 
 // With immutable operations:
 const modified = original.add(1, 'day');
-console.log(original.format());  // "Wed, Jan 15, 2025 12:00:00"
-console.log(modified.format());  // "Thu, Jan 16, 2025 12:00:00"
+console.log(original.format()); // "Wed, Jan 15, 2025 12:00:00"
+console.log(modified.format()); // "Thu, Jan 16, 2025 12:00:00"
 ```
 
 ### Key Use Cases
@@ -108,6 +108,12 @@ new Chronos('2025-01-15').toDate(); // Date object
 
 ## toUTC()
 
+Returns new `Chronos` instance in UTC time.
+
+:::caution
+For best accuracy, apply this method **after** performing all calculation or manipulation operations, as switching the time zone beforehand may lead to unintended offsets in intermediate results.
+:::
+
 ### Signature
 
 ```typescript
@@ -127,6 +133,12 @@ new Chronos('2025-01-15').toUTC(); // UTC-converted instance
 ---
 
 ## toLocal()
+
+Returns new `Chronos` instance in local time
+
+:::caution
+For best accuracy, apply this method **after** performing all calculation or manipulation operations, as switching the time zone beforehand may lead to unintended offsets in intermediate results.
+:::
 
 ### Signature
 
@@ -152,6 +164,10 @@ Creates a new instance of `Chronos` for the specified time zone identifier, abbr
 
 :::danger[Note]
 This method is provided by `timeZonePlugin`. You must register it using `Chronos.use(timeZonePlugin)` before calling `.timeZone()`. Once registered, all `Chronos` instances will have access to the `.timeZone()` method.
+:::
+
+:::caution
+For best accuracy, apply this method **after** performing all calculation or manipulation operations, as switching the time zone beforehand may lead to unintended offsets in intermediate results.
 :::
 
 ### Signature

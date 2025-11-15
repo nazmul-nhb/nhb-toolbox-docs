@@ -662,6 +662,8 @@ new Chronos('2025-01-31').isLastDayOfMonth(); // true
 
 ## isLeapYear()
 
+Checks if the current year is a leap year.
+
 :::info
 
 - A year is a leap year if it is divisible by 4.

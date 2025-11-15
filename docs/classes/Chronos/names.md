@@ -87,7 +87,7 @@ Retrieves the local system's current timezone name, falling back to its IANA tim
 ### Signature
 
 ```typescript
-$getNativeTimeZoneName(tzId?: $TimeZoneIdentifier): LooseLiteral<TimeZoneName | $TimeZoneIdentifier>
+$getNativeTimeZoneName(tzId?: $TimeZoneIdentifier): LooseLiteral<TimeZoneNameNative | $TimeZoneIdentifier>
 ```
 
 ### Parameters  
@@ -96,7 +96,7 @@ $getNativeTimeZoneName(tzId?: $TimeZoneIdentifier): LooseLiteral<TimeZoneName | 
 
 ### Return Type
 
-- `LooseLiteral<TimeZoneName | $TimeZoneIdentifier>` - The resolved timezone name or IANA identifier as fallback
+- `LooseLiteral<TimeZoneNameNative | $TimeZoneIdentifier>` - The resolved timezone name or IANA identifier as fallback
 
 ### Example
 
@@ -112,7 +112,7 @@ console.log(ch.$getNativeTimeZoneName());
 
 ### Remarks
 
-- **Always reflects the local machine's timezone** regardless of whether `timeZone()`, `utc()`, or `toUTC()` methods have been applied
+- **Always reflects the local machine's timezone name** regardless of whether `timeZone()`, `utc()`, or `toUTC()` methods have been applied
 - **For modified instances**, use the `timeZoneName` public property instead to get the current instance's timezone context
 - Uses `Intl.DateTimeFormat` with `timeZoneName: 'long'` to resolve the display name
 - Falls back to the IANA identifier when no display name can be determined
@@ -138,12 +138,12 @@ Retrieves the IANA timezone identifier for the local system's current timezone.
 ### Signature
 
 ```typescript
-$getNativeTimeZoneId(): $TimeZoneIdentifier
+$getNativeTimeZoneId(): TimeZoneIdNative
 ```
 
 ### Return Type
 
-- **`$TimeZoneIdentifier`** - The local system's IANA timezone identifier
+- **`TimeZoneIdNative`** - The local system's IANA timezone identifier
 
 ### Example
 

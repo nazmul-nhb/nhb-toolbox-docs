@@ -43,10 +43,10 @@ importers:
         version: 17.2.3
       nhb-hooks:
         specifier: ^1.40.1
-        version: 1.40.1(nhb-toolbox@4.26.51)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.40.1(nhb-toolbox@4.26.54)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.26.51
-        version: 4.26.51
+        specifier: ^4.26.54
+        version: 4.26.54
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -79,8 +79,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       nhb-scripts:
-        specifier: ^1.8.84
-        version: 1.8.84
+        specifier: ^1.8.86
+        version: 1.8.86
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -4125,13 +4125,13 @@ packages:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  nhb-scripts@1.8.84:
-    resolution: {integrity: sha512-iLFgbFKLT1XeJTrYa0u6oj6n64UEqhJmt3Lm89Ln99uzoQ4YCJhAwfI/fHcwLMWsxva5dDRDqxD5gC54WkGjWw==}
+  nhb-scripts@1.8.86:
+    resolution: {integrity: sha512-84szQIcYdOSbwmigFjLlumZobO3TCn74Zz7eznJzo61EjGgBXZIQIRfUcKp+r9CBwbr/6Aq3jv8vbtmzaCQIXg==}
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.26.51:
-    resolution: {integrity: sha512-GNj+d53RvHEArcAvSn9s2gRkHUWd2epSDPLxJ3tecHHgms/Tr0VpLQPtVXuY0ilAqM2iXySz9fJ0Bo5bIc5E6g==}
+  nhb-toolbox@4.26.54:
+    resolution: {integrity: sha512-bLdDaJmXiawW50VT57yLT75cp0dgTHVJkUaoo5RpTJNPOUKqKr2p2iMh2avsnsHQ7k5TNJ1RtCxAGw/II4Vsgg==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -11054,27 +11054,27 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.40.1(nhb-toolbox@4.26.51)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.40.1(nhb-toolbox@4.26.54)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.26.51
+      nhb-toolbox: 4.26.54
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@1.8.84:
+  nhb-scripts@1.8.86:
     dependencies:
       '@clack/prompts': 0.11.0
       chalk: 5.6.2
       execa: 9.6.0
       globby: 15.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.26.51
+      nhb-toolbox: 4.26.54
       progress-estimator: 0.3.1
       rimraf: 6.1.0
       semver: 7.7.3
       type-fest: 5.2.0
       typescript: 5.9.3
 
-  nhb-toolbox@4.26.51: {}
+  nhb-toolbox@4.26.54: {}
 
   no-case@3.0.4:
     dependencies:
