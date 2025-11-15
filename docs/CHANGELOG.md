@@ -11,6 +11,12 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.26.54] - 2025-11-15
+
+- **Added** new *guard* utility: `isNativeTimeZoneId` with new constant for type interfaces using `Intl` API.
+- **Updated** `isValidTimeZoneId` *guard* with new *array constant* for checking.
+- **Updated** tsdoc: **added** *remarks* and **fixed** *reference links* in some *functions* and `Chronos` *methods*.
+
 ## [4.26.50-51] - 2025-11-14
 
 - **Updated** `TimeZoneIdentifier` type: now **excludes** `Factory` and *time zone abbreviations* already present in `TimeZone` literal type. **Created** new `$TimeZoneIdentifier` type as *replacement*.
