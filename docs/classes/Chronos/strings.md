@@ -7,32 +7,9 @@ title: String Methods
 
 ---
 
-## toLocalISOString()
-
-### Signature
-
-```typescript
-toLocalISOString(): string
-```
-
-### Return Type
-
-`string` - ISO string with local offset
-
-### Notes
-
-- Similar to native `toISOString()` but preserves local timezone
-
-### Example
-
-```javascript
-new Chronos('2025-01-01T00:00:00-05:00').toLocalISOString();
-// "2025-01-01T00:00:00.000-05:00"
-```
-
----
-
 ## toISOString()
+
+Returns a date as a string value in ISO format (UTC).
 
 ### Signature
 
@@ -47,13 +24,40 @@ toISOString(): string
 ### Notes
 
 - Always returns UTC time
-- Consistent with native Date behavior
+- Consistent with native `Date` behavior
 
 ### Example
 
 ```javascript
 new Chronos('2025-01-01T00:00:00-05:00').toISOString();
 // "2025-01-01T05:00:00.000Z"
+```
+
+---
+
+## toLocalISOString()
+
+Returns ISO time string in appropriate time zone with offset.
+
+### Signature
+
+```typescript
+toLocalISOString(): string
+```
+
+### Return Type
+
+`string` - ISO string with time zone offset
+
+### Notes
+
+- Similar to [`toISOString()`](#toisostring) but preserves time zone offset
+
+### Example
+
+```javascript
+new Chronos('2025-01-01T00:00:00-05:00').toLocalISOString();
+// "2025-01-01T00:00:00.000-05:00"
 ```
 
 ---
@@ -109,6 +113,8 @@ new Chronos('2025-01-15').toLocaleString('en-US', {
 
 ## toString()
 
+Returns a string representation of a date.
+
 ### Signature
 
 ```typescript
@@ -123,7 +129,6 @@ toString(): string
 
 - Returns localized string representation.
 - Includes timezone information when relevant.
-- *If any UTC method is applied before calling this method*, instead of timezone information it will output: `(Coordinated Universal Time)`.
 
 ### Example
 
@@ -135,6 +140,8 @@ new Chronos('2025-01-15').toString();
 ---
 
 ## toJSON()
+
+Enables `JSON.stringify` to show readable output. Calls [**toLocalISOString**](#tolocalisostring) method.
 
 ### Signature
 
@@ -149,18 +156,20 @@ toJSON(): string
 ### Notes
 
 - Used by `JSON.stringify()`
-- Same as `toISOString()`
+- Same as `toLocalISOString()`
 
 ### Example
 
 ```javascript
 JSON.stringify({ date: new Chronos('2025-01-15') });
-// '{"date":"2025-01-15T00:00:00.000Z"}'
+// '{"date":"2025-01-15T06:00:00.000+06:00"}'
 ```
 
 ---
 
 ## inspect()
+
+Returns a debug-friendly string for `console.log` or `util.inspect`.
 
 ### Signature
 
@@ -174,8 +183,8 @@ inspect(): string
 
 ### Notes
 
-- Used by Node.js `util.inspect`
-- Includes Chronos prefix
+- Used by `Node.js` `util.inspect`
+- Includes `Chronos` prefix
 
 ### Example
 

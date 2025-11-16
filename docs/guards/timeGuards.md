@@ -153,7 +153,7 @@ console.log(isValidTimeZoneId(null)); // → false
 - **Includes both canonical and alias names** - recognizes modern names like `Asia/Kolkata` alongside legacy names like `Asia/Calcutta`
 - **Type predicate function** - when returns `true`, TypeScript narrows the type to `$TimeZoneIdentifier`
 - **Case-sensitive** - identifiers must match exactly (e.g., `'America/New_York'`, not `'america/new_york'`)
-- **Larger bundle size** - includes a comprehensive array of all IANA identifiers (597 entries, around `10kilobytes` after minification)
+- **Larger bundle size** - includes a comprehensive array of all IANA identifiers (597 entries, `~10.7 kilobytes` after minification)
 
 :::tip
 Full data is also available through this package subpath:
@@ -245,7 +245,7 @@ console.log(isNativeTimeZoneId(null)); // → false
 
 - **Native JavaScript validation** - uses `Intl.supportedValuesOf('timeZone')` for validation
 - **Legacy-focused identifiers** - many JS engines still use legacy names like `Asia/Calcutta` instead of modern `Asia/Kolkata`
-- **Small bundle footprint** - relies on built-in browser/Node.js APIs, no additional data (around `300 bytes` after minification)
+- **Small bundle footprint** - relies on built-in browser/Node.js APIs, no additional data (only `~700 bytes` after minification)
 - **Type predicate function** - when returns `true`, TypeScript narrows the type to `TimeZoneIdNative`
 - **Case-sensitive** - identifiers must match exactly (e.g., `'America/New_York'`, not `'america/new_york'`)
 - **Optimal performance** - leverages native browser optimizations
