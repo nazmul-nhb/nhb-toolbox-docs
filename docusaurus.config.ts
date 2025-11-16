@@ -25,8 +25,7 @@ async function getNpmVersion(pkg: string): Promise<string> {
  * and write it to docs/CHANGELOG.md (for Docusaurus to render).
  */
 async function syncChangelog(): Promise<void> {
-	const rawUrl =
-		'https://raw.githubusercontent.com/nazmul-nhb/nhb-toolbox/main/CHANGELOG.md';
+	const rawUrl = 'https://raw.githubusercontent.com/nazmul-nhb/nhb-toolbox/main/CHANGELOG.md';
 
 	const response = await fetch(rawUrl);
 	if (!response.ok)
@@ -107,6 +106,7 @@ export default async function config(): Promise<Config> {
 					mode: 'auto',
 				},
 			],
+			// require.resolve('./src/plugins/playground'),
 		],
 
 		presets: [
@@ -217,7 +217,13 @@ export default async function config(): Promise<Config> {
 				disableSwitch: false,
 				respectPrefersColorScheme: false,
 			},
+
 			image: 'img/logo.png',
+
+			docs: {
+				sidebar: { hideable: true },
+			},
+
 			navbar: {
 				// hideOnScroll: true,
 				title: 'NHB Toolbox',
