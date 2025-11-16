@@ -197,7 +197,7 @@ This property is mutable, but modifying it has no effect on the `Chronos` instan
 #### `$tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
-_**[Protected]**_ Internal flag used to track instances created via the [`timeZone()`](Chronos/conversion#timezone) method. This value participates in the internal resolution of time-zone name, identifier, and offset. _Although it is protected_, it can still be mutated in JavaScript/TypeScript; doing so may de-synchronize these time-zone properties and lead to inconsistent results. Avoid modifying this field unless you fully understand the implications.
+_**[Protected]**_ Internal flag used to track instances created via the [`timeZone()`](Chronos/conversion#timezone) method. This value participates in the internal resolution of time-zone name, identifier, and offset. _Although it is protected_, it can still be mutated in JavaScript/TypeScript; and doing so may de-synchronize these time-zone properties and lead to inconsistent results. _Avoid modifying this field unless you fully understand the implications_.
 :::
 
 ### Available Methods
@@ -262,7 +262,7 @@ _**[Protected]**_ Internal flag used to track instances created via the [`timeZo
     | ------------------------------------------------------------ | --------------------------------------------------------------- |
     | [day()](Chronos/names#day)                                   | Returns the name of the current day or optional day index.      |
     | [monthName()](Chronos/names#monthname)                       | Returns the name of the current month or optional month index.  |
-    | [$getNativeTimeZoneName()](Chronos/names#getnativetimezonename) | Retrieves the local system's current timezone name.         |
+    | [$getNativeTimeZoneName()](Chronos/names#getnativetimezonename) | Retrieves the local system's current timezone name.          |
     | [$getNativeTimeZoneId()](Chronos/names#getnativetimezoneid)  | Retrieves the IANA time zone identifier for the local system.   |
     | [getTimeZoneName()](Chronos/names#gettimezonename)           | Returns the current time zone name in descriptive string.       |
     | [getTimeZoneNameShort()](Chronos/names#gettimezonenameshort) | Returns the current time zone abbreviation (e.g. `"BST"`).      |
@@ -352,8 +352,8 @@ _**[Protected]**_ Internal flag used to track instances created via the [`timeZo
     | Method                                                 | Short Description                                                      |
     | ------------------------------------------------------ | ---------------------------------------------------------------------- |
     | [toString()](Chronos/strings#tostring)                 | Returns a string representation of a date.                             |
-    | [toISOString()](Chronos/strings#toisostring)           | Returns a date as a string value in ISO format. Respects timezone UTC. |
-    | [toLocalISOString()](Chronos/strings#tolocalisostring) | Returns ISO string with local machine's timezone offset.               |
+    | [toISOString()](Chronos/strings#toisostring)           | Returns a date as a string value in ISO format (UTC).                  |
+    | [toLocalISOString()](Chronos/strings#tolocalisostring) | Returns ISO time string in appropriate time zone with offset.          |
     | [toLocaleString()](Chronos/strings#tolocalestring)     | Wrapper over native JS `toLocaleString` with improved type system.     |
     | [toJSON()](Chronos/strings#tojson)                     | Enables `JSON.stringify` to show readable output.                      |
     | [inspect()](Chronos/strings#inspect)                   | Returns a debug-friendly string for `console.log` or `util.inspect`.   |
