@@ -120,7 +120,7 @@ Returns the current UTC offset in `UTC±HH:mm` format (e.g., `"UTC+06:00"`, `"UT
 
 :::tip[Info]
 
-- Also accessible via [`getUTCOffset()`](Chronos/extras#getutcoffset) instance method without `UTC` prefix (in `±HH:mm` format).
+- Also accessible via [`getTimeZoneOffset()`](Chronos/extras#gettimezoneoffset) instance method without `UTC` prefix (returns in `±HH:mm` format).
 - This value is automatically updated when using timezone or UTC manipulation methods.
 
 :::
@@ -134,7 +134,7 @@ console.log(ny.utcOffset); // → "UTC-05:00" (or UTC-04:00 during DST)
 ```
 
 :::danger[Caution]
-This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+This property is mutable, but modifying it has no effect on the `Chronos` instance. Any logic that relies on the mutated value may behave incorrectly, as `Chronos` internally derives its actual state from private fields.
 :::
 
 #### `timeZoneName: LooseLiteral<TimeZoneName>`
@@ -157,7 +157,7 @@ console.log(custom.timeZoneName); // → "UTC+02:45" (no named timezone)
 ```
 
 :::danger[Caution]
-This property is mutable. Mutating this property will not impact the Chronos instance itself but this property will simply be overwritten.
+This property is mutable, but modifying it has no effect on the `Chronos` instance. Any logic that relies on the mutated value may behave incorrectly, as `Chronos` internally derives its actual state from private fields.
 :::
 
 #### `timeZoneId: TimeZoneId`
@@ -191,13 +191,13 @@ console.log(offsetOnly.timeZoneId); // → "UTC+02:15" (no named timezone)
 ```
 
 :::danger[Caution]
-This property is mutable. Mutating this property will not impact the Chronos instance itself but the property will simply be overwritten.
+This property is mutable, but modifying it has no effect on the `Chronos` instance. Any logic that relies on the mutated value may behave incorrectly, as `Chronos` internally derives its actual state from private fields.
 :::
 
 #### `$tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset`
 
 :::danger
-_**[Protected]**_ Internal tracker to identify instances created by the [`timeZone()`](Chronos/conversion#timezone) method. Used for internal state management and should not be accessed directly in most cases. _NEVER MUTATE THIS PROPERTY UNLESS NEEDED!_
+_**[Protected]**_ Internal flag used to track instances created via the [`timeZone()`](Chronos/conversion#timezone) method. This value participates in the internal resolution of time-zone name, identifier, and offset. _Although it is protected_, it can still be mutated in JavaScript/TypeScript; doing so may de-synchronize these time-zone properties and lead to inconsistent results. Avoid modifying this field unless you fully understand the implications.
 :::
 
 ### Available Methods
