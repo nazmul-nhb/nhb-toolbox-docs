@@ -572,7 +572,7 @@ Chronos.getDatesForDay('Friday', {
 
 ## min()
 
-Returns earliest `Chronos`
+Returns the earliest `Chronos` instance based on the underlying universal [`timestamp`](/docs/classes/Chronos/getters#timestamp).
 
 ### Signature
 
@@ -586,7 +586,7 @@ static min(...dates: ChronosInput[]): Chronos
 
 ### Return Type
 
-`Chronos` - Earliest date
+`Chronos` - Earliest moment
 
 ### Example
 
@@ -594,11 +594,18 @@ static min(...dates: ChronosInput[]): Chronos
 Chronos.min('2025-01-01', '2025-02-01'); // Jan 1
 ```
 
+### Notes
+
+- All inputs are normalized to `Chronos` instances before comparison.
+- Comparison is always performed using each instance's **UTC timestamp**, ensuring a consistent and timezone-agnostic result.
+- When exactly two values are provided, the first value becomes the initial candidate; if the second value represents an earlier moment in time, it replaces the candidate.
+- The returned value is **not** one of the input objects. A new immutable `Chronos` instance is always created. Its internal timezone, offset, name, and tracking information are cloned from the winning input instance.
+
 ---
 
 ## max()
 
-Returns latest `Chronos`
+Returns the latest `Chronos` instance based on the underlying universal [`timestamp`](/docs/classes/Chronos/getters#timestamp).
 
 ### Signature
 
@@ -612,13 +619,20 @@ static max(...dates: ChronosInput[]): Chronos
 
 ### Return Type
 
-`Chronos` - Latest date
+`Chronos` - Latest moment
 
 ### Example
 
 ```ts
 Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
 ```
+
+### Notes
+
+- All inputs are normalized to `Chronos` instances before comparison.
+- Comparison is always performed using each instance's **UTC timestamp**, ensuring a consistent and timezone-agnostic result.
+- When exactly two values are provided, the first value becomes the initial candidate; if the second value represents a later moment in time, it replaces the candidate.
+- The returned value is **not** one of the input objects. A new immutable `Chronos` instance is always created. Its internal timezone, offset, name, and tracking information are cloned from the winning input instance.
 
 ---
 
