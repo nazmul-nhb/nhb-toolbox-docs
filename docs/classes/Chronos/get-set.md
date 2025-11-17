@@ -4,27 +4,72 @@ title: Get & Set Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+
 ## get()
+
+Gets the value of a specific time unit from the date.
 
 ### Signature
 
 ```typescript
-get(unit: TimeUnit): number
+get<Unit extends TimeUnit>(unit: Unit): TimeUnitValue<Unit>
 ```
 
 ### Parameters
 
-- `unit`: Time unit to get
+- `unit`: Time unit to get: [`TimeUnit`](#type-definitions)
 
 ### Return Type
 
-`number` - Component value
+[`TimeUnitValue<Unit>`](#type-definitions) - Component value
 
 ### Example
 
 ```javascript
-new Chronos('2025-01-15').get('month'); // 0 (January)
+new Chronos('2025-01-15').get('month'); // 1 (January)
 ```
+
+:::info[Notes]
+
+- Return value of `month` is `1` based (`1`: January, `12`: December)
+- ISO weeks start on Monday, and the first week of the year is the one containing January 4th.
+
+:::
+
+---
+
+## set()
+
+Returns a new `Chronos` instance with the specified unit set to the given value.
+
+### Signature
+
+```typescript
+set<Unit extends TimeUnit>(unit: Unit, value: TimeUnitValue<Unit>): Chronos
+```
+
+### Parameters
+
+- `unit`: Time unit to set: [`TimeUnit`](#type-definitions)
+- `value`: Value to set: [`TimeUnitValue<Unit>`](#type-definitions)
+
+### Return Type
+
+`Chronos` - New instance with updated value
+
+### Example
+
+```javascript
+new Chronos('2025-01-15').set('month', 6); // June 15
+```
+
+:::info[N.B.]
+`month` is `1` based (`1`: January, `12`: December)
+:::
+
+:::tip[See Also]
+[`with`](/docs/classes/Chronos/statics#with) static method for more options
+:::
 
 ---
 
@@ -70,58 +115,6 @@ console.log(jsDate.getTime() === new Chronos(jsDate).getTimeStamp()); // true
 - Storing dates in databases as timestamps
 - Performance-critical operations where primitive numbers are preferred
 - Interfacing with systems that expect Unix timestamps
-
----
-
-## set()
-
-Returns a new `Chronos` instance with the specified unit set to the given value.
-
-### Signature
-
-```typescript
-set<Unit extends TimeUnit>(unit: Unit, value: TimeUnitValue<Unit>): Chronos
-```
-
-### Parameters
-
-- `unit`: Time unit to set
-- `value`: Value to set
-
-### Return Type
-
-`Chronos` - New instance with updated value
-
-### Type Definitions
-
-```ts
-/** Name of time unit from `year` to `millisecond` */
-type TimeUnit = 'year' | 'month' | 'day' | 'week' | 'hour' | 'minute' | 'second' | 'millisecond';
-
-/** Conditional value for `TimeUnit` */
-type TimeUnitValue<Unit extends TimeUnit> =
- Unit extends 'month' ? NumberRange<1, 12> // 1-12
- : Unit extends 'week' ? NumberRange<1, 53> // 1-51
- : Unit extends 'day' ? NumberRange<1, 31> // 1-31
- : Unit extends 'hour' ? Enumerate<24> // 0-23
- : Unit extends 'minute' | 'second' ? Enumerate<60> // 0-59
- : Unit extends 'millisecond' ? Milliseconds // 0-999
- : number;
-```
-
-### Example
-
-```javascript
-new Chronos('2025-01-15').set('month', 6); // June 15
-```
-
-:::info[N.B.]
-month is `1` based (`1`: January, `12`: December)
-:::
-
-:::tip[See Also]
-[`with`](/docs/classes/Chronos/statics#with) static method for more options
-:::
 
 ---
 
@@ -343,4 +336,23 @@ daysInMonth(): NumberRange<28, 31>
 
 ```javascript
 new Chronos('2025-02-01').daysInMonth(); // 28
+```
+
+---
+
+## Type Definitions
+
+```ts
+/** Name of time unit from `year` to `millisecond` */
+type TimeUnit = 'year' | 'month' | 'day' | 'week' | 'hour' | 'minute' | 'second' | 'millisecond';
+
+/** Conditional value for `TimeUnit` */
+type TimeUnitValue<Unit extends TimeUnit> =
+ Unit extends 'month' ? NumberRange<1, 12> // 1-12
+ : Unit extends 'week' ? NumberRange<1, 53> // 1-51
+ : Unit extends 'day' ? NumberRange<1, 31> // 1-31
+ : Unit extends 'hour' ? Enumerate<24> // 0-23
+ : Unit extends 'minute' | 'second' ? Enumerate<60> // 0-59
+ : Unit extends 'millisecond' ? Milliseconds // 0-999
+ : number;
 ```
