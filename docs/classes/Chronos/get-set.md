@@ -31,7 +31,7 @@ new Chronos('2025-01-15').get('month'); // 1 (January)
 
 :::info[Notes]
 
-- Return value of `month` is `1` based (`1`: January, `12`: December)
+- Return value for `month` is `1` based (`1`: January, `12`: December)
 - ISO weeks start on Monday, and the first week of the year is the one containing January 4th.
 
 :::
@@ -64,7 +64,7 @@ new Chronos('2025-01-15').set('month', 6); // June 15
 ```
 
 :::info[N.B.]
-`month` is `1` based (`1`: January, `12`: December)
+Unit `month` is `1` based (`1`: January, `12`: December)
 :::
 
 :::tip[See Also]
@@ -79,7 +79,7 @@ new Chronos('2025-01-15').set('month', 6); // June 15
 
 - The getter method [`timestamp`](/docs/classes/Chronos/getters#timestamp) and `getTimeStamp()` returns the same value.
 
-- The **timestamp in seconds** (which some people considers as timestamp) can be accessed using [`unix`](/docs/classes/Chronos/getters#unix) getter method.
+- The **timestamp in seconds** (which some people considers as `timestamp`) can be accessed using [`unix`](/docs/classes/Chronos/getters#unix) getter method.
 
 :::
 
