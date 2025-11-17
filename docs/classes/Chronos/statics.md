@@ -591,7 +591,9 @@ static min(...dates: ChronosInput[]): Chronos
 ### Example
 
 ```ts
-Chronos.min('2025-01-01', '2025-02-01'); // Jan 1
+Chronos.min('2025-01-01', '2025-02-01'); // Jan 1 ('2025-01-01')
+
+Chronos.min('2012-12-25', new Chronos('2012-12-01').timeZone('Asia/Kolkata'), '2012-12-17') // 2012-12-01T05:30:00.000+05:30
 ```
 
 ### Notes
@@ -624,7 +626,9 @@ static max(...dates: ChronosInput[]): Chronos
 ### Example
 
 ```ts
-Chronos.max('2025-01-01', '2025-02-01'); // Feb 1
+Chronos.max('2025-01-01', '2025-02-01'); // Feb 1 ('2025-02-01')
+
+Chronos.max('2012-12-25', new Chronos('2012-12-31').timeZone('Asia/Kolkata'), '2012-12-17'); // 2012-12-31T05:30:00.000+05:30
 ```
 
 ### Notes
