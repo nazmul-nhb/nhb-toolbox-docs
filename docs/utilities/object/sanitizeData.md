@@ -18,31 +18,71 @@ import { sanitizeData } from 'nhb-toolbox';
 
 ### Function Signatures
 
-```typescript
-// String version
-sanitizeData(input: string): string;
+<Tabs groupId="fn-variants">
+  <TabItem value="string" label="String Input" default>
 
-// String array version
-sanitizeData(input: string[]): string[];
+  Trims all the words in a string.
 
-// Object version with return type control
-sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
-  object: T,
-  options?: SanitizeOptions<T>,
-  _return?: B
-): B extends 'partial' ? FlattenPartial<T> : T;
+  ```ts
+  // String version
+  sanitizeData(input: string): string;
+  ```
 
-// Array version with return type control
-sanitizeData<T extends GenericObject, B extends PartialOrRequired = 'required'>(
-  array: T[],
-  options?: SanitizeOptions<T>,
-  _return?: B
-): B extends 'partial' ? FlattenPartial<T>[] : T[];
-```
+  </TabItem>
+
+  <TabItem value="string-array" label="String Array">
+
+  Trims all the words in an array of strings.
+
+  ```ts
+  // String array version
+  sanitizeData(input: string[]): string[];
+  ```
+
+  </TabItem>
+
+  <TabItem value="object" label="Object">
+
+  Sanitizes an object by ignoring specified keys and trimming string values based on options provided. Also excludes nullish values (`null`, `undefined`), falsy (`nullish` + `0` & `""`) or empty values (`object`, `array`) if specified.
+
+  ```ts
+  // Object version with return type control
+  sanitizeData<
+  Data extends GenericObject,
+  Ignored extends DotNotationKey<Data> = never,
+  PoR extends PartialOrRequired = 'required',
+  >(
+  object: Data,
+  options?: SanitizeOptions<Data, Ignored>,
+  _return?: PoR
+  ): SanitizedData<Data, Ignored, PoR>;
+  ```
+
+  </TabItem>
+
+  <TabItem value="mixed-array" label="Mixed Array">
+
+  Sanitizes a deeply nested array that may contain arrays, objects or other (mixed) data types.
+
+  ```ts
+  // Array version with return type control
+  sanitizeData<
+  Data extends GenericObject,
+  Ignored extends DotNotationKey<Data> = never,
+  PoR extends PartialOrRequired = 'required',
+  >(
+  array: Data[],
+  options?: SanitizeOptions<Data, Ignored>,
+  _return?: PoR
+  ): Array<SanitizedData<Data, Ignored, PoR>>;
+  ```
+
+  </TabItem>
+</Tabs>
 
 ### Usage Examples
 
-<Tabs>
+<Tabs groupId="fn-variants">
 <TabItem value="string" label="String Input" default>
 
 ```typescript
@@ -135,13 +175,12 @@ sanitizeData(config, {
 </TabItem>
 </Tabs>
 
-### Features
+### Notes on Return Type
 
-1. **Return Type Control**:
-   - Use `_return: 'partial'` to get `FlattenPartial<T>` return type
-   - Default (`'required'`) preserves original type structure
-2. **Strict Typing**: Improved type inference for partial returns
-3. **Consistent Behavior**: Same filtering logic applies regardless of return type
+- **Return Type Control**:
+  - Use `_return: 'partial'` to get `$DeepPartial<T>` return type
+  - Default (`'required'`) preserves original type structure
+- **Strict Typing**: Omits ignored keys from the return type if any key is passed in `keysToIgnore` option
 
 ### Behavior Details
 
@@ -160,9 +199,9 @@ sanitizeData(config, {
 ### Limitations
 
 1. **Circular References**: May cause stack overflow for deeply nested objects and arrays
-2. **Special Objects**: Date, RegExp etc. are treated as regular objects and cannot be accessed their nested keys (which is good in most of the cases) through `keysToIgnore` or `requiredKeys` options.
+2. **Special Objects**: `Date`, `RegExp`, `Map`, `Set`, `Chronos` etc. are intentionally treated as regular objects and cannot be accessed their nested keys (which is good in most of the cases) through `keysToIgnore` or `requiredKeys` options.
 3. **Performance**: Deep processing may be slow for large structures
-4. **Type Strictness**: Return types are approximations of the runtime behavior
+4. **Type Strictness**: Return types are approximations of the runtime behavior.
 
 ### Recommended Use Cases
 
@@ -176,13 +215,13 @@ sanitizeData(config, {
 
 ```typescript
 /** - Options for `sanitizeData` utility. */
-interface SanitizeOptions<T> {
+interface SanitizeOptions<T, Ignored extends DotNotationKey<T>> {
  /**
   * An array of dot-notation keys to exclude from the sanitized output.
   * This is only applicable when sanitizing plain objects or arrays of objects.
   * When applied to nested or irregular array structures, behavior may be inconsistent or partially ignored.
   */
- keysToIgnore?: DotNotationKey<T>[];
+ keysToIgnore?: Ignored[];
 
  /** Whether to trim string values. Defaults to `true`. */
  trimStrings?: boolean;
@@ -209,4 +248,24 @@ type PartialOrRequired = 'partial' | 'required';
 
 /** - Generic object but with `any` value */
 type GenericObject = Record<string, any>;
+
+/**
+ * Produces sanitized output data by omitting keys in `keysToIgnore` from {@link SanitizeOptions} and optionally applying partial deep nesting based on `_return` parameter.
+ *
+ * @remarks
+ * - When `PoR` is `'partial'`, all nested properties become optional after path omission.
+ * - When `PoR` is `'required'`, the resulting type keeps full property requirements.
+ * - Intended for return type of `sanitizeData` utility.
+ */
+type SanitizedData<
+ Data extends GenericObject,
+ Ignored extends DotNotationKey<Data>,
+ PoR extends PartialOrRequired,
+> = PoR extends 'partial' ? $DeepPartial<OmitPath<Data, Ignored>> : OmitPath<Data, Ignored>;
+
+/** Removes a dot-notation path from an object type while preserving its original shape. */
+type OmitPath<
+ Object extends GenericObject,
+ Ignored extends DotNotationKey<Object>,
+> = $OmitPath<Object, Ignored>;
 ```

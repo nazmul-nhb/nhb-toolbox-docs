@@ -43,10 +43,10 @@ importers:
         version: 17.2.3
       nhb-hooks:
         specifier: ^1.40.1
-        version: 1.40.1(nhb-toolbox@4.26.66)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.40.1(nhb-toolbox@4.26.69)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.26.66
-        version: 4.26.66
+        specifier: ^4.26.69
+        version: 4.26.69
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -3164,8 +3164,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  glob@11.0.3:
-    resolution: {integrity: sha512-2Nim7dha1KVkaiF4q6Dj+ngPPMdfvLJEOpZk/jKiUAkqKebpGAWQXAq9z1xu9HKu5lWfqw/FASuccEjyznjPaA==}
+  glob@11.1.0:
+    resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -4130,8 +4130,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.26.66:
-    resolution: {integrity: sha512-/0D7odHDYsVMGNKciV5IkUbIJVZyPnuT36h3XVolRwhjFP27py/SEqdN34i0m0zDMIn6cd5tv5qh9dktKGYjZA==}
+  nhb-toolbox@4.26.69:
+    resolution: {integrity: sha512-tVvsNPGhOA8yzOw4zfSqXCXvKrHx6PJ0tcka9AiRLoEkMRV0hXq26TX1y+rrRVdZNvasy6zaeH5PTa/i/7Il7Q==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -9823,7 +9823,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  glob@11.0.3:
+  glob@11.1.0:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 4.1.1
@@ -11054,9 +11054,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.40.1(nhb-toolbox@4.26.66)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.40.1(nhb-toolbox@4.26.69)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.26.66
+      nhb-toolbox: 4.26.69
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -11067,14 +11067,14 @@ snapshots:
       execa: 9.6.0
       globby: 15.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.26.66
+      nhb-toolbox: 4.26.69
       progress-estimator: 0.3.1
       rimraf: 6.1.0
       semver: 7.7.3
       type-fest: 5.2.0
       typescript: 5.9.3
 
-  nhb-toolbox@4.26.66: {}
+  nhb-toolbox@4.26.69: {}
 
   no-case@3.0.4:
     dependencies:
@@ -12074,7 +12074,7 @@ snapshots:
 
   rimraf@6.1.0:
     dependencies:
-      glob: 11.0.3
+      glob: 11.1.0
       package-json-from-dist: 1.0.1
 
   rtlcss@4.3.0:
