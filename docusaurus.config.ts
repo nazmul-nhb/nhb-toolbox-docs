@@ -268,7 +268,14 @@ export default async function config(): Promise<Config> {
 						position: 'right',
 					},
 					{
-						label: `v${npmVersion}`,
+						// label: `v${npmVersion}`,
+						html: /* html */ `
+							<span style="display:flex;align-items:center;gap:4px;">
+								<img src="/img/npm.svg" 
+									style="width:20px; height:20px;" />
+								${npmVersion}
+							</span>
+						`,
 						position: 'right',
 						href: 'https://www.npmjs.com/package/nhb-toolbox',
 					},
