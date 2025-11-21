@@ -40,7 +40,15 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="package-manager">
 
-<TabItem value="npm" label="📦 npm">
+<TabItem
+  value="npm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/npm.svg" alt="npm" style={{width:"20px", height:"20px"}} />
+      <span>NPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -56,7 +64,15 @@ npm i  @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="yarn" label="🧶 yarn">
+<TabItem
+  value="yarn"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/yarn.svg" alt="yarn" style={{width:"20px", height:"20px"}} />
+      <span>YARN</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -72,7 +88,15 @@ yarn add @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="pnpm" label="🚀 pnpm">
+<TabItem
+  value="pnpm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/pnpm.svg" alt="pnpm" style={{width:"20px", height:"20px"}} />
+      <span>PNPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -93,7 +117,15 @@ pnpm add @nazmul-nhb/nhb-toolbox
 
 <Tabs groupId="package-manager">
 
-<TabItem value="npm" label="📦 npm">
+<TabItem
+  value="npm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/npm.svg" alt="npm" style={{width:"20px", height:"20px"}} />
+      <span>NPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -109,7 +141,15 @@ npm i -D @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="yarn" label="🧶 yarn">
+<TabItem
+  value="yarn"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/yarn.svg" alt="yarn" style={{width:"20px", height:"20px"}} />
+      <span>YARN</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -125,7 +165,15 @@ yarn add -D @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="pnpm" label="🚀 pnpm">
+<TabItem
+  value="pnpm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/pnpm.svg" alt="pnpm" style={{width:"20px", height:"20px"}} />
+      <span>PNPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -146,7 +194,15 @@ pnpm add -D @nazmul-nhb/nhb-toolbox
 
 <Tabs groupId="package-manager">
 
-<TabItem value="npm" label="📦 npm">
+<TabItem
+  value="npm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/npm.svg" alt="npm" style={{width:"20px", height:"20px"}} />
+      <span>NPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -162,7 +218,15 @@ npm i -g @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="yarn" label="🧶 yarn">
+<TabItem
+  value="yarn"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/yarn.svg" alt="yarn" style={{width:"20px", height:"20px"}} />
+      <span>YARN</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
@@ -178,7 +242,15 @@ yarn add -g @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 
-<TabItem value="pnpm" label="🚀 pnpm">
+<TabItem
+  value="pnpm"
+  label={
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+      <img src="/img/pnpm.svg" alt="pnpm" style={{width:"20px", height:"20px"}} />
+      <span>PNPM</span>
+    </div>
+  }
+>
 
 - NPM Registry
 
