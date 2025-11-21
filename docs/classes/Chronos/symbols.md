@@ -111,8 +111,8 @@ Enables `Chronos` instances to be used as search patterns in `String.prototype.r
 const chronos = new Chronos('2025-09-01T13:26:00');
 const text = 'Event scheduled for 2025-09-01T13:26:00';
 
-text.replace(chronos, '2025-10-15T09:30:00');
-// Returns: 'Event scheduled for 2025-10-15T09:30:00'
+text.replace(chronos, '2025.10.15');
+// Returns: 'Event scheduled for 2025-10-15'
 ```
 
 ---
@@ -244,11 +244,11 @@ const text3 = 'Meeting on 20250901';
 const text4 = 'Meeting at 2025-09-01T13:26:00';
 const text5 = 'Meeting at 2025/09/01 13.26.00';
 
-text1.match(chronosInstance)[0], // ✅ ["2025-09-01"]
-text2.match(chronosInstance)[0], // ✅ ["2025/09/01"]
-text3.match(chronosInstance)[0], // ✅ ["20250901"]
-text4.match(chronosInstance)[0], // ✅ ["2025-09-01T13:26:00"]
-text5.match(chronosInstance)[0]  // ✅ ["2025/09/01 13.26.00"]
+text1.match(chronosInstance)[0]; // ✅ ["2025-09-01"]
+text2.match(chronosInstance)[0]; // ✅ ["2025/09/01"]
+text3.match(chronosInstance)[0]; // ✅ ["20250901"]
+text4.match(chronosInstance)[0]; // ✅ ["2025-09-01T13:26:00"]
+text5.match(chronosInstance)[0]; // ✅ ["2025/09/01 13.26.00"]
 ```
 
 ---
@@ -310,7 +310,7 @@ const array2 = [4, 5, 6];
 
 // Chronos instance will be spread into the resulting array
 console.info([...array1, ...array2, ...chronosInstance]);
-// Result: [1, 2, 3, 4, 5, 6, ['year', 2023], ['month', 12], ['date', 31], ...date components]
+// Result: [1, 2, 3, 4, 5, 6, ['year', 2023], ['month', 11], [ 'isoMonth', 12 ], ['date', 31], ...other date components]
 ```
 
 ### Notes

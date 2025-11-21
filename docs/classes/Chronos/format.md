@@ -8,40 +8,40 @@ import Copy from '@site/src/components/Copy'
 ## Format Tokens
 
 :::info
-Chronos supports a rich set of format tokens that you can use to customize how a date is displayed. These tokens work across `format`, `formatUTC`, and `formatStrict` methods as well as for other methods that accept a format, and behave similarly to libraries like `Moment.js` or `Day.js`.
+`Chronos` supports a rich set of format tokens that you can use to customize how a date is displayed. These tokens work across [`format`](#format), [`formatUTC`](#formatutc), and [`formatStrict`](#formatstrict) methods as well as for other methods and utilities like [`formatDate`](/docs/utilities/date/formatDate) that accept a format, and behave similarly to libraries like `Moment.js` or `Day.js`.
 :::
 
 Use square brackets (`[ ]`) to escape literal text. Unescaped characters will be treated as formatting tokens and replaced accordingly.
 
 Below is a list of all supported tokens:
 
-| Token                                        | Output           | Example           |
-|----------------------------------------------|------------------|-------------------|
-| <Copy text="YYYY" /> or <Copy text="yyyy" /> | Full year        | 2025              |
-| <Copy text="YY" /> or <Copy text="yy" />     | 2-digit year     | 23                |
-| <Copy text="mmmm" />                         | Full month       | January           |
-| <Copy text="mmm" />                          | Short month      | Jan               |
-| <Copy text="MM" />                           | 2-digit month    | 01-12             |
-| <Copy text="M" />                            | Month            | 1-12              |
-| <Copy text="DD" />                           | 2-digit day      | 01-31             |
-| <Copy text="D" />                            | Day              | 1-31              |
-| <Copy text="Do" />                           | Ordinal day      | 1st, 2nd          |
-| <Copy text="ddd" />                          | Full weekday     | Monday            |
-| <Copy text="dd" />                           | Short weekday    | Mon               |
-| <Copy text="d" />                            | Shorter weekday  | Mo                |
-| <Copy text="HH" />                           | 24-hour (00-23)  | 09                |
-| <Copy text="H" />                            | 24-hour (0-23)   | 9                 |
-| <Copy text="hh" />                           | 12-hour (01-12)  | 02                |
-| <Copy text="h" />                            | 12-hour (1-12)   | 2                 |
-| <Copy text="mm" />                           | Minutes (00-59)  | 05                |
-| <Copy text="m" />                            | Minutes (0-59)   | 5                 |
-| <Copy text="ss" />                           | Seconds (00-59)  | 09                |
-| <Copy text="s" />                            | Seconds (0-59)   | 9                 |
-| <Copy text="ms" />                           | Milliseconds (0-999)  | 9            |
-| <Copy text="mss" />                          | Milliseconds (000-999)| 009          |
-| <Copy text="A" />                            | AM/PM            | PM                |
-| <Copy text="a" />                            | am/pm            | pm                |
-| <Copy text="ZZ" />                           | TZ Offset ±HH:mm | +06:00 or Z (UTC) |
+| Token                                        | Output                 | Example           |
+| -------------------------------------------- | ---------------------- | ----------------- |
+| <Copy text="YYYY" /> or <Copy text="yyyy" /> | Full year              | 2025              |
+| <Copy text="YY" /> or <Copy text="yy" />     | 2-digit year           | 23                |
+| <Copy text="mmmm" />                         | Full month             | January           |
+| <Copy text="mmm" />                          | Short month            | Jan               |
+| <Copy text="MM" />                           | 2-digit month          | 01-12             |
+| <Copy text="M" />                            | Month                  | 1-12              |
+| <Copy text="DD" />                           | 2-digit day            | 01-31             |
+| <Copy text="D" />                            | Day                    | 1-31              |
+| <Copy text="Do" />                           | Ordinal day            | 1st, 2nd          |
+| <Copy text="ddd" />                          | Full weekday           | Monday            |
+| <Copy text="dd" />                           | Short weekday          | Mon               |
+| <Copy text="d" />                            | Shorter weekday        | Mo                |
+| <Copy text="HH" />                           | 24-hour (00-23)        | 09                |
+| <Copy text="H" />                            | 24-hour (0-23)         | 9                 |
+| <Copy text="hh" />                           | 12-hour (01-12)        | 02                |
+| <Copy text="h" />                            | 12-hour (1-12)         | 2                 |
+| <Copy text="mm" />                           | Minutes (00-59)        | 05                |
+| <Copy text="m" />                            | Minutes (0-59)         | 5                 |
+| <Copy text="ss" />                           | Seconds (00-59)        | 09                |
+| <Copy text="s" />                            | Seconds (0-59)         | 9                 |
+| <Copy text="ms" />                           | Milliseconds (0-999)   | 9                 |
+| <Copy text="mss" />                          | Milliseconds (000-999) | 009               |
+| <Copy text="A" />                            | AM/PM                  | PM                |
+| <Copy text="a" />                            | am/pm                  | pm                |
+| <Copy text="ZZ" />                           | TZ Offset ±HH:mm       | +06:00 or Z (UTC) |
 
 :::danger[Note]
 

@@ -11,6 +11,22 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.26.70] - 2025-11-21
+
+- **Added** new `formatDate` utility with alias `formatDateTime` and *core date formatter (private)* to be shared with both `Chronos` class and `formatDate` utility.
+- **Fixed** issues raised from misplacement of *internal* `#date` in `Chronos` class.
+
+## [4.26.69] - 2025-11-18
+
+- **Updated** *return type* of `sanitizeData` utility:
+  - **Fixed** *return type* when keys are ignored by *removing those keys* using `SanitizedData`, `OmitPath` and other new `type helpers`.
+  - **Fixed** the *return type* when it is called with `_return = 'partial'` parameter by *making all the nested properties optional*.
+    - **Created** new *utility type* `$DeepPartial` to satisfy this *return type*.
+
+## [4.26.66] - 2025-11-17
+
+- **Changed** the signature of `Chronos` `get()` method to `get<Unit extends TimeUnit>(unit: Unit): TimeUnitValue<Unit>` to align with `set()` method.
+
 ## [4.26.64] - 2025-11-17
 
 ### 🕧 Fixes in Chronos

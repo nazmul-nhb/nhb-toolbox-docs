@@ -248,6 +248,7 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						'utilities/date/chronos',
+						'utilities/date/formatDate',
 						'utilities/date/getGreeting',
 						'utilities/date/getTimeZoneDetails',
 						'utilities/date/formatUTCOffset',
