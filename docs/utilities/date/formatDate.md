@@ -23,15 +23,9 @@ formatDate(options?: DateFormatOptions): string
 interface DateFormatOptions {
     /** Date to format, must be parsable by `Date` constructor. Can be string, number or `Date`. Defaults to current time. */
     date?: string | number | Date;
-    /**
-     * * The desired format (Default format is `'dd, mmm DD, YYYY HH:mm:ss'` = `'Sun, Apr 06, 2025 16:11:55'`).
-     *
-     * - To output raw text (i.e., not interpreted as a date token), wrap it in square brackets.
-     * - For example, `[Today is] ddd` results in `Today is Sunday`, and `YYYY[ year]` results in `2025 year`.
-     *
-     */
+    /** The desired format (Default format is `'dd, mmm DD, YYYY HH:mm:ss'` = `'Sun, Apr 06, 2025 16:11:55'`). */
     format?: StrictFormat; // 21,000+ predefined formats + any string that uses tokens
-    /** - Whether to use UTC time. Defaults to `false`. */
+    /** Whether to use UTC time. Defaults to `false`. */
     useUTC?: boolean;
 }
 ```
