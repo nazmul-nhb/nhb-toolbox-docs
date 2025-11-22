@@ -190,6 +190,7 @@ pnpm add -D @nazmul-nhb/nhb-toolbox
 </TabItem>
 </Tabs>
 
+<!-- 
 ### 🌐  Install Globally
 
 <Tabs groupId="package-manager">
@@ -266,6 +267,7 @@ pnpm add -g @nazmul-nhb/nhb-toolbox
 
 </TabItem>
 </Tabs>
+ -->
 
 ## 📦 Installation Guide from GitHub Packages
   
