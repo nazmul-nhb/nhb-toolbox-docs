@@ -163,7 +163,7 @@ removeFromLocalStorage('theme');
 
 | Name | Type   | Description                           |
 | ---- | ------ | ------------------------------------- |
-| key  | string | The key to remove from local storage. |
+| key  | `string` | The key to remove from local storage. |
 
 ---
 
@@ -254,4 +254,4 @@ const scores = getFromLocalStorage<number[]>(
 ### See Also
 
 - [**Session Storage Utilities**](./session-storage) for similar functionality scoped to the browser session.
-- For React apps, consider using [**useStorage**](https://www.npmjs.com/package/nhb-hooks#usestorage) hook for seamless integration.
+- For React apps, consider using [**useStorage**](https://github.com/nazmul-nhb/nhb-hooks?tab=readme-ov-file#usestorage) hook from [**nhb-hooks**](https://www.npmjs.com/package/nhb-hooks) package for seamless integration.
