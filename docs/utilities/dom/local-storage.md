@@ -161,8 +161,8 @@ removeFromLocalStorage('theme');
 
 ### Parameters
 
-| Name | Type   | Description                           |
-| ---- | ------ | ------------------------------------- |
+| Name | Type     | Description                           |
+| ---- | -------- | ------------------------------------- |
 | key  | `string` | The key to remove from local storage. |
 
 ---

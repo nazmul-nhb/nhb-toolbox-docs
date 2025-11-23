@@ -173,8 +173,8 @@ removeFromSessionStorage('cart');
 
 ### Parameters
 
-| Name | Type   | Description                             |
-| ---- | ------ | --------------------------------------- |
+| Name | Type     | Description                             |
+| ---- | -------- | --------------------------------------- |
 | key  | `string` | The key to remove from session storage. |
 
 ---
@@ -264,7 +264,7 @@ saveToSessionStorage(
 ## Recommended Use Cases
 
 - Storing tab-specific state (temporary settings, form progress, etc.)
-- Multi-step workflows, wizard data, cart/session caching
+- Multi-step workflows, cart/session caching
 - UI state, selections, or navigation history per session/tab
 - Authentication tokens and temporary user sessions
 - Unsaved form data and draft content

@@ -7,19 +7,19 @@ title: Toggle Full Screen Mode
 
 Toggles the browser’s full-screen mode for a given element, or the entire document by default. Handles browser compatibility (including WebKit/Safari).
 
-## Import
+### Import
 
 ```typescript
 import { toggleFullScreen } from 'nhb-toolbox';
 ```
 
-## Function Signature
+### Function Signature
 
 ```typescript
 toggleFullScreen(element?: HTMLElement): void
 ```
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -53,26 +53,26 @@ toggleFullScreen(video);
 </TabItem>
 </Tabs>
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name    | Type         | Description                                      |
 | ------- | ------------ | ------------------------------------------------ |
 | element | HTMLElement? | (Optional) Element to toggle fullscreen for. <br></br> Defaults to the root element/document. |
 
-### Returns
+#### Returns
 
 This function does not return anything (`void`). It triggers or exits full-screen mode as needed.
 
-## Key Features
+### Key Features
 
 1. **Element or Document**: Can trigger full screen for any specific element, or the entire page.
 2. **Browser Compatible**: Handles compatibility for most browsers, including Safari (WebKit).
 3. **Smart Toggle**: Enters full screen if off, exits if already in full screen.
 4. **No Reload Needed**: Transition is seamless with no page reload or navigation.
 
-## Limitations
+### Limitations
 
 1. **Browser-only**: Requires DOM APIs. Not usable in Node.js/server.
 2. **User Gesture Requirement**: Most browsers require user interaction (e.g., button click) to enter or exit full-screen mode.
@@ -80,14 +80,14 @@ This function does not return anything (`void`). It triggers or exits full-scree
 4. **No Promise/Callback**: Does not notify when entry/exit is complete or if the request fails.
 5. **Does not cycle elements**: Only toggles for the given element/document, not between multiple elements.
 
-## Notes
+### Notes
 
 - Full-screen activation may be blocked if called outside a trusted event handler (like a user click).
 - Exiting full screen returns to normal view but does not restore prior scroll or focus state.
 - Use `document.fullscreenElement` (or vendor-prefixed properties) to programmatically check if in full screen.
 - For advanced use cases (listening for state changes), consider handling `fullscreenchange` event.
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Media viewers and video players.
 - Presentations, slideshows, or immersive content.

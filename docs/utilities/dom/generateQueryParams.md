@@ -7,7 +7,7 @@ title: Generate Query Parameters
 
 Generates a URL-encoded query string from an object, flattening nested fields and supporting arrays, booleans, and various primitive types.
 
-## Import
+### Import
 
 ```typescript
 import { generateQueryParams } from 'nhb-toolbox';
@@ -15,7 +15,7 @@ import { createQueryParams } from 'nhb-toolbox';
 import { formatQueryParams } from 'nhb-toolbox';
 ```
 
-## Function Signature
+### Function Signature
 
 ```typescript
 generateQueryParams<T extends QueryObject>(
@@ -23,7 +23,7 @@ generateQueryParams<T extends QueryObject>(
 ): QueryString
 ```
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -71,25 +71,25 @@ generateQueryParams({ filters: { category: 'laptop', price: 1000 } });
 </TabItem>
 </Tabs>
 
-## API Reference
+### API Reference
 
-### Type Parameters
+#### Type Parameters
 
 | Name   | Description                   |
 | ------ | ----------------------------- |
 | `T`    | Extends `QueryObject`         |
 
-### Parameters
+#### Parameters
 
 | Name    | Type         | Description                           |
 | ------- | ------------ | ------------------------------------- |
 | params  | `QueryObject`| Object containing query parameters     |
 
-### Returns
+#### Returns
 
 A query string as a URL-encoded string (e.g., `"?key1=value1&key2=value2"`).
 
-## Types
+### Types
 
 ```typescript
 type Primitive = string | number | boolean | null | undefined;
@@ -101,7 +101,7 @@ type QueryObject = { [key: string]: QueryObjectValue };
 type QueryString = string;
 ```
 
-## Key Features
+### Key Features
 
 1. **Flattens Nested Objects**: Extracts nested key-value pairs as top-level query parameters.
 2. **Array Support**: Handles array values, generating repeated query keys.
@@ -109,27 +109,27 @@ type QueryString = string;
 4. **Boolean Support**: Converts booleans to `"true"`/`"false"` string representations.
 5. **Type Safe**: Accepts and enforces specific allowed input types.
 
-## Aliases
+### Aliases
 
 This function is also exported as:
 
 - `createQueryParams`
 - `formatQueryParams`
 
-## Limitations
+### Limitations
 
 1. **No Deep Key Names**: Nested objects are flattened, but no dot/bracket notation is used in the result.
 2. **No Custom Encoding**: Uses standard `encodeURIComponent`; does not provide custom encoding strategies.
 3. **No Array Indexing**: Arrays become repeated keys (`?key=a&key=b`), not `?key[]=a&key[]=b`.
 4. **No Sorting**: Key order in the query string is not guaranteed.
 
-## Notes
+### Notes
 
 - An empty object or only "empty" values results in an empty string, not `"?"`.
 - If a key’s value is an array, each value generates a separate key-value pair.
 - Nested fields are extracted to top-level keys (overwrites may occur if nested keys collide).
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Constructing REST API URLs with dynamic query parameters.
 - Serializing objects for client-side navigation or caching.

@@ -7,19 +7,19 @@ title: Smooth Scroll to Element
 
 Smoothly scrolls the webpage to a given HTML element, with optional vertical pixel offset for fine positioning.
 
-## Import
+### Import
 
 ```typescript
 import { smoothScrollTo } from 'nhb-toolbox';
 ```
 
-## Function Signature
+### Function Signature
 
 ```typescript
 smoothScrollTo(element: HTMLElement, offset?: number): void
 ```
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -54,27 +54,27 @@ smoothScrollTo(productList, 100);
 </TabItem>
 </Tabs>
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name    | Type         | Description                                                                           |
 | ------- | ------------ | ------------------------------------------------------------------------------------- |
 | element | HTMLElement  | The DOM element to scroll to.                                                         |
 | offset  | number       | (Optional) Additional vertical offset in pixels (positive = down, negative = up).     |
 
-### Returns
+#### Returns
 
 This function does not return anything (`void`).
 
-## Key Features
+### Key Features
 
 1. **Native Smooth Scrolling**: Uses `scrollIntoView` with smooth behavior.
 2. **Flexible Offset**: Supports extra offset for headers/fixed navigation or pixel-perfect alignment.
 3. **No Page Reload**: Scrolls in place, with no layout shifts or reloads.
 4. **Easy Integration**: Just pass a DOM element and an optional offset.
 
-## Limitations
+### Limitations
 
 1. **Browser-only**: Requires `window` and DOM APIs—will not work server-side.
 2. **Offset Timing**: Offset is applied after a short delay (300ms) to ensure smooth stacking, but timing may require adjustment depending on content/layout speed.
@@ -82,13 +82,13 @@ This function does not return anything (`void`).
 4. **No Callback/Event**: Does not notify when scrolling is complete.
 5. **Possible Overlap**: If new content loads dynamically after scrolling, you may need to call the function again.
 
-## Notes
+### Notes
 
 - Useful for navigation menus, anchor links, "scroll to top" or "back to section" UX.
 - The offset is particularly handy when you have sticky headers or toolbars covering part of the scrolled-to element.
 - For complex scenarios, consider listening for scroll events or using Intersection Observer for enhanced visibility tracking.
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Navigating to sections in single-page applications (FAQs, docs, dashboards).
 - Scroll-to-anchor feature with header-aware adjustment.
