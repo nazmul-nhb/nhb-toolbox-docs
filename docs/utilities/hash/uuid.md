@@ -56,7 +56,7 @@ Throws `Error` if `namespace` is missing or *not a valid uuid* or *name is not a
 ### Example Usage
 
 ```ts
-import { uuid } from 'nhb-toolbox';
+import { uuid } from 'nhb-toolbox/hash';
 
 // Generate a random UUID v4 (default)
 const id1 = uuid();

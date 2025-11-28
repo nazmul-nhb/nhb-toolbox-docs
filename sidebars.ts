@@ -318,6 +318,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/misc/deepParsePrimitives',
 						'utilities/misc/convertArrayToString',
 						'utilities/misc/class-methods',
+						'utilities/misc/definePrototypeMethod',
 					],
 				},
 				{
