@@ -51,7 +51,7 @@ Generates a random unique color in one of three formats: `Hex6`, `RGB`, or `HSL`
 ### Function Signature
 
 ```typescript
-generateRandomColor<C extends $ColorType | undefined = undefined>(
+generateRandomColor<C extends $ColorType = "hex">(
     options?: RandomColorOptions<C>
 ): RandomColor<C>;
 ```
