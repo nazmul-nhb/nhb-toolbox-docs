@@ -16,11 +16,13 @@ A collection of cryptographic and utility functions for hashing, UUID generation
 
 - **[uuid](uuid)** - Generate RFC-compliant UUIDs (versions 1, 3, 4, 5, 6, 7, 8)
 - **[decodeUUID](decodeUUID)** - Decode UUIDs into version, variant, and timestamp information
-- **[Version Checkers](check-uuid-versions)** - Type-safe validation for specific UUID versions
+- **[Version Checkers](check-uuid-versions)** - Type-safe ([branded](/docs/types/utility-types#brandedt-b)) validation for specific UUID versions
 
 ### Random Generation
 
 - **[randomHex](randomHex)** - Generate cryptographically secure random hex strings
+
+> More hash utilities will be available in the future
 
 ## Quick Start
 
@@ -40,7 +42,7 @@ const token = randomHex(16, true);
 ## Features
 
 - **Cross-platform** - Works in Node.js, browsers, and edge runtimes
-- **Type-safe** - Full TypeScript support with branded types
+- **Type-safe** - Full TypeScript support with [branded](/docs/types/utility-types#brandedt-b) types
 - **RFC compliant** - Follows UUID and hash specifications
 - **No dependencies** - Pure JavaScript implementation
 
