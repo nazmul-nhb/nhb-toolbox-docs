@@ -328,14 +328,9 @@ const sidebars: SidebarsConfig = {
 						id: 'utilities/hash/hash',
 					},
 					items: [
-						'utilities/misc/httpStatus',
-						{
-							type: 'doc',
-							id: 'utilities/misc/stylog',
-							label: 'Style Console/Shell Output',
-						},
-						'utilities/misc/stylog-utils',
-						'utilities/misc/class-methods',
+						'utilities/hash/randomHex',
+						'utilities/hash/md5',
+						'utilities/hash/sha1',
 					],
 				},
 			],
