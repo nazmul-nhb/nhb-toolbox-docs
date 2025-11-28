@@ -332,6 +332,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/hash/randomHex',
 						'utilities/hash/md5',
 						'utilities/hash/sha1',
+						'utilities/hash/decodeUUID',
 					],
 				},
 			],
