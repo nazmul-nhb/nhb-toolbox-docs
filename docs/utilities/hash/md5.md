@@ -45,7 +45,7 @@ const fileHash = md5("file content");
 - **32-character hex output** - fixed length regardless of input size
 - **One-way function** - cannot be reversed to obtain original input
 
-:::note[Compatibility Note]
+:::caution[Compatibility Note]
 The output may differ from other MD5 implementations due to algorithmic or encoding variations, but is consistent within this implementation.
 :::
 
@@ -59,3 +59,12 @@ The output may differ from other MD5 implementations due to algorithmic or encod
 ### Security Note
 
 MD5 is considered cryptographically broken and unsuitable for security-sensitive applications. Use stronger hashes like SHA-256 for security purposes.
+
+### Internal Usage
+
+This function is used internally for UUID v3 generation:
+
+```ts
+// Used inside UUID v3
+const digest = md5(namespace + name);
+```

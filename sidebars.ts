@@ -328,6 +328,7 @@ const sidebars: SidebarsConfig = {
 						id: 'utilities/hash/hash',
 					},
 					items: [
+						'utilities/hash/uuid',
 						'utilities/hash/randomHex',
 						'utilities/hash/md5',
 						'utilities/hash/sha1',

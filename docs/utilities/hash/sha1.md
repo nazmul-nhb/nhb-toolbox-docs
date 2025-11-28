@@ -45,7 +45,7 @@ const passwordHash = sha1("mypassword123");
 - **40-character hex output** - fixed length regardless of input size
 - **One-way function** - cannot be reversed to obtain original input
 
-:::note[Compatibility Note]
+:::caution[Compatibility Note]
 The output may differ from other SHA-1 implementations due to algorithmic or encoding variations, but is consistent within this implementation.
 :::
 

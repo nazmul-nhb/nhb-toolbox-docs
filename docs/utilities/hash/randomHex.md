@@ -1,6 +1,6 @@
 ---
 id: randomHex
-title: Random Hex String Generator
+title: Generate Random Hex
 ---
 
 ## randomHex
