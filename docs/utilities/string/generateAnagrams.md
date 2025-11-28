@@ -52,7 +52,7 @@ interface AnagramOptions {
 
 ### Returns
 
-- **Lowercase<string>[]**:
+- **Lowercase\<string\>[]**:
   An array of unique, lowercase anagrams generated from the input word. The original word (lowercased) is always included as the first element.
 
 ### Behavior

@@ -3,9 +3,10 @@ id: mixed-guards
 title: Mixed Guards
 ---
 
+<!-- markdownlint-disable-file MD024 -->
+
 Collection of domain-specific type guards for validating common data formats and runtime environments.
 
-<!-- markdownlint-disable-file MD024 -->
 ## Import
 
 ```typescript
@@ -121,14 +122,14 @@ isUUID(value: unknown): value is UUID<UUIDVersion>
 
 #### Description
 
-Validates if a value is a string representing a UUID of **version 1–8**. Checks:
+Validates if a value is a string representing a UUID of **version 1–8** (`RFC4122`). Checks:
 
 - 8-4-4-4-12 hexadecimal digit pattern.
 - Version marker in the third group (`1-8`).
 - Variant marker in the fourth group (`8`, `9`, `a`, or `b`).
 
 :::tip
-This guard checks `uuid` in case-insensitive mode
+This guard checks `uuid` in **case-insensitive** mode.
 :::
 
 The function narrows down the `value` to a [**branded**](/docs/types/utility-types#brandedt-b) type `UUID<UUIDVersion>` where `UUIDVersion` is the UUID version (`v1`–`v8`).
