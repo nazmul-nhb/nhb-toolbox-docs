@@ -116,23 +116,30 @@ function parseDate(input: unknown) {
 ### `isUUID`
 
 ```typescript
-isUUID(value: unknown): value is string
+isUUID(value: unknown): value is UUID<UUIDVersion>
 ```
 
 #### Description
 
-Validates if a string is a version 4 UUID following RFC 4122 standard format. Checks:
+Validates if a value is a string representing a UUID of **version 1–8**. Checks:
 
-- 8-4-4-4-12 hex digit pattern
-- Version 4 marker ('4' in third group)
-- Variant marker (8, 9, a, or b in fourth group)
+- 8-4-4-4-12 hexadecimal digit pattern.
+- Version marker in the third group (`1-8`).
+- Variant marker in the fourth group (`8`, `9`, `a`, or `b`).
+
+:::tip
+This guard checks `uuid` in case-insensitive mode
+:::
+
+The function narrows down the `value` to a [**branded**](/docs/types/utility-types#brandedt-b) type `UUID<UUIDVersion>` where `UUIDVersion` is the UUID version (`v1`–`v8`).
 
 #### Examples
 
 ```typescript
-// Valid UUIDv4
-isUUID('d9428888-122b-11e8-b642-0ed5f89f718b'); // true
-isUUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // true
+// Valid UUIDs
+isUUID('d9428888-122b-11e8-b642-0ed5f89f718b'); // true (v1)
+isUUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8'); // true (v1)
+isUUID('550e8400-e29b-41d4-a716-446655440000'); // true (v4)
 
 // Invalid formats
 isUUID('not-a-uuid');             // false
@@ -141,7 +148,7 @@ isUUID(123456789);                // false
 
 // Practical usage
 interface Resource {
-  id: string;
+  id: UUID<UUIDVersion>;
   name: string;
 }
 
@@ -149,6 +156,25 @@ function validateResource(res: unknown): res is Resource {
   return isObject(res) && isUUID(res.id) && isString(res.name);
 }
 ```
+
+### Type Definitions
+
+```ts
+/** UUID versions as string from `v1-v8` */
+type UUIDVersion = `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` | `v8`;
+
+/** General 5 parts UUID string type */
+type $UUID = `${string}-${string}-${string}-${string}-${string}`;
+
+/** General 5 parts UUID string as branded type */
+type UUID<V extends UUIDVersion> = Branded<$UUID, V>;
+```
+
+#### Notes
+
+- Supports UUID **versions 1–8**.
+- Returns a branded type to help enforce version-specific UUID typing in TypeScript.
+- Case-insensitive validation.
 
 ### `isURL`
 
