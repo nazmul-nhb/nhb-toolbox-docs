@@ -523,12 +523,11 @@ const user = {
 };
 
 sanitizeData(user, { ignoreNullish: true, ignoreEmpty: true });
-// Returns { name: "John Doe", address: { city: "NYC" } } with exact input type
+// Returns { name: "John Doe", address: { city: "NYC" } } with exact input type which may cause issue when accessing missing properties
 
-sanitizeData(user, { ignoreNullish: true }, 'partial');
-// Return type: FlattenPartial<typeof user> which is Partial<T>
+sanitizeData(user, { ignoreNullish: true, ignoreEmpty: true }, 'partial');
+// Return type: $DeepPartial<typeof user> safe property access by making all the properties (nested objects/arrays) optional 
 // Returns { name: "John Doe", address: { city: "NYC" } }
-// { name: 'John' }
 ```
 
 [Documentation →](/docs/utilities/object/sanitizeData)

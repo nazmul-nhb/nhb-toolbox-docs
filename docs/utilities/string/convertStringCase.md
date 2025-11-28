@@ -19,7 +19,7 @@ The `convertStringCase` function converts a string into common case styles and i
 convertStringCase(value: string, format: CaseFormat, options?: StringCaseOptions): string;
 
 /** Supported output case formats. */
-type CaseFormat = 'camelCase' | 'snake_case' | 'kebab-case' | 'PascalCase' | 'Title Case' | 'UPPERCASE' | 'lowercase';
+type CaseFormat = 'camelCase' | 'snake_case' | 'kebab-case' | 'PascalCase' | 'Title Case' | 'Sentence case' | 'UPPERCASE' | 'lowercase';
 
 /** Options for convertStringCase. */
 interface StringCaseOptions {
@@ -47,6 +47,7 @@ interface StringCaseOptions {
 |           |                    | `'kebab-case'`: Converts to kebab-case (e.g., `my-variable-name`). |
 |           |                    | `'PascalCase'`: Converts to PascalCase (e.g., `MyVariableName`). |
 |           |                    | `'Title Case'`: Converts to Title Case (e.g., `My Variable Name`). |
+|           |                    | `'Sentence case'`: Converts to Sentence case (e.g., `My variable name`). |
 |           |                    | `'lowercase'`: Converts to all lowercase characters. |
 |           |                    | `'UPPERCASE'`: Converts to all uppercase characters. |
 | `options` | `StringCaseOptions` (optional) | Optional settings. Currently supports `preserveAcronyms?: boolean`. When `true`, the function preserves acronym-like tokens (e.g., `API`) in appropriate outputs.                                                  |
@@ -100,6 +101,10 @@ convertStringCase('my example string', 'Title Case');
 /* Title Case: dash preservation */
 convertStringCase('xml-http_request', 'Title Case');
 // => 'Xml-http Request'
+
+/* Sentence case */
+convertStringCase('my example string', 'Sentence case');
+// => 'My example string'
 
 /* Acronym preservation */
 convertStringCase('get API response', 'camelCase', { preserveAcronyms: true });
