@@ -333,6 +333,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/hash/md5',
 						'utilities/hash/sha1',
 						'utilities/hash/decodeUUID',
+						'utilities/hash/check-uuid-versions',
 					],
 				},
 			],

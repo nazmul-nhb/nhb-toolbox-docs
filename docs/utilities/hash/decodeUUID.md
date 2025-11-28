@@ -26,7 +26,7 @@ Returns a structured `DecodedUUID` object for valid UUIDs, or `null` for invalid
 ### Example Usage
 
 ```ts
-import { decodeUUID, uuid } from 'nhb-toolbox';
+import { decodeUUID, uuid } from 'nhb-toolbox/hash';
 
 // Decode a random UUID v4
 const info1 = decodeUUID("f47ac10b-58cc-4372-a567-0e02b2c3d479");
@@ -35,11 +35,11 @@ const info1 = decodeUUID("f47ac10b-58cc-4372-a567-0e02b2c3d479");
 // Decode a time-based UUID v1
 const v1UUID = uuid({ version: "v1" });
 const info2 = decodeUUID(v1UUID);
-// → { version: 1, variant: 'RFC4122', timestamp: 1711234567890, node: 'a1b2c3d4e5f6', ... }
+// → { version: 1, variant: 'RFC4122', timestamp: 1711234567890, node: 'eb303ca57c47', ... }
 
 // Decode a v7 UUID (time-based)
-const v7Info = decodeUUID("017f22e2-79b0-7cc3-98c4-dc0c0c07398f");
-// → { version: 7, variant: 'RFC4122', timestamp: 1711234567, ... }
+const v7Info = decodeUUID("019ac9df-f35d-74ee-9b49-4f6b5ab39b68");
+// → { version: 7, variant: 'RFC4122', timestamp: 1764323488605, ... }
 
 // Invalid UUID returns null
 const invalid = decodeUUID("not-a-uuid");
