@@ -36,6 +36,8 @@ Returns a string with capitalization applied based on the provided options:
 
 ```ts
 import { capitalizeString } from 'nhb-toolbox';
+// or
+import { capitalizeString } from 'nhb-toolbox/change-case';
 ```
 
 #### Basic Capitalization

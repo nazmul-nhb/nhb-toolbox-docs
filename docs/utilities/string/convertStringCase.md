@@ -80,6 +80,8 @@ interface StringCaseOptions {
 
 ```ts
 import { convertStringCase } from 'nhb-toolbox';
+// or
+import { convertStringCase } from 'nhb-toolbox/change-case';
 
 /* Basic conversions */
 convertStringCase('my-example_string', 'camelCase');
@@ -137,9 +139,10 @@ convertStringCase('', 'camelCase');
 
 ---
 
-### See also
+### See Also
 
-- [capitalizeString](capitalizeString) only for capitalization purpose.
+- [**capitalizeString**](capitalizeString) only for capitalization purpose.
+- [**Typed String Case Converters**](typed-case-converters) for typed string literal case conversion.
 
 ---
 
