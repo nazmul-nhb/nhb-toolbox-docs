@@ -11,19 +11,28 @@ All notable changes to the package will be documented here.
 
 ---
 
-## [4.27.00] - 2025-11-28
+## [4.27.10] - 2025-11-28
+
+- **Updated** type augmentation for `String` methods: `toLowerCase` and `toUpperCase` (type level only, implementation remains intact).
+
+## [4.27.1] - 2025-11-28
+
+- **Updated** default *type parameter* for `generateRandomColor` by replacing `undefined` with `'hex'`.
+
+## [4.27.0] - 2025-11-28
 
 ### New
 
 - **Added** *typed* **string case converters** which can only be imported via the *subpath* `'nhb-toolbox/change-case'`.
   - **Also added** *new* utility types for formatting case(s) in type level.
 - **Added** *new* hash utilities: `randomHex`, `md5`, `sha1`, `uuid`. `decodeUUID` and *uuid version checkers* derived from `isUUID`.
-  - **Hash** utilities can only be imported via the *subpath* `'nhb-toolbox/hash'`
+  - **Hash utilities** can only be imported via the *subpath* `'nhb-toolbox/hash'`
 - **Added** *new* `definePrototypeMethod` utility to inject *prototype* methods in a safe (also *type-safe*) manner.
 
 ### Updates
 
 - **Updated** `convertStringCase` utility to accept new format: `'Sentence case'`.
+- **Updated** `generateAnagram` utility to accept an *optional dictionary array* for generating **valid anagrams**.
 - **Updated** `isUUID` to verify versions 1-8 (not just `v4`). It now *narrows down* the value to **branded type** `UUID<UUIDVersion>`.
 
 ## [4.26.74] - 2025-11-23
