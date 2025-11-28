@@ -127,6 +127,14 @@ generateAnagrams('');
 - Duplicate entries in the dictionary are ignored.
 - Using a dictionary does **not** mutate the provided array.
 - Generating all permutations of a word can be expensive for long words; use `limit` to control performance.
+- If you want to use a ready-to-use dictionary download this [english_words.json](https://github.com/nazmul-nhb/nhb-toolbox/blob/main/__dump__/english-words.json) file and use it in the `options`:
+
+    ```ts
+    import dict from './english-words.json'; // match your path
+
+    const words = (dict as { words: string[] }).words; // it contains 370,100 English words
+    generateAnagrams('banana', { dictionary: words });
+    ```
 
 ### Limitations
 
