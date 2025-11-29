@@ -7,6 +7,10 @@ title: MD5 Generator
 
 The `md5` function computes an `MD5` digest of the given string using a pure JavaScript implementation.
 
+:::info[Acknowledgement]
+This utility is highly inspired by the algorithm used in [**pure-md5**](https://github.com/eustatos/pure-md5.git) package.
+:::
+
 ### Function Signature
 
 ```ts
