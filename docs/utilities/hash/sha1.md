@@ -50,7 +50,7 @@ const passwordHash = sha1("mypassword123");
 - Checksum verification
 - Git commit hashing
 - Data integrity checking
-- UUID v5 generation (combined with namespaces)
+- UUID `v5` generation (combined with namespaces)
 
 ### Security Note
 

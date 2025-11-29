@@ -5,7 +5,7 @@ title: MD5 Generator
 
 ## md5
 
-The `md5` function computes an MD5 digest of the given string using a pure JavaScript implementation.
+The `md5` function computes an `MD5` digest of the given string using a pure JavaScript implementation.
 
 ### Function Signature
 
@@ -51,6 +51,7 @@ const fileHash = md5("file content");
 - Data integrity checking
 - Non-cryptographic hashing
 - File fingerprinting
+- UUID `v3` generation (combined with namespaces)
 
 ### Security Note
 
