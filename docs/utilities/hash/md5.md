@@ -21,7 +21,7 @@ md5(str: string): string
 
 ### Return Value
 
-Returns the MD5 hash as a 32-character hexadecimal string.
+Returns the `MD5` hash as a 32-character hexadecimal string.
 
 ### Example Usage
 
@@ -29,13 +29,13 @@ Returns the MD5 hash as a 32-character hexadecimal string.
 import { md5 } from 'nhb-toolbox/hash';
 
 const hash = md5("hello");
-// → "2a40415d762a4bbc919d71b992c51710"
+// → "5d41402abc4b2a76b9719d911017c592"
 
 const emptyHash = md5("");
-// → "d98c1dd404b2008f980980e97e42f8ec"
+// → "d41d8cd98f00b204e9800998ecf8427e"
 
 const fileHash = md5("file content");
-// → "3f4c0bd16db223f13ad468c0232def8b"
+// → "d10b4c3ff123b26dc068d43a8bef2d23"
 ```
 
 ### Characteristics
@@ -44,10 +44,6 @@ const fileHash = md5("file content");
 - **Deterministic output** - same input always produces same output
 - **32-character hex output** - fixed length regardless of input size
 - **One-way function** - cannot be reversed to obtain original input
-
-:::caution[Compatibility Note]
-The output may differ from other MD5 implementations due to algorithmic or encoding variations, but is consistent within this implementation.
-:::
 
 ### Common Uses
 
@@ -58,11 +54,11 @@ The output may differ from other MD5 implementations due to algorithmic or encod
 
 ### Security Note
 
-MD5 is considered cryptographically broken and unsuitable for security-sensitive applications. Use stronger hashes like SHA-256 for security purposes.
+`MD5` is considered cryptographically broken and unsuitable for security-sensitive applications. Use stronger hashes like `SHA-256` for security purposes.
 
 ### Internal Usage
 
-This function is used internally for UUID v3 generation:
+This function is used internally for [UUID](uuid) `v3` generation:
 
 ```ts
 // Used inside UUID v3
