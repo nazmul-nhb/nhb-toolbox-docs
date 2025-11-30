@@ -10,12 +10,12 @@ The `truncateString` function shortens a string to a specified maximum length an
 ### Function Signature
 
 ```typescript
-truncateString (string: string, maxLength: number): string;
+truncateString (str: string, maxLength: number): string;
 ```
 
 ### Parameters
 
-- **`string`**: The string to truncate.
+- **`str`**: The string to truncate.
 - **`maxLength`**: The maximum allowed length before truncation.
 
 ### Return Value
