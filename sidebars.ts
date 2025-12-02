@@ -280,7 +280,7 @@ const sidebars: SidebarsConfig = {
 							id: 'utilities/hash/Signet',
 							label: 'Sign, Decode, Verify Tokens',
 						},
-						'utilities/hash/Signet',
+						'utilities/hash/Cipher',
 						'utilities/hash/randomHex',
 						'utilities/hash/md5',
 						'utilities/hash/sha1',
