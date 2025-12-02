@@ -83,7 +83,11 @@
 		"WCAG",
 		"Westküsten",
 		"Westküstenzeit",
-		"XKCD"
+		"XKCD",
+		"بالعالم",
+		"مرحبا",
+		"পৃথিবী",
+		"হ্যালো"
 	],
 	"postman.settings.dotenv-detection-notification-visibility": false
 }

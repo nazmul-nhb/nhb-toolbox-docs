@@ -9,6 +9,16 @@ Low-level encoding, decoding, and cryptographic functions for working with bytes
 
 ---
 
+## Imports
+
+```ts
+import {
+   utf8ToBytes, utf8ToBytes, base64ToBytes, bytesToBase64,
+   sha256Bytes, hmacSha256, 
+   concatBytes, uint8To32ArrayBE, intTo4BytesBE, bytesToHex
+} from 'nhb-toolbox/hash';
+```
+
 ## UTF-8 Utilities
 
 ### utf8ToBytes
