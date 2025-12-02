@@ -240,8 +240,8 @@ const decrypted = bob.receiveMessage(message.encrypted);
 
 #### Limitations
 
-1. **Custom Construction**: Not a standard algorithm like AES-GCM
-2. **Deterministic IV**: IV generation uses timestamp + Math.random()
+1. **Custom Construction**: Not a standard algorithm like `AES-GCM`
+2. **Deterministic IV**: IV generation uses timestamp + `Math.random()`
 3. **JavaScript Timing**: Constant-time comparisons but JavaScript may leak timing
 4. **No Key Rotation**: Single secret for entire lifecycle
 
@@ -539,9 +539,9 @@ function debugToken(token: string) {
 
 ### See Also
 
-- [Signet](signet) - For authentication tokens
-- [Encoding Utilities](encoding) - For Base64, UTF-8 and binary conversions
+- [Signet](Signet) - For authentication tokens
+- [Encoding Utilities](encoding) - For `Base64`, `UTF-8` and binary conversions
 
 :::caution[Important]
-For production applications requiring strong cryptographic security, consider using the Web Crypto API or Node.js crypto module with established algorithms like AES-GCM.
+For production applications requiring strong cryptographic security, consider using the `Web Crypto API` or Node.js `crypto` module with established algorithms like `AES-GCM`.
 :::
