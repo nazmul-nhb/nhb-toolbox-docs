@@ -330,6 +330,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/misc/stylog-utils',
 						'utilities/misc/debounceAction',
 						'utilities/misc/throttleAction',
+						'utilities/misc/json-stringify',
 						'utilities/misc/parseJSON',
 						'utilities/misc/deepParsePrimitives',
 						'utilities/misc/convertArrayToString',
