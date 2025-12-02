@@ -299,13 +299,13 @@ if (!isNativeTimeZoneId(config.timezone)) {
 
 :::::info[`isValidTimeZoneId` vs `isNativeTimeZoneId`]
 <br/>
-| Aspect           | `isValidTimeZoneId`                    | `isNativeTimeZoneId`                             |
-| ---------------- | -------------------------------------- | ------------------------------------------------ |
-| **Coverage**     | 597 identifiers (full IANA database)   | 418 identifiers (engine-dependent legacy names)  |
-| **Modern Names** | ✅ Includes `Asia/Kolkata` (canonical) | ❌ Usually only `Asia/Calcutta` (legacy)         |
-| **Bundle Size**  | Larger (includes array of identifiers) | Minimal (uses native APIs)                       |
-| **Performance**  | Good                                   | Excellent (native optimized)                     |
-| **Use Case**     | Modern apps, future-proofing           | JS engine compatibility, performance             |
+| Aspect           | `isValidTimeZoneId`                    | `isNativeTimeZoneId`                            |
+| ---------------- | -------------------------------------- | ----------------------------------------------- |
+| **Coverage**     | 597 identifiers (full IANA database)   | 418 identifiers (engine-dependent legacy names) |
+| **Modern Names** | ✅ Includes `Asia/Kolkata` (canonical) | ❌ Usually only `Asia/Calcutta` (legacy)        |
+| **Bundle Size**  | Larger (includes array of identifiers) | Minimal (uses native APIs)                      |
+| **Performance**  | Good                                   | Excellent (native optimized)                    |
+| **Use Case**     | Modern apps, future-proofing           | JS engine compatibility, performance            |
 
 :::tip[Important Note on JavaScript Engine Behavior]
 
@@ -366,3 +366,100 @@ For most applications, **use `isValidTimeZoneId`** as it provides modern, future
 :::
 
 :::::
+
+---
+
+## isTimeWithUnit
+
+Type guard that checks if a value is a valid time string with supported units.
+
+### Function Signature
+
+```typescript
+isTimeWithUnit(value: unknown): value is TimeWithUnit
+```
+
+### Description
+
+Checks whether a given value matches the pattern for time duration strings (e.g., `"30s"`, `"2h"`, `"1.5 days"`). Returns `true` for valid time strings and narrows TypeScript type to `TimeWithUnit`.
+
+### Parameters
+
+| Parameter | Type      | Required | Description    |
+| --------- | --------- | -------- | -------------- |
+| `value`   | `unknown` | Yes      | Value to check |
+
+### Returns
+
+- `boolean` - `true` if value is a valid time string, `false` otherwise
+
+### Type Guard Behavior
+
+When this function returns `true`, TypeScript narrows the type to `TimeWithUnit`:
+
+```typescript
+const input: unknown = getUserInput();
+if (isTimeWithUnit(input)) {
+  // input is now typed as TimeWithUnit
+  const ms = parseMSec(input); // Type-safe
+}
+```
+
+### Supported Formats
+
+**Valid examples:**
+
+- `"30s"`, `"2h"`, `"1.5d"`
+- `"1 hour"`, `"2 weeks"`, `"500 milliseconds"`
+- `"1H"`, `"2HOURS"`, `"3Min"` (case-insensitive)
+- `"-5m"`, `"+2.5h"` (sign optional)
+- All combinations from `TIME_UNIT_VARIANTS`
+
+**Invalid examples:**
+
+- `"30"` (no unit)
+- `"s"` (no number)
+- `"30 unknown"` (invalid unit)
+- Non-string values
+
+### Supported Units
+
+| Unit        | Variants                                             |
+| ----------- | ---------------------------------------------------- |
+| Year        | `y`, `yr`, `yrs`, `year`, `years`                    |
+| Month       | `mo`, `month`, `months`                              |
+| Week        | `w`, `week`, `weeks`                                 |
+| Day         | `d`, `day`, `days`                                   |
+| Hour        | `h`, `hr`, `hrs`, `hour`, `hours`                    |
+| Minute      | `m`, `min`, `mins`, `minute`, `minutes`              |
+| Second      | `s`, `sec`, `secs`, `second`, `seconds`              |
+| Millisecond | `ms`, `msec`, `msecs`, `millisecond`, `milliseconds` |
+
+### Usage Examples
+
+```typescript
+import { parseMSec, isTimeWithUnit } from 'nhb-toolbox';
+
+// Input validation
+function validateTimeout(input: string): TimeWithUnit {
+  if (!isTimeWithUnit(input)) {
+    throw new Error(`Invalid time format: ${input}`);
+  }
+  return input; // Type narrowed
+}
+
+// Configuration parsing
+const envTimeout = process.env.TIMEOUT;
+const timeout = isTimeWithUnit(envTimeout) 
+  ? parseMSec(envTimeout)
+  : parseMSec('30s'); // Default
+
+// Array filtering
+const times = ['30s', 'invalid', '2h', 'unknown', '1.5d'];
+const validTimes = times.filter(isTimeWithUnit);
+// Result: ['30s', '2h', '1.5d']
+```
+
+### Related
+
+- [`parseMSec`](/docs/utilities/date/parse-time#parsemsec) - Parse time strings to milliseconds/seconds

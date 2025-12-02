@@ -31,6 +31,19 @@ parseMSec(value: TimeWithUnit | Numeric, sec?: boolean): number
 - `number` - The parsed time value in milliseconds (or seconds if `sec` is `true`)
 - `NaN` - If the input cannot be parsed
 
+### Supported Units
+
+| Unit        | Variants                                             |
+| ----------- | ---------------------------------------------------- |
+| Year        | `y`, `yr`, `yrs`, `year`, `years`                    |
+| Month       | `mo`, `month`, `months`                              |
+| Week        | `w`, `week`, `weeks`                                 |
+| Day         | `d`, `day`, `days`                                   |
+| Hour        | `h`, `hr`, `hrs`, `hour`, `hours`                    |
+| Minute      | `m`, `min`, `mins`, `minute`, `minutes`              |
+| Second      | `s`, `sec`, `secs`, `second`, `seconds`              |
+| Millisecond | `ms`, `msec`, `msecs`, `millisecond`, `milliseconds` |
+
 ### Type Definitions
 
 ```typescript
