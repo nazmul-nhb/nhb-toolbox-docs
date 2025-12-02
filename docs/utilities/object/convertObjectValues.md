@@ -169,7 +169,6 @@ convertObjectValues(order, {
 1. **Circular References**: May cause stack overflow for deeply nested objects and arrays
 2. **Special Types**: `Date`, `RegExp` etc. are preserved as-is and are not included in keys array if they are nested within objects
 3. **Invalid Numbers**: String values that can't convert to numbers are preserved
-4. **Performance**: Deep cloning may be slow for large structures
 
 ### Recommended Use Cases
 
@@ -184,11 +183,7 @@ convertObjectValues(order, {
 #### `ConvertObjectOptions`
 
 ```typescript
-interface ConvertObjectOptions<
-  T extends GenericObject,
-  Key extends NumericDotKey<T>,
-  C extends 'string' | 'number',
-> {
+interface ConvertObjectOptions<T extends GenericObject, Key extends NumericDotKey<T>, C extends 'string' | 'number'> {
   /** Array of keys (properties) to convert to `number` or `string` */
   keys: ValidArray<Key>;
   /** Convert selected keys to target type: `number` or `string` */

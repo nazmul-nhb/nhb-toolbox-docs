@@ -267,6 +267,22 @@ const sidebars: SidebarsConfig = {
 				},
 				{
 					type: 'category',
+					label: 'Hash Utilities',
+					link: {
+						type: 'doc',
+						id: 'utilities/hash/hash',
+					},
+					items: [
+						'utilities/hash/uuid',
+						'utilities/hash/randomHex',
+						'utilities/hash/md5',
+						'utilities/hash/sha1',
+						'utilities/hash/decodeUUID',
+						'utilities/hash/check-uuid-versions',
+					],
+				},
+				{
+					type: 'category',
 					label: 'Form Utilities',
 					link: {
 						type: 'doc',
@@ -319,22 +335,6 @@ const sidebars: SidebarsConfig = {
 						'utilities/misc/convertArrayToString',
 						'utilities/misc/class-methods',
 						'utilities/misc/definePrototypeMethod',
-					],
-				},
-				{
-					type: 'category',
-					label: 'Hash Utilities',
-					link: {
-						type: 'doc',
-						id: 'utilities/hash/hash',
-					},
-					items: [
-						'utilities/hash/uuid',
-						'utilities/hash/randomHex',
-						'utilities/hash/md5',
-						'utilities/hash/sha1',
-						'utilities/hash/decodeUUID',
-						'utilities/hash/check-uuid-versions',
 					],
 				},
 			],

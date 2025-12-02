@@ -5,19 +5,20 @@ title: Clone Object
 
 ## cloneObject
 
-Creates a deep clone of an object using JSON serialization.
+Creates a deep clone of an object using either [**structuredClone**](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone) (when available) or deterministic JSON serialization.
 
 ### Function Signature
 
 ```typescript
-cloneObject<T extends GenericObject>(obj: T): T
+cloneObject<T extends GenericObject>(obj: T, serialize?: boolean): T
 ```
 
 ### Parameters
 
-| Parameter | Type                      | Description         |
-| --------- | ------------------------- | ------------------- |
-| `obj`     | `T extends GenericObject` | The object to clone |
+| Parameter   | Type                      | Description                                                                |
+| ----------- | ------------------------- | -------------------------------------------------------------------------- |
+| `obj`       | `T extends GenericObject` | The object to clone                                                        |
+| `serialize` | `boolean` (optional)      | When `true`, forces deterministic JSON serialization. Defaults to `false`. |
 
 ### Returns
 
@@ -32,14 +33,22 @@ const original = {
   name: 'John',
   address: {
     city: 'New York'
-  }
+  },
+  date: new Date('2023-01-01'),
+  map: new Map([['key', 'value']])
 };
 
+// Default behavior - uses structuredClone when available
 const cloned = cloneObject(original);
 
 console.log(cloned === original); // false
-console.log(isDeepEqual(cloned, original)); // true
-console.log(cloned.address === original.address); // false
+console.log(cloned.date instanceof Date); // true (preserved by structuredClone)
+console.log(cloned.map instanceof Map); // true (preserved by structuredClone)
+
+// Force JSON serialization mode
+const serializedClone = cloneObject(original, true);
+console.log(typeof serializedClone.date); // "string" (converted by JSON serialization)
+console.log(serializedClone.map); // {} (Map converted to empty object)
 ```
 
 ### Type Definition
@@ -48,54 +57,102 @@ console.log(cloned.address === original.address); // false
 type GenericObject = Record<string, any>;
 ```
 
-### Behavior Details
+## Behavior Details
 
-1. **Deep Cloning**
-   - Nested objects are fully cloned
-   - Array references are broken
-   - Circular references will cause errors
+### Primary Behavior (Default: `serialize = false`)
 
-2. **Supported Types**
-   - Objects
-   - Arrays
-   - Primitives (string, number, boolean, null)
-   - Dates (converted to strings)
-   - Other JSON-serializable values
+When `serialize` is `false` (default) and `structuredClone` is available:
 
-3. **Unsupported Types**
-   - Functions
-   - Symbols
-   - Undefined values
-   - Class instances
-   - DOM elements
-   - Circular references
+- Uses the browser's built-in `structuredClone` API
+- Supports circular references
+- Preserves `Date` objects, `Map`, `Set`, `RegExp`, and Typed Arrays
+- Preserves `undefined` values
+- **Note:** Does not preserve class prototypes, only built-in types
 
-### Limitations
+### Deterministic Serialization Mode (`serialize = true`)
 
-1. **Performance**
-   - Not optimal for very large objects
-   - Serialization/deserialization has overhead
+When `serialize` is `true`, or when `structuredClone` is unavailable:
 
-2. **Type Fidelity**
-   - Loses type information for custom classes
-   - Converts Dates to strings
+- Uses stable JSON serialization via [stableStringify]
+- All object keys are sorted alphabetically for deterministic output
+- All `undefined` values are converted to `null`
+- Date-like objects (`Date`, `Chronos`, `Moment.js`, etc.) are converted to strings **in the same way that `JSON.stringify` would serialize them**, ensuring predictable and JSON-compliant output.
+- Guarantees consistent output across environments
 
-3. **Edge Cases**
-   - Throws on circular references
-   - Drops undefined values
+### Final Safety Fallback
 
-### Use Cases
+If both cloning methods fail (e.g., JSON serialization with circular references):
 
-- Creating object snapshots
-- Immutable state updates
-- Breaking reference chains
-- Simple deep copies of data objects
+- Returns a shallow clone (`{ ...obj }`)
+- Ensures the function never throws
 
-### Alternative Approaches
+## Supported Types
 
-For more robust cloning consider:
+### With `structuredClone` (default mode)
 
-- Built-in [`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone)
-- Structured cloning algorithm
-- Lodash's `cloneDeep`
-- Manual cloning for complex types
+- Objects and arrays
+- Primitives (string, number, boolean, null, undefined)
+- `Date` objects (preserved)
+- `Map`, `Set`, `RegExp` (preserved)
+- Typed arrays (preserved)
+- Circular references (supported)
+- Most built-in JavaScript types
+
+### With JSON serialization mode
+
+- Objects and arrays (with sorted keys)
+- Primitives (string, number, boolean, null)
+- Date-like objects (converted to strings)
+- All `undefined` values (converted to `null`)
+- JSON-serializable values only
+
+## Unsupported Types
+
+### In both modes
+
+- Functions
+- Symbols (dropped in JSON mode)
+- Class instances (prototype information lost)
+- DOM elements
+
+### JSON serialization specific
+
+- Circular references (will fail, triggers fallback)
+- Non-JSON-serializable values
+
+## Use Cases
+
+### Default mode (`serialize = false`)
+
+- General-purpose deep cloning
+- Cloning objects with circular references
+- Preserving Date, Map, Set, and other built-in types
+- When type fidelity for built-in types is important
+
+### Deterministic mode (`serialize = true`)
+
+- Hashing and fingerprinting
+- Signature generation
+- Deep equality checks
+- Creating deterministic snapshots
+- Any scenario requiring environment-neutral, consistent output
+
+## Limitations
+
+### Performance Considerations
+
+- `structuredClone` is generally faster than JSON serialization
+- JSON serialization with stable stringify has additional overhead
+- Very large objects may have performance implications in either mode
+
+### Type Fidelity
+
+- Neither mode preserves custom class prototypes
+- JSON mode converts all Date-like objects to strings
+- JSON mode converts Maps/Sets to plain objects
+
+## Alternative Approaches
+
+- **[`structuredClone`](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone) API**: Direct usage for modern environments
+- **Lodash's `cloneDeep`**: More comprehensive but larger bundle size
+- **Manual cloning**: For complex custom types requiring prototype preservation

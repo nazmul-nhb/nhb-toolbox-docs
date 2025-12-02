@@ -11,6 +11,26 @@ All notable changes to the package will be documented here.
 
 ---
 
+## [4.28.4] - 2025-12-02
+
+- **Updated** *implementation* and *tsdoc* for:
+  - `cloneObject`: used `structuredClone` and `stableStringify` (optionally force to use *deterministic serialization*) internally and falls back to *shallow cloning* if serialization fails.
+  - `stableStringify`: stringified value of *Date-like objects* (`Date`, `Chronos`, `Moment.js`, `Day.js`, `Luxon`, `JS-Joda`, `Temporal`) is converted to string representation (in the same way that `JSON.stringify` would serialize them).
+- **Updated** `convertObjectValues` behaviour: *fields* configured for *number conversion* now return `NaN` when *parsing fails*.
+- **Updated** *reference links* in *tsdoc* of some *hash* utilities.
+
+## [4.28.1] - 2025-12-02
+
+- **Updated** *type* names `TokenHeader` to `SignetHeader` and `TokenPayload` to `SignetPayload` and both are available to import.
+
+## [4.28.0] - 2025-12-01
+
+- **Added** *new* class `Cipher` to *encrypt/decrypt* string with *secret key*.
+- **Added** *new* class `Signet` to *sign*, *decode* and *verify* **token** like `JWT`.
+- **Added** *new* `sha256` hash function. **Updated** `sha1` *encoding algorithm*. Now it avoids depending on `TextEncoder`.
+- **Added** *new* utility `parseMSec` to convert time value to *milliseconds* or *seconds* along with new *type guard* `isTimeWithUnit`.
+- **Added** *new* `JSON` utilities: `stableStringify` for *stable, deterministic stringifying* and `stripJsonEdgeGarbage` for stripping `JSON` string.
+
 ## [4.27.11] - 2025-11-29
 
 - **Updated** *core algorithms* of `md5` and `sha1` utilities to fix *incorrect hash digest generation*.
