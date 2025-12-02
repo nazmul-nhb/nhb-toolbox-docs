@@ -9,7 +9,7 @@ Creates a throttled version of a callback that ensures it executes at most once 
 
 ---
 
-## Import
+### Import
 
 ```typescript
 import { throttleAction } from 'nhb-toolbox';
@@ -17,7 +17,7 @@ import { throttleAction } from 'nhb-toolbox';
 
 ---
 
-## Function Signature
+### Function Signature
 
 ```typescript
 throttleAction<T extends VoidFunction>( callback: T, delay?: number): ThrottledFn<T>
@@ -25,7 +25,7 @@ throttleAction<T extends VoidFunction>( callback: T, delay?: number): ThrottledF
 
 ---
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -67,9 +67,9 @@ log();
 
 ---
 
-## API Reference
+### API Reference
 
-### Type Definitions
+#### Type Definitions
 
 ```ts
 /** Generic function type that returns `void` */
@@ -79,20 +79,20 @@ type VoidFunction = (...args: any[]) => void;
 type ThrottledFn<T extends VoidFunction> = (...args: Parameters<T>) => void;
 ```
 
-### Parameters
+#### Parameters
 
 | Name      | Type        | Description                                               |
 |-----------|-------------|----------------------------------------------------------|
 | callback  | VoidFunction| The function to throttle.                                |
 | delay     | number      | Delay in milliseconds (default: 150).                    |
 
-### Returns
+#### Returns
 
 A throttled version of the callback, invoked at most once per interval.
 
 ---
 
-## Key Features
+### Key Features
 
 1. **Generic:** Works with any callback signature.
 2. **Prevents Flooding:** Ensures even spacing between calls.
@@ -100,7 +100,7 @@ A throttled version of the callback, invoked at most once per interval.
 
 ---
 
-## Limitations
+### Limitations
 
 1. **No Trailing Calls:** Only leading edge execution; trailing invocation is not supported.
 2. **No Cancel/Flush:** Does not support canceling or flushing scheduled calls.
@@ -108,7 +108,7 @@ A throttled version of the callback, invoked at most once per interval.
 
 ---
 
-## Notes
+### Notes
 
 - Use throttle for scroll, resize, or mouse-move events to protect performance.
 - Use debounce for “do X after no more triggers”; throttle for “do X at regular intervals”.
@@ -116,7 +116,7 @@ A throttled version of the callback, invoked at most once per interval.
 
 ---
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Window resize or scroll listeners.
 - Animation frame limiting.

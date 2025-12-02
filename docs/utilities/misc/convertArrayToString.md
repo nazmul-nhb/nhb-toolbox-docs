@@ -7,13 +7,13 @@ title: Convert Array to String
 
 Joins elements of an array of primitive values or array of objects into a single string using a custom separator.
 
-## Import
+### Import
 
 ```ts
 import { convertArrayToString } from 'nhb-toolbox';
 ```
 
-## Function Signatures
+### Function Signatures
 
 <Tabs groupId="overload">
 <TabItem value="primitive" label="Array of Primitives">
@@ -43,7 +43,7 @@ convertArrayToString<T extends GenericObject>(
 </TabItem>
 </Tabs>
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -94,9 +94,9 @@ convertArrayToString([], { separator: ';' });
 </TabItem>
 </Tabs>
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name                | Type     | Description                                                                             |
 | ------------------- | -------- | --------------------------------------------------------------------------------------- |
@@ -105,24 +105,24 @@ convertArrayToString([], { separator: ';' });
 | `options.separator` | `string` | Optional separator for joining values (default: `", "`)                                 |
 | `options.target`    | `string` | Required if array contains objects. Dot-accessible key to extract primitive values only |
 
-### Returns
+#### Returns
 
 A string formed by joining the values (primitive or extracted) with the given separator.
 
-## Key Features
+### Key Features
 
 1. ✅ **Supports Primitives and Objects:** Handles both types cleanly with overloads.
 2. 🧩 **Nested Key Extraction:** Extracts deep object properties using dot notation like `"user.name"`.
 3. 🧼 **Handles Empty Inputs:** Returns empty string if array is `undefined` or empty.
 4. 🛠️ **Customizable Separator:** Use any string to separate values (e.g., `" - "`, `"|"`, etc.).
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 * Formatting tag or category lists for display.
 * Preparing data for tooltips, labels, logs, or CSV-like formats.
 * Joining object property values for human-readable summaries.
 
-## Notes
+### Notes
 
 * This function **always checks for array validity** before processing.
 * For **object arrays**, use the `target` option to specify the key to extract (e.g., `"user.name"`).
@@ -133,7 +133,7 @@ A string formed by joining the values (primitive or extracted) with the given se
 convertArrayToString(users.map(u => u.name.trim()), { separator: ' • ' });
 ```
 
-## Limitations
+### Limitations
 
 Requires a valid array. If not, it returns an empty string.
 
@@ -149,12 +149,12 @@ Requires a valid array. If not, it returns an empty string.
 
 :::
 
-## Aliases
+### Aliases
 
 * `joinArrayElements` – named export alias for `convertArrayToString`
 
 ---
 
-## Conclusion
+### Conclusion
 
 `convertArrayToString` makes joining arrays clean, type-safe, and flexible—perfect for tags, logs, tooltips, and more. Just supply your array and desired separator!

@@ -9,7 +9,7 @@ Creates a debounced version of a callback that delays its execution until after 
 
 ---
 
-## Import
+### Import
 
 ```typescript
 import { debounceAction } from 'nhb-toolbox';
@@ -17,7 +17,7 @@ import { debounceAction } from 'nhb-toolbox';
 
 ---
 
-## Function Signature
+### Function Signature
 
 ```typescript
 debounceAction<T extends VoidFunction>(callback: T, delay?: number): DelayedFn<T>
@@ -25,7 +25,7 @@ debounceAction<T extends VoidFunction>(callback: T, delay?: number): DelayedFn<T
 
 ---
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -67,9 +67,9 @@ log();
 
 ---
 
-## API Reference
+### API Reference
 
-### Type Definitions
+#### Type Definitions
 
 ```ts
 /** Generic function type that returns `void` */
@@ -79,20 +79,20 @@ type VoidFunction = (...args: any[]) => void;
 type DelayedFn<T extends VoidFunction> = (...args: Parameters<T>) => void;
 ```
 
-### Parameters
+#### Parameters
 
 | Name      | Type        | Description                                           |
 |-----------|-------------|------------------------------------------------------|
 | callback  | VoidFunction| The function to debounce.                            |
 | delay     | number      | Delay in milliseconds (default: 300).                |
 
-### Returns
+#### Returns
 
 A debounced version of the callback which delays invocation.
 
 ---
 
-## Key Features
+### Key Features
 
 1. **Debounces Any Function:** Works with any argument signature.
 2. **Customizable Delay:** Default and custom delay support.
@@ -101,7 +101,7 @@ A debounced version of the callback which delays invocation.
 
 ---
 
-## Limitations
+### Limitations
 
 1. **No Immediate Mode:** There's no built-in "immediate" execution option.
 2. **No Cancel/Flush:** Does not expose cancel or flush controls.
@@ -109,7 +109,7 @@ A debounced version of the callback which delays invocation.
 
 ---
 
-## Notes
+### Notes
 
 - Debounce helps avoid excessive triggers (e.g., API calls per keystroke).
 - Useful for typeahead, filtering, resize/listen events, and more.
@@ -118,7 +118,7 @@ A debounced version of the callback which delays invocation.
 
 ---
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Search inputs (wait until user stops typing).
 - Window resizing or scroll event handlers.

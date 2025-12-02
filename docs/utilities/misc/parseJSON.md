@@ -9,7 +9,7 @@ Parses any valid JSON string (including arrays, primitives, or objects) and opti
 
 ---
 
-## Import
+### Import
 
 ```typescript
 import { parseJSON } from 'nhb-toolbox';
@@ -18,7 +18,7 @@ import { parseJsonDeep } from 'nhb-toolbox';
 
 ---
 
-## Function Signature
+### Function Signature
 
 ```typescript
 parseJSON<T = unknown>(value: string, parsePrimitives?: boolean): T
@@ -26,7 +26,7 @@ parseJSON<T = unknown>(value: string, parsePrimitives?: boolean): T
 
 ---
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -76,23 +76,23 @@ parseJSON("{ key: 'value' }");
 
 ---
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name             | Type      | Description                                                                |
 | ---------------- | --------- | -------------------------------------------------------------------------- |
 | value            | string    | The JSON string to parse.                                                  |
 | parsePrimitives  | boolean   | Optional. If true (default), recursively converts stringified primitives.  |
 
-### Returns
+#### Returns
 
 - The parsed JSON value (typed as `T`), which may be an object, array, string, number, or boolean.
 - Returns `{}` if the input is not valid JSON.
 
 ---
 
-## Key Features
+### Key Features
 
 1. **Flexible Root:** Accepts any valid JSON root (object, array, primitive).
 2. **Recursive Primitive Conversion:** Converts stringified numbers, booleans, `null`—deeply (see [deepParsePrimitives](deepParsePrimitives)).
@@ -101,7 +101,7 @@ parseJSON("{ key: 'value' }");
 
 ---
 
-## Aliases
+### Aliases
 
 Also exported as:
 
@@ -109,7 +109,7 @@ Also exported as:
 
 ---
 
-## Limitations
+### Limitations
 
 1. **Invalid input returns `{}`:** May mask input errors—double-check your sources.
 2. **Only JSON-safe types:** Non-JSON, circular, or function values will not parse.
@@ -118,7 +118,7 @@ Also exported as:
 
 ---
 
-## Notes
+### Notes
 
 - For strict object parsing (root must be an object), use [`parseJsonToObject`](../object/parseJsonToObject).
 - For deep primitive conversion logic, see [`deepParsePrimitives`](deepParsePrimitives).
@@ -126,7 +126,7 @@ Also exported as:
 
 ---
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Parsing unpredictable API or config data.
 - Accepting JSON from user input, file uploads, or dynamic sources.
@@ -134,7 +134,7 @@ Also exported as:
 
 ---
 
-## See Also
+### See Also
 
 - [`deepParsePrimitives`](deepParsePrimitives): Recursively converts stringified primitives inside objects/arrays.
 - [`parseJsonToObject`](../object/parseJsonToObject): Like `parseJSON`, but root must be an object.

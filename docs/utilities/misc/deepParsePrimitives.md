@@ -9,7 +9,7 @@ Recursively parses an input—object, array, or primitive—and converts stringi
 
 ---
 
-## Import
+### Import
 
 ```typescript
 import { deepParsePrimitives } from 'nhb-toolbox';
@@ -18,7 +18,7 @@ import { parsePrimitivesDeep } from 'nhb-toolbox';
 
 ---
 
-## Function Signature
+### Function Signature
 
 ```typescript
 deepParsePrimitives<T = unknown>(input: unknown): T
@@ -26,7 +26,7 @@ deepParsePrimitives<T = unknown>(input: unknown): T
 
 ---
 
-## Usage Examples
+### Usage Examples
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -82,21 +82,21 @@ deepParsePrimitives({ word: "hello", code: "A1B" });
 
 ---
 
-## API Reference
+### API Reference
 
-### Parameters
+#### Parameters
 
 | Name   | Type    | Description                                  |
 |--------|---------|----------------------------------------------|
 | input  | unknown | Any value: array, object, primitive, etc.    |
 
-### Returns
+#### Returns
 
 - The input structure, with all strings like `"true"`, `"42"`, `"null"`, or `"undefined"` converted to their actual JS primitive types, recursively.
 
 ---
 
-## Key Features
+### Key Features
 
 1. **Recursive:** Handles any nesting depth—arrays and objects are traversed fully.
 2. **Smart Conversion:** Converts `"true"`/`"false"` (case-insensitive) to booleans, string numbers to numbers, `"null"` to `null`, and `"undefined"` to `undefined`.
@@ -105,7 +105,7 @@ deepParsePrimitives({ word: "hello", code: "A1B" });
 
 ---
 
-## Aliases
+### Aliases
 
 Also exported as:
 
@@ -113,7 +113,7 @@ Also exported as:
 
 ---
 
-## Limitations
+### Limitations
 
 1. **String Match Only:** Only exact matches (`"true"`, not `"True"` or `"TRUE"`, for booleans; numeric strings must be entirely numeric, etc.).
 2. **Falsy Strings Stay Strings:** Strings like `"0"` are converted to `0`, but random strings (e.g., `"no"`, `"NaN"`) are left unchanged.
@@ -121,21 +121,21 @@ Also exported as:
 
 ---
 
-## Notes
+### Notes
 
 - Most useful after JSON parsing (see [`parseJSON`](./parseJSON)) or any time you process loosely typed data (e.g., from APIs, user input, or query strings).
 - For strict root-object-only parsing, see [`parseJsonToObject`](../object/parseJsonToObject).
 
 ---
 
-## See Also
+### See Also
 
 - [`parseJSON`](./parseJSON): Complete JSON parsing with deep primitive conversion.
 - [`parseJsonToObject`](../object/parseJsonToObject): Like `parseJSON`, but requires an object at the root.
 
 ---
 
-## Recommended Use Cases
+### Recommended Use Cases
 
 - Cleaning up data from APIs, user forms, or URL query decoding.
 - Ensuring type-safety after parsing loosely-typed or legacy data.
