@@ -5,7 +5,7 @@ title: Cipher - Encrypt/Decrypt Text
 
 ## Cipher
 
-A lightweight stream-cipher encryption utility using `HMAC-SHA256` for keystream generation and authentication.
+A lightweight `stream-cipher` encryption utility using `HMAC-SHA256` for keystream generation and authentication.
 
 ### Overview
 

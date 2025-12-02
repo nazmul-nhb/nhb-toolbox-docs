@@ -28,8 +28,10 @@ async function syncChangelog(): Promise<void> {
 	const rawUrl = 'https://raw.githubusercontent.com/nazmul-nhb/nhb-toolbox/main/CHANGELOG.md';
 
 	const response = await fetch(rawUrl);
-	if (!response.ok)
+
+	if (!response.ok) {
 		throw new Error(`❌ Failed to fetch CHANGELOG.md: ${response.statusText}`);
+	}
 
 	const content = await response.text();
 
