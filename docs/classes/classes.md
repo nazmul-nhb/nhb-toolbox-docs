@@ -14,6 +14,8 @@ title: Explore well-crafted classes for efficiency
 - [**`LogStyler`**](/docs/classes/LogStyler) - Console output(s) style handling
 - [**`HttpStatus`**](/docs/classes/HttpStatus) - Elegant HTTP status codes management  
 - [**`Converter`**](/docs/classes/Converter) *classes* - Comprehensive Measurement Conversion  
+- [**`Cipher`**](/docs/utilities/hash/Cipher) - Encrypt, decrypt text in `stream-cipher` encryption style  
+- [**`Signet`**](/docs/utilities/hash/Signet) - Sign, decode, verify tokens in `JWT` style  
 - [**`Finder`**](/docs/classes/Finder) - Sophisticated array searching  
 - [**`Paginator`**](/docs/classes/Paginator) - Elegant pagination handling  
 - [**`Unit`**](/docs/classes/Unit) & [**`Currency`**](/docs/classes/Currency) - Unit and currency handling

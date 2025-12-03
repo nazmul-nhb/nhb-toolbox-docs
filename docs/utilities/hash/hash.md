@@ -1,9 +1,9 @@
 ---
 id: hash
-title: Hash Utilities
+title: Hash & Encoding Utilities
 ---
 
-A collection of cryptographic and utility functions for hashing, UUID generation, and random string creation.
+A comprehensive suite of hashing, UUID, encoding, and lightweight cryptographic utilities—including JWT-style signing [Signet](Signet), `stream-cipher` encryption [Cipher](Cipher), and more.
 
 ## Available Utilities
 

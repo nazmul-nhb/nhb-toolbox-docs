@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 ## `httpStatus`
 
 The **`httpStatus`** is a **default shared instance** of the [`HttpStatus`](/docs/classes/HttpStatus) class.  
-It comes **preloaded with all standard HTTP status codes** and their metadata from MDN documentation.
+It comes **preloaded with all standard HTTP status codes** and their metadata from [**MDN documentation**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status).
 
 :::info[Data Source]
-This utility includes all standard HTTP status codes with metadata adapted from MDN documentation.
+This utility includes all standard HTTP status codes with metadata adapted from [**MDN documentation**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status).
 
 - Each entry includes: code, name, readable name, description, and category
 - Categories are pre-grouped for easy filtering (informational, success, redirection, clientError, serverError)
@@ -33,11 +33,9 @@ This utility includes all standard HTTP status codes with metadata adapted from 
 
 - ✅ Lookup status codes by number or name (both `SOME_NAME` and `Some Name` formats)
 - ✅ Built-in **standard HTTP status codes** from MDN
-- ✅ Modify status codes dynamically:
-  - `addCode()` - Add custom status codes
-  - `setMessage()` - Override default messages
+- ✅ Manage status codes dynamically with [`addCode()`](/docs/classes/HttpStatus#addcode), [`setMessage()`](/docs/classes/HttpStatus#setmessage), and [`addOrOverrideCode()`](/docs/classes/HttpStatus#addoroverridecode)
 - ✅ Pre-grouped categories for quick filtering
-- ✅ Fully typed for TypeScript users
+- ✅ Fully typed for TypeScript with comprehensive utility types
 
 ---
 

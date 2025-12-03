@@ -5,7 +5,7 @@ title: Generate Random Hex
 
 ## randomHex
 
-The `randomHex` function generates a cryptographically secure random hexadecimal string of the specified length.
+The `randomHex` function generates a random hexadecimal string of the specified length.
 
 ### Function Signature
 

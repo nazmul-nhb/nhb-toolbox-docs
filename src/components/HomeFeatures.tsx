@@ -2,6 +2,7 @@ import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import { type JSX, type ReactNode } from 'react';
 import styles from './styles.module.css';
+import { getLastArrayElement } from 'nhb-toolbox';
 
 type FeatureItem = {
 	title: ReactNode;
@@ -53,8 +54,8 @@ const FeatureList: FeatureItem[] = [
 		description: (
 			<>
 				Comprehensive string manipulation including case conversion, pluralization,
-				singularization, anagram generation, string masking, URL/email extraction,
-				and advanced text processing with Levenshtein distance and many more.
+				singularization, anagram generation, string masking, URL/email extraction, and
+				advanced text processing with Levenshtein distance and many more.
 			</>
 		),
 	},
@@ -62,9 +63,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/number">Number Utilities</Link>,
 		description: (
 			<>
-				Mathematical operations (HCF/LCM, averages, percentage), Fibonacci
-				generators, prime number utilities, number conversions (words, Roman
-				numerals), currency formatting, and many more.
+				Mathematical operations (HCF/LCM, averages, percentage), Fibonacci generators,
+				prime number utilities, number conversions (words, Roman numerals), currency
+				formatting, and many more.
 			</>
 		),
 	},
@@ -72,9 +73,9 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/object">Object Utilities</Link>,
 		description: (
 			<>
-				Deep object operations including cloning, merging, flattening, field
-				counting, selective picking/remapping, JSON parsing/serialization, and deep
-				equality checks and many more.
+				Deep object operations including cloning, merging, flattening, field counting,
+				selective picking/remapping, JSON parsing/serialization, and deep equality
+				checks and many more.
 			</>
 		),
 	},
@@ -83,8 +84,8 @@ const FeatureList: FeatureItem[] = [
 		description: (
 			<>
 				Array transformations (flattening, shuffling), duplicate handling, natural
-				sorting, advanced element finding with Finder class, missing elements
-				detection, and robust array validation.
+				sorting, advanced element finding with Finder class, missing elements detection,
+				and robust array validation.
 			</>
 		),
 	},
@@ -93,8 +94,8 @@ const FeatureList: FeatureItem[] = [
 		description: (
 			<>
 				Advanced color manipulation with conversion between HEX, RGB, HSL formats,
-				random color generation, alpha channel support, and specialized utilities
-				for working with color initials.
+				random color generation, alpha channel support, and specialized utilities for
+				working with color initials.
 			</>
 		),
 	},
@@ -102,8 +103,8 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/date">Date & Time Utilities</Link>,
 		description: (
 			<>
-				Timezone handling, UTC conversions, greeting generation, leap year
-				detection, and comprehensive date validation with strict type guards. With{' '}
+				Timezone handling, UTC conversions, greeting generation, leap year detection,
+				and comprehensive date validation with strict type guards. With{' '}
 				<code>
 					<Link to="/docs/classes/Chronos">Chronos</Link>
 				</code>{' '}
@@ -120,8 +121,8 @@ const FeatureList: FeatureItem[] = [
 		title: <Link to="/docs/utilities/form">Form Utilities</Link>,
 		description: (
 			<>
-				FormData handling with type-safe FormData creation (in controlled way),
-				parsing FormData and Form serialization.
+				FormData handling with type-safe FormData creation (in controlled way), parsing
+				FormData and Form serialization.
 			</>
 		),
 	},
@@ -145,12 +146,25 @@ const FeatureList: FeatureItem[] = [
 		),
 	},
 	{
+		title: <Link to="/docs/utilities/hash">Hash & Encoding Utilities</Link>,
+		description: (
+			<>
+				A suite of hashing, encoding,{' '}
+				<Link to="/docs/utilities/hash/uuid">UUID generation</Link>, lightweight crypto
+				tools like <Link to="/docs/utilities/hash/Signet">Signet</Link> and{' '}
+				<Link to="/docs/utilities/hash/Cipher">Cipher</Link>, plus{' '}
+				<Link to="/docs/utilities/hash/randomHex">random hex string generator</Link> and
+				other utilities.
+			</>
+		),
+	},
+	{
 		title: <Link to="/docs/predicates-guards">Predicates & Type Guards</Link>,
 		description: (
 			<>
-				Comprehensive runtime type checking for primitives, non-primitives, and
-				special types (Base64, Email, UUID, URLs) with perfect TypeScript type
-				inference. Also has a collection of predicate functions.
+				Comprehensive runtime type checking for primitives, non-primitives, and special
+				types (Base64, Email, UUID, URLs) with perfect TypeScript type inference. Also
+				has a collection of predicate functions.
 			</>
 		),
 	},
@@ -159,16 +173,23 @@ const FeatureList: FeatureItem[] = [
 		description: (
 			<>
 				This package includes not only functional utilities but also a growing
-				collection of type-level utilities, including ready-to-use constants,
-				designed to enhance type safety and developer ergonomics.
+				collection of type-level utilities, including ready-to-use constants, designed
+				to enhance type safety and developer ergonomics.
 			</>
 		),
 	},
 ];
 
-function Feature({ title, description }: FeatureItem) {
+interface FeatureProps extends FeatureItem {
+	shouldBeCentered: boolean;
+}
+
+function Feature({ title, description, shouldBeCentered }: FeatureProps) {
 	return (
-		<div style={{ marginBottom: '24px' }} className={clsx('col col--4')}>
+		<div
+			style={{ marginBottom: '24px', ...(shouldBeCentered ? { margin: '0 auto' } : {}) }}
+			className={clsx('col col--4')}
+		>
 			<div className="text--center padding-horiz--md">
 				<h3>{title}</h3>
 				<div>{description}</div>
@@ -182,8 +203,12 @@ export default function HomeFeatures(): JSX.Element {
 		<section className={styles.features}>
 			<div className="container">
 				<div className="row">
-					{FeatureList.map((props, idx) => (
-						<Feature key={idx} {...props} />
+					{FeatureList.map((feature, idx, self) => (
+						<Feature
+							key={idx}
+							{...feature}
+							shouldBeCentered={self.length % 3 === 1 && self.length - 1 === idx}
+						/>
 					))}
 				</div>
 			</div>

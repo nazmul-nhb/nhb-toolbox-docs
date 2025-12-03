@@ -268,7 +268,7 @@ const sidebars: SidebarsConfig = {
 				},
 				{
 					type: 'category',
-					label: 'Hash Utilities',
+					label: 'Hash & Encoding Utilities',
 					link: {
 						type: 'doc',
 						id: 'utilities/hash/hash',
