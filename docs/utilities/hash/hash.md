@@ -19,7 +19,7 @@ A collection of cryptographic and utility functions for hashing, UUID generation
 - **[decodeUUID](decodeUUID)** - Decode UUIDs into version, variant, and timestamp information
 - **[Version Checkers](check-uuid-versions)** - Type-safe ([branded](/docs/types/utility-types#brandedt-b)) validation for specific UUID versions
 
-### Encryption/Authorization Tools
+### Encryption/Authentication Tools
 
 - **[Signet](Signet)** - Sign, decode, verify tokens in `JWT` style
 - **[Cipher](Cipher)** - Encrypt, decrypt text in `stream-cipher` encryption style
@@ -59,3 +59,4 @@ const token = randomHex(16, true);
 - Data integrity verification
 - Creating random tokens and nonces
 - Cryptographic hashing needs
+- Encrypting/decrypting text, tokens etc.
