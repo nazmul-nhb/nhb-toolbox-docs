@@ -3,6 +3,8 @@ id: time-zone
 title: Get Time Zone Details
 ---
 
+<!-- markdownlint-disable-file MD024 -->
+
 ## getTimeZoneDetails
 
 Retrieves comprehensive time zone information using the Internationalization API (`Intl`): time zone identifiers, localized names, and GMT offset information.
@@ -87,11 +89,11 @@ interface TimeZoneDetails {
  /** IANA time zone identifier */
  tzIdentifier: $TimeZoneIdentifier;
  /** Long localized form (e.g., `'Pacific Standard Time'`, `'Nordamerikanische Westküsten-Normalzeit'`) */
- tzNameLong: LooseLiteral<TimeZoneName> | undefined;
+ tzNameLong: Maybe<LooseLiteral<TimeZoneName>>;
  /** Long generic non-location format (e.g.: `'Pacific Time'`, `'Nordamerikanische Westküstenzeit'`) */
- tzNameLongGeneric: LooseLiteral<TimeZoneName> | undefined;
+ tzNameLongGeneric: Maybe<LooseLiteral<TimeZoneName>>;
  /** Long localized GMT format, prefixed with `"GMT"` (e.g., `"GMT-08:00"`) */
- tzNameLongOffset: LooseLiteral<`GMT${$UTCOffset}`> | undefined;
+ tzNameLongOffset: Maybe<LooseLiteral<$GMTOffset>>;
 }
 ```
 
@@ -116,32 +118,102 @@ const formatter = new Intl.DateTimeFormat('en', {
 | `longGeneric` | Location-agnostic name  | `"Eastern Time"`          |
 | `longOffset`  | GMT offset format       | `"GMT+06:00"`             |
 
-### Integration with Other Utilities
+---
 
-#### Combined with [getGreeting](getGreeting)
+## getNativeTimeZoneId
+
+Retrieves the current system's IANA time zone identifier using the Internationalization API (`Intl.DateTimeFormat`).
+
+### Function Signature
 
 ```typescript
-// Contextual greeting with timezone awareness
-function getLocalizedGreeting(tzId: $TimeZoneIdentifier) {
-  const tzDetails = getTimeZoneDetails(tzId);
-  const localTime = new Date().toLocaleString('en', { timeZone: tzId });
-  
-  return {
-    greeting: getGreeting({ currentTime: localTime }),
-    timezone: tzDetails.tzNameLong,
-    offset: tzDetails.tzNameLongOffset
-  };
-}
+getNativeTimeZoneId(): TimeZoneIdNative
 ```
 
-### Conclusion
+### Return Value
 
-The `getTimeZoneDetails` function provides:
+Returns a `TimeZoneIdNative` string representing the system's current IANA time zone identifier.
 
-- **Comprehensive** time zone information retrieval
-- **Standardized** IANA time zone identifier support
-- **Localized** naming conventions
+### Example Usage
 
-### See Also
+```typescript
+import { getNativeTimeZoneId } from 'nhb-toolbox';
 
-- Refer to [**Chronos**](/docs/classes/Chronos/names) class for methods like this.
+const currentTimeZone = getNativeTimeZoneId();
+console.log(currentTimeZone);
+// 'America/New_York'
+```
+
+### Implementation Details
+
+The function uses `Intl.DateTimeFormat().resolvedOptions().timeZone` to retrieve the system's time zone identifier. This is a lightweight and native way to obtain the current time zone without additional configuration.
+
+### Notes
+
+- The returned identifier is in the IANA time zone format (e.g., `"America/New_York"`, `"Europe/London"`).
+- This function does not accept parameters and always returns the current system time zone.
+
+---
+
+## getTimeZoneIds
+
+Resolves all IANA time zone identifiers that match a given UTC offset.
+
+### Function Signature
+
+```typescript
+getTimeZoneIds(offset: UTCOffset): TimeZoneIdNative[]
+```
+
+### Parameters
+
+| Parameter | Type        | Required | Description                                                             |
+| --------- | ----------- | -------- | ----------------------------------------------------------------------- |
+| `offset`  | `UTCOffset` | Yes      | UTC offset in `"UTC±HH:MM"` format (e.g., `"UTC+05:30"`, `"UTC-08:00"`) |
+
+### Return Value
+
+Returns an array of `TimeZoneIdNative` strings representing all IANA time zone identifiers that match the given UTC offset. Returns an empty array if the offset is invalid or no matches are found.
+
+### Example Usage
+
+```typescript
+import { getTimeZoneIds } from 'nhb-toolbox';
+
+const zonesForUTCPlus5 = getTimeZoneIds('UTC+05:00');
+console.log(zonesForUTCPlus5);
+// ['Asia/Karachi', 'Asia/Tashkent', 'Asia/Yekaterinburg', ...]
+
+const zonesForUTCMinus8 = getTimeZoneIds('UTC-08:00');
+console.log(zonesForUTCMinus8);
+// ['America/Los_Angeles', 'America/Tijuana', 'Pacific/Pitcairn', ...]
+
+const invalid = getTimeZoneIds('UTC+25:00');
+console.log(invalid);
+// []
+```
+
+### Implementation Details
+
+- Uses an internal in-memory cache (`TZ_MAP`) that persists for the lifetime of the running application.
+- The cache is lazily populated: offset-to-time-zone mapping is computed only once per offset.
+- Offset validation is performed via `isValidUTCOffset`.
+- Time zone detection uses `Intl.DateTimeFormat` with `timeZoneName: 'longOffset'` to resolve GMT offsets.
+
+### Caching Behavior
+
+- First call for a given offset populates the cache for all known time zones.
+- Subsequent calls for the same offset return cached results instantly.
+- The cache is shared across the entire application session.
+
+### Notes
+
+- Offset must be in the exact format `"UTC±HH:MM"`.
+- Returns an empty array for invalid offsets or if no matching time zones exist.
+- Useful for scenarios where you need to map a UTC offset to possible time zones (e.g., in scheduling or internationalization contexts).
+
+---
+
+## See Also
+
+- Refer to [**Chronos**](/docs/classes/Chronos/names) class for methods like these.
