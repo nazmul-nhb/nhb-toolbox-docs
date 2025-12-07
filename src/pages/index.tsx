@@ -30,10 +30,10 @@ function HomepageHeader() {
 
 				<div className={styles.heroHighlights}>
 					<div className={styles.heroHighlightItem}>
-						<strong>200+ Utilities</strong> — for daily development
+						<strong>250+ Utilities</strong> — for daily development
 					</div>
 					<div className={styles.heroHighlightItem}>
-						<strong>6+ Powerful Classes</strong> — for complex scenarios
+						<strong>10+ Powerful Classes</strong> — for complex scenarios
 					</div>
 					<div className={styles.heroHighlightItem}>
 						<strong>Zero Dependencies</strong> — lightweight solution
@@ -82,7 +82,7 @@ export default function Home() {
 				<title>{`${siteConfig.title} | JavaScript/TypeScript Utility Library`}</title>
 				<meta
 					name="description"
-					content="NHB Toolbox: A comprehensive collection of 200+ type-safe utilities and 6+ powerful classes for professional TypeScript/JavaScript development. Featuring tree-shakable string/number/color utilities, FormData and date handling, type guards, utility types and minimal DOM operations."
+					content="NHB Toolbox: A comprehensive collection of 250+ type-safe utilities and 10+ powerful classes for professional TypeScript/JavaScript development. Featuring tree-shakable string/number/color utilities, FormData and date handling, type guards, utility types and minimal DOM operations."
 				/>
 				<meta
 					name="google-site-verification"

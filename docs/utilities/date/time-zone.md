@@ -1,5 +1,5 @@
 ---
-id: getTimeZoneDetails
+id: time-zone
 title: Get Time Zone Details
 ---
 
@@ -27,9 +27,9 @@ Returns a [`TimeZoneDetails`](#type-definitions) object containing:
 | Property            | Type                                | Description                                        |
 | ------------------- | ----------------------------------- | -------------------------------------------------- |
 | `tzIdentifier`      | `LooseLiteral<$TimeZoneIdentifier>` | IANA time zone identifier                          |
-| `tzNameLong`        | `LooseLiteral<TimeZoneName>`        | Long localized form of full time zone name         |
-| `tzNameLongGeneric` | `LooseLiteral<TimeZoneName>`        | Long generic non-location format of time zone name |
-| `tzNameLongOffset`  | `LooseLiteral<"GMT${$UTCOffset}">`  | GMT offset representation of time zone name        |
+| `tzNameLong`        | `Maybe<LooseLiteral<TimeZoneName>>` | Long localized form of full time zone name         |
+| `tzNameLongGeneric` | `Maybe<LooseLiteral<TimeZoneName>>` | Long generic non-location format of time zone name |
+| `tzNameLongOffset`  | `Maybe<LooseLiteral<$GMTOffset>>`   | GMT offset representation of time zone name        |
 
 ### Example Usage
 
