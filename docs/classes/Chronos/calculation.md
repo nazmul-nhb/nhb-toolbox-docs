@@ -528,6 +528,13 @@ type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 - `onlyDays` takes precedence over `skipDays` when both are provided
 - Defaults to `4-week range` when no options provided
 
+:::caution[Note]
+
+- When using `Chronos` instances for `from` and/or `to`, ensure both are created in the **same time zone** to avoid mismatched boundaries.
+- Mixing zones may shift the interpreted start or end by several hours, which can cause the range to include or exclude incorrect weekdays.
+
+:::
+
 ### Examples
 
 <Tabs>
@@ -596,10 +603,11 @@ now.getDatesInRange({
 
 ### Notes
 
-:::danger Important
+:::danger[Important]
 
 - Weekday names must exactly match: `'Monday'`, `'Tuesday'`, etc. (case-sensitive)
 - When using `onlyDays`, all other days are excluded regardless of `skipDays`
+
 :::
 
 :::tip Similar Static Method

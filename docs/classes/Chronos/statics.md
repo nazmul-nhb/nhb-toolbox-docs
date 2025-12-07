@@ -515,6 +515,13 @@ interface DateRangeOptions {
 - Returns dates in chronological order
 - Empty array if no matches found in range
 
+:::caution[Note]
+
+- When using `Chronos` instances for `from` and/or `to`, ensure both are created in the **same time zone** to avoid mismatched boundaries.
+- Mixing zones may shift the interpreted start or end by several hours, which can cause the range to include or exclude incorrect weekdays.
+
+:::
+
 ### Examples
 
 <Tabs>
