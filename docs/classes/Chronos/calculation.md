@@ -439,16 +439,16 @@ Generates dates between two points in time with:
 
 Configuration object accepting either fixed or relative range parameters:
 
-| Parameter   | Type                             | Required | Default          | Description                                                                    |
-| ----------- | -------------------------------- | -------- | ---------------- | ------------------------------------------------------------------------------ |
-| `from`      | `ChronosInput`                   | ❌       | Current date     | Start date (inclusive)                                                         |
-| `to`        | `ChronosInput`                   | ❌       | 4 weeks from now | End date (inclusive)                                                           |
-| `span`      | `number`                         | ❌       | 4                | Number of time units                                                           |
-| `unit`      | `'year'\|'month'\|'week'\|'day'` | ❌       | 'week'           | Unit of time for relative ranges                                               |
-| `format`    | `'local'\|'utc'`                 | ❌       | 'local'          | Output format for ISO strings                                                  |
-| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌       | `[]`             | Weekdays to exclude (e.g. `['Sunday', 'Saturday']` or `[0, 6]`)                |
-| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]`    | ❌       | `[]`             | Only include these weekdays (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
-| `roundDate` | `boolean`                        | ❌       | `false`          | Round dates to start of day                                                    |
+| Parameter   | Type                             | Default          | Description                                                      |
+| ----------- | -------------------------------- | ---------------- | ---------------------------------------------------------------- |
+| `from`      | `ChronosInput`                   | Current date     | Start date (inclusive)                                           |
+| `to`        | `ChronosInput`                   | 4 weeks from now | End date (inclusive)                                             |
+| `span`      | `number`                         | 4                | Number of time units                                             |
+| `unit`      | `'year'\|'month'\|'week'\|'day'` | 'week'           | Unit of time for relative ranges                                 |
+| `format`    | `'local'\|'utc'`                 | 'local'          | Output format for ISO strings                                    |
+| `skipDays`  | `WeekDay[] \| Enumerate<7>[]`    | `[]`             | Weekdays to exclude (e.g. `['Sunday', 'Saturday']` or `[0, 6]`)  |
+| `onlyDays`  | `WeekDay[] \| Enumerate<7>[]`    | `[]`             | Include these (e.g. `['Monday']` or `[1]`, overrides `skipDays`) |
+| `roundDate` | `boolean`                        | `false`          | Round dates to start of day                                      |
 
 <Tabs>
 <TabItem value="fixed-options" label="Fixed Range Options">

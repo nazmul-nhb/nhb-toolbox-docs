@@ -20,7 +20,7 @@ import { debounceAction } from 'nhb-toolbox';
 ### Function Signature
 
 ```typescript
-debounceAction<T extends VoidFunction>(callback: T, delay?: number): DelayedFn<T>
+debounceAction<T extends VoidFn>(callback: T, delay?: number): DelayedFn<T>
 ```
 
 ---
@@ -73,18 +73,17 @@ log();
 
 ```ts
 /** Generic function type that returns `void` */
-type VoidFunction = (...args: any[]) => void;
+type VoidFn = (...args: any[]) => void;
 
-/** Debounced function type after certain delay */
-type DelayedFn<T extends VoidFunction> = (...args: Parameters<T>) => void;
+type DelayedFn<T extends VoidFn> = (...args: Parameters<T>) => void;
 ```
 
 #### Parameters
 
-| Name      | Type        | Description                                           |
-|-----------|-------------|------------------------------------------------------|
-| callback  | VoidFunction| The function to debounce.                            |
-| delay     | number      | Delay in milliseconds (default: 300).                |
+| Name     | Type   | Description                           |
+| -------- | ------ | ------------------------------------- |
+| callback | VoidFn | The function to debounce.             |
+| delay    | number | Delay in milliseconds (default: 300). |
 
 #### Returns
 

@@ -20,7 +20,7 @@ import { throttleAction } from 'nhb-toolbox';
 ### Function Signature
 
 ```typescript
-throttleAction<T extends VoidFunction>( callback: T, delay?: number): ThrottledFn<T>
+throttleAction<T extends VoidFn>( callback: T, delay?: number): DelayedFn<T>
 ```
 
 ---
@@ -73,18 +73,17 @@ log();
 
 ```ts
 /** Generic function type that returns `void` */
-type VoidFunction = (...args: any[]) => void;
+type VoidFn = (...args: any[]) => void;
 
-/** Debounced function type after certain delay */
-type ThrottledFn<T extends VoidFunction> = (...args: Parameters<T>) => void;
+type DelayedFn<T extends VoidFn> = (...args: Parameters<T>) => void;
 ```
 
 #### Parameters
 
-| Name      | Type        | Description                                               |
-|-----------|-------------|----------------------------------------------------------|
-| callback  | VoidFunction| The function to throttle.                                |
-| delay     | number      | Delay in milliseconds (default: 150).                    |
+| Name     | Type   | Description                           |
+| -------- | ------ | ------------------------------------- |
+| callback | VoidFn | The function to throttle.             |
+| delay    | number | Delay in milliseconds (default: 150). |
 
 #### Returns
 

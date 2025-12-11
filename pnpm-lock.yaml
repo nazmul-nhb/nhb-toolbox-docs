@@ -43,10 +43,10 @@ importers:
         version: 17.2.3
       nhb-hooks:
         specifier: ^1.40.21
-        version: 1.40.21(nhb-toolbox@4.28.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.40.21(nhb-toolbox@4.28.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.28.21
-        version: 4.28.21
+        specifier: ^4.28.24
+        version: 4.28.24
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -79,8 +79,8 @@ importers:
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.27)
       nhb-scripts:
-        specifier: ^1.8.88
-        version: 1.8.88
+        specifier: ^1.9.0
+        version: 1.9.0
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -3273,8 +3273,8 @@ packages:
     resolution: {integrity: sha512-eKCa6bwnJhvxj14kZk5NCPc6Hb6BdsU9DZcOnmQKSnO1VKrfV0zCvtttPZUsBvjmNDn8rpcJfpwSYnHBjc95MQ==}
     engines: {node: '>=18.18.0'}
 
-  humanize-duration@3.33.1:
-    resolution: {integrity: sha512-hwzSCymnRdFx9YdRkQQ0OYequXiVAV6ZGQA2uzocwB0F4309Ke6pO8dg0P8LHhRQJyVjGteRTAA/zNfEcpXn8A==}
+  humanize-duration@3.33.2:
+    resolution: {integrity: sha512-K7Ny/ULO1hDm2nnhvAY+SJV1skxFb61fd073SG1IWJl+D44ULrruCuTyjHKjBVVcSuTlnY99DKtgEG39CM5QOQ==}
 
   hyperdyperid@1.2.0:
     resolution: {integrity: sha512-Y93lCzHYgGWdrJ66yIktxiaGULYc6oGiABxhcO5AufBeOyoIdZF7bIfLaOrbM0iGIOXQQgxxRrFEnb+Y6w1n4A==}
@@ -4043,13 +4043,13 @@ packages:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  nhb-scripts@1.8.88:
-    resolution: {integrity: sha512-es/MSaA+OBUTNT5n+czUtXdBIIGJz2AZCnGaRvHYAJdupSwR6bOlAzedzpSByCShQ1WzS+g1AnjCpiR1c++uJw==}
+  nhb-scripts@1.9.0:
+    resolution: {integrity: sha512-rAvGi2CxDG83fQ+rSreQas5mYcN7vvScTM2s/0Q+VrnndTJ3B/BVjB6rf5jXcWX/uCEdrp2ZK5nKu81+2OMPUw==}
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.28.21:
-    resolution: {integrity: sha512-coDfWS1yQ464Rf9v18p2VM8scgt0ZUinNR208EUW6uVJ8J+sEPKiA+fVHUIViM1pF6MzJKSyFndOXoI68EEU3A==}
+  nhb-toolbox@4.28.24:
+    resolution: {integrity: sha512-6Qmw7aQbzHwQN7Nliyuw1s9Eok3mwOQMX3A8xyEY9gTjZnVGPd/Zt32YmfcV5O7VDELHbrNL9iM/lfBlzoqVEA==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -5339,8 +5339,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@5.3.0:
-    resolution: {integrity: sha512-d9CwU93nN0IA1QL+GSNDdwLAu1Ew5ZjTwupvedwg3WdfoH6pIDvYQ2hV0Uc2nKBLPq7NB5apCx57MLS5qlmO5g==}
+  type-fest@5.3.1:
+    resolution: {integrity: sha512-VCn+LMHbd4t6sF3wfU/+HKT63C9OoyrSIf4b+vtWHpt2U7/4InZG467YDNMFMR70DdHjAdpPWmw2lzRdg0Xqqg==}
     engines: {node: '>=20'}
 
   type-is@1.6.18:
@@ -9883,7 +9883,7 @@ snapshots:
 
   human-signals@8.0.1: {}
 
-  humanize-duration@3.33.1: {}
+  humanize-duration@3.33.2: {}
 
   hyperdyperid@1.2.0: {}
 
@@ -10803,27 +10803,27 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.40.21(nhb-toolbox@4.28.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.40.21(nhb-toolbox@4.28.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.28.21
+      nhb-toolbox: 4.28.24
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nhb-scripts@1.8.88:
+  nhb-scripts@1.9.0:
     dependencies:
       '@clack/prompts': 0.11.0
       chalk: 5.6.2
       execa: 9.6.1
       globby: 16.0.0
       minimist: 1.2.8
-      nhb-toolbox: 4.28.21
+      nhb-toolbox: 4.28.24
       progress-estimator: 0.3.1
       rimraf: 6.1.2
       semver: 7.7.3
-      type-fest: 5.3.0
+      type-fest: 5.3.1
       typescript: 5.9.3
 
-  nhb-toolbox@4.28.21: {}
+  nhb-toolbox@4.28.24: {}
 
   no-case@3.0.4:
     dependencies:
@@ -11495,7 +11495,7 @@ snapshots:
     dependencies:
       chalk: 2.4.2
       cli-spinners: 1.3.1
-      humanize-duration: 3.33.1
+      humanize-duration: 3.33.2
       log-update: 2.3.0
 
   prompts@2.4.2:
@@ -12250,7 +12250,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@5.3.0:
+  type-fest@5.3.1:
     dependencies:
       tagged-tag: 1.0.0
 

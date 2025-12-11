@@ -1,6 +1,6 @@
 {
   "name": "nhb-toolbox-docs",
-  "version": "4.28.21",
+  "version": "4.28.24",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -16,7 +16,8 @@
     "typecheck": "tsc",
     "commit": "nhb-commit",
     "count": "nhb-count",
-    "up:nhb": "pnpm update nhb-toolbox nhb-scripts nhb-hooks typescript --latest"
+    "up:nhb": "pnpm update nhb-toolbox nhb-scripts nhb-hooks typescript --latest",
+    "sync": "node scripts/sync-changelog.mjs"
   },
   "dependencies": {
     "@docsearch/react": "4.0.1",
@@ -30,7 +31,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
     "nhb-hooks": "^1.40.21",
-    "nhb-toolbox": "^4.28.21",
+    "nhb-toolbox": "^4.28.24",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -43,7 +44,7 @@
     "@docusaurus/types": "3.9.2",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
-    "nhb-scripts": "^1.8.88",
+    "nhb-scripts": "^1.9.0",
     "typescript": "~5.9.3"
   },
   "browserslist": {

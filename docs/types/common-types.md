@@ -83,10 +83,10 @@ const callback: GenericFn = (a, b) => console.log(a, b);
 
 - Generic function signature  
 
-### `VoidFunction`  
+### `VoidFn`  
 
 ```ts
-const onClick: VoidFunction = () => console.log("Clicked");  
+const onClick: VoidFn = () => console.log("Clicked");  
 ```  
 
 - Function that returns void  
