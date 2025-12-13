@@ -1,6 +1,6 @@
 ---
 id: Currency
-title: Currency - Format and convert currencies
+title: Currency - Format & Convert Currencies
 ---
 
 <!-- markdownlint-disable-file MD024 -->
@@ -35,15 +35,19 @@ constructor<Code extends CurrencyCode>(amount: Numeric, code: Code): Currency<Co
 new Currency(100, 'USD'); // $100.00
 ```
 
+---
+
 ### Available Methods
 
 - Static Methods
-  - [clearRateCache](Currency/clearRateCache)
+  - [clearRateCache](#clearratecache)
 
 - Instance Methods
-  - [format](Currency/format)
-  - [convert](Currency/convert#convert)
-  - [convertSync](Currency/convert#convertsync)
+  - [format](#format)
+  - [convert](#convert)
+  - [convertSync](#convertsync)
+
+---
 
 ### Properties
 
@@ -54,6 +58,8 @@ readonly currency: string
 ```
 
 Pre-formatted currency string using `'en-US'` locale.
+
+---
 
 ### Examples
 
@@ -88,22 +94,6 @@ try {
 
 ## API Reference for Currency
 
-### clearRateCache()
-
-Clears all cached exchange rates to force fresh API calls.
-
-#### Signature
-
-```ts
-static clearRateCache(): void
-```
-
-#### Example
-
-```ts
-Currency.clearRateCache();
-```
-
 ### format()
 
 Formats the currency amount according to specified locale rules.
@@ -130,30 +120,18 @@ new Currency(1000, 'EUR').format('de-DE', ); // "1.000,00 €"
 new Currency(1000, 'EUR').format('de-DE', 'GBP'); // "1.000,00 £"
 ```
 
-### Type Definitions
-
-#### LocaleCode
-
-```ts
-type LocaleCode = (typeof CURRENCY_LOCALES)[keyof typeof CURRENCY_LOCALES] | (typeof LOCALE_CODES)[number]
-```
-
-Supported BCP 47 locale codes for formatting.
+---
 
 ### convert()
 
 Converts the current currency amount to a target currency using **real-time exchange rates** from [api.frankfurter.app](https://api.frankfurter.app/latest).  
 Includes automatic caching, error fallback handling, and support for manually defined rates. Please refer to [convertSync](#convertsync) for synchronous and network independent solution with manual exchange rate.
 
----
-
 #### Signature
 
 ```ts
 async convert<To extends FrankFurterCurrency>(to: To, options?: ConvertOptions): Promise<Currency<To>>
 ```
-
----
 
 #### Parameters
 
@@ -167,13 +145,9 @@ async convert<To extends FrankFurterCurrency>(to: To, options?: ConvertOptions):
   - `forceRefresh`:
     If `true`, forces a fresh fetch from the API, ignoring cached rates.
 
----
-
 #### Return Value
 
 A **new [`Currency`](../Currency)** instance containing the converted amount in the target currency.
-
----
 
 #### Throws
 
@@ -182,16 +156,12 @@ Throws an `error` if:
 - The API call fails **and**
 - No `fallbackRate` is provided in `options`.
 
----
-
 #### Behavior Details
 
 - Caches conversion rates internally to avoid redundant API requests.
 - Respects `forceRefresh` to bypass the cache when needed.
 - Falls back to the provided `fallbackRate` if the live API fails or the currency is unsupported.
 - Logs a warning in the console when falling back to a manual rate.
-
----
 
 #### Supported Currencies
 
@@ -207,8 +177,6 @@ RON, SEK, SGD, THB, TRY, USD, ZAR
 Use [convertSync](#convertsync) method to convert to other currencies using custom exchange rate.
 :::
 
----
-
 #### Example
 
 ```ts
@@ -222,41 +190,6 @@ const inr = await usd.convert('INR', {
   fallbackRate: 83.12,
 });
 ```
-
----
-
-### Type Definitions
-
-#### CurrencyCode
-
-```ts
-type CurrencyCode = 'AED' | 'AUD' ... | 'USD' etc.
-```
-
-Union of all supported currency codes in your system, including ISO 4217 and custom mappings.
-
----
-
-#### FrankFurterCurrency
-
-```ts
-type FrankFurterCurrency = "USD" | "AUD" | "BGN" | "BRL" | "CAD" | "CHF" | "CNY" | "CZK" | "DKK" | "EUR" | "GBP" | "HKD" | "HUF" | "IDR" | "ILS" | "INR" | "ISK" | "JPY" | "KRW" | "MXN" | "MYR" | "NOK" | "NZD" | "PHP" | "PLN" | "RON" | "SEK" | "SGD" | "THB" | "TRY" | "ZAR"
-```
-
-Subset of `CurrencyCode` that are officially supported by the Frankfurter API. See [Supported currency list](#supported-currencies)
-
----
-
-#### ConvertOptions
-
-```ts
-interface ConvertOptions {
-  fallbackRate?: number;
-  forceRefresh?: boolean;
-}
-```
-
-Optional configuration object for the `convert()` method.
 
 ---
 
@@ -287,3 +220,60 @@ convertSync<To extends CurrencyCode>(to: To, rate: number): Currency<To>
 ```ts
 const eur = new Currency(100, 'USD').convertSync('EUR', 0.92);
 ```
+
+---
+
+### clearRateCache()
+
+Clears all cached exchange rates to force fresh API calls.
+
+#### Signature
+
+```ts
+static clearRateCache(): void
+```
+
+#### Example
+
+```ts
+Currency.clearRateCache();
+```
+
+---
+
+### Type Definitions
+
+#### LocaleCode
+
+```ts
+type LocaleCode = (typeof CURRENCY_LOCALES)[keyof typeof CURRENCY_LOCALES] | (typeof LOCALE_CODES)[number]
+```
+
+Supported BCP 47 locale codes for formatting.
+
+#### CurrencyCode
+
+```ts
+type CurrencyCode = "BDT" | "TMT" | "WST" | "AED" | "AFN" | "ALL" | "AMD" | "ANG" | "AOA" | "ARS" | "AUD" | "AWG" | "AZN" | "BAM" | "BBD" | "BGN" | "BHD" | "BIF" | "BMD" ... | 'USD' // etc.
+```
+
+Union of all supported currency codes in your system, including ISO 4217 and custom mappings.
+
+#### FrankFurterCurrency
+
+```ts
+type FrankFurterCurrency = "USD" | "AUD" | "BGN" | "BRL" | "CAD" | "CHF" | "CNY" | "CZK" | "DKK" | "EUR" | "GBP" | "HKD" | "HUF" | "IDR" | "ILS" | "INR" | "ISK" | "JPY" | "KRW" | "MXN" | "MYR" | "NOK" | "NZD" | "PHP" | "PLN" | "RON" | "SEK" | "SGD" | "THB" | "TRY" | "ZAR"
+```
+
+Subset of `CurrencyCode` that are officially supported by the Frankfurter API. See [Supported currency list](#supported-currencies)
+
+#### ConvertOptions
+
+```ts
+interface ConvertOptions {
+  fallbackRate?: number;
+  forceRefresh?: boolean;
+}
+```
+
+Optional configuration object for the [convert()](#convert) method.
