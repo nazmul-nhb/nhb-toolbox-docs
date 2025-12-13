@@ -39,13 +39,13 @@ new Currency(100, 'USD'); // $100.00
 
 ### Available Methods
 
-- Static Methods
-  - [clearRateCache](#clearratecache)
-
 - Instance Methods
   - [format](#format)
   - [convert](#convert)
   - [convertSync](#convertsync)
+
+- Static Methods
+  - [clearRateCache](#clearratecache)
 
 ---
 
@@ -107,7 +107,7 @@ format(locale?: LocaleCode, code?: CurrencyCode): string
 #### Parameters
 
 - `locale`: Optional BCP 47 locale code (e.g., 'de-DE')
-- `code`: Optional ISO 4217 currency code (e.g., `'USD'`, `'EUR'`) used solely for formatting purposes. _This does not alter the internal currency code set during instantiation._
+- `code`: Optional ISO 4217 currency code (e.g., `'USD'`, `'EUR'`) used solely for formatting purposes. *This does not alter the internal currency code set during instantiation.*
 
 #### Return Value
 
@@ -138,8 +138,7 @@ async convert<To extends FrankFurterCurrency>(to: To, options?: ConvertOptions):
 - `to`:
   Target currency code to convert to. Must be a valid [Supported Currency](#supported-currencies), e.g., `'EUR'`, `'USD'` etc.
 
-- `options` _(optional)_:
-
+- `options` *(optional)*:
   - `fallbackRate`:
     A manual exchange rate to use if the API call fails or the currency is not supported.
   - `forceRefresh`:
@@ -147,7 +146,7 @@ async convert<To extends FrankFurterCurrency>(to: To, options?: ConvertOptions):
 
 #### Return Value
 
-A **new [`Currency`](../Currency)** instance containing the converted amount in the target currency.
+A **new [Currency](#currency)** instance containing the converted amount in the target currency.
 
 #### Throws
 
@@ -195,8 +194,8 @@ const inr = await usd.convert('INR', {
 
 ### convertSync()
 
-Converts currency _synchronously_ using either a cached rate or a manually provided exchange rate.
-_No network requests are made._
+Converts currency *synchronously* using either a cached rate or a manually provided exchange rate.
+*No network requests are made.*
 
 #### Signature
 
@@ -246,7 +245,7 @@ Currency.clearRateCache();
 #### LocaleCode
 
 ```ts
-type LocaleCode = (typeof CURRENCY_LOCALES)[keyof typeof CURRENCY_LOCALES] | (typeof LOCALE_CODES)[number]
+type LocaleCode = "bn-BD" | "en-US" | "zh-CN" | "ar-EG" ... | "en-GB" // etc.
 ```
 
 Supported BCP 47 locale codes for formatting.
