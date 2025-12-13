@@ -20,12 +20,13 @@ async function getNpmVersion(pkg: string): Promise<string> {
 	return data.version;
 }
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+// ! This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 export default async function config(): Promise<Config> {
 	const npmVersion = await getNpmVersion('nhb-toolbox');
 
 	console.log(Stylog.ansi16('green').toANSI(`📦 nhb-toolbox@${npmVersion}`));
+
 	await syncChangelog();
 
 	return {

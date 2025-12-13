@@ -1,7 +1,7 @@
 // @ts-check
 
 import { Stylog } from 'nhb-toolbox/stylog';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 /** Fetch the latest `CHANGELOG.md` from GitHub raw URL and write it to `docs/CHANGELOG.md` (for Docusaurus to render). */
@@ -25,10 +25,16 @@ export async function syncChangelog() {
 		'](https://github.com/nazmul-nhb/nhb-toolbox/blob/main/README.md)'
 	);
 
+	const updatedContent = `${frontMatter}\n${contents}`;
+
 	const outputPath = resolve('./docs/CHANGELOG.md');
 
+	const targetContent = readFileSync(outputPath, { encoding: 'utf-8' });
+
+	if (targetContent === updatedContent) return;
+
 	mkdirSync(dirname(outputPath), { recursive: true });
-	writeFileSync(outputPath, `${frontMatter}\n${contents}`, 'utf-8');
+	writeFileSync(outputPath, updatedContent, 'utf-8');
 
 	console.log(
 		Stylog.ansi16('green').toANSI(

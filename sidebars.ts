@@ -402,6 +402,7 @@ const sidebars: SidebarsConfig = {
 				{ type: 'doc', label: 'LogStyler', id: 'classes/LogStyler' },
 				{ type: 'doc', label: 'HttpStatus', id: 'classes/HttpStatus' },
 				{ type: 'doc', label: 'Converter', id: 'classes/Converter' },
+				{ type: 'doc', label: 'Currency', id: 'classes/Currency' },
 				{
 					type: 'category',
 					label: 'Paginator',
@@ -455,19 +456,6 @@ const sidebars: SidebarsConfig = {
 						'classes/Unit/energy-conversions',
 						'classes/Unit/pressure-conversions',
 						'classes/Unit/frequency-conversions',
-					],
-				},
-				{
-					type: 'category',
-					label: 'Currency',
-					link: {
-						type: 'doc',
-						id: 'classes/Currency',
-					},
-					items: [
-						'classes/Currency/format',
-						'classes/Currency/convert',
-						'classes/Currency/clearRateCache',
 					],
 				},
 			],
