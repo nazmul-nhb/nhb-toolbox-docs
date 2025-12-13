@@ -15,7 +15,7 @@ Creates a new Currency instance with specified amount and currency code.
 #### Signature
 
 ```typescript
-constructor(amount: Numeric, code: CurrencyCode)
+constructor<Code extends CurrencyCode>(amount: Numeric, code: Code): Currency<Code>
 ```
 
 #### Parameters

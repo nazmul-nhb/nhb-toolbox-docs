@@ -7,7 +7,7 @@ title: Convert Currency
 
 ## convert()
 
-Converts the current currency amount to a target currency using **real-time exchange rates** from [api.frankfurter.app](https://api.frankfurter.app/).  
+Converts the current currency amount to a target currency using **real-time exchange rates** from [api.frankfurter.app](https://api.frankfurter.app/latest).  
 Includes automatic caching, error fallback handling, and support for manually defined rates. Please refer to [convertSync](#convertsync) for synchronous and network independent solution with manual exchange rate.
 
 ---
@@ -15,7 +15,7 @@ Includes automatic caching, error fallback handling, and support for manually de
 ### Signature
 
 ```ts
-async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): Promise<Currency>
+async convert<To extends FrankFurterCurrency>(to: To, options?: ConvertOptions): Promise<Currency<To>>
 ```
 
 ---
@@ -25,7 +25,7 @@ async convert(to: SupportedCurrency | CurrencyCode, options?: ConvertOptions): P
 * `to`:
   Target currency code to convert to. Must be a valid [Supported Currency](#supported-currencies), e.g., `'EUR'`, `'USD'` etc.
 
-* `options` _(optional)_:
+* `options` *(optional)*:
 
   * `fallbackRate`:
     A manual exchange rate to use if the API call fails or the currency is not supported.
@@ -68,6 +68,10 @@ IDR, ILS, INR, ISK, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN,
 RON, SEK, SGD, THB, TRY, USD, ZAR
 ```
 
+:::info
+Use [convertSync](#convertsync) method to convert to other currencies using custom exchange rate.
+:::
+
 ---
 
 ### Example
@@ -98,10 +102,10 @@ Union of all supported currency codes in your system, including ISO 4217 and cus
 
 ---
 
-### SupportedCurrency
+### FrankFurterCurrency
 
 ```ts
-type SupportedCurrency = 'AUD' | 'BGN' | 'BRL' ... | 'USD' etc.
+type FrankFurterCurrency = "USD" | "AUD" | "BGN" | "BRL" | "CAD" | "CHF" | "CNY" | "CZK" | "DKK" | "EUR" | "GBP" | "HKD" | "HUF" | "IDR" | "ILS" | "INR" | "ISK" | "JPY" | "KRW" | "MXN" | "MYR" | "NOK" | "NZD" | "PHP" | "PLN" | "RON" | "SEK" | "SGD" | "THB" | "TRY" | "ZAR"
 ```
 
 Subset of `CurrencyCode` that are officially supported by the Frankfurter API. See [Supported currency list](#supported-currencies)
@@ -123,13 +127,13 @@ Optional configuration object for the `convert()` method.
 
 ## convertSync()
 
-Converts currency _synchronously_ using either a cached rate or a manually provided exchange rate.
-_No network requests are made._
+Converts currency *synchronously* using either a cached rate or a manually provided exchange rate.
+*No network requests are made.*
 
 ### Signature
 
 ```ts
-convertSync(to: CurrencyCode, rate: number): Currency
+convertSync<To extends CurrencyCode>(to: To, rate: number): Currency<To>
 ```
 
 ### Parameters
