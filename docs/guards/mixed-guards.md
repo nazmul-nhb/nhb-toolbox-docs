@@ -14,7 +14,7 @@ import {
   isEmail, isEmailArray, isDateString, isUUID,
   isBrowser, isNode, isURL, isBase64,
   isPhoneNumber, isIPAddress, isEnvironment,
-  isNumericString
+  isNumericString, isHexString, isBinaryString
 } from 'nhb-toolbox';
 ```
 
@@ -56,6 +56,8 @@ if (isEmail(input)) {
 }
 ```
 
+---
+
 ### `isEmailArray`
 
 ```typescript
@@ -86,6 +88,8 @@ function processContacts(emails: unknown) {
 }
 ```
 
+---
+
 ### `isDateString`
 
 ```typescript
@@ -113,6 +117,8 @@ function parseDate(input: unknown) {
   return isDateString(input) ? new Date(input) : null;
 }
 ```
+
+---
 
 ### `isUUID`
 
@@ -158,7 +164,7 @@ function validateResource(res: unknown): res is Resource {
 }
 ```
 
-### Type Definitions
+#### Type Definitions
 
 ```ts
 /** UUID versions as string from `v1-v8` */
@@ -176,6 +182,8 @@ type UUID<V extends UUIDVersion> = Branded<$UUID, V>;
 - Supports UUID **versions 1–8**.
 - Returns a branded type to help enforce version-specific UUID typing in TypeScript.
 - Case-insensitive validation.
+
+---
 
 ### `isURL`
 
@@ -210,6 +218,8 @@ function createLink(href: unknown) {
 }
 ```
 
+---
+
 ### `isBase64`
 
 ```typescript
@@ -238,6 +248,76 @@ function decodeBase64(input: unknown) {
   return isBase64(input) ? atob(input) : null;
 }
 ```
+
+---
+
+### `isHexString`
+
+```typescript
+isHexString(value: unknown): value is string
+```
+
+#### Description
+
+Validates if a string is a valid hexadecimal byte sequence. Accepts both spaced and un-spaced formats, with flexible whitespace between bytes.
+
+#### Examples
+
+```typescript
+// Valid hexadecimal strings
+isHexString('48656c6c6f20776f726c64');             // true (un-spaced)
+isHexString('48 65 6c 6c 6f 20 77 6f 72 6c 64');   // true (spaced)
+isHexString('0A1B2C3D');                          // true (uppercase)
+isHexString('0a1b2c3d');                          // true (lowercase)
+
+// Invalid cases
+isHexString('0x123ABC');                          // false (contains '0x' prefix)
+isHexString('GHIJKL');                            // false (non-hex characters)
+isHexString(12345);                               // false (not a string)
+
+// Safe conversion
+function hexToBytes(input: unknown) {
+  return isHexString(input) 
+    ? Buffer.from(input.replace(/\s+/g, ''), 'hex') 
+    : null;
+}
+```
+
+---
+
+### `isBinaryString`
+
+```typescript
+isBinaryString(value: unknown): value is string
+```
+
+#### Description
+
+Validates if a string is a valid binary byte sequence. Accepts both spaced and un-spaced formats, with flexible whitespace between bytes. Each byte must consist of exactly 8 bits.
+
+#### Examples
+
+```typescript
+// Valid binary strings
+isBinaryString('0100100001100101011011000110110001101111');                     // true (un-spaced)
+isBinaryString('01001000 01100101 01101100 01101100 01101111');                 // true (spaced)
+isBinaryString('00000000 11111111');                                           // true
+
+// Invalid cases
+isBinaryString('01001000 01100101 01101100');                                   // false (incomplete byte)
+isBinaryString('010010000110010101101100011011000110111');                      // false (31 bits)
+isBinaryString('01021000 01100101');                                            // false (contains '2')
+isBinaryString({});                                                             // false (not a string)
+
+// Safe processing
+function binaryToDecimal(input: unknown) {
+  return isBinaryString(input) 
+    ? parseInt(input.replace(/\s+/g, ''), 2) 
+    : null;
+}
+```
+
+---
 
 ### `isPhoneNumber`
 
@@ -275,6 +355,8 @@ function formatPhone(input: unknown) {
 }
 ```
 
+---
+
 ### `isIPAddress`
 
 ```typescript
@@ -310,6 +392,8 @@ function blockIP(ip: unknown) {
   }
 }
 ```
+
+---
 
 ### `isNumericString`
 
@@ -370,6 +454,8 @@ Please, refer to number guard: [isNumber](primitive-guards#isnumber) for strict 
 
 ## Environment Guards
 
+---
+
 ### `isBrowser`
 
 ```typescript
@@ -405,6 +491,8 @@ function getWindowSize() {
 }
 ```
 
+---
+
 ### `isNode`
 
 ```typescript
@@ -436,6 +524,8 @@ function loadModule() {
   throw new Error('Node.js required');
 }
 ```
+
+---
 
 ### `isEnvironment`
 
