@@ -7,6 +7,10 @@ title: SHA-1 Generator
 
 The `sha1` function computes a `SHA-1` digest of the given string using a pure JavaScript implementation.
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 ### Function Signature
 
 ```ts

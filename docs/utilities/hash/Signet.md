@@ -7,6 +7,10 @@ title: Signet - Sign, Decode, Verify Tokens
 
 A lightweight, secure implementation of *JWT-like tokens* using `HMAC-SHA256` signatures.
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 ### Overview
 
 Signet is a zero-dependency token implementation similar to JSON Web Tokens (`JWT`) but with a smaller footprint and simpler API. It provides secure token creation, verification, and decoding with `HMAC-SHA256` signatures and standard `JWT` claims.

@@ -1,6 +1,6 @@
 ---
 id: TextCodec
-title: Encode & Decode Text
+title: Text ↔ Binary Conversions
 ---
 
 <!-- markdownlint-disable-file MD024 -->

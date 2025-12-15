@@ -7,6 +7,10 @@ title: Generate UUID
 
 The `uuid` function generates UUIDs across all major RFC-compliant versions (1, 3, 4, 5, 6, 7, 8), following standards from RFC4122. Default version is `v4`.
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 ### Function Signature & Types
 
 ```ts

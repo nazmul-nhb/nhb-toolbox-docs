@@ -49,6 +49,10 @@ const fileHash = md5("file content");
 - **32-character hex output** - fixed length regardless of input size
 - **One-way function** - cannot be reversed to obtain original input
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 ### Common Uses
 
 - Checksum verification

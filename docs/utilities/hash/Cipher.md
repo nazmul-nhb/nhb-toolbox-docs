@@ -11,6 +11,10 @@ A lightweight `stream-cipher` encryption utility using `HMAC-SHA256` for keystre
 
 Cipher provides simple symmetric encryption for strings using a custom `HMAC`-based construction. It derives separate encryption and `MAC` keys from a secret and provides encryption, decryption, and validation methods. This is a **pure JavaScript implementation** with no external dependencies.
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 :::caution[Security Note]
 This is a custom cryptographic construction and should be used for non-critical data protection only. For production-grade security, use established libraries like `libsodium` or Web Crypto API.
 :::

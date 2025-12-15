@@ -7,6 +7,10 @@ title: Generate Random Hex
 
 The `randomHex` function generates a random hexadecimal string of the specified length.
 
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
+
 ### Function Signature
 
 ```ts

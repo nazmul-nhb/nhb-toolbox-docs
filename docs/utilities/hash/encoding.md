@@ -7,15 +7,17 @@ title: Encoding & Crypto Utilities
 
 Low-level encoding, decoding, and cryptographic functions for working with bytes, UTF-8, Base64, and SHA-256.
 
----
+:::info
+Does not rely on `Node.js` or `Web APIs`. **Works on any JS engine**
+:::
 
 ## Imports
 
 ```ts
 import {
    utf8ToBytes, utf8ToBytes, base64ToBytes, bytesToBase64,
-   sha256Bytes, hmacSha256, 
-   concatBytes, uint8To32ArrayBE, intTo4BytesBE, bytesToHex
+   sha256Bytes, hmacSha256, hexToBytes, bytesToHex
+   concatBytes, uint8To32ArrayBE, intTo4BytesBE
 } from 'nhb-toolbox/hash';
 ```
 

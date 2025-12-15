@@ -16,6 +16,7 @@ title: Explore well-crafted classes for efficiency
 - [**`Converter`**](/docs/classes/Converter) *classes* - Comprehensive Measurement Conversion  
 - [**`Cipher`**](/docs/utilities/hash/Cipher) - Encrypt, decrypt text in `stream-cipher` encryption style  
 - [**`Signet`**](/docs/utilities/hash/Signet) - Sign, decode, verify tokens in `JWT` style  
+- [**`TextCodec`**](/docs/utilities/hash/TextCodec) - Convert text between hex, binary, and Base64 formats
 - [**`Finder`**](/docs/classes/Finder) - Sophisticated array searching  
 - [**`Paginator`**](/docs/classes/Paginator) - Elegant pagination handling  
 - [**`Unit`**](/docs/classes/Unit) & [**`Currency`**](/docs/classes/Currency) - Unit and currency handling
