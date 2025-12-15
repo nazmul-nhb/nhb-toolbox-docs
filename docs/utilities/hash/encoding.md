@@ -340,6 +340,112 @@ const hex = bytesToHex(bytes); // '12abff'
 
 ---
 
+### hexToBytes
+
+Converts a hexadecimal string to a `Uint8Array` of bytes.
+
+#### Function Signature
+
+```ts
+hexToBytes(hex: string): Uint8Array
+```
+
+| Parameter | Type     | Description                   |
+| --------- | -------- | ----------------------------- |
+| `hex`     | `string` | Hexadecimal string to convert |
+
+**Returns:** `Uint8Array` containing the decoded bytes
+
+#### Examples
+
+```typescript
+// Basic conversion
+const hex = '12abff00';
+const bytes = hexToBytes(hex); // Uint8Array(4) [18, 171, 255, 0]
+
+// With spaces
+const spacedHex = '48 65 6c 6c 6f';
+const spacedBytes = hexToBytes(spacedHex); // Uint8Array(5) [72, 101, 108, 108, 111]
+
+// Empty input
+const emptyBytes = hexToBytes(''); // Uint8Array []
+
+// Invalid input returns empty array
+const invalidBytes = hexToBytes('invalid!'); // Uint8Array []
+const oddBytes = hexToBytes('123'); // Uint8Array []
+
+// Cryptographic hash decoding
+const sha256Hex = '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824';
+const hashBytes = hexToBytes(sha256Hex); // Uint8Array(32)
+```
+
+#### Features
+
+- **Automatic validation** - Uses [`isHexString`](/docs/guards/mixed-guards#ishexstring) to validate input
+- **Flexible formatting** - Accepts spaced or un-spaced hex strings
+- **Case-insensitive** - Works with uppercase and lowercase hex characters
+- **Safe handling** - Returns empty array for invalid input instead of throwing
+- **Efficient** - O(n) implementation with direct byte parsing
+
+#### Input Requirements
+
+- Must contain only hex characters (`0-9`, `a-f`, `A-F`)
+- May contain optional spaces between bytes
+- Must have even character count after removing spaces
+- **Does not** accept prefixes like `0x` or `0X`
+- **Does not** accept non-hex characters or odd-length strings
+
+#### Use Cases
+
+- Decoding cryptographic hashes, signatures, and keys
+- Parsing hex-encoded binary payloads in protocols
+- Reconstructing binary data from text storage
+- Converting hex strings from APIs or databases to binary format
+- Working with low-level binary interfaces and hardware protocols
+
+#### Related Functions
+
+```typescript
+// Validate before conversion
+const hex = '12abff';
+if (isHexString(hex)) {
+  const bytes = hexToBytes(hex);
+}
+
+// Reverse conversion
+const bytes = new Uint8Array([0x12, 0xAB, 0xFF]);
+const hex = bytesToHex(bytes); // '12abff'
+```
+
+#### Edge Cases
+
+```typescript
+// Mixed case is fine
+hexToBytes('AaBbCc'); // Uint8Array(3) [170, 187, 204]
+
+// Extra spaces are normalized
+hexToBytes(' 12 ab  ff  '); // Uint8Array(3) [18, 171, 255]
+
+// Non-hex characters return empty array
+hexToBytes('0x123abc'); // Uint8Array []
+hexToBytes('12g34h');   // Uint8Array []
+
+// Non-string input (type safety)
+// hexToBytes(12345); // TypeScript compile error
+```
+
+#### Performance Notes
+
+- Input validation is integrated (no separate validation step needed)
+- Space removal is efficient using regex
+- Byte parsing uses native `parseInt` with base 16
+- Memory efficient with single pass processing
+
+#### See Also
+
+- [**bytesToHex**](#bytestohex) - Reverse conversion from bytes to hex
+- [**isHexString**](/docs/guards/mixed-guards#ishexstring) - Input validation type guard
+
 ## Common Workflows
 
 ### String → SHA-256 Hex

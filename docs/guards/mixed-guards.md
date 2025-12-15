@@ -304,7 +304,6 @@ isBinaryString('01001000 01100101 01101100 01101100 01101111');                 
 isBinaryString('00000000 11111111');                                           // true
 
 // Invalid cases
-isBinaryString('01001000 01100101 01101100');                                   // false (incomplete byte)
 isBinaryString('010010000110010101101100011011000110111');                      // false (31 bits)
 isBinaryString('01021000 01100101');                                            // false (contains '2')
 isBinaryString({});                                                             // false (not a string)
