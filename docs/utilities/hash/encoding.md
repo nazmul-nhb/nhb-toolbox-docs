@@ -338,6 +338,10 @@ const hex = bytesToHex(bytes); // '12abff'
 - Binary data debugging
 - JSON serialization of binary data
 
+#### See Also
+
+- [**hexToBytes**](#hextobytes) - Reverse conversion from bytes to hex
+
 ---
 
 ### hexToBytes
@@ -445,6 +449,8 @@ hexToBytes('12g34h');   // Uint8Array []
 
 - [**bytesToHex**](#bytestohex) - Reverse conversion from bytes to hex
 - [**isHexString**](/docs/guards/mixed-guards#ishexstring) - Input validation type guard
+
+---
 
 ## Common Workflows
 

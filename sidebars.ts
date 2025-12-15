@@ -286,6 +286,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/hash/sha1',
 						'utilities/hash/sha256',
 						'utilities/hash/encoding',
+						'utilities/hash/TextCodec',
 						'utilities/hash/decodeUUID',
 						'utilities/hash/check-uuid-versions',
 					],
