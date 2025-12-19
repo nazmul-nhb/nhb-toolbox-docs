@@ -80,12 +80,26 @@ toLocaleString(locales?: LocalesArguments, options?: DateTimeFormatOptions): str
 #### Type Definitions
 
 ```ts
-/** Locale arguments for `toLocaleString` method. Includes `BCP47` tags and `Intl.Locale`. */
-type LocalesArguments = LocaleCode | Intl.Locale | Array<LocaleCode | Intl.Locale>;
+/** `BCP47` locale string or `Intl.Locale` object that contain one or more language or locale tags */
+type $LocalArguments = LooseLiteral<LocaleCode | Split<LocaleCode, '-'>[0]> | Intl.Locale;
 
-/** Format options for `toLocaleString` method. Extends `Intl.DateTimeFormatOptions `to update `timeZone` option. */
+/** `BCP47` locale string, array of locale strings, `Intl.Locale` object, or array of `Intl.Locale` objects that contain one or more language or locale tags. */
+type LocalesArguments = $LocalArguments | $LocalArguments[];
+
+/** Locale calendars supported by `Intl` API */
+type LocaleCalendar = 'buddhist' |'chinese' | 'coptic' | 'ethiopic' | 'gregory' | 'hebrew' | 'indian' | 'islamic' | ... ;
+
+/** Locale numbering systems supported by `Intl` API */
+type NumberingSystem = 'adlm' | 'ahom' | 'arab' | 'arabext' | 'bali' | 'beng' | 'bhks' | 'brah' | 'cakm' | 'cham' | ... ;
+
+/** Extends `Intl.DateTimeFormatOptions` with improved type system. */
 interface DateTimeFormatOptions extends Intl.DateTimeFormatOptions {
+ /** Time zone identifier to use. */
  timeZone?: $TimeZoneIdentifier;
+ /** Locale calendar system to use. */
+ calendar?: LocaleCalendar;
+ /** Locale numbering system to use. */
+ numberingSystem?: NumberingSystem;
 }
 ```
 
