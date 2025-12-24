@@ -28,16 +28,16 @@ const FeatureList: FeatureItem[] = [
 						- Advanced date/time manipulation
 					</li>
 					<li>
+						<Link to="/docs/classes/BanglaCalendar">
+							<code>BanglaCalendar</code>
+						</Link>{' '}
+						- Bangla date manipulation
+					</li>
+					<li>
 						<Link to="/docs/classes/Color">
 							<code>Color</code>
 						</Link>{' '}
 						- Comprehensive color management
-					</li>
-					<li>
-						<Link to="/docs/classes/Paginator">
-							<code>Paginator</code>
-						</Link>{' '}
-						- Elegant pagination handling
 					</li>
 					<li>
 						<Link to="/docs/classes/Pluralizer">

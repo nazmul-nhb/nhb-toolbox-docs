@@ -1,8 +1,6 @@
 # NHB Toolbox
 
-## Intro
-
-- Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package/nhb-toolbox) package.
+> Official documentation website for [`nhb-toolbox`](https://www.npmjs.com/package/nhb-toolbox) package.
 
 ## 🌐 Live Site
 
