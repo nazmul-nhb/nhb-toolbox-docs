@@ -384,6 +384,7 @@ const sidebars: SidebarsConfig = {
 						'classes/Chronos/symbols',
 					],
 				},
+				{ type: 'doc', label: 'BanglaCalendar', id: 'classes/BanglaCalendar' },
 				{
 					type: 'category',
 					label: 'Color',
