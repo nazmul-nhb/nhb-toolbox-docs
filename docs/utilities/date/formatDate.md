@@ -172,7 +172,7 @@ Formats a time-only string into a formatted time string, automatically combining
 ### Signature
 
 ```typescript
-formatTimePart(time: string, format?: TimeFormatToken): string
+formatTimePart(time: string, format?: TimeOnlyFormat): string
 ```
 
 ### Parameters
@@ -278,3 +278,4 @@ The `format` parameter accepts the same time-related tokens as [`formatDate()`](
 - For complete datetime formatting with specific dates, use [`formatDate()`](#formatdate) instead
 - The function handles timezone offsets but always outputs in local system time
 - Millisecond tokens (`ms`, `mss`) are supported but may not show if the input doesn't include milliseconds
+- If date formatting tokens are passed, it will output the current date

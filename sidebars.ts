@@ -140,6 +140,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/number/numberToWords',
 						'utilities/number/numberToWordsOrdinal',
 						'utilities/number/wordsToNumber',
+						'utilities/number/bangla-digits',
 						'utilities/number/roman-numerals',
 						'utilities/number/calculatePercentage',
 						{

@@ -398,7 +398,7 @@ Formats a time-only string into a formatted time string.
 ### Signature
 
  ```ts
-static formatTimePart(time: string, format?: TimeParts): string
+static formatTimePart(time: string, format?: TimeOnlyFormat): string
 
 ```
 
@@ -420,7 +420,7 @@ static formatTimePart(time: string, format?: TimeParts): string
 *If no offset is provided with time string, local (system) timezone will be used. The current date will be used as the base date for the time internally.*
 :::
 
-- `format`: Format string accepted by the `formatStrict()` method for `TimeParts`.
+- `format`: Format string accepted by the `formatStrict()` method for time component.
   **Default**: `'hh:mm:ss a'` → e.g., `"02:33:36 pm"`
 
 ### Return Type
