@@ -1,6 +1,6 @@
 ---
 id: BanglaCalendar
-title: BanglaCalendar - Bengali Date Handling
+title: BanglaCalendar - Bengali Date Manipulation
 ---
 
 <!-- markdownlint-disable-file MD024 -->

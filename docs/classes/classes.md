@@ -8,6 +8,7 @@ title: Explore well-crafted classes for efficiency
 `nhb-toolbox` includes classes that encapsulate advanced functionalities
 
 - [**`Chronos`**](/docs/classes/Chronos) - Advanced date/time manipulation  
+- [**`BanglaCalendar`**](/docs/classes/BanglaCalendar) - Bangla date manipulation  
 - [**`Color`**](/docs/classes/Color) - Comprehensive color management  
 - [**`Pluralizer`**](/docs/classes/Pluralizer) - Noun form (`Singular` ↔ `Plural`) conversion  
 - [**`Verbalizer`**](/docs/classes/Verbalizer) - Verb form (`Base` ↔ `Past` ↔ `Past Participle`) conversion  
