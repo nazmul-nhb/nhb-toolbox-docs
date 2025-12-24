@@ -147,6 +147,7 @@ new BanglaCalendar('১৪৩০', '১', '১', { variant: 'revised-1966' });
   - [toString](#tostring)
   - [toStringEn](#tostringen)
   - [format](#format)
+  - [$hasVariantConfig](#hasvariantconfig)
 
 - **Static Methods**
   - [isBanglaYear](#isbanglayear)
@@ -156,7 +157,6 @@ new BanglaCalendar('১৪৩০', '১', '১', { variant: 'revised-1966' });
   - [isBanglaDate](#isbangladate)
   - [isBanglaDateEn](#isbangladateen)
   - [isBanglaDateString](#isbangladatestring)
-  - [$hasVariantConfig](#hasvariantconfig)
 
 ---
 
@@ -672,6 +672,47 @@ To output raw text (not interpreted as a token), wrap it in square brackets:
 
 ---
 
+### $hasVariantConfig()
+
+Checks if a value is a configuration object that contains a valid calendar `variant`.
+
+#### Signature
+
+```typescript
+$hasVariantConfig(value: unknown): value is { variant: BnCalendarVariant }
+```
+
+#### Parameters
+
+- `value`: The value to check
+
+#### Return Value
+
+`true` if the value contains a valid `variant` property, `false` otherwise.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar();
+
+// Valid configuration objects
+bnCal.$hasVariantConfig({ variant: 'revised-2019' }); // true
+bnCal.$hasVariantConfig({ variant: 'revised-1966' }); // true
+
+// Invalid configuration objects
+bnCal.$hasVariantConfig({ variant: 'invalid' }); // false
+bnCal.$hasVariantConfig({}); // false
+bnCal.$hasVariantConfig(null); // false
+```
+
+#### Remarks
+
+- This method is used internally by the constructor to extract variant configuration from various parameter positions
+- Can be useful for type-checking configuration objects before passing them to the constructor
+- Validates if the object has a `variant` property and it contains one of the 2 supported values: `'revised-2019'` or `'revised-1966'`
+
+---
+
 ## Static Methods
 
 ### isBanglaYear()
@@ -818,45 +859,6 @@ BanglaCalendar.isBanglaDateString('১৪৩০-১৩-০১'); // false (inval
 - Validates year, month, and date components separately
 
 ---
-
-### $hasVariantConfig()
-
-Checks if a value is a configuration object that contains a valid calendar variant.
-
-#### Signature
-
-```typescript
-$hasVariantConfig(value: unknown): value is { variant: BnCalendarVariant }
-```
-
-#### Parameters
-
-- `value`: The value to check
-
-#### Return Value
-
-`true` if the value contains a valid `variant` property, `false` otherwise.
-
-#### Example
-
-```typescript
-// Valid configuration objects
-BanglaCalendar.$hasVariantConfig({ variant: 'revised-2019' }); // true
-BanglaCalendar.$hasVariantConfig({ variant: 'revised-1966' }); // true
-
-// Invalid configuration objects
-BanglaCalendar.$hasVariantConfig({ variant: 'invalid' }); // false
-BanglaCalendar.$hasVariantConfig({}); // false
-BanglaCalendar.$hasVariantConfig(null); // false
-```
-
-#### Remarks
-
-- This method is used internally by the constructor to extract variant configuration from various parameter positions
-- Can be useful for type-checking configuration objects before passing them to the constructor
-- Validates that the object has a `variant` property and that it contains one of the two supported values: `'revised-2019'` or `'revised-1966'`
-
--
 
 ### Type Definitions
 
