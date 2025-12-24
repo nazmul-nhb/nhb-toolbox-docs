@@ -920,7 +920,10 @@ type BanglaDateFormat = LooseLiteral<DateFormatToken | DateWithSeasonToken>
 
 Format tokens for Bangla date formatting.
 
+---
+
 ## See Also
 
 - [**Chronos**](Chronos) for complete date/time solution.
+- Implementation of Bangla date system in `Chronos` via [**banglaPlugin**](/docs/classes/Chronos/bangla-plugin).
 - [**Date/time utilities**](/docs/utilities/date) for simple date/time manipulation.
