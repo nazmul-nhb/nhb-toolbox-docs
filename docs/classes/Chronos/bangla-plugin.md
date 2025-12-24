@@ -137,7 +137,7 @@ const banglaDateEn = chronos.toBangla({ locale: 'en' });
 
 - Uses the default calendar variant (`'revised-2019'`) unless specified
 - The locale determines output format (Bangla vs Latin)
-- Year `0` corresponds to 593 CE in the Gregorian calendar
+- Year `0` corresponds to `593 CE` in the Gregorian calendar
 
 ---
 
@@ -172,17 +172,17 @@ Formatted Bangla date string according to the specified format.
 | `D` or `DD`   | Day of month (non-padded/padded) | `১` or `০১`              |
 | `Do`          | Cardinal day (same as `D`)       | `১`                      |
 | `d`           | Short weekday                    | `র`                      |
-| `dd`          | Weekday without `'বার'`          | `রবি`                    |
-| `ddd`         | Full weekday                     | `রবিবার`                 |
+| `dd`          | Weekday without `'বার'`          | `রবি`                     |
+| `ddd`         | Full weekday                     | `রবিবার`                  |
 | `H` or `HH`   | 24-hour (non-padded/padded)      | `২` or `০২`              |
 | `h` or `hh`   | 12-hour (non-padded/padded)      | `৭` or `০৭`              |
 | `m` or `mm`   | Minute (non-padded/padded)       | `৯` or `০৯`              |
 | `s` or `ss`   | Second (non-padded/padded)       | `৫` or `০৫`              |
 | `ms` or `mss` | Millisecond (non-padded/padded)  | `২৩` or `০২৩`            |
-| `a` or `A`    | AM/PM indicator                  | `পূর্বাহ্ণ` or `অপরাহ্ণ` |
+| `a` or `A`    | AM/PM indicator                  | `পূর্বাহ্ণ`/`অপরাহ্ণ`           |
 | `Z` or `ZZ`   | UTC offset                       | `+০৬:০০`                 |
-| `S`           | Season name                      | `গ্রীষ্ম`                |
-| `SS`          | Season with `'কাল'` suffix       | `গ্রীষ্মকাল`             |
+| `S`           | Season name                      | `গ্রীষ্ম`                    |
+| `SS`          | Season with `'কাল'` suffix       | `গ্রীষ্মকাল`                 |
 
 ##### Escaping Text
 
@@ -243,7 +243,7 @@ chronos.getBanglaYear('en'); // Returns: 1430
 ##### Remarks
 
 - The Bangla year starts on April 14th in the Gregorian calendar
-- Year 0 corresponds to 593 CE
+- Year `0` corresponds to `593 CE`
 
 ---
 

@@ -3,7 +3,10 @@ id: formatDate
 title: Format Date & Time
 ---
 
-import Copy from '@site/src/components/Copy'
+<!-- markdownlint-disable-file MD024 -->
+<!-- markdownlint-disable-file MD060 -->
+
+import Copy from '@site/src/components/Copy';
 
 ## formatDate
 
@@ -159,3 +162,119 @@ Below is a list of all supported tokens:
 - *Any token not wrapped in brackets will be parsed and replaced with its corresponding date component.*
 
 :::
+
+---
+
+## formatTimePart
+
+Formats a time-only string into a formatted time string, automatically combining it with today's date for proper parsing.
+
+### Signature
+
+```typescript
+formatTimePart(time: string, format?: TimeFormatToken): string
+```
+
+### Parameters
+
+- `time`: Time string to be formatted. Supported formats include:
+  - `HH:mm` → e.g., `'14:50'`
+  - `HH:mm:ss` → e.g., `'14:50:00'`
+  - `HH:mm:ss.mss` → e.g., `'14:50:00.800'`
+  - `HH:mm+TimeZoneOffset(HH)` → e.g., `'14:50+06'`
+  - `HH:mm+TimeZoneOffset(HH:mm)` → e.g., `'14:50+06:00'`
+  - `HH:mm:ss+TimeZoneOffset(HH)` → e.g., `'14:50:00+06'`
+  - `HH:mm:ss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00+05:30'`
+  - `HH:mm:ss.mss+TimeZoneOffset(HH)` → e.g., `'14:50:00.800+06'`
+  - `HH:mm:ss.mss+TimeZoneOffset(HH:mm)` → e.g., `'14:50:00.800+06:30'`
+  
+  *Note: Input defaults to today's date and assumes local timezone if no offset is provided.*
+
+- `format`: Optional format tokens for time part only (default: `'hh:mm:ss a'` = `'02:33:36 pm'`).
+  Supports the same time-related tokens as [`formatDate()`](#formatdate).
+
+### Return Type
+
+`string` - Formatted time string in local (system) time.
+
+### Example
+
+```typescript
+// Basic time formatting
+formatTimePart('14:50'); 
+// "02:50:00 pm" (with today's date)
+
+formatTimePart('14:50:30');
+// "02:50:30 pm"
+
+// With milliseconds
+formatTimePart('14:50:30.500');
+// "02:50:30 pm" (milliseconds not shown in default format)
+
+// Custom formats
+formatTimePart('14:50', 'HH:mm');
+// "14:50"
+
+formatTimePart('14:50:30', 'h:mm A');
+// "2:50 PM"
+
+formatTimePart('09:15', 'hh:mm a');
+// "09:15 am"
+
+// 24-hour format
+formatTimePart('23:45:20', 'HH:mm:ss');
+// "23:45:20"
+
+// With timezone offset
+formatTimePart('14:50+06');
+// "02:50:00 pm" (converted to local time)
+
+formatTimePart('14:50:00+05:30');
+// "03:20:00 pm" (adjusted from +05:30 to local time)
+
+// Complex formats
+formatTimePart('18:30:45', '[Time:] hh:mm:ss A');
+// "Time: 06:30:45 PM"
+```
+
+### Behavior Details
+
+1. **Date Combination**: Automatically combines the input time with today's date (using `YYYY-MM-DD`) to create a complete datetime string for parsing.
+2. **Timezone Handling**:
+   - If a timezone offset is provided (e.g., `+06:00`), it's preserved in the combined datetime
+   - If no offset is provided, local system timezone is assumed
+3. **Normalization**: The function internally normalizes various time formats to ISO-like format for consistent parsing
+4. **Output**: Always returns time formatted according to the specified tokens, converted to local system time
+
+### Supported Time Format Tokens
+
+The `format` parameter accepts the same time-related tokens as [`formatDate()`](#formatdate):
+
+| Token | Description                         | Example    |
+| ----- | ----------------------------------- | ---------- |
+| `HH`  | 24-hour, zero-padded (00-23)        | `14`, `23` |
+| `H`   | 24-hour (0-23)                      | `14`, `23` |
+| `hh`  | 12-hour, zero-padded (01-12)        | `02`, `11` |
+| `h`   | 12-hour (1-12)                      | `2`, `11`  |
+| `mm`  | Minutes, zero-padded (00-59)        | `05`, `30` |
+| `m`   | Minutes (0-59)                      | `5`, `30`  |
+| `ss`  | Seconds, zero-padded (00-59)        | `09`, `45` |
+| `s`   | Seconds (0-59)                      | `9`, `45`  |
+| `ms`  | Milliseconds (0-999)                | `123`      |
+| `mss` | Milliseconds, zero-padded (000-999) | `123`      |
+| `A`   | AM/PM uppercase                     | `AM`, `PM` |
+| `a`   | am/pm lowercase                     | `am`, `pm` |
+
+### Use Cases
+
+- Formatting time inputs from forms or APIs that only provide time
+- Displaying time-only data in user-friendly formats
+- Converting 24-hour time to 12-hour format with AM/PM indicators
+- Adjusting times from different timezones to local display
+
+### Notes
+
+- This function is ideal when you only have a time component without a specific date
+- For complete datetime formatting with specific dates, use [`formatDate()`](#formatdate) instead
+- The function handles timezone offsets but always outputs in local system time
+- Millisecond tokens (`ms`, `mss`) are supported but may not show if the input doesn't include milliseconds

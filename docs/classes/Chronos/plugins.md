@@ -4,8 +4,9 @@ title: Chronos Plugins
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+<!-- markdownlint-disable-file MD060 -->
 
-import Copy from '@site/src/components/Copy'
+import Copy from '@site/src/components/Copy';
 
 :::info
 
@@ -91,8 +92,9 @@ chronos().enabledMethod()
 | `dayPartPlugin`      | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { dayPartPlugin } from 'nhb-toolbox/plugins/dayPartPlugin';" />           | [getPartOfDay](names#getpartofday) |
 | `zodiacPlugin`       | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiacPlugin';" />         | [getZodiacSign](names#getzodiacsign) |
 | `palindromePlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { palindromePlugin } from 'nhb-toolbox/plugins/palindromePlugin';" />     | [isPalindromeDate](checkers#ispalindromedate) |
-| `greetingPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { greetingPlugin  } from 'nhb-toolbox/plugins/greetingPlugin ';" />     | [getGreeting](format#getgreeting) |
-| `roundPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { roundPlugin  } from 'nhb-toolbox/plugins/roundPlugin ';" />     | [round](calculation#round) |
+| `greetingPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { greetingPlugin  } from 'nhb-toolbox/plugins/greetingPlugin';" />     | [getGreeting](format#getgreeting) |
+| `roundPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { roundPlugin  } from 'nhb-toolbox/plugins/roundPlugin';" />     | [round](calculation#round) |
+| `banglaPlugin`   | <Copy message="Import Statement Copied!" afterCopy="Import Statement Copied!" text="import { banglaPlugin } from 'nhb-toolbox/plugins/banglaPlugin';" />     | [Bangla calendar methods](bangla-plugin#-methods-added-by-this-plugin) |
 
 ---
 
