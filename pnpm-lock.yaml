@@ -43,10 +43,10 @@ importers:
         version: 17.2.3
       nhb-hooks:
         specifier: ^1.40.21
-        version: 1.40.21(nhb-toolbox@4.28.44)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.40.21(nhb-toolbox@4.28.50)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nhb-toolbox:
-        specifier: ^4.28.44
-        version: 4.28.44
+        specifier: ^4.28.50
+        version: 4.28.50
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
@@ -2952,8 +2952,8 @@ packages:
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
-  fastq@1.19.1:
-    resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
+  fastq@1.20.1:
+    resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
 
   fault@2.0.1:
     resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
@@ -3099,8 +3099,8 @@ packages:
     resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  globby@16.0.0:
-    resolution: {integrity: sha512-ejy4TJFga99yW6Q0uhM3pFawKWZmtZzZD/v/GwI5+9bCV5Ew+D2pSND6W7fUes5UykqSsJkUfxFVdRh7Q1+P3Q==}
+  globby@16.1.0:
+    resolution: {integrity: sha512-+A4Hq7m7Ze592k9gZRy4gJ27DrXRNnC1vPjxTt1qQxEY8RxagBkBxivkCwg7FxSTG0iLLEMaUx13oOr0R2/qcQ==}
     engines: {node: '>=20'}
 
   goober@2.1.18:
@@ -4048,8 +4048,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  nhb-toolbox@4.28.44:
-    resolution: {integrity: sha512-/adUkiHDmr6zlSG/M+sAZYyMBKb53txFMeygRPyxF6JX6jUQK5p0uMQxn33GDXEFweJGTEbSIKzTKybpaA63Fw==}
+  nhb-toolbox@4.28.50:
+    resolution: {integrity: sha512-tg2+55cVs7TGWmKdMdADI0YhCzF7njYza4klabQS/FNRHpmyY6nH/JLryzrgBp5kBgKzkDhJPuwYQPj2HKC3tw==}
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -7860,7 +7860,7 @@ snapshots:
   '@nodelib/fs.walk@1.2.8':
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
-      fastq: 1.19.1
+      fastq: 1.20.1
 
   '@opentelemetry/api@1.9.0': {}
 
@@ -9451,7 +9451,7 @@ snapshots:
 
   fast-uri@3.1.0: {}
 
-  fastq@1.19.1:
+  fastq@1.20.1:
     dependencies:
       reusify: 1.1.0
 
@@ -9604,7 +9604,7 @@ snapshots:
       merge2: 1.4.1
       slash: 4.0.0
 
-  globby@16.0.0:
+  globby@16.1.0:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
@@ -10803,9 +10803,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhb-hooks@1.40.21(nhb-toolbox@4.28.44)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nhb-hooks@1.40.21(nhb-toolbox@4.28.50)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      nhb-toolbox: 4.28.44
+      nhb-toolbox: 4.28.50
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -10814,16 +10814,16 @@ snapshots:
       '@clack/prompts': 0.11.0
       chalk: 5.6.2
       execa: 9.6.1
-      globby: 16.0.0
+      globby: 16.1.0
       minimist: 1.2.8
-      nhb-toolbox: 4.28.44
+      nhb-toolbox: 4.28.50
       progress-estimator: 0.3.1
       rimraf: 6.1.2
       semver: 7.7.3
       type-fest: 5.3.1
       typescript: 5.9.3
 
-  nhb-toolbox@4.28.44: {}
+  nhb-toolbox@4.28.50: {}
 
   no-case@3.0.4:
     dependencies:

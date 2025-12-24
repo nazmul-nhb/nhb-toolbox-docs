@@ -7,7 +7,7 @@ import { Fragment } from 'react';
 
 import Copy from '../components/Copy';
 import HomeFeatures from '../components/HomeFeatures';
-import styles from './index.module.css';
+import styles from '../css/index.module.css';
 
 function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
