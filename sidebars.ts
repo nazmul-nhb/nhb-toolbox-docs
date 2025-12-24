@@ -380,6 +380,7 @@ const sidebars: SidebarsConfig = {
 						'classes/Chronos/get-set',
 						'classes/Chronos/strings',
 						'classes/Chronos/extras',
+						'classes/Chronos/bangla-plugin',
 						'classes/Chronos/statics',
 						'classes/Chronos/symbols',
 					],

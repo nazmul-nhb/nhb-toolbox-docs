@@ -9,9 +9,17 @@ title: BanglaCalendar - Bengali Date Handling
 
 The `BanglaCalendar` class provides utilities for handling dates in the Bengali calendar system. It supports creation, manipulation, and conversion between Bengali and Gregorian calendars with two variants: `'revised-2019'` (default) and `'revised-1966'`.
 
+### Import
+
+```ts
+import { BanglaCalendar } from 'nhb-toolbox';
+// or
+import { BanglaCalendar } from 'nhb-toolbox/bn-calendar';
+```
+
 ### Constructor
 
-Creates a new BanglaCalendar instance from various input formats.
+Creates a new `BanglaCalendar` instance from various input formats.
 
 #### Constructor Signatures
 
@@ -248,6 +256,12 @@ console.log(date.endOfMonth().toString());   // "৩১ জ্যৈষ্ঠ �
 
 ---
 
+## Aliases
+
+`BanglaCalendar` can also be imported using **BnCalendar** and **Bongabdo** aliases.
+
+---
+
 ## API Reference for BanglaCalendar
 
 ### isLeapYear()
@@ -429,7 +443,7 @@ const startOfMonth = bnCal.startOfMonth(); // ১ জ্যৈষ্ঠ ১৪�
 
 ### endOfMonth()
 
-Gets a new BanglaCalendar instance representing the last day of the current month.
+Gets a new `BanglaCalendar` instance representing the last day of the current month.
 
 #### Signature
 
@@ -439,7 +453,7 @@ endOfMonth(): BanglaCalendar
 
 #### Return Value
 
-A BanglaCalendar instance set to the last day of the current month.
+A `BanglaCalendar` instance set to the last day of the current month.
 
 #### Example
 
@@ -457,7 +471,7 @@ const endOfMonth = bnCal.endOfMonth(); // ৩১ জ্যৈষ্ঠ ১৪৩
 
 ### startOfYear()
 
-Gets a new BanglaCalendar instance representing the first day of the current year (১ বৈশাখ).
+Gets a new `BanglaCalendar` instance representing the first day of the current year (১ বৈশাখ).
 
 #### Signature
 
@@ -467,7 +481,7 @@ startOfYear(): BanglaCalendar
 
 #### Return Value
 
-A BanglaCalendar instance set to ১ বৈশাখ of the current year.
+A `BanglaCalendar` instance set to ১ বৈশাখ of the current year.
 
 #### Example
 
@@ -480,7 +494,7 @@ const startOfYear = bnCal.startOfYear(); // ১ বৈশাখ ১৪৩০
 
 ### endOfYear()
 
-Gets a new BanglaCalendar instance representing the last day of the current year (৩০ চৈত্র).
+Gets a new `BanglaCalendar` instance representing the last day of the current year (৩০ চৈত্র).
 
 #### Signature
 
@@ -490,7 +504,7 @@ endOfYear(): BanglaCalendar
 
 #### Return Value
 
-A BanglaCalendar instance set to ৩০ চৈত্র of the current year.
+A `BanglaCalendar` instance set to ৩০ চৈত্র of the current year.
 
 #### Example
 

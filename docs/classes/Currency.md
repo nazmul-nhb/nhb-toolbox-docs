@@ -9,6 +9,12 @@ title: Currency - Format & Convert Currencies
 
 The `Currency` class provides utilities for handling currency operations including formatting and conversion. It supports locale-specific formatting and uses the Frankfurter API for currency conversion with automatic rate caching.
 
+### Import
+
+```ts
+import { Currency } from 'nhb-toolbox';
+```
+
 ### Constructor
 
 Creates a new Currency instance with specified amount and currency code.
