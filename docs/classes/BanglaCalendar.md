@@ -133,6 +133,7 @@ new BanglaCalendar('১৪৩০', '১', '১', { variant: 'revised-1966' });
 ### Available Methods
 
 - **Instance Methods**
+  - [valueOf](#valueof)
   - [isLeapYear](#isleapyear)
   - [toDate](#todate)
   - [getSeasonName](#getseasonname)
@@ -147,6 +148,10 @@ new BanglaCalendar('১৪৩০', '১', '১', { variant: 'revised-1966' });
   - [toString](#tostring)
   - [toStringEn](#tostringen)
   - [format](#format)
+  - [addDays](#adddays)
+  - [addWeeks](#addweeks)
+  - [addMonths](#addmonths)
+  - [addYears](#addyears)
   - [$hasVariantConfig](#hasvariantconfig)
 
 - **Static Methods**
@@ -157,6 +162,11 @@ new BanglaCalendar('১৪৩০', '১', '১', { variant: 'revised-1966' });
   - [isBanglaDate](#isbangladate)
   - [isBanglaDateEn](#isbangladateen)
   - [isBanglaDateString](#isbangladatestring)
+
+- **Symbol Methods**
+
+  - [Symbol.toPrimitive](#symboltoprimitive)
+  - [Symbol.toStringTag](#symboltostringtag)
 
 ---
 
@@ -170,6 +180,20 @@ readonly variant: BnCalendarVariant
 
 The calendar variant being used (`'revised-2019'` or `'revised-1966'`).
 
+**Example:**
+
+```typescript
+const cal2019 = new BanglaCalendar(); // Default: 'revised-2019'
+console.log(cal2019.variant); // 'revised-2019'
+
+const cal1966 = new BanglaCalendar({ variant: 'revised-1966' });
+console.log(cal1966.variant); // 'revised-1966'
+
+// Different leap year behavior
+console.log(cal2019.isLeapYear()); // Follows Gregorian rules
+console.log(cal1966.isLeapYear()); // Follows Bangla year % 4 === 2 rule
+```
+
 #### year
 
 ```typescript
@@ -177,6 +201,18 @@ readonly year: Readonly<{
   bn: BanglaYear;    // Bangla year in Bangla digits
   en: number;        // Bangla year in Latin digits
 }>
+```
+
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০১-০১');
+console.log(bnCal.year.bn);  // '১৪৩০' (Bangla digits)
+console.log(bnCal.year.en);  // 1430 (Latin digits)
+
+// Type-safe access
+const banglaYear: string = bnCal.year.bn; // Type: BanglaYear
+const latinYear: number = bnCal.year.en;  // Type: number
 ```
 
 #### month
@@ -188,6 +224,21 @@ readonly month: Readonly<{
 }>
 ```
 
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০৫-১৫'); // ভাদ্র ১৫
+console.log(bnCal.month.bn);  // '৫' (Bangla digits)
+console.log(bnCal.month.en);  // 5 (Latin digits, 1-based)
+
+// Get month name to verify
+console.log(bnCal.getMonthName()); // 'ভাদ্র'
+console.log(bnCal.getMonthName('en')); // 'Bhadro'
+
+// Type-safe access
+const monthNumber: number = bnCal.month.en; // Type: NumberRange<1, 12>
+```
+
 #### date
 
 ```typescript
@@ -195,6 +246,17 @@ readonly date: Readonly<{
   bn: BanglaDate;    // Bangla day of month in Bangla digits (১-৩১)
   en: NumberRange<1, 31>;  // Bangla day of month in Latin digits (1-31)
 }>
+```
+
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০৫-১৫'); // ১৫ ভাদ্র
+console.log(bnCal.date.bn);  // '১৫' (Bangla digits)
+console.log(bnCal.date.en);  // 15 (Latin digits)
+
+// Type-safe access
+const dayNumber: number = bnCal.date.en; // Type: NumberRange<1, 31>
 ```
 
 #### gregorian
@@ -207,6 +269,23 @@ readonly gregorian: Readonly<{
 }>
 ```
 
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০১-০১'); // ১ বৈশাখ ১৪৩০
+console.log(bnCal.gregorian.year);   // 2023
+console.log(bnCal.gregorian.month);  // 4 (April)
+console.log(bnCal.gregorian.date);   // 14
+
+// Verify conversion
+const gregorianDate = bnCal.toDate();
+console.log(gregorianDate); // Date: Fri Apr 14 2023 00:00:00 GMT+0000
+
+// Conversion works both ways
+const fromGregorian = new BanglaCalendar(new Date(2023, 3, 14)); // April 14, 2023
+console.log(fromGregorian.toJSON()); // '১৪৩০-০১-০১'
+```
+
 #### weekDay
 
 ```typescript
@@ -215,6 +294,24 @@ readonly weekDay: Enumerate<7>
 
 Day of the week (0-6, where 0 is Sunday/রবিবার).
 
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০১-০১'); // Friday, April 14, 2023
+console.log(bnCal.weekDay); // 5 (Friday)
+
+// Get day name to verify
+console.log(bnCal.getDayName());     // 'শুক্রবার'
+console.log(bnCal.getDayName('en')); // 'Shukrobar (Friday)'
+
+// Check specific days
+if (bnCal.weekDay === 0) {
+  console.log('It is Sunday (রবিবার)');
+} else if (bnCal.weekDay === 5) {
+  console.log('It is Friday (শুক্রবার)');
+}
+```
+
 #### isoWeekDay
 
 ```typescript
@@ -222,6 +319,25 @@ readonly isoWeekDay: NumberRange<1, 7>
 ```
 
 ISO weekday (1 = Monday, 7 = Sunday).
+
+**Example:**
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০-০১-০১'); // Friday, April 14, 2023
+console.log(bnCal.isoWeekDay); // 5 (Friday in ISO format)
+
+// Compare with weekDay
+console.log(bnCal.weekDay);    // 5 (0-based, Sunday=0)
+console.log(bnCal.isoWeekDay); // 5 (1-based, Monday=1)
+
+// Useful for ISO-compliant calculations
+const isWeekend = bnCal.isoWeekDay >= 6; // Saturday or Sunday
+console.log(isWeekend); // false (Friday is not weekend)
+
+// ISO week starts on Monday
+const mondayDate = bnCal.addDays(1 - bnCal.isoWeekDay); // Get Monday of the week
+console.log(mondayDate.toJSON()); // Get Monday's date
+```
 
 ---
 
@@ -263,6 +379,35 @@ console.log(date.endOfMonth().toString());   // "৩১ জ্যৈষ্ঠ �
 ---
 
 ## API Reference for BanglaCalendar
+
+### valueOf()
+
+Gets the numeric timestamp (in milliseconds) for the current Bangla date.
+
+#### Signature
+
+```typescript
+valueOf(): number
+```
+
+#### Return Value
+
+Unix timestamp in milliseconds representing the Gregorian equivalent of the current Bangla date.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১');
+const timestamp = bnCal.valueOf(); // 1681430400000 (equivalent to April 14, 2023)
+```
+
+#### Remarks
+
+- Internally calls [**`toDate().getTime()`**](#todate) to convert the Bangla date to Gregorian and get its timestamp
+- The time component is normalized to midnight UTC during conversion
+- This method is automatically called when the instance is used in numeric contexts
+
+---
 
 ### isLeapYear()
 
@@ -671,6 +816,188 @@ To output raw text (not interpreted as a token), wrap it in square brackets:
 
 ---
 
+### addDays()
+
+Adds (or subtracts) days to (or from) the current Bangla date.
+
+#### Signature
+
+```typescript
+addDays(days: number): BanglaCalendar
+```
+
+#### Parameters
+
+- `days`: Number of days to add (negative values subtract days)
+
+#### Return Value
+
+A new `BanglaCalendar` instance with the adjusted date.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১'); // ১ বৈশাখ ১৪৩০
+
+// Add days
+bnCal.addDays(7);   // ৮ বৈশাখ ১৪৩০
+bnCal.addDays(35);  // ৫ জ্যৈষ্ঠ ১৪৩০
+
+// Subtract days
+bnCal.addDays(-3);  // ২৮ চৈত্র ১৪২৯
+
+// Cross year boundary
+const lateDate = new BanglaCalendar('১৪৩০', '১২', '২৫');
+lateDate.addDays(10); // ৫ বৈশাখ ১৪৩১
+```
+
+#### Remarks
+
+- Preserves the calendar variant of the original instance
+- Handles month and year transitions automatically
+- Accounts for varying month lengths and leap years
+- Negative values subtract days from the current date
+- Time component remains at midnight UTC
+
+---
+
+### addWeeks()
+
+Adds (or subtracts) weeks to (or from) the current Bangla date.
+
+#### Signature
+
+```typescript
+addWeeks(weeks: number): BanglaCalendar
+```
+
+#### Parameters
+
+- `weeks`: Number of weeks to add (negative values subtract weeks)
+
+#### Return Value
+
+A new `BanglaCalendar` instance with the adjusted date.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১'); // ১ বৈশাখ ১৪৩০
+
+// Add weeks
+bnCal.addWeeks(2);   // ১৫ বৈশাখ ১৪৩০
+bnCal.addWeeks(5);   // ৫ জ্যৈষ্ঠ ১৪৩০
+
+// Subtract weeks
+bnCal.addWeeks(-1);  // ২৪ চৈত্র ১৪২৯
+```
+
+#### Remarks
+
+- Each week is treated as exactly 7 days
+- Preserves the calendar variant of the original instance
+- Handles month and year transitions automatically
+- Useful for scheduling recurring weekly events
+- Negative values subtract weeks from the current date
+
+---
+
+### addMonths()
+
+Adds (or subtracts) months to (or from) the current Bangla date.
+
+#### Signature
+
+```typescript
+addMonths(months: number, overflow?: boolean): BanglaCalendar
+```
+
+#### Parameters
+
+- `months`: Number of months to add (negative values subtract months)
+- `overflow`: Controls behavior when day doesn't exist in target month (default: `true`)
+  - `true`: Invalid dates overflow to the next month
+  - `false`: Clamps to the last valid day of the target month
+
+#### Return Value
+
+A new `BanglaCalendar` instance with the adjusted date.
+
+#### Example
+
+```typescript
+const normal = new BanglaCalendar('১৪৩০', '২', '১৫');
+normal.addMonths(1);         // ১৫ আষাঢ় ১৪৩০
+normal.addMonths(1, false);  // ১৫ আষাঢ় ১৪৩০
+
+// Edge case: 31st doesn't exist in কার্তিক (30 days)
+const edgeCase = new BanglaCalendar('১৪৩০', '৬', '৩১'); // ৩১ আশ্বিন ১৪৩০
+edgeCase.addMonths(1);         // ১ অগ্রহায়ণ ১৪৩০ (overflow)
+edgeCase.addMonths(1, false);  // ৩০ কার্তিক ১৪৩০ (clamped)
+
+// Subtract months
+edgeCase.addMonths(-1);        // ১ আশ্বিন ১৪৩০
+edgeCase.addMonths(-1, false); // ৩১ ভাদ্র ১৪৩০
+```
+
+#### Remarks
+
+- When `overflow=true` (default): Follows JavaScript `Date` behavior where invalid dates overflow
+- When `overflow=false`: Clamps to the last valid day of the target month
+- Preserves the calendar variant of the original instance
+- Handles year transitions automatically
+- Negative values subtract months from the current date
+
+---
+
+### addYears()
+
+Adds (or subtracts) years to (or from) the current Bangla date.
+
+#### Signature
+
+```typescript
+addYears(years: number, overflow?: boolean): BanglaCalendar
+```
+
+#### Parameters
+
+- `years`: Number of years to add (negative values subtract years)
+- `overflow`: Controls behavior for leap year adjustments (default: `true`)
+  - `true`: Allows date overflow when day doesn't exist in target year
+  - `false`: Clamps to last valid day of month in non-leap years
+
+#### Return Value
+
+A new `BanglaCalendar` instance with the adjusted date.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১৫'); // ১৫ বৈশাখ ১৪৩০
+
+// Add years
+bnCal.addYears(1);   // ১৫ বৈশাখ ১৪৩১
+bnCal.addYears(5);   // ১৫ বৈশাখ ১৪৩৫
+
+// Subtract years
+bnCal.addYears(-1);  // ১৫ বৈশাখ ১৪২৯
+
+// Leap year adjustment
+const leapDay = new BanglaCalendar('১৪৩১', '১১', '৩০'); // ৩০ ফাল্গুন ১৪৩১ (leap year)
+leapDay.addYears(1, false); // ২৯ ফাল্গুন ১৪৩২ (non-leap year has 29 days)
+```
+
+#### Remarks
+
+- Preserves the calendar variant of the original instance
+- Negative values subtract years from the current date
+- Year addition follows Bangla calendar years
+- The month and day generally remain the same unless affected by leap year rules
+- When `overflow=false`, dates in ফাল্গুন (month 11) are adjusted for leap year differences
+
+---
+
 ### $hasVariantConfig()
 
 Checks if a value is a configuration object that contains a valid calendar `variant`.
@@ -856,6 +1183,100 @@ BanglaCalendar.isBanglaDateString('১৪৩০-১৩-০১'); // false (inval
 
 - Accepts both zero-padded and non-padded Bangla digits
 - Validates year, month, and date components separately
+
+---
+
+### [Symbol.toPrimitive]
+
+Converts the `BanglaCalendar` instance to a primitive value based on the provided hint.
+
+#### Signature
+
+```typescript
+[Symbol.toPrimitive](hint: string): string | number
+```
+
+#### Parameters
+
+- `hint`: The conversion hint - either `'number'` or `'string'` (defaults to `'string'`)
+
+#### Return Value
+
+- If `hint` is `'number'`: Returns the timestamp (same as [valueOf()](#valueof))
+- Otherwise: Returns the ISO-like Bangla date string (same as [toJSON()](#tojson))
+
+#### Behavior
+
+- **`hint === 'number'`**: Returns numeric timestamp via [valueOf()](#valueof)
+- **`hint === 'string'` or any other hint**: Returns formatted string via [toJSON()](#tojson)
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১');
+
+// String context (default)
+String(bnCal); // "১৪৩০-০১-০১"
+`${bnCal}`;    // "১৪৩০-০১-০১"
+
+// Numeric context
++bunCal;        // 1681430400000
+bnCal * 1;      // 1681430400000
+
+// Using explicit hint
+bnCal[Symbol.toPrimitive]('number');  // 1681430400000
+bnCal[Symbol.toPrimitive]('string');  // "১৪৩০-০১-০১"
+bnCal[Symbol.toPrimitive]('default'); // "১৪৩০-০১-০১"
+```
+
+#### Remarks
+
+- This method enables implicit type conversion in JavaScript/TypeScript
+- Follows standard JavaScript object-to-primitive conversion protocol
+- Ensures predictable behavior in arithmetic operations and string concatenation
+
+---
+
+### [Symbol.toStringTag]
+
+Provides a string tag used by `Object.prototype.toString()`.
+
+#### Signature
+
+```typescript
+get [Symbol.toStringTag](): string
+```
+
+#### Return Value
+
+ISO-like Bangla date string in the format `"YYYY-MM-DD"` with Bangla digits.
+
+#### Example
+
+```typescript
+const bnCal = new BanglaCalendar('১৪৩০', '১', '১');
+
+console.log(bnCal);
+// BanglaCalendar [১৪৩০-০১-০১] {
+//   variant: 'revised-2019',
+//   year: { bn: '১৪৩০', en: 1430 },
+//   month: { bn: '১', en: 1 },
+//   date: { bn: '১', en: 1 },
+//   gregorian: { year: 2023, month: 4, date: 14 },
+//   weekDay: 5,
+//   isoWeekDay: 5
+// }
+
+Object.prototype.toString.call(bnCal); // "[object ১৪৩০-০১-০১]"
+
+bnCal[Symbol.toStringTag];            // "১৪৩০-০১-০১"
+```
+
+#### Remarks
+
+- Returns the same value as [toJSON()](#tojson) method
+- Used by `Object.prototype.toString()` to identify the object type
+- Provides a human-readable representation in debugging contexts
 
 ---
 
