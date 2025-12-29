@@ -594,8 +594,7 @@ console.log(bnCal.toString()); // "শুক্রবার, ১ বৈশাখ
 
 #### Remarks
 
-- Automatically called by `String.prototype.toString()`
-- Equivalent to `toStringEn()` with `'bn'` locale
+- Equivalent to [toStringEn()](#tostringen) with `'bn'` locale
 
 ---
 
