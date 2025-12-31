@@ -219,5 +219,5 @@ formatPhoneNumber('০১৭১২৩৪৫৬৭৮'); // "017-123-45678"
 
 ## Related Utilities
 
-- [`isNumericString()`](/docs/guards/primitive-guards#isnumericstring) - Check if a string contains only digits
+- [`isNumericString()`](/docs/guards/mixed-guards#isnumericstring) - Check if a string contains only digits
 - [`isNonEmptyString()`](/docs/guards/primitive-guards#isnonemptystring) - Check if a string is not empty
