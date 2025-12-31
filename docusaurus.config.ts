@@ -343,7 +343,7 @@ export default async function config(): Promise<Config> {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
+				copyright: `Copyright © ${nowDhaka.year} Nazmul Hassan`,
 			},
 			prism: {
 				theme: themes.github,
