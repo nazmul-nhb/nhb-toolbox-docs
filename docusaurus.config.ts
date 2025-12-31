@@ -5,8 +5,14 @@ import { Stylog } from 'nhb-toolbox/stylog';
 import { resolve } from 'node:path';
 import { themes } from 'prism-react-renderer';
 import { syncChangelog } from './scripts/sync-changelog.mjs';
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 
 dotenv.config({ path: resolve(__dirname, '.env'), quiet: true });
+
+Chronos.register(timeZonePlugin);
+
+const nowDhaka = new Chronos().timeZone('Asia/Dhaka');
 
 async function getNpmVersion(pkg: string): Promise<string> {
 	const url = `https://registry.npmjs.org/${pkg}/latest`;
@@ -125,7 +131,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
 					name: 'copyright',
-					content: `Copyright © ${new Date().getUTCFullYear()} Nazmul Hassan`,
+					content: `Copyright © ${nowDhaka.year} Nazmul Hassan`,
 				},
 				{ name: 'canonical', content: 'https://toolbox.nazmul-nhb.dev' },
 				{ name: 'robots', content: 'index, follow' },

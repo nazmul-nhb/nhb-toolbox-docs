@@ -45,7 +45,7 @@ import type {
 	Split,
 } from 'nhb-toolbox/utils/types';
 import { Article } from './article';
-import { customPlugin } from './__chr';
+import { customPlugin } from './chr';
 
 Chronos.use(customPlugin);
 
