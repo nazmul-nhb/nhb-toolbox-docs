@@ -125,7 +125,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
 					name: 'copyright',
-					content: `Copyright © ${new Date().getFullYear()} Nazmul Hassan`,
+					content: `Copyright © ${new Date().getUTCFullYear()} Nazmul Hassan`,
 				},
 				{ name: 'canonical', content: 'https://toolbox.nazmul-nhb.dev' },
 				{ name: 'robots', content: 'index, follow' },
