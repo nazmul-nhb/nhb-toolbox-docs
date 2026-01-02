@@ -5,6 +5,8 @@ title: Color Manipulation Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
+## Available Methods
+
 ### `applyOpacity()`
 
 #### Signature

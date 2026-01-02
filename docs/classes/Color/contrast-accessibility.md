@@ -5,6 +5,8 @@ title: Contrast & Accessibility Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
+## Available Methods
+
 ### `contrastRatio()`
 
 #### Signature

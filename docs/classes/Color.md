@@ -4,6 +4,7 @@ title: Color - Play with Colors Convert, blend, manipulate and do more
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+
 ## `Color`
 
 The `Color` class provides a robust way to work with colors in various formats (i.e. Hex, Hex8, RGB, HSL, RGBA, HSLA) and includes methods for color manipulation, blending, and accessibility checks.  
@@ -91,3 +92,11 @@ type CSSColor = "black" | "silver" | "gray" | "white" | "maroon" | "red" | "purp
 ```typescript
 type Percent = 0 | 1 | 2 | ... | 100; // 0-100
 ```
+
+### Alias
+
+`Color` can also be imported using `Colour` alias.
+
+### See Also
+
+- [**Color Utilities**](/docs/utilities/color) for other standalone utilities

@@ -5,6 +5,8 @@ title: Color Scheme Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
+## Available Methods
+
 ### `getComplementaryColor()`
 
 #### Signature

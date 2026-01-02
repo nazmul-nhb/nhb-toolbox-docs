@@ -149,7 +149,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'og:image:height', content: '630' },
 				{ name: 'og:image:type', content: 'image/png' },
 				{ name: 'og:locale', content: 'en_US' },
-				{ name: 'og:updated_time', content: new Date().toISOString() },
+				{ name: 'og:updated_time', content: nowDhaka.toISOString() },
 				{ name: 'twitter:image:width', content: '1200' },
 				{ name: 'twitter:image:height', content: '630' },
 				{ name: 'twitter:card', content: 'summary_large_image' },
