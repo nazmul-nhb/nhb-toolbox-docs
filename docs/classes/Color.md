@@ -11,7 +11,7 @@ The `Color` class provides a robust way to work with colors in various formats (
 
 ---
 
-### Table of Contents
+### Available Methods
 
 - [Color Manipulation Methods](Color/manipulation)
 - [Color Scheme Generation](Color/scheme-generation)
@@ -29,6 +29,21 @@ import { Color } from 'nhb-toolbox/color';
 ```
 
 ---
+
+### Constructor
+
+Creates a new `Color` instance from various input formats.
+
+```typescript
+// Generates a random color
+constructor();
+// Using hex, rgb or hsl colors with or without alpha channel
+constructor(color: ColorType);
+// Using a CSS named color
+constructor(color: CSSColor);
+// Using specific color format (ColorType) or css named color
+constructor(color?: ColorType | CSSColor);
+```
 
 ### Type Definitions
 
