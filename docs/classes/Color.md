@@ -30,7 +30,7 @@ import { Color } from 'nhb-toolbox/color';
 
 ---
 
-### Constructor
+### Constructor & Signatures
 
 Creates a new `Color` instance from various input formats.
 
@@ -42,8 +42,10 @@ constructor(color: ColorType);
 // Using a CSS named color
 constructor(color: CSSColor);
 // Using specific color format (ColorType) or css named color
-constructor(color?: ColorType | CSSColor);
+constructor(color?: ColorType | CSSColor); // use this signature in type ambiguous situation(s).
 ```
+
+---
 
 ### Type Definitions
 
