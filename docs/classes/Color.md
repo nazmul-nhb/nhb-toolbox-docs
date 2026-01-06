@@ -15,7 +15,7 @@ The `Color` class provides a robust way to work with colors in various formats (
 
 - [Color Manipulation Methods](Color/manipulation)
 - [Color Scheme Generation](Color/scheme-generation)
-- [Accessibility & Contrast Methods](Color/contrast-accessibility)
+- [Accessibility & Contrast](Color/contrast-accessibility)
 - [Static Validation Methods](Color/static-validation)
 
 ---
@@ -58,13 +58,13 @@ type Hex = `#${string}`; // Format: #3C6945
 #### Hex6
 
 ```typescript
-type Hex6 = Branded<`#${string}`, 'Hex6'>; // Format: #3C6945
+type Hex6 = Branded<Hex, 'Hex6'>; // Format: #3C6945
 ```
 
 #### Hex8
 
 ```typescript
-type Hex8 = Branded<`#${string}`, 'Hex8'>; // Format: #3C6945FF (with alpha)
+type Hex8 = Branded<Hex, 'Hex8'>; // Format: #3C6945FF (with alpha channel)
 ```
 
 #### RGB
@@ -76,7 +76,7 @@ type RGB = `rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${n
 #### RGBA
 
 ```typescript
-type RGBA = `rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`; // With alpha
+type RGBA = `rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`; // With alpha channel
 ```
 
 #### HSL
@@ -88,7 +88,7 @@ type HSL = `hsl(${number}, ${number}%, ${number}%)` | `hsl(${number},${number}%,
 #### HSLA
 
 ```typescript
-type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})` | `hsla(${number},${number}%,${number}%,${number})`; // With alpha
+type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})` | `hsla(${number},${number}%,${number}%,${number})`; // With alpha channel
 ```
 
 #### ColorType

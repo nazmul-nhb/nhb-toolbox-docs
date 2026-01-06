@@ -1,6 +1,6 @@
 ---
 id: contrast-accessibility
-title: Contrast & Accessibility Methods
+title: Contrast & Accessibility
 ---
 
 <!-- markdownlint-disable-file MD024 -->
@@ -70,17 +70,27 @@ console.log(background.getWCAGRating(text)); // "AAA"
 
 #### Signature
 
-```typescript
-isLightColor(): boolean
-```  
+```ts
+isLightColor(threshold?: number): boolean
+```
+
+#### Parameters
+
+- `threshold` *(optional)* — Brightness cutoff value in the range `0–255`.
+  Defaults to `127.5` if not provided. Values outside the range are clamped.
 
 #### Return Type
 
-`boolean` – `true` if the color is light (perceived brightness > 50%).  
+`boolean` — `true` if the perceived brightness exceeds the `threshold`; otherwise `false`.
 
 #### Example
 
 ```ts
-new Color("#ffffff").isLightColor(); // true
-new Color("#000000").isLightColor(); // false
-```  
+new Color("#ffffff").isLightColor();        // true
+new Color("#000000").isLightColor();        // false
+new Color("#888888").isLightColor(140);     // false
+
+// Invalid thresholds are safely clamped
+new Color("#ffffff").isLightColor(999);     // false  (treated as 255)
+new Color("#000000").isLightColor(-50);     // false (treated as 0)
+```
