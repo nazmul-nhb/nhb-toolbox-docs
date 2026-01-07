@@ -14,8 +14,8 @@ The `Color` class provides a robust way to work with colors in various formats (
 ### Available Methods
 
 - [Color Manipulation Methods](Color/manipulation)
-- [Color Scheme Generation](Color/scheme-generation)
-- [Accessibility & Contrast](Color/contrast-accessibility)
+- [Color Scheme Generation Methods](Color/scheme-generation)
+- [Accessibility & Contrast Manipulation Methods](Color/contrast-accessibility)
 - [Static Validation Methods](Color/static-validation)
 
 ---
@@ -41,8 +41,8 @@ constructor();
 constructor(color: ColorType);
 // Using a CSS named color
 constructor(color: CSSColor);
-// Using specific color format (ColorType) or css named color
-constructor(color?: ColorType | CSSColor); // use this signature in type ambiguous situation(s).
+// Using specific color format (ColorType) or CSS named color
+constructor(color?: ColorType | CSSColor); // Use this signature in type ambiguous situation(s).
 ```
 
 ---
@@ -112,8 +112,14 @@ type Percent = 0 | 1 | 2 | ... | 100; // 0-100
 
 ### Alias
 
-`Color` can also be imported using `Colour` alias.
+`Color` can also be imported using `Colour` alias:
+
+```ts
+import { Colour } from 'nhb-toolbox';
+// or
+import { Colour } from 'nhb-toolbox/color';
+```
 
 ### See Also
 
-- [**Color Utilities**](/docs/utilities/color) for other standalone utilities
+- [**Color Utilities**](/docs/utilities/color) for other standalone utilities.
