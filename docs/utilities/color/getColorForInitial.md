@@ -116,10 +116,10 @@ const NUMBER_COLOR_PALETTE = [
 
 ```typescript
 // Single string
-getColorForInitial('Apple'); // '#00094C' (color for 'A')
+getColorForInitial('Apple'); // '#00094CFF' (color for 'A')
 
 // Single number 
-getColorForInitial(42); // '#A44C15' (color for '4')
+getColorForInitial(42); // '#3B543BFF' (color for '4')
 
 // With opacity
 getColorForInitial('Banana', 50); // '#00376E80' (50% opacity)
@@ -130,11 +130,11 @@ getColorForInitial('Banana', 50); // '#00376E80' (50% opacity)
 ```typescript
 // Simple array
 getColorForInitial(['Cat', 42, 'Dog']);
-// ['#005600', '#A44C15', '#024647']
+// [ '#005600FF', '#3B543BFF', '#024647FF' ]
 
 // Nested arrays
 getColorForInitial([['A'], ['B', [3]]]);
-// ['#00094C', '#00376E', '#8B4513']
+// [ '#00094CFF', '#00376EFF', '#8A1D33FF' ]
 
 // Empty array returns all colors
 getColorForInitial([]).length; // 36
