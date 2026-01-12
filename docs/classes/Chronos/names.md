@@ -557,7 +557,7 @@ When using month-based boundaries (`MonthBoundary`), the season calculation only
 ### Signature
 
 ```typescript
-getZodiacSign(options?: ZodiacOptions): ZodiacSign
+getZodiacSign<Sign extends string = ZodiacSign>(options?: ZodiacOptions<Sign>): Sign
 ```
 
 ### Alias
@@ -594,8 +594,12 @@ console.log(now.getZodiacSign({ birthDate: '05-21' })); // "Gemini"
 const customZodiac = [
   ['Aries', [3, 21]],
   ['Taurus', [4, 20]],
-  // ...other signs
-];
+  ['A', [3, 1]],
+  ['B', [6, 1]],
+  ['C', [9, 1]],
+  ['D', [12, 1]],
+  // ...other signs, zodiac names can be any string
+] as const;
 console.log(now.getZodiacSign({ custom: customZodiac }));
 ```
 
@@ -604,14 +608,14 @@ console.log(now.getZodiacSign({ custom: customZodiac }));
 #### ZodiacOptions
 
 ```typescript
-interface ZodiacOptions {
-  birthDate?: MonthDateString; // 'MM-DD' format (1-based month)
-  preset?: ZodiacPreset;       // 'western' | 'vedic' | 'tropical' | 'sidereal'
-  custom?: ZodiacArray;        // Custom zodiac definitions
+interface ZodiacOptions<Sign extends string = ZodiacSign> {
+  birthDate?: MonthDateString;      // 'MM-DD' format (1-based month)
+  preset?: ZodiacPreset;      // 'western' | 'vedic' | 'tropical' | 'sidereal'
+  custom?: ZodiacArray<Sign> | Readonly<ZodiacArray<Sign>>;     // Custom zodiac definitions
 }
 ```
 
-- `birthDate`: Optional date in 'MM-DD' format to use instead of instance date
+- `birthDate`: Optional date in `'MM-DD'` format to use instead of instance date
 - `preset`: Name of predefined zodiac configuration (default: `'western'`)
 - `custom`: Custom array of zodiac definitions (overrides preset if provided)
 
@@ -633,8 +637,7 @@ interface ZodiacOptions {
   ['Virgo', [8, 23]],
   ['Libra', [9, 23]],
   ['Scorpio', [10, 23]],
-  ['Sagittarius', [11, 22]],
-  ['Capricorn', [12, 22]]
+  ['Sagittarius', [11, 22]]
 ]
 ```
 
@@ -646,16 +649,15 @@ interface ZodiacOptions {
   ['Capricorn', [1, 14]],
   ['Aquarius', [2, 13]],
   ['Pisces', [3, 14]],
-  ['Aries', [4, 13]],
-  ['Taurus', [5, 14]],
-  ['Gemini', [6, 14]],
+  ['Aries', [4, 14]],
+  ['Taurus', [5, 15]],
+  ['Gemini', [6, 15]],
   ['Cancer', [7, 16]],
-  ['Leo', [8, 16]],
-  ['Virgo', [9, 16]],
-  ['Libra', [10, 16]],
-  ['Scorpio', [11, 15]],
-  ['Sagittarius', [12, 15]],
-  ['Capricorn', [1, 14]]
+  ['Leo', [8, 17]],
+  ['Virgo', [9, 17]],
+  ['Libra', [10, 17]],
+  ['Scorpio', [11, 16]],
+  ['Sagittarius', [12, 16]]
 ]
 ```
 
@@ -663,14 +665,18 @@ interface ZodiacOptions {
 </Tabs>
 
 :::tip[Custom Zodiac]
-You can create custom zodiac configurations by providing your own array of zodiac definitions but must use the 12 existing zodiac sign names, **only date ranges are customizable**:
+You can create custom zodiac configurations by providing your own array of zodiac definitions with any zodiac sign names:
 
 ```typescript
 const customZodiac = [
   ['Capricorn', [1, 1]], 
   ['Sagittarius', [2, 1]],
-  // ...other signs
-];
+  ['A', [3, 1]],
+  ['B', [6, 1]],
+  ['C', [9, 1]],
+  ['D', [12, 1]],
+  // ...other signs, zodiac names can be any string
+] as const;
 
 const currentSign = new Chronos().getZodiacSign({ custom: customZodiac });
 ```
@@ -682,14 +688,16 @@ const currentSign = new Chronos().getZodiacSign({ custom: customZodiac });
 ```typescript
 type ZodiacPreset = 'western' | 'vedic' | 'tropical' | 'sidereal';
 type ZodiacSign = 'Aries' | 'Taurus' | ...; // All zodiac sign names
-type ZodiacArray = Array<[ZodiacSign, [month: 1 | 2 | ... | 12, day: 1 | 2 | ... | 31]]>;
+type ZodiacArray<Sign extends string = ZodiacSign> = Array<
+  [Sign, [NumberRange<1, 12>, NumberRange<1, 31>]] | Readonly<[Sign, Readonly<[NumberRange<1, 12>, NumberRange<1, 31>]>]>
+>;
 ```
 
 :::info[Date Handling]
 
 - Month values are 1-based (1 = January)
-- Supports both instance date and custom birthdate input
-- Returns the first sign if no matches found (shouldn't occur with proper definitions)
+- Supports both instance date and custom `birthDate` input
+- Returns the first sign if no matches found (shouldn't occur with presets or proper definitions)
 
 :::
 
