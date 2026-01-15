@@ -701,6 +701,238 @@ type ZodiacArray<Sign extends string = ZodiacSign> = Array<
 
 :::
 
+---
+
+## getZodiacMeta()
+
+### Signature
+
+```typescript
+getZodiacMeta<Sign extends string = ZodiacSign>(sign: Sign, options?: ZodiacMetaOptions<Sign>): ZodiacMeta<Sign>
+```
+
+### Overview
+
+The `getZodiacMeta()` method retrieves detailed metadata for a specific zodiac sign based on either predefined presets (Western or Vedic) or custom zodiac definitions. It returns the sign's chronological position, inclusive date range, and handles year-boundary wrapping correctly.
+
+:::danger[Note]
+This method is provided by `zodiacPlugin`. You must register it using `Chronos.use(zodiacPlugin)` before calling `.getZodiacMeta()`. Once registered, all `Chronos` instances will have access to the `.getZodiacMeta()` method.
+:::
+
+### Usage
+
+```typescript
+import { Chronos } from 'nhb-toolbox';
+import { zodiacPlugin } from 'nhb-toolbox/plugins/zodiacPlugin';
+
+Chronos.use(zodiacPlugin);
+
+// Using default preset (Western)
+const chronos = new Chronos();
+
+// Get metadata for a specific sign
+const ariesMeta = chronos.getZodiacMeta('Aries');
+console.log(ariesMeta);
+// {
+//   index: 2,
+//   sign: 'Aries',
+//   start: '03-21',
+//   end: '04-19'
+// }
+
+// Using Vedic preset
+const vedicAriesMeta = chronos.getZodiacMeta('Aries', { preset: 'vedic' });
+console.log(vedicAriesMeta);
+// {
+//   index: 3,
+//   sign: 'Aries',
+//   start: '04-14',
+//   end: '05-14'
+// }
+
+// Custom zodiac definitions
+const customZodiac = [
+  ['A', [3, 1]],
+  ['B', [6, 1]],
+  ['C', [9, 1]],
+  ['D', [12, 1]],
+  ['E', [1, 15]],
+  ['F', [2, 15]],
+] as const;
+
+const signMeta = chronos.getZodiacMeta('D', { custom: customZodiac });
+console.log(signMeta);
+// {
+//   index: 3,
+//   sign: 'D',
+//   start: '12-01',
+//   end: '01-14'
+// }
+```
+
+### Configuration
+
+#### ZodiacMetaOptions
+
+```typescript
+interface ZodiacMetaOptions<Sign extends string = ZodiacSign> {
+  preset?: ZodiacPreset;      // 'western' | 'vedic' | 'tropical' | 'sidereal'
+  custom?: ZodiacArray<Sign> | Readonly<ZodiacArray<Sign>>;     // Custom zodiac definitions
+}
+```
+
+- `preset`: Name of predefined zodiac configuration (default: `'western'`)
+- `custom`: Custom array of zodiac definitions (overrides preset if provided)
+
+### Return Value
+
+#### ZodiacMeta
+
+```typescript
+interface ZodiacMeta<Sign extends string = ZodiacSign> {
+  index: number;      // 0-based chronological position
+  sign: Sign;         // The zodiac sign name
+  start: MonthDateString;    // Inclusive start date in 'MM-DD' format
+  end: MonthDateString;      // Inclusive end date in 'MM-DD' format
+}
+```
+
+##### index
+
+The `index` property represents the chronological position (0-based) of the zodiac sign within the resolved and sorted zodiac list.
+
+:::warning[Important Notes about Index]
+
+- The index is determined by the Gregorian month–day ordering of zodiac start dates
+- Index values may differ between zodiac variants (e.g., Western vs Vedic)
+- This index **should not** be interpreted as a traditional or mythological zodiac ordering
+- It's primarily useful for programmatic sorting and comparison within the same zodiac variant
+
+:::
+
+### Available Presets
+
+The same presets as [**getZodiacSign()**](#available-presets-1) are available:
+
+<Tabs>
+<TabItem value="western" label="Western/Tropical">
+
+```typescript
+[
+  ['Aquarius', [1, 20]],      // index: 0
+  ['Pisces', [2, 19]],        // index: 1
+  ['Aries', [3, 21]],         // index: 2
+  ['Taurus', [4, 20]],        // index: 3
+  ['Gemini', [5, 21]],        // index: 4
+  ['Cancer', [6, 21]],        // index: 5
+  ['Leo', [7, 23]],           // index: 6
+  ['Virgo', [8, 23]],         // index: 7
+  ['Libra', [9, 23]],         // index: 8
+  ['Scorpio', [10, 23]],      // index: 9
+  ['Sagittarius', [11, 22]]   // index: 10
+  ['Capricorn', [12, 22]],    // index: 11
+]
+```
+
+</TabItem>
+<TabItem value="vedic" label="Vedic/Sidereal">
+
+```typescript
+[
+  ['Capricorn', [1, 14]],     // index: 0
+  ['Aquarius', [2, 13]],      // index: 1
+  ['Pisces', [3, 14]],        // index: 2
+  ['Aries', [4, 14]],         // index: 3
+  ['Taurus', [5, 15]],        // index: 4
+  ['Gemini', [6, 15]],        // index: 5
+  ['Cancer', [7, 16]],        // index: 6
+  ['Leo', [8, 17]],           // index: 7
+  ['Virgo', [9, 17]],         // index: 8
+  ['Libra', [10, 17]],        // index: 9
+  ['Scorpio', [11, 16]],      // index: 10
+  ['Sagittarius', [12, 16]]   // index: 11
+]
+```
+
+</TabItem>
+</Tabs>
+
+### Year-Boundary Handling
+
+The method correctly handles zodiac signs that wrap around year boundaries:
+
+```typescript
+const chronos = new Chronos();
+
+// Capricorn spans December to January
+const capricornMeta = chronos.getZodiacMeta('Capricorn');
+console.log(capricornMeta);
+// {
+//   index: 11,
+//   sign: 'Capricorn',
+//   start: '12-22',
+//   end: '01-19'  // Next year's January
+// }
+
+// Sagittarius is entirely within one year
+const sagittariusMeta = chronos.getZodiacMeta('Sagittarius');
+console.log(sagittariusMeta);
+// {
+//   index: 10,
+//   sign: 'Sagittarius',
+//   start: '11-22',
+//   end: '12-21'  // Same year
+// }
+```
+
+### Error Handling
+
+The method throws a `RangeError` if the provided sign does not exist in the resolved zodiac list:
+
+```typescript
+try {
+  const meta = chronos.getZodiacMeta('NonExistentSign');
+} catch (error) {
+  console.error(error.message); 
+  // "Invalid zodiac sign: 'NonExistentSign'"
+}
+```
+
+### Common Use Cases
+
+1 **Display sign information:**
+
+```typescript
+function displayZodiacInfo(sign: string) {
+  const meta = chronos.getZodiacMeta(sign);
+  console.log(`${meta.sign}: ${meta.start} to ${meta.end}`);
+}
+```
+
+2 **Sort signs chronologically:**
+
+```typescript
+const signs = ['Leo', 'Aries', 'Capricorn', 'Libra'];
+const sortedSigns = signs.sort((a, b) => {
+  const metaA = chronos.getZodiacMeta(a);
+  const metaB = chronos.getZodiacMeta(b);
+  return metaA.index - metaB.index;
+});
+// Result: ['Aries', 'Leo', 'Libra', 'Capricorn']
+```
+
+3 **Validate date ranges:**
+
+```typescript
+function isDateInSign(date: MonthDateString, sign: string): boolean {
+  const meta = chronos.getZodiacMeta(sign);
+  // Implementation to check if date falls within meta.start to meta.end
+  // considering year-boundary wrapping
+}
+```
+
+---
+
 ## getPartOfDay()
 
 :::danger[Note]
