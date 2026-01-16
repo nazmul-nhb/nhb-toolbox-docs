@@ -1,12 +1,15 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import dotenv from 'dotenv';
+import { Chronos } from 'nhb-toolbox';
+import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 import { Stylog } from 'nhb-toolbox/stylog';
 import { resolve } from 'node:path';
 import { themes } from 'prism-react-renderer';
 import { syncChangelog } from './scripts/sync-changelog.mjs';
-import { Chronos } from 'nhb-toolbox';
-import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+import { parsePackageJson, writeToPackageJson } from 'nhb-scripts';
+
+type PackageJson = ReturnType<typeof parsePackageJson>;
 
 dotenv.config({ path: resolve(__dirname, '.env'), quiet: true });
 
@@ -14,16 +17,14 @@ Chronos.register(timeZonePlugin);
 
 const nowDhaka = new Chronos().timeZone('Asia/Dhaka');
 
-async function getNpmVersion(pkg: string): Promise<string> {
-	const url = `https://registry.npmjs.org/${pkg}/latest`;
+async function getNpmVersion(pkg: string) {
+	const res = await fetch(`https://registry.npmjs.org/${pkg}/latest`);
 
-	const response = await fetch(url);
+	if (!res.ok) return 'latest';
 
-	if (!response.ok) return 'latest';
+	const data: PackageJson = await res.json();
 
-	const data = await response.json();
-
-	return data.version;
+	return data?.version;
 }
 
 // ! This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -34,6 +35,12 @@ export default async function config(): Promise<Config> {
 	console.log(Stylog.ansi16('green').toANSI(`📦 nhb-toolbox@${npmVersion}`));
 
 	await syncChangelog();
+
+	const pkg = parsePackageJson();
+
+	if (npmVersion !== pkg.version) {
+		await writeToPackageJson({ ...pkg, version: npmVersion });
+	}
 
 	return {
 		title: 'NHB Toolbox',
@@ -79,7 +86,6 @@ export default async function config(): Promise<Config> {
 					mode: 'auto',
 				},
 			],
-			// require.resolve('./src/plugins/playground'),
 		],
 
 		presets: [
@@ -162,7 +168,7 @@ export default async function config(): Promise<Config> {
 				{ name: 'twitter:site', content: '@nhb42' },
 				{ name: 'twitter:creator', content: '@nhb42' },
 				{ name: 'twitter:domain', content: 'toolbox.nazmul-nhb.dev' },
-				{ name: 'twitter:image:alt', content: 'NHB Toolbox Logo' },
+				{ name: 'twitter:image:alt', content: 'NHB Toolbox' },
 				{ name: 'twitter:label1', content: 'Written by' },
 				{ name: 'twitter:data1', content: 'Nazmul Hassan' },
 				{ name: 'twitter:label2', content: 'Created in' },
@@ -201,7 +207,7 @@ export default async function config(): Promise<Config> {
 				// hideOnScroll: true,
 				title: 'NHB Toolbox',
 				logo: {
-					alt: 'NHB Toolbox Logo',
+					alt: 'NHB Toolbox',
 					src: 'img/logo.png',
 				},
 				items: [
@@ -262,7 +268,7 @@ export default async function config(): Promise<Config> {
 			},
 			footer: {
 				logo: {
-					alt: 'NHB Toolbox Logo',
+					alt: 'NHB Toolbox',
 					src: 'img/logo.png',
 				},
 				style: 'dark',
@@ -305,7 +311,7 @@ export default async function config(): Promise<Config> {
 							},
 							{
 								label: 'WhatsApp',
-								href: 'https://wa.me/8801623732187?text=Hi%20Nazmul%2C%20I%20saw%20your%20site!',
+								href: 'https://wa.me/8801623732187?text=Hi%20Nazmul%2C%20I%20just%20explored%20nhb-toolbox%20docs!',
 							},
 							{
 								label: 'Facebook',
@@ -354,7 +360,7 @@ export default async function config(): Promise<Config> {
 				apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
 				indexName: process.env.ALGOLIA_INDEX_NAME!,
 				askAi: process.env.ALGOLIA_AI_ASSISTANT_ID!,
-				placeholder: 'Ask AI or Search in NHB Toolbox',
+				placeholder: 'Ask AI or Search docs',
 				contextualSearch: true,
 			},
 		} satisfies Preset.ThemeConfig,
