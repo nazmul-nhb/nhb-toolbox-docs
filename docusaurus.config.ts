@@ -141,6 +141,7 @@ export default async function config(): Promise<Config> {
 					content: `Copyright © ${nowDhaka.year} Nazmul Hassan`,
 				},
 				{ name: 'canonical', content: 'https://toolbox.nazmul-nhb.dev' },
+				{ name: 'algolia-site-verification', content: 'A480FBA54DA84265' },
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
 				{ name: 'og:title', content: 'NHB Toolbox' },
