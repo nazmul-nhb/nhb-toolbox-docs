@@ -115,6 +115,7 @@ export default async function config(): Promise<Config> {
 						changefreq: 'weekly',
 						priority: 0.5,
 						filename: 'sitemap.xml',
+						lastmod: 'datetime',
 					},
 					// gtag: {
 					// 	trackingID: 'G-X2Z2YZ8LWZ',
