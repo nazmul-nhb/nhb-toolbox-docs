@@ -1,13 +1,13 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import dotenv from 'dotenv';
+import { parsePackageJson } from 'nhb-scripts';
 import { Chronos } from 'nhb-toolbox';
 import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
 import { Stylog } from 'nhb-toolbox/stylog';
 import { resolve } from 'node:path';
 import { themes } from 'prism-react-renderer';
 import { syncChangelog } from './scripts/sync-changelog.mjs';
-import { parsePackageJson, writeToPackageJson } from 'nhb-scripts';
 
 type PackageJson = ReturnType<typeof parsePackageJson>;
 
@@ -36,11 +36,11 @@ export default async function config(): Promise<Config> {
 
 	await syncChangelog();
 
-	const pkg = parsePackageJson();
+	// const pkg = parsePackageJson();
 
-	if (npmVersion !== pkg.version) {
-		await writeToPackageJson({ ...pkg, version: npmVersion });
-	}
+	// if (npmVersion !== pkg.version) {
+	// 	await writeToPackageJson({ ...pkg, version: npmVersion });
+	// }
 
 	return {
 		title: 'NHB Toolbox',
