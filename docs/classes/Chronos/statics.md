@@ -146,7 +146,7 @@ interface ChronosWithOptions {
 - **Partial Application**: Only the specified components are changed; unspecified components use the current time's values
 - **Month Handling**: Month values should be from `1` (January) to `12` (December)
 - **Date Preservation**: If the current day is the last day of its month and the `date` component is omitted, the resulting instance will use the last day of the target month
-- **Date Override**: If the `date` component is explicitly provided, it will be used even if it exceeds the last day of the target month and will follow the native `Date` constructor's behaviour
+- **Date Override**: If the `date` component is explicitly provided, it will be used even if it exceeds the last day of the target month and will follow the native `Date` constructor's behavior
 
 ### Examples
 
