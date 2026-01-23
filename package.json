@@ -1,68 +1,69 @@
 {
-  "name": "nhb-toolbox-docs",
-  "version": "4.28.66",
-  "private": true,
-  "scripts": {
-    "docusaurus": "docusaurus",
-    "dev": "docusaurus start",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "commit": "nhb-commit",
-    "count": "nhb-count",
-    "up:nhb": "pnpm update nhb-toolbox nhb-scripts nhb-hooks typescript --latest",
-    "sync": "node scripts/sync-changelog.mjs"
-  },
-  "dependencies": {
-    "@docsearch/react": "4.0.1",
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/plugin-content-blog": "3.9.2",
-    "@docusaurus/plugin-content-docs": "3.9.2",
-    "@docusaurus/plugin-vercel-analytics": "^3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
-    "@docusaurus/theme-common": "^3.9.2",
-    "@mdx-js/react": "^3.1.1",
-    "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
-    "nhb-hooks": "^1.40.21",
-    "nhb-toolbox": "^4.28.66",
-    "prism-react-renderer": "^2.4.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-hot-toast": "^2.6.0"
-  },
-  "devDependencies": {
-    "@docusaurus/faster": "^3.9.2",
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
-    "@types/react": "^18.3.27",
-    "@types/react-dom": "^18.3.7",
-    "nhb-scripts": "^1.9.2",
-    "typescript": "~5.9.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "^18.3.1"
-    }
-  },
-  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316"
+	"name": "nhb-toolbox-docs",
+	"version": "4.28.66",
+	"private": true,
+	"scripts": {
+		"docusaurus": "docusaurus",
+		"dev": "docusaurus start",
+		"start": "docusaurus start",
+		"build": "docusaurus build",
+		"swizzle": "docusaurus swizzle",
+		"deploy": "docusaurus deploy",
+		"clear": "docusaurus clear",
+		"serve": "docusaurus serve",
+		"write-translations": "docusaurus write-translations",
+		"write-heading-ids": "docusaurus write-heading-ids",
+		"typecheck": "tsc",
+		"commit": "nhb-commit",
+		"count": "nhb-count",
+		"up:nhb": "pnpm update nhb-toolbox nhb-scripts nhb-hooks typescript --latest",
+		"sync": "node scripts/sync-changelog.mjs"
+	},
+	"dependencies": {
+		"@docsearch/react": "4.0.1",
+		"@docusaurus/core": "3.9.2",
+		"@docusaurus/plugin-content-blog": "3.9.2",
+		"@docusaurus/plugin-content-docs": "3.9.2",
+		"@docusaurus/plugin-vercel-analytics": "^3.9.2",
+		"@docusaurus/preset-classic": "3.9.2",
+		"@docusaurus/theme-common": "^3.9.2",
+		"@mdx-js/react": "^3.1.1",
+		"clsx": "^2.1.1",
+		"dotenv": "^17.2.3",
+		"nhb-hooks": "^1.40.21",
+		"nhb-toolbox": "^4.28.66",
+		"prism-react-renderer": "^2.4.1",
+		"react": "18.3.1",
+		"react-dom": "18.3.1",
+		"react-hot-toast": "^2.6.0"
+	},
+	"devDependencies": {
+		"@docusaurus/faster": "^3.9.2",
+		"@docusaurus/module-type-aliases": "3.9.2",
+		"@docusaurus/tsconfig": "3.9.2",
+		"@docusaurus/types": "3.9.2",
+		"@types/react": "^18.3.27",
+		"@types/react-dom": "^18.3.7",
+		"baseline-browser-mapping": "^2.9.17",
+		"nhb-scripts": "^1.9.2",
+		"typescript": "~5.9.3"
+	},
+	"browserslist": {
+		"production": [
+			">0.5%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 3 chrome version",
+			"last 3 firefox version",
+			"last 5 safari version"
+		]
+	},
+	"pnpm": {
+		"overrides": {
+			"@types/react": "^18.3.1"
+		}
+	},
+	"packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316"
 }
