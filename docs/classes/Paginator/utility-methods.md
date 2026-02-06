@@ -5,23 +5,23 @@ title: Utility Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
-### isPageValid()
+## isPageValid()
 
-#### Signature
+### Signature
 
 ```typescript
 isPageValid(page: number): boolean
 ```
 
-#### Parameters
+### Parameters
 
 - `page`: Page number to validate
 
-#### Return Type
+### Return Type
 
 `boolean` - Whether page is within valid range
 
-#### Example
+### Example
 
 ```javascript
 const p = new Paginator({totalItems: 100});

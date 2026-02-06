@@ -416,7 +416,7 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						'classes/Paginator/instance-creation',
-						'classes/Paginator/pagination-calculation',
+						'classes/Paginator/calcualtion-methods',
 						'classes/Paginator/page-navigation',
 						'classes/Paginator/utility-methods',
 						'classes/Paginator/static-methods',

@@ -5,25 +5,25 @@ title: Static Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
-### fromMeta()
+## fromMeta()
 
-#### Signature
+### Signature
 
 ```typescript
 static fromMeta(meta: FromMetaOptions): Paginator
 ```
 
-#### Parameters
+### Parameters
 
 ```typescript
 type FromMetaOptions = Pick<PaginatorMeta, 'totalItems' | 'itemsPerPage' | 'currentPage'>;
 ```
 
-#### Return Type
+### Return Type
 
 `Paginator` - New instance from meta object
 
-#### Example
+### Example
 
 ```javascript
 Paginator.fromMeta({

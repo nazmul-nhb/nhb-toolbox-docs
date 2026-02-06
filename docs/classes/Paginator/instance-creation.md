@@ -5,110 +5,110 @@ title: Instance Creation Methods
 
 <!-- markdownlint-disable-file MD024 -->
 
-### withPage()
+## withPage()
 
-#### Signature
+### Signature
 
 ```typescript
 withPage(page: number): Paginator
 ```
 
-#### Parameters
+### Parameters
 
 - `page`: New current page number
 
-#### Return Type
+### Return Type
 
 `Paginator` - New instance with updated page
 
-#### Notes
+### Notes
 
 - Clamps page between 1 and last page
 - Original instance remains unchanged
 
-#### Example
+### Example
 
 ```javascript
 const paginator = new Paginator({totalItems: 100});
 paginator.withPage(5); // New instance on page 5
 ```
 
-### withPerPage()
+## withPerPage()
 
-#### Signature
+### Signature
 
 ```typescript
 withPerPage(perPage: number): Paginator
 ```
 
-#### Parameters
+### Parameters
 
 - `perPage`: New items per page value
 
-#### Return Type
+### Return Type
 
 `Paginator` - New instance with updated items per page
 
-#### Notes
+### Notes
 
 - Clamps value to minimum 1
 - Automatically adjusts current page if needed
 
-#### Example
+### Example
 
 ```javascript
 paginator.withPerPage(20); // New instance with 20 items/page
 ```
 
-### withTotalItems()
+## withTotalItems()
 
-#### Signature
+### Signature
 
 ```typescript
 withTotalItems(totalItems: number): Paginator
 ```
 
-#### Parameters
+### Parameters
 
 - `totalItems`: New total items count
 
-#### Return Type
+### Return Type
 
 `Paginator` - New instance with updated total
 
-#### Notes
+### Notes
 
 - Clamps value to minimum 0
 - Automatically adjusts current page if needed
 
-#### Example
+### Example
 
 ```javascript
 paginator.withTotalItems(200); // New instance with 200 total items
 ```
 
-### withOptions()
+## withOptions()
 
-#### Signature
+### Signature
 
 ```typescript
 withOptions(options: Partial<PaginatorOptions>): Paginator
 ```
 
-#### Parameters
+### Parameters
 
 - `options`: Partial options to override
 
-#### Return Type
+### Return Type
 
 `Paginator` - New instance with merged options
 
-#### Notes
+### Notes
 
 - Applies same clamping rules as constructor
 - Only provided values are updated
 
-#### Example
+### Example
 
 ```javascript
 paginator.withOptions({

@@ -1,13 +1,13 @@
 ---
-id: pagination-calculation
-title: Pagination Calculation Methods
+id: calcualtion-methods
+title: Calculation Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
 
-### offset() / getOffset() / skipCount()
+## offset() / getOffset() / skipCount()
 
-#### Signature
+### Signature
 
 ```typescript
 offset(): number
@@ -15,52 +15,52 @@ getOffset(): number // alias
 skipCount(): number // alias
 ```
 
-#### Return Type
+### Return Type
 
 `number` - Items to skip for current page
 
-#### Formula
+### Formula
 
 `(currentPage - 1) * itemsPerPage`
 
-#### Example
+### Example
 
 ```javascript
 // For page 3 with 10 items/page:
 new Paginator({totalItems: 100, currentPage: 3}).offset(); // 20
 ```
 
-### totalPages()
+## totalPages()
 
-#### Signature
+### Signature
 
 ```typescript
 totalPages(): number
 ```
 
-#### Return Type
+### Return Type
 
 `number` - Total page count
 
-#### Formula
+### Formula
 
 `Math.ceil(totalItems / itemsPerPage)`
 
-#### Example
+### Example
 
 ```javascript
 new Paginator({totalItems: 100}).totalPages(); // 10
 ```
 
-### getMeta()
+## getMeta()
 
-#### Signature
+### Signature
 
 ```typescript
 getMeta(): PaginatorMeta
 ```
 
-#### Return Type
+### Return Type
 
 `PaginatorMeta` - Complete pagination metadata
 
@@ -78,7 +78,7 @@ interface PaginatorMeta {
 }
 ```
 
-#### Example
+### Example
 
 ```javascript
 new Paginator({
