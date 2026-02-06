@@ -254,6 +254,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/date/getGreeting',
 						'utilities/date/parse-time',
 						'utilities/date/time-zone',
+						'utilities/date/getTimeStamp',
 						'utilities/date/formatUTCOffset',
 						{
 							type: 'doc',

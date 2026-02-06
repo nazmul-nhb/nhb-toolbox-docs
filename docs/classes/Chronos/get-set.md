@@ -77,7 +77,7 @@ Unit `month` is `1` based (`1`: January, `12`: December)
 
 :::tip[NOTICE]
 
-- The getter method [`timestamp`](/docs/classes/Chronos/getters#timestamp) and `getTimeStamp()` returns the same value.
+- The getter method [`timestamp`](/docs/classes/Chronos/getters#timestamp) and `getTimeStamp()` returns the same value (milliseconds).
 
 - The **timestamp in seconds** (which some people considers as `timestamp`) can be accessed using [`unix`](/docs/classes/Chronos/getters#unix) getter method.
 
