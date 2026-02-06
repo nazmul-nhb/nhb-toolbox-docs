@@ -762,3 +762,126 @@ static isValidChronos(value: unknown): value is Chronos
 ```ts
 Chronos.isValidChronos(new Chronos()); // true
 ```
+
+---
+
+## isReconstructable()
+
+Checks whether a value has the required `ChronosProperties` shape to safely reconstruct a `Chronos` instance.
+
+### Signature
+
+```typescript
+static isReconstructable(value: unknown): value is ChronosProperties
+```
+
+### Parameters
+
+- `value`: Unknown value to validate for reconstruction compatibility
+
+### Return Type
+
+`boolean` - `true` when the value has the required reconstruction properties, otherwise `false`
+
+### Example
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+
+const payload: unknown = {
+  native: '2025-01-01T00:00:00.000Z',
+  origin: 'utc',
+  utcOffset: 'UTC+00:00',
+  timeZoneName: 'Coordinated Universal Time',
+  timeZoneId: 'UTC+00:00'
+};
+
+if (Chronos.isReconstructable(payload)) {
+  // payload is narrowed to ChronosProperties here
+  const c = Chronos.reconstruct(payload);
+  console.log(c.toISOString()); // "2025-01-01T00:00:00.000Z"
+}
+```
+
+### Notes
+
+- Useful as a runtime type guard for serialized or external input.
+- Helps avoid runtime errors before calling [`reconstruct`](#reconstruct).
+- This method only validates shape for reconstruction, not business validity of your source data.
+
+---
+
+## reconstruct()
+
+Rebuilds a `Chronos` instance from a `ChronosProperties` object.
+
+### Signature
+
+```typescript
+static reconstruct(value: ChronosProperties): Chronos
+```
+
+### Parameters
+
+- `value`: Object containing the properties required to reconstruct a `Chronos` instance
+
+#### ChronosProperties Type
+
+```typescript
+interface ChronosProperties {
+  origin: LooseLiteral<ChronosMethods>;
+  native: Date | string;
+  utcOffset: UTCOffset;
+  timeZoneName: LooseLiteral<TimeZoneName>;
+  timeZoneId: TimeZoneId;
+  $tzTracker?: $TimeZoneIdentifier | TimeZone | UTCOffset;
+}
+```
+
+### Return Type
+
+`Chronos` - A newly reconstructed `Chronos` instance
+
+### Throws
+
+- `TypeError` if the input is not reconstructable
+
+### Example
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+
+const base = new Chronos('2025-04-06T16:11:55Z');
+const snapshot = {
+  native: base.native,
+  origin: base.origin,
+  utcOffset: base.utcOffset,
+  timeZoneName: base.timeZoneName,
+  timeZoneId: base.timeZoneId,
+  $tzTracker: base.$tzTracker
+};
+
+if (Chronos.isReconstructable(snapshot)) {
+  const restored = Chronos.reconstruct(snapshot);
+  console.log(restored.toISOString()); // Same universal moment as base
+  console.log(restored.origin); // Preserves metadata from snapshot
+}
+```
+
+### Example (Invalid Input)
+
+```ts
+import { Chronos } from 'nhb-toolbox';
+
+try {
+  Chronos.reconstruct({ native: '2025-01-01' } as any);
+} catch (error) {
+  console.log(error instanceof TypeError); // true
+}
+```
+
+### Notes
+
+- `reconstruct` is intended for trusted serialized payloads with full `Chronos` metadata.
+- Internally, a new `Chronos(native)` is created and then metadata (`origin`, timezone details, tracker) is restored.
+- Prefer `isReconstructable()` before reconstructing unknown input.

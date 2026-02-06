@@ -329,7 +329,7 @@ export default async function config(): Promise<Config> {
 						title: 'More',
 						items: [
 							{
-								label: 'GitHub',
+								label: 'GitHub Profile',
 								href: 'https://github.com/nazmul-nhb',
 							},
 							{
@@ -341,12 +341,12 @@ export default async function config(): Promise<Config> {
 								href: 'https://www.npmjs.com/package/nhb-hooks',
 							},
 							{
-								label: 'NHB Scripts',
-								href: 'https://www.npmjs.com/package/nhb-scripts',
+								label: 'Locality IDB',
+								href: 'https://www.npmjs.com/package/locality-idb',
 							},
 							{
-								label: 'LeetCode',
-								href: 'https://leetcode.com/u/nazmul-nhb',
+								label: 'NHB Scripts',
+								href: 'https://www.npmjs.com/package/nhb-scripts',
 							},
 						],
 					},
