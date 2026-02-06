@@ -31,7 +31,7 @@
 		"clsx": "^2.1.1",
 		"dotenv": "^17.2.3",
 		"nhb-hooks": "^1.40.21",
-		"nhb-toolbox": "^4.28.66",
+		"nhb-toolbox": "^4.28.70",
 		"prism-react-renderer": "^2.4.1",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",

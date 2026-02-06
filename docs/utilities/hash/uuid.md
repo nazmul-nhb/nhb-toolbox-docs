@@ -41,13 +41,13 @@ type UUIDOptions<V extends SupportedVersion = 'v4'> =
 
 ### Version Behavior
 
-- **`v1`** → Timestamp & node-identifier–based
-- **`v3`** → MD5(namespace + name)
-- **`v4`** → Pure random (correct variant + version injection)
-- **`v5`** → SHA-1(namespace + name)
+- **`v1`** → Timestamp & node-identifier–based, uses a generated pseudo-node identifier
+- **`v3`** → MD5(namespace + name), uses internal `MD5` implementations and remain fully deterministic.
+- **`v4`** → Uses `Math.random` when `crypto.getRandomValues` is unavailable (correct variant + version injection)
+- **`v5`** → SHA-1(namespace + name), uses internal `SHA-1` implementations and remain fully deterministic.
 - **`v6`** → Re-ordered timestamp variant of `v1` (lexicographically sortable)
-- **`v7`** → Unix-time–based, monotonic-friendly
-- **`v8`** → Custom layout, "Future" variant (timestamp + randomness)
+- **`v7`** → Unix-time–based (milliseconds), monotonic-friendly, extremely high throughput may still cause rare collisions.
+- **`v8`** → Uses a simple timestamp + randomness layout; Custom layouts are not supported here, randomness follows same logic as `v4`.
 
 ### Return Value
 
