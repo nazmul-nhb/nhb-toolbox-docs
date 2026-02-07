@@ -1,5 +1,5 @@
 ---
-id: getTimeStamp  
+id: getTimestamp  
 title: Get Timestamp  
 ---
 
@@ -10,9 +10,9 @@ Generates an ISO 8601 timestamp string from a date input, or from the current ti
 ### Function Signatures
 
 ```typescript
-getTimestamp(): Timestamp;
-getTimestamp(value: DateArgs, format?: ISODateFormat): Timestamp;
-getTimestamp(options?: TimestampOptions): Timestamp;
+getTimestamp(): ISOTimeString;
+getTimestamp(value: DateArgs, format?: ISODateFormat): ISOTimeString;
+getTimestamp(options?: TimestampOptions): ISOTimeString;
 ```
 
 ### Parameters
@@ -25,7 +25,7 @@ getTimestamp(options?: TimestampOptions): Timestamp;
 
 ### Returns
 
-`Timestamp` - An ISO 8601 timestamp string ([Branded](/docs/types/utility-types#brandedt-b) string).
+`ISOTimeString` - An ISO 8601 timestamp string.
 
 If `format` is `'utc'`, the output ends with `Z`.
 If `format` is `'local'`, the output includes the local time & timezone offset like `+06:00`.
@@ -71,8 +71,8 @@ console.log(ts2); // "2025-04-06T16:11:55.000+05:30" (example, offset varies)
 - Invalid date input falls back to the current date and time.
 - `'local'` output reflects the system timezone offset for the given date.
 - `'utc'` output matches `Date.prototype.toISOString()` for valid inputs.
-- The output is always a string branded as `Timestamp` for type safety and clarity in codebases.
-- The output value (whether UTC or local) is always in ISO 8601 format and returns the same instance of `Date` when used as `new Date(getTimestamp(somevalue))` for valid inputs, ensuring consistency across formats.
+- The output is always a string typed as `ISOTimeString` for type safety and clarity in codebases.
+- The output value (whether UTC or local) is always in ISO 8601 format and returns the same instance of `Date` when used as `new Date(getTimestamp(some-value))` for valid inputs, ensuring consistency across formats.
 - Exported as `getTimestamp` (lowercase `s`), separate from [`Chronos.getTimeStamp()`](/docs/classes/Chronos/get-set#gettimestamp) which returns timestamp in milliseconds.
 
 ### Type Definitions
@@ -86,7 +86,7 @@ interface TimestampOptions {
   format?: ISODateFormat;
 }
 
-type Timestamp = Branded<string, 'Timestamp'>;
+type ISOTimeString = `${number}-${number}-${number}T${number}:${number}:${number}.${number}${'Z' | $UTCOffset}`;
 ```
 
 ### Use Cases

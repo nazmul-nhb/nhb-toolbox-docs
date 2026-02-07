@@ -1,5 +1,5 @@
 ---
-id: calcualtion-methods
+id: calculation-methods
 title: Calculation Methods
 ---
 

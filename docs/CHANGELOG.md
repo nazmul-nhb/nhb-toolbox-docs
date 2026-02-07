@@ -9,6 +9,21 @@ slug: changelog
 
 All notable changes to the package will be documented here.
 
+## [4.28.80] - 2026-02-07
+
+- **Moved** `getDatesInRange` method to `Chronos` *plugin system*, usable via `dateRangePlugin`.
+- **Updated** `Timestamp` type to `ISOTimeString` and removed *branding* for better clarity and consistency across the codebase.
+  - `Chronos` methods `toISOString()` and `toLocalISOString()`; and `getTimestamp` utility now return `ISOTimeString` type.
+  - `Chronos` method `getDatesInRange(...)` now return `ISOTimeString[]` instead of `string[]`.
+
+## [4.28.72] - 2026-02-06
+
+- **Updated** *tsdoc* for the overload signatures of `getTimestamp` utility to clarify the behavior.
+
+## [4.28.71] - 2026-02-06
+
+- **Fixed** an *issue* in `reconstruct` method of `Chronos` class where the *internal state* of the reconstructed instance was not properly when the timezone offset is different from the local system's timezone offset.
+
 ## [4.28.70] - 2026-02-06
 
 - **Added** *new static methods*: `isReconstructable` and `reconstruct` to `Chronos` class for *validating* and *reconstructing* instances from plain objects.

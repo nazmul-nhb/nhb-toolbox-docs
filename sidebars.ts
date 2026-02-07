@@ -254,7 +254,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/date/getGreeting',
 						'utilities/date/parse-time',
 						'utilities/date/time-zone',
-						'utilities/date/getTimeStamp',
+						'utilities/date/getTimestamp',
 						'utilities/date/formatUTCOffset',
 						{
 							type: 'doc',
@@ -417,7 +417,7 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [
 						'classes/Paginator/instance-creation',
-						'classes/Paginator/calcualtion-methods',
+						'classes/Paginator/calculation-methods',
 						'classes/Paginator/page-navigation',
 						'classes/Paginator/utility-methods',
 						'classes/Paginator/static-methods',
