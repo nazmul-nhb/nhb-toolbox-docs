@@ -64,7 +64,7 @@ type Numeric = number | `${number}`;
 ### Edge Cases
 
 | Input   | Output      | Notes                   |
-|---------|-------------|-------------------------|
+| ------- | ----------- | ----------------------- |
 | `0`     | `"0:00"`    | Zero minutes            |
 | `"59"`  | `"0:59"`    | String input            |
 | `-1600` | `"26:40"`   | Ignores negative        |
@@ -72,12 +72,12 @@ type Numeric = number | `${number}`;
 
 ### Comparison
 
-| Feature | This Function | Alternative |
-|---------|--------------|-------------|
-| Negative Input | Absolute value | Preserves sign |
-| Output Format | "H:MM" or "HH:MM" | Always "HH:MM" |
-| Input Types | Number/String | Number only |
-| Decimal Handling | Truncates | Rounds |
+| Feature          | This Function     | Alternative    |
+| ---------------- | ----------------- | -------------- |
+| Negative Input   | Absolute value    | Preserves sign |
+| Output Format    | "H:MM" or "HH:MM" | Always "HH:MM" |
+| Input Types      | Number/String     | Number only    |
+| Decimal Handling | Truncates         | Rounds         |
 
 ### Notes
 

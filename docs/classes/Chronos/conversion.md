@@ -58,9 +58,9 @@ console.log(modified.origin); // "clone"
 
 | Approach         | Instance Identity | Preserves Metadata | Performance          |
 | ---------------- | ----------------- | ------------------ | -------------------- |
-| `clone()`        | New instance      | ✅ Yes             | ⚠️ Slight overhead  |
-| `new Chronos()`  | New instance      | ❌ No              | ⚠️ Slight overhead  |
-| Direct reference | Same instance     | ✅ Yes             | ✅ Best             |
+| `clone()`        | New instance      | ✅ Yes             | ⚠️ Slight overhead   |
+| `new Chronos()`  | New instance      | ❌ No              | ⚠️ Slight overhead   |
+| Direct reference | Same instance     | ✅ Yes             | ✅ Best              |
 
 :::tip
 Use `clone()` when you need:
