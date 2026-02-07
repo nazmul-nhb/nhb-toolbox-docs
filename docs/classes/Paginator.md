@@ -12,7 +12,7 @@ This documentation provides complete coverage of all methods in the `Paginator` 
 
 - [Constructor](#constructor)
 - [Instance Creation Methods](Paginator/instance-creation)
-- [Pagination Calculation Methods](Paginator/calcualtion-methods)
+- [Pagination Calculation Methods](Paginator/calculation-methods.md)
 - [Page Navigation Methods](Paginator/page-navigation)
 - [Utility Methods](Paginator/utility-methods)
 - [Static Methods](Paginator/static-methods)
