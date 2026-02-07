@@ -332,9 +332,9 @@ Returns a human-readable string representation of the duration between the curre
 ### Examples
 
 ```ts
-import { timeZonePlugin } from 'nhb-toolbox/plugins/timeZonePlugin';
+import { durationPlugin } from 'nhb-toolbox/plugins/durationPlugin';
 
-Chronos.use(timeZonePlugin);
+Chronos.use(durationPlugin);
 
 // Basic usage - with default options
 new Chronos('2020-01-01').durationString({ toTime: '2025-01-01' });
@@ -398,27 +398,31 @@ new Chronos('2023-01-01').durationString({
 
 Generate an array of ISO date strings within a specified date range.
 
+:::danger[Note]
+This method is provided by `dateRangePlugin`. You must register it using `Chronos.use(dateRangePlugin)` before calling `.getDatesInRange()`. Once registered, all `Chronos` instances will have access to the `.getDatesInRange()` method.
+:::
+
 ### Signatures
 
 <Tabs>
 <TabItem value="fixed" label="Fixed Range">
 
 ```ts
-getDatesInRange(options?: RangeWithDates): string[]
+getDatesInRange(options?: RangeWithDates): ISOTimeString[]
 ```
 
 </TabItem>
 <TabItem value="relative" label="Relative Range">
 
 ```ts
-getDatesInRange(options?: RelativeDateRange): string[]
+getDatesInRange(options?: RelativeDateRange): ISOTimeString[]
 ```
 
 </TabItem>
 <TabItem value="implementation" label="Implementation">
 
 ```ts
-getDatesInRange(options?: DatesInRangeOptions): string[]
+getDatesInRange(options?: DatesInRangeOptions): ISOTimeString[]
 ```
 
 </TabItem>
@@ -519,7 +523,7 @@ type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 
 ### Return Value
 
-`string[]` - Array of ISO date strings
+`ISOTimeString[]` - Array of ISO date strings
 
 ### Behavior
 
@@ -541,6 +545,10 @@ type DatesInRangeOptions = RangeWithDates | RelativeDateRange;
 <TabItem value="fixed-example" label="Fixed Range">
 
 ```ts
+import { dateRangePlugin } from 'nhb-toolbox/plugins/dateRangePlugin';
+
+Chronos.use(dateRangePlugin);
+
 // Get all dates in January 2025
 new Chronos().getDatesInRange({
   from: '2025-01-01',
@@ -569,6 +577,10 @@ new Chronos().getDatesInRange({
 <TabItem value="relative-example" label="Relative Range">
 
 ```ts
+import { dateRangePlugin } from 'nhb-toolbox/plugins/dateRangePlugin';
+
+Chronos.use(dateRangePlugin);
+
 // Get UTC dates for next 10 business days
 new Chronos().getDatesInRange({
   span: 10,
@@ -589,6 +601,10 @@ new Chronos().getDatesInRange({
 <TabItem value="rounding-example" label="With Rounding">
 
 ```ts
+import { dateRangePlugin } from 'nhb-toolbox/plugins/dateRangePlugin';
+
+Chronos.use(dateRangePlugin);
+
 // Get rounded dates for current month as local ISO string
 const now = new Chronos();
 now.getDatesInRange({
