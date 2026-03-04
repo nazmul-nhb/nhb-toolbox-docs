@@ -117,13 +117,13 @@ export default async function config(): Promise<Config> {
 						filename: 'sitemap.xml',
 						lastmod: 'datetime',
 					},
-					// gtag: {
-					// 	trackingID: 'G-X2Z2YZ8LWZ',
-					// 	anonymizeIP: true,
-					// },
-					googleTagManager: {
-						containerId: 'GTM-PDNKZ4VF',
+					gtag: {
+						trackingID: 'G-X2Z2YZ8LWZ',
+						// anonymizeIP: true,
 					},
+					// googleTagManager: {
+					// 	containerId: 'GTM-PDNKZ4VF',
+					// },
 				} satisfies Preset.Options,
 			],
 		],
@@ -133,7 +133,7 @@ export default async function config(): Promise<Config> {
 				{
 					name: 'keywords',
 					content:
-						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development, Pluralizer, Pluralize, Singularize, Validation, Type Guards, Utility Types, Chalk, Style Console, Stylog, LogStyler, HTTP Status Codes, Bangla Calendar, BanglaCalendar, Bongabdo, Bangla Date, Bengali Calendar, Bengali Date, Token, Signet, Cipher, Codec, Hash, MD5, SHA-1, SHA-256',
+						'JavaScript, TypeScript, Utilities, NHB, Tools, Dayjs, Moment, Chronos, Color, Finder, Paginator, Currency, Class, Function, Reusable, Library, Toolbox, Utility Library, Unit, Unit Converter, Unit Conversion, Date, Time, String, Array, Object, Number, Math, Random, Generator, Currency Converter, Color Converter, Color Manipulation, Color Theory, Color Wheel, Color Contrast, FormData, SanitizeData, Sanitize, Data Validation, Data Sanitization, Data Manipulation, Data Transformation, Data Processing, Binary Search, Software Development, Web Development, Frontend Development, Backend Development, Pluralizer, Pluralize, Singularize, Validation, Type Guards, Utility Types, Chalk, Style Console, Stylog, LogStyler, HTTP Status Codes, Bangla Calendar, BanglaCalendar, Bongabdo, Bangla Date, Bengali Calendar, Bengali Date, Token, Signet, Cipher, Encryption, Codec, Hash, MD5, SHA-1, SHA-256',
 				},
 				{ name: 'author', content: 'Nazmul Hassan' },
 				{
