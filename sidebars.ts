@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
 						id: 'utilities/string/string',
 					},
 					items: [
+						'utilities/string/string-diff',
 						'utilities/string/generateRandomID',
 						'utilities/string/pluralizer',
 						'utilities/string/verbalizer',
