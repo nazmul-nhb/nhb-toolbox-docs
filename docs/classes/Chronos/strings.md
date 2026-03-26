@@ -14,12 +14,12 @@ Returns a date as a string value in ISO format (UTC).
 ### Signature
 
 ```typescript
-toISOString(): ISOTimeString
+toISOString(): ISODateTimeString
 ```
 
 ### Return Type
 
-`ISOTimeString` - Standard ISO 8601 string
+`ISODateTimeString` - Standard ISO 8601 string
 
 ### Notes
 
