@@ -165,6 +165,67 @@ Below is a list of all supported tokens:
 
 ---
 
+## formatDateRelative
+
+Formats a date as a relative time string (e.g., `"5m ago"`, `"2h from now"`). Falls back to a formatted date string for dates older than 7 days.
+
+### Signature
+
+```typescript
+formatDateRelative(date: Maybe<DateArgs>, format?: StrictFormat): string
+```
+
+### Parameters
+
+- `date`: The date to format — can be a `Date` object, a date string, or a timestamp number. If `undefined`, the current date and time will be used.
+- `format`: Optional format string for dates older than 7 days. Defaults to `'mmm D, yyyy hh:mm a'`. Supports the same tokens as [`formatDate()`](#formatdate).
+
+### Return Type
+
+`string` - A relative time string if the date is within the last 7 days, otherwise a formatted date string.
+
+### Example
+
+```typescript
+formatDateRelative(Date.now() - 5 * 60000);
+// "5m ago"
+
+formatDateRelative(Date.now() + 2 * 3600000);
+// "2h from now"
+
+formatDateRelative(Date.now() - 10 * 86400000);
+// "Apr 6, 2026 04:11 pm" (formatted date string)
+```
+
+### Relative Output Ranges
+
+| Time Difference | Output                               |
+| --------------- | ------------------------------------ |
+| < 1 minute      | `"Just now"`                         |
+| < 60 minutes    | `"Xm ago/from now"`                  |
+| < 24 hours      | `"Xh ago/from now"`                  |
+| < 7 days        | `"Xd ago/from now"`                  |
+| ≥ 7 days        | Formatted date string using `format` |
+
+### Aliases
+
+`formatDateRelative` can also be accessed via the following aliases:
+
+- `formatRelativeDate`
+- `formatRelativeTime`
+
+### Notes
+
+- If the provided date is invalid, the function returns `'Invalid Date!'`.
+- The suffix `"ago"` or `"from now"` is determined by whether the date is in the past or future.
+- For dates older than 7 days, the output is formatted using the provided `format` string or the default `'mmm D, yyyy hh:mm a'`.
+
+### See Also
+
+- [`formatDate()`](#formatdate) for full date formatting with custom tokens.
+
+---
+
 ## formatTimePart
 
 Formats a time-only string into a formatted time string, automatically combining it with today's date for proper parsing.
