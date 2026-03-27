@@ -1,6 +1,6 @@
 {
   "name": "nhb-toolbox-docs",
-  "version": "4.29.0",
+  "version": "4.29.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -9,6 +9,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "clean": "docusaurus clear",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -20,7 +21,6 @@
     "sync": "node scripts/sync-changelog.mjs"
   },
   "dependencies": {
-    "@docsearch/react": "4.0.1",
     "@docusaurus/core": "3.9.2",
     "@docusaurus/plugin-content-blog": "3.9.2",
     "@docusaurus/plugin-content-docs": "3.9.2",
@@ -31,7 +31,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
     "nhb-hooks": "^1.50.6",
-    "nhb-toolbox": "^4.29.0",
+    "nhb-toolbox": "^4.29.1",
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",

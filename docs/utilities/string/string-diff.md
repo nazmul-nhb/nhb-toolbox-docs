@@ -40,7 +40,7 @@ computeTextDiff(originalText: string, modifiedText: string): DiffResult
 
 - Lines are classified as `added`, `removed`, `modified`, or `unchanged`
 - Detects and pairs similar `removed` and `added` lines as `modified` when similarity exceeds 60%
-- Similarity calculated using Levenshtein edit distance
+- Similarity calculated using [Levenshtein edit distance](getLevenshteinDistance)
 - Line numbers are preserved (1-based indexing)
 
 ### Examples
@@ -107,7 +107,7 @@ Lines are considered `modified` (rather than separate removed + added) when thei
 similarity = 1 - (editDistance / max(stringLengths))
 ```
 
-Where `editDistance` is the Levenshtein distance between the two strings.
+Where `editDistance` is the [Levenshtein distance](getLevenshteinDistance) between the two strings.
 
 ---
 
@@ -341,7 +341,7 @@ console.log(`Summary:
 
 - **Line-based diff**: O(mn) time complexity where m and n are line counts. Suitable for typical text files (up to thousands of lines).
 - **Character diff**: O(n²) where n is string length. Best for short strings or individual lines.
-- **Modified line detection**: Uses Levenshtein distance (O(mn) per candidate pair), only applied to adjacent removed/added line pairs.
+- **Modified line detection**: Uses [*Levenshtein distance*](getLevenshteinDistance), only applied to adjacent removed/added line pairs.
 - **Pure implementation**: No external dependencies, works in any JavaScript environment.
 
 <!-- 

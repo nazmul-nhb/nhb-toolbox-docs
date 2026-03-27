@@ -10,13 +10,13 @@ The `getLevenshteinDistance` function computes the Levenshtein distance between 
 ### Function Signature
 
 ```typescript
-getLevenshteinDistance (a: string, b: string): number;
+getLevenshteinDistance (str1: string, str2: string): number;
 ```
 
 ### Parameters
 
-- **`a`**: The first string to compare.
-- **`b`**: The second string to compare.
+- **`str1`**: First string to compare.
+- **`str2`**: Second string to compare.
 
 ### Return Value
 
@@ -27,13 +27,14 @@ Returns the Levenshtein distance between the two strings.
 ```typescript
 import { getLevenshteinDistance } from 'nhb-toolbox';
 
-console.log(getLevenshteinDistance('kitten', 'sitting')); // 3
+const distance = getLevenshteinDistance('kitten', 'sitting');
+console.log(distance); // Output: 3
 ```
 
 ### Notes
 
-- The Levenshtein distance can be used in various applications such as spell-checking, DNA sequence alignment, and natural language processing.
-- The function uses dynamic programming to efficiently calculate the distance.
+- The Levenshtein distance is the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into the other.
+- This implementation is **space optimized**, using only `O(min(len(str1), len(str2)))` space by keeping only the current and previous rows of the distance matrix.
 - Works case-sensitively, so `"kitten"` and `"Kitten"` will have a distance of `1`.
 
 ### Aliases
@@ -42,4 +43,8 @@ console.log(getLevenshteinDistance('kitten', 'sitting')); // 3
 
 ### Conclusion
 
-The `getLevenshteinDistance` function is essential for comparing two strings in a variety of contexts where similarity measurement is needed. It’s an efficient and widely used method for string comparison, offering a quantitative measure of their difference.
+The `getLevenshteinDistance` function is essential for comparing two strings in a variety of contexts where similarity measurement is needed. It's an efficient and widely used method for string comparison, offering a quantitative measure of their difference.
+
+### See also
+
+- [String Diff](string-diff) for a more comprehensive string comparison utility that utilizes the Levenshtein distance for similarity calculations.
