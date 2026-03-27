@@ -278,6 +278,82 @@ import { convertHex8ToHsla } from 'nhb-toolbox';
 convertHex8ToHsla('#3C694580' as Hex8); // "hsla(130, 27%, 32%, 0.5)"
 ```
 
+## percentToHex
+
+Converts a percentage (0-100) to a 2-digit hex string.
+
+### Function Signature
+
+```typescript
+percentToHex(percent: Percent): string;
+```
+
+### Parameters
+
+- **`percent`**: The percentage value (0-100)
+
+### Example
+
+```typescript
+import { percentToHex } from 'nhb-toolbox';
+
+percentToHex(0);    // "00"
+percentToHex(50);   // "7F"
+percentToHex(100);  // "FF"
+percentToHex(150);  // "FF" (ts compiler error and clamped to 100)
+percentToHex(-20);  // "00" (ts compiler error and clamped to 0)
+```
+
+### Notes
+
+- The percentage value is clamped between 0 and 100, converted to a value between 0 and 255, then formatted as a 2-digit hexadecimal string.
+- The resulting hex string is in uppercase for consistency with common hex color formats.
+
+---
+
+## applyOpacityToHex
+
+Applies an opacity value to a hex color string, returning a `#RRGGBBAA` format.
+
+### Function Signatures
+
+```typescript
+applyOpacityToHex(color: Hex, opacity: Percent): Hex8;
+applyOpacityToHex(color: Hex, opacity: string): Hex8;
+```
+
+### Parameters
+
+- **`color`**: The hex color string in the format `#RRGGBB` or `#RRGGBBAA`
+- **`opacity`**: The opacity value as a percentage (0-100) or a 2-digit hex string
+
+### Throws
+
+- **`TypeError`** if the provided color is not a valid hex color string
+
+### Example
+
+```typescript
+import { applyOpacityToHex } from 'nhb-toolbox';
+
+// Using percentage
+applyOpacityToHex("#FF5733", 50);     // "#FF573380"
+applyOpacityToHex("#FF573380", 25);   // "#FF573340"
+
+// Using 2-digit hex string
+applyOpacityToHex("#FF5733", "80");   // "#FF573380"
+applyOpacityToHex("#FF573380", "40"); // "#FF573340"
+```
+
+### Notes
+
+- If the input color is in `#RRGGBB` format, the opacity value is appended to create a `#RRGGBBAA` string.
+- If the input color is already in `#RRGGBBAA` format, the existing alpha value is replaced with the new one.
+- If the opacity value is invalid, it defaults to 100% opacity (i.e., `"FF"`).
+- The resulting hex color string is in uppercase for consistency with common hex color formats.
+
+---
+
 ## Type Definitions
 
 ```typescript
