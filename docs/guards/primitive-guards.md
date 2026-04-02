@@ -26,7 +26,7 @@ type FalsyPrimitive = false | 0 | '' | null | undefined;
 
 ### `isNumber`
 
-Validates whether a value is a **finite number**.
+Validates whether a value is a **finite number** and not `NaN`.
 
 This function returns `true` only if:
 

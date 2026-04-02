@@ -75,11 +75,19 @@ isEven(input: Numeric): boolean;
 
 Returns `true` if the number is even, otherwise `false`.
 
+### Notes
+
+- Handles both number and numeric string inputs.
+- Returns `false` for non-numeric strings and non-finite numbers or `NaN`.
+
 ### Example
 
 ```ts
 isEven(4); // true
 isEven(3); // false
+isEven("10"); // true
+isEven("abc"); // false
+isEven(NaN); // false
 ```
 
 ### Aliases
@@ -106,11 +114,19 @@ isOdd(input: Numeric): boolean;
 
 Returns `true` if the number is odd, otherwise `false`.
 
+### Notes
+
+- Handles both number and numeric string inputs.
+- Returns `false` for non-numeric strings and non-finite numbers or `NaN`.
+
 ### Example
 
 ```ts
 isOdd(3); // true
 isOdd(4); // false
+isOdd("7"); // true
+isOdd("abc"); // false
+isOdd(NaN); // false
 ```
 
 ### Aliases
