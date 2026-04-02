@@ -64,12 +64,12 @@ Checks if a number is even (divisible by 2).
 ### Function Signature
 
 ```ts
-isEven(input: number): boolean;
+isEven(input: Numeric): boolean;
 ```
 
 ### Parameters
 
-- **`input`**: The number to check.
+- **`input`**: The number or numeric string to check.
 
 ### Returns
 
@@ -95,12 +95,12 @@ Checks if a number is odd (not divisible by 2).
 ### Function Signature
 
 ```ts
-isOdd(input: number): boolean;
+isOdd(input: Numeric): boolean;
 ```
 
 ### Parameters
 
-- **`input`**: The number to check.
+- **`input`**: The number or numeric string to check.
 
 ### Returns
 
