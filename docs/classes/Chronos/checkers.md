@@ -4,12 +4,19 @@ title: Checker Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
+
+:::tip
+
+When comparing weeks, the `weekStartsOn` parameter (when available) determines how weeks are calculated. For example, if `weekStartsOn` is `1` (Monday), then a date on Sunday would be considered part of the previous week.
+
+:::
+
 ## isBefore()
 
 ### Signature
 
 ```typescript
-isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
+isBefore(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
@@ -26,7 +33,7 @@ isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boo
 
 ```ts
 // Compare entire dates
-new Chronos('2025-01-01').isBefore('2025-02-01'); // true
+new Chronos('2025-01-01').isBefore('2025-02-01', 'day'); // true
 
 // Compare just the months
 new Chronos('2025-01-15').isBefore('2025-02-01', 'month'); // true
@@ -39,7 +46,7 @@ new Chronos('2025-01-15').isBefore('2025-02-01', 'month'); // true
 ### Signature
 
 ```typescript
-isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
+isAfter(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
@@ -56,7 +63,7 @@ isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): bool
 
 ```ts
 // Basic date comparison
-new Chronos('2025-02-01').isAfter('2025-01-01'); // true
+new Chronos('2025-02-01').isAfter('2025-01-01', 'day'); // true
 
 // Compare specific units
 new Chronos('2025-01-15T12:00:00').isAfter('2025-01-15T10:00:00', 'hour'); // true
@@ -69,7 +76,7 @@ new Chronos('2025-01-15T12:00:00').isAfter('2025-01-15T10:00:00', 'hour'); // tr
 ### Signature
 
 ```typescript
-isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
+isSame(other: ChronosInput, unit: TimeUnit, weekStartsOn?: Enumerate<7>): boolean
 ```
 
 ### Parameters
@@ -85,13 +92,14 @@ isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boole
 ### Example
 
 ```ts
-// Exact match
-new Chronos('2025-01-15').isSame('2025-01-15'); // true
-
 // Same month but different days
 new Chronos('2025-01-15').isSame('2025-01-20', 'month'); // true
 new Chronos('2025-01-15').isSame('2025-01-20', 'day'); // false
 ```
+
+### Notes
+
+- For checking exact match, use [**isEqual()**](#isequal) method instead.
 
 ---
 
