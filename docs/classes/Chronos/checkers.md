@@ -15,7 +15,7 @@ isBefore(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boo
 ### Parameters
 
 - `other`: The date to compare against (can be string, Date, or `Chronos` instance)
-- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
@@ -45,7 +45,7 @@ isAfter(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): bool
 ### Parameters
 
 - `other`: The date to compare against (can be string, Date, or `Chronos` instance)
-- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
@@ -75,7 +75,7 @@ isSame(other: ChronosInput, unit?: TimeUnit, weekStartsOn?: Enumerate<7>): boole
 ### Parameters
 
 - `other`: The date to compare against (can be string, Date, or `Chronos` instance)
-- `unit`: (Optional) The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
+- `unit`: The granularity for comparison ('year', 'month', 'week', 'day', 'hour', 'minute', 'second')
 - `weekStartsOn`: (Optional) Which day (0-6, Sunday-Saturday) to consider as the start of the week (default: `0`/Sunday)
 
 ### Return Type
