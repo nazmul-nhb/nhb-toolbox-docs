@@ -16,6 +16,8 @@ import TabItem from '@theme/TabItem';
 
 ```typescript
 import { getFromSessionStorage, saveToSessionStorage, removeFromSessionStorage } from 'nhb-toolbox';
+// or
+import { getFromSessionStorage, saveToSessionStorage, removeFromSessionStorage } from 'nhb-toolbox/dom';
 ```
 
 ---

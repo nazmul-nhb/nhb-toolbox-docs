@@ -16,7 +16,8 @@ Supports arrays for duplicate keys, and can intelligently convert string values 
 import { parseQueryString } from 'nhb-toolbox';
 import { getQueryStringAsObject } from 'nhb-toolbox';
 import { queryStringToObject } from 'nhb-toolbox';
-// All 3 alias for the same utility
+// or
+import { ... } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature

@@ -13,6 +13,8 @@ Generates a URL-encoded query string from an object, flattening nested fields an
 import { generateQueryParams } from 'nhb-toolbox';
 import { createQueryParams } from 'nhb-toolbox';
 import { formatQueryParams } from 'nhb-toolbox';
+// or
+import { ... } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature
@@ -75,15 +77,15 @@ generateQueryParams({ filters: { category: 'laptop', price: 1000 } });
 
 #### Type Parameters
 
-| Name   | Description                   |
-| ------ | ----------------------------- |
-| `T`    | Extends `QueryObject`         |
+| Name | Description           |
+| ---- | --------------------- |
+| `T`  | Extends `QueryObject` |
 
 #### Parameters
 
-| Name    | Type         | Description                           |
-| ------- | ------------ | ------------------------------------- |
-| params  | `QueryObject`| Object containing query parameters     |
+| Name   | Type          | Description                        |
+| ------ | ------------- | ---------------------------------- |
+| params | `QueryObject` | Object containing query parameters |
 
 #### Returns
 

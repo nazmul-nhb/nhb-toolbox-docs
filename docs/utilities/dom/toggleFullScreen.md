@@ -11,6 +11,8 @@ Toggles the browser’s full-screen mode for a given element, or the entire docu
 
 ```typescript
 import { toggleFullScreen } from 'nhb-toolbox';
+// or
+import { toggleFullScreen } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature
@@ -57,8 +59,8 @@ toggleFullScreen(video);
 
 #### Parameters
 
-| Name    | Type         | Description                                      |
-| ------- | ------------ | ------------------------------------------------ |
+| Name    | Type         | Description                                                                                   |
+| ------- | ------------ | --------------------------------------------------------------------------------------------- |
 | element | HTMLElement? | (Optional) Element to toggle fullscreen for. <br></br> Defaults to the root element/document. |
 
 #### Returns

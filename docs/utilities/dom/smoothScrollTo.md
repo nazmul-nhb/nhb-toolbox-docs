@@ -11,6 +11,8 @@ Smoothly scrolls the webpage to a given HTML element, with optional vertical pix
 
 ```typescript
 import { smoothScrollTo } from 'nhb-toolbox';
+// or
+import { smoothScrollTo } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature

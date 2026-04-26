@@ -11,6 +11,8 @@ Updates a query parameter in the browser's current URL without reloading the pag
 
 ```typescript
 import { updateQueryParam } from 'nhb-toolbox';
+// or
+import { updateQueryParam } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature
@@ -64,8 +66,8 @@ updateQueryParam('id', '10');
 
 #### Parameters
 
-| Name  | Type   | Description                              |
-|-------|--------|------------------------------------------|
+| Name  | Type   | Description                               |
+| ----- | ------ | ----------------------------------------- |
 | key   | string | The query parameter key to update or add. |
 | value | string | The value to set for the provided key.    |
 

@@ -9,6 +9,13 @@ slug: changelog
 
 All notable changes to the package will be documented here.
 
+## [4.30.0] - 2026-04-27
+
+- **Added** new utility `getCountryByPhone` to get country details (country name, country code, ISO short code, and ISO code) by matching the country code in the given phone number.
+- **Updated** `Stylog` to fix the issues with nested ANSI colors in the formatted output.
+- **Added** *new subpath* export for all the dom utilities: `'nhb-toolbox/dom'`.
+  - **Exports** from *main path* (`'nhb-toolbox'`) are still available for backward compatibility.
+
 ## [4.29.21] - 2026-04-05
 
 - **Updated** tsdoc for `getNumbersInRange` utility to clarify the return type based on the `getAsString` flag.
@@ -20,7 +27,7 @@ All notable changes to the package will be documented here.
 
 ## [4.29.10] - 2026-03-27
 
-- **Added** new *color utlities* `applyOpacityToHex` and `percentToHex` for working with *hex colors* and *opacity*.
+- **Added** new *color utilities* `applyOpacityToHex` and `percentToHex` for working with *hex colors* and *opacity*.
 - **Added** new *date utility* `formatDateRelative` to format a date as a relative time string (e.g., `"5m ago"`, `"2h from now"`, etc.) with an optional *custom format* for dates older than a week.
 
 ## [4.29.1] - 2026-03-27
@@ -422,7 +429,7 @@ All notable changes to the package will be documented here.
 ## [4.23.10] - 2025-10-24
 
 - **Added** `metre` variants of units where needed in *converter classes*.
-- **Updated & Optimized** subpath exports for *converter classes* and *functions*.
+- **Updated & Optimized** *subpath* export for *converter utilities*.
 
 ## [4.23.1] - 2025-10-24
 

@@ -11,6 +11,8 @@ Retrieves URL query parameters and converts them into a standard JavaScript obje
 
 ```typescript
 import { getQueryParams } from 'nhb-toolbox';
+// or
+import { getQueryParams } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature

@@ -11,6 +11,8 @@ Copies text to the user's clipboard using modern clipboard APIs when available, 
 
 ```typescript
 import { copyToClipboard } from 'nhb-toolbox';
+// or
+import { copyToClipboard } from 'nhb-toolbox/dom';
 ```
 
 ### Function Signature

@@ -21,6 +21,14 @@ Operations for localStorage and sessionStorage
 
 Miscellaneous browser interaction helpers  
 
+## Imports
+
+```typescript
+import { expectedUtilities } from 'nhb-toolbox';
+// or
+import { expectedUtilities } from 'nhb-toolbox/dom';
+```
+
 ## Features  
 
 - Type-safe storage operations  

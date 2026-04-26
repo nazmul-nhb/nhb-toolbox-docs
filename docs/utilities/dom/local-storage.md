@@ -16,6 +16,8 @@ import TabItem from '@theme/TabItem';
 
 ```typescript
 import { getFromLocalStorage, saveToLocalStorage, removeFromLocalStorage } from 'nhb-toolbox';
+// or
+import { getFromLocalStorage, saveToLocalStorage, removeFromLocalStorage } from 'nhb-toolbox/dom';
 ```
 
 ---
