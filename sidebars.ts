@@ -349,6 +349,7 @@ const sidebars: SidebarsConfig = {
 						'utilities/misc/convertArrayToString',
 						'utilities/misc/class-methods',
 						'utilities/misc/definePrototypeMethod',
+						'utilities/misc/getCountryByPhone',
 					],
 				},
 			],
