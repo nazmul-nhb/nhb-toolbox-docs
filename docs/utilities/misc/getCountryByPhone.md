@@ -211,7 +211,7 @@ getPossibleCountries('+15551234567'); // ['United States', 'Canada', ...]
 
 ## Performance Notes
 
-- **O(n)** time complexity where n is the number of countries in the contants database
+- **O(n)** time complexity where n is the number of countries in the constants database
 - Country database is statically defined and immutable
 - Normalization uses `replace(/\D/g, '')` which is efficient for typical phone number lengths
 - Returns immediately on invalid input without processing
