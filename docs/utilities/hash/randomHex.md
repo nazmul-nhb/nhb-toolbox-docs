@@ -55,7 +55,9 @@ const sessionId = randomHex(32);
 
 ### Implementation Notes
 
-- Uses `Math.random()` for random number generation
-- Each character is generated independently
-- Output length is exactly as specified
-- Characters are from set `[0-9a-f]` (or `[0-9A-F]` when uppercase)
+- This function generates a random hexadecimal string of the specified length.
+- If `length` is `0` or negative, an empty string is returned.
+- It uses `crypto.getRandomValues` when available for secure randomness, and falls back to `Math.random` if not.
+- The output is a string of hex characters (`0–9`, `a–f` or `A–F` when uppercase) with no prefixes or separators.
+- The `uppercase` parameter controls whether the hex characters are uppercase or lowercase. By default, it returns lowercase hex.
+- The function is designed to be efficient and works in both browser and Node.js environments without relying on external libraries.
