@@ -4,100 +4,101 @@ title: Instance Unit Methods
 ---
 
 <!-- markdownlint-disable-file MD024 -->
-### toString()
 
-#### Signature
+## toString()
+
+### Signature
 
 ```typescript
 toString(): string
 ```
 
-#### Return Type
+### Return Type
 
 `string` - Formatted "value unit" string
 
-#### Notes
+### Notes
 
 - Omits unit if not provided in constructor
 
-#### Example
+### Example
 
 ```javascript
 new Unit(100, 'kg').toString(); // "100 kg"
 new Unit(100).toString();       // "100"
 ```
 
-### convertByPrefix()
+## convertByPrefix()
 
-#### Signature
+### Signature
 
 ```typescript
 convertByPrefix(fromPrefix: SIPrefix, toPrefix: SIPrefix): number
 ```
 
-#### Parameters
+### Parameters
 
 - `fromPrefix`: Source SI prefix (e.g., 'k', 'm')
 - `toPrefix`: Target SI prefix (e.g., 'M', '')
 
-#### Return Type
+### Return Type
 
 `number` - Converted value
 
-#### Example
+### Example
 
 ```javascript
 new Unit(1000).convertByPrefix('', 'k'); // 1 (1000 → 1k)
 ```
 
-### convertFromTo()
+## convertFromTo()
 
-#### Signature
+### Signature
 
 ```typescript
 convertFromTo(from: string, to: string): number
 ```
 
-#### Parameters
+### Parameters
 
 - `from`: Source unit with prefix (e.g., 'kg', 'cm')
 - `to`: Target unit with prefix (e.g., 'g', 'm')
 
-#### Return Type
+### Return Type
 
 `number` - Converted value
 
-#### Notes
+### Notes
 
 - Units must be of same type (e.g., both length)
 
-#### Example
+### Example
 
 ```javascript
 new Unit(1).convertFromTo('km', 'm'); // 1000
 ```
 
-### convert()
+## convert()
 
-#### Signature
+### Signature
 
 ```typescript
 convert(methodName: UnitNumberMethods): number
 ```
 
-#### Parameters
+### Parameters
 
 - `methodName`: Name of static conversion method
 
-#### Return Type
+### Return Type
 
 `number` - Converted value
 
-#### Notes
+### Notes
 
 - Provides type-safe method selection
 
-#### Example
+### Example
 
 ```javascript
 new Unit(100, 'kg').convert('kgToLbs'); // 220.462

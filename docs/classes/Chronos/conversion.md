@@ -47,11 +47,13 @@ console.log(modified.format()); // "Thu, Jan 16, 2025 12:00:00"
 
 ```ts
 const base = new Chronos('2025-01-01');
-const modified = base.clone().subtract(3, 'days');
+const modified = base.clone();
+const subtracted = base.clone().subtract(3, 'days');
 
 // Track different origins while maintaining immutability
 console.log(base.origin);     // "root" 
-console.log(modified.origin); // "clone"
+console.log(modified.origin); // "root"
+console.log(subtracted.origin); // "subtract"
 ```
 
 ### Comparison with Alternatives
